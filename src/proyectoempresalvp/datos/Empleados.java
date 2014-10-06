@@ -5,10 +5,26 @@
  */
 package proyectoempresalvp.datos;
 
+import java.util.HashMap;
+
 /**
  *
  * @author Administrador
  */
-public class Empleados {
+public class Empleados extends HashMap<String, Object> implements Dato{
+
+    
+    
+    @Override
+    public HashMap<String, Object> devuelveTodosCampos() {
+        
+        return this;
+    }
+
+    @Override
+    public String devuelveNombreTablaDato() {
+        
+        return "empleados";
+    }
     
 }
