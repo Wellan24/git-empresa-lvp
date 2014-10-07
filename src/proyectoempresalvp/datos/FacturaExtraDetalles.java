@@ -11,6 +11,14 @@ package proyectoempresalvp.datos;
  */
 public class FacturaExtraDetalles extends Dato{
 
+    /**
+     *  Las claves son: ORDEN, NUMERO, CONCEPTO, IMPORTE
+     * 
+     * @param orden
+     * @param numero
+     * @param concepto
+     * @param importe 
+     */
     public FacturaExtraDetalles(int orden, int numero, String concepto, float importe) {
         
         this.put("ORDEN", orden);
