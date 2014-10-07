@@ -5,11 +5,14 @@
  */
 package proyectoempresalvp.datos;
 
+import java.text.Collator;
+import java.util.Comparator;
+
 /**
  *
  * @author Administrador
  */
-public class FacturaExtraDetalles extends Dato{
+public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtraDetalles>{
 
     /**
      *  Las claves son: ORDEN, NUMERO, CONCEPTO, IMPORTE
@@ -34,8 +37,31 @@ public class FacturaExtraDetalles extends Dato{
     }
 
     @Override
-    public int compareTo(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int compareTo(FacturaExtraDetalles o) {
+        
+        Collator c = Collator.getInstance();
+        c.setStrength(Collator.PRIMARY);
+        
+        if((int)this.get("ORDEN") != (int)o.get("ORDEN")){
+            
+            return (int)this.get("ORDEN") > (int)o.get("ORDEN") ? 1 : -1;
+            
+        }else if((int)this.get("NUMERO") != (int)o.get("NUMERO")){
+            
+            return (int)this.get("NUMERO") > (int)o.get("NUMERO") ? 1 : -1;
+            
+        }else if(c.compare((String)this.get("CONCEPTO"), (String)o.get("CONCEPTO")) != 0){
+            
+            return c.compare((String)this.get("CONCEPTO"), (String)o.get("CONCEPTO"));
+            
+        }else if((float)this.get("IMPORTE") != (float)o.get("IMPORTE")){
+            
+            return (float)this.get("IMPORTE") > (float)o.get("IMPORTE") ? 1 : -1;
+        }
+        
+        return 0;
     }
+
+    
     
 }
