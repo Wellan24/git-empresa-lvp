@@ -11,6 +11,32 @@ package proyectoempresalvp.datos;
  */
 public class Cliente extends Dato{
     
+    /**
+     *   Las claves son: NUMEROCONTACTO, CIF, DESCRIPCION, NOMBRE, DOMICILIO,
+     *          LOCALIDAD, CP, PROVINCIA, PERSONACONTACTO, TLFCLIENTE,
+     *          TLFCONTACTO, NOTAS, ENTIDAD, SUCURSAL, DC, CUENTA, REFBANCO,
+     *          IBAN, BANCOCOBRO
+     * 
+     * @param numeroContacto
+     * @param cif
+     * @param descripcion
+     * @param nombre
+     * @param domicilio
+     * @param localidad
+     * @param cp
+     * @param provincia
+     * @param personaContacto
+     * @param tlfCliente
+     * @param tlfContacto
+     * @param notas
+     * @param entidad
+     * @param sucursal
+     * @param dc
+     * @param cuenta
+     * @param refBanco
+     * @param iban
+     * @param bancoCobro 
+     */
    public Cliente( int numeroContacto, int cif, String descripcion,
     String nombre,String domicilio,String localidad,int cp,
     String provincia,String personaContacto,int tlfCliente,int tlfContacto,
