@@ -5,10 +5,9 @@
  */
 package proyectoempresalvp.datos;
 
-/**
- *
- * @author Administrador
- */
+
+
+
 public class Cliente extends Dato{
     
     /**
