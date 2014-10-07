@@ -11,6 +11,9 @@ package proyectoempresalvp.datos;
  */
 public class FacturaExtraDetalles extends Dato{
 
+    public FacturaExtraDetalles() {
+    }
+
     @Override
     public String devuelveNombreTablaDato() {
         

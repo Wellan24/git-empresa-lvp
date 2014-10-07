@@ -11,6 +11,9 @@ package proyectoempresalvp.datos;
  */
 public class Contrato extends Dato{
 
+    public Contrato() {
+    }    
+    
     @Override
     public String devuelveNombreTablaDato() {
         

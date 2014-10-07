@@ -11,6 +11,9 @@ package proyectoempresalvp.datos;
  */
 public class FacturaMensual extends Dato{
 
+    public FacturaMensual() {
+    }
+
     @Override
     public String devuelveNombreTablaDato() {
         
