@@ -9,6 +9,16 @@ package proyectoempresalvp.datos;
  *
  * @author Administrador
  */
-public class Contratos {
+public class Contratos extends Dato{
+
+    @Override
+    String devuelveNombreTablaDato() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
