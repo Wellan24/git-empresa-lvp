@@ -10,10 +10,35 @@ package proyectoempresalvp.datos;
  * @author Administrador
  */
 public class Cliente extends Dato{
+    
+   public Cliente( int numeroContacto, int cif, String descripcion,
+    String nombre,String domicilio,String localidad,int cp,
+    String provincia,String personaContacto,int tlfCliente,int tlfContacto,
+    String notas,int entidad,int sucursal,int dc, int cuenta,int refBanco,
+    int iban,int bancoCobro) {
+        this.put("NUMEROCONTACTO", numeroContacto);
+        this.put("CIF",cif);
+        this.put("DESCRIPCION",descripcion);
+        this.put("NOMBRE",nombre);
+        this.put("DOMICILIO",domicilio);
+        this.put("LOCALIDAD",localidad);
+        this.put("CP",cp);
+        this.put("PROVINCIA",provincia);
+        this.put("PERSONACONTACTO",personaContacto);
+        this.put("TLFCLIENTE",tlfCliente);
+        this.put("TLFCONTACTO",tlfContacto);
+        this.put("NOTAS",notas);
+        this.put("ENTIDAD",entidad);
+        this.put("SUCURSAL",sucursal);
+        this.put("DC",dc);
+        this.put("CUENTA",cuenta);
+        this.put("REFBANCO",refBanco);
+        this.put("IBAN",iban);
+        this.put("BANCOCOBRO",bancoCobro);
+    }
 
     @Override
     public String devuelveNombreTablaDato() {
-        
         return "CLIENTES";
     }
 
