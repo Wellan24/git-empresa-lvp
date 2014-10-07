@@ -9,11 +9,12 @@ package proyectoempresalvp.datos;
  *
  * @author Administrador
  */
-public class Contratos extends Dato{
+public class Contrato extends Dato{
 
     @Override
-    String devuelveNombreTablaDato() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String devuelveNombreTablaDato() {
+        
+        return "CONTRATOS";
     }
 
     @Override

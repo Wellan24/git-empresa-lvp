@@ -13,5 +13,5 @@ import java.util.HashMap;
  */
 abstract class Dato extends HashMap<String, Object> implements Comparable{
     
-    abstract String devuelveNombreTablaDato();
+    public abstract String devuelveNombreTablaDato();
 }

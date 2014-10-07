@@ -12,8 +12,9 @@ package proyectoempresalvp.datos;
 public class FacturaExtraDetalles extends Dato{
 
     @Override
-    String devuelveNombreTablaDato() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String devuelveNombreTablaDato() {
+        
+        return "FACTURAEXTRADETALLES";
     }
 
     @Override
