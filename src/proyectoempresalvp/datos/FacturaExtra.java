@@ -44,10 +44,4 @@ public class FacturaExtra extends Dato{
         return "FACTURAEXTRA";
     }
     
-    //HOLAAAAAAAAAAAA
-    @Override
-    public int compareTo(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

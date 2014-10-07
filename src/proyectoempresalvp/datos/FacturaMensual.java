@@ -49,10 +49,5 @@ public class FacturaMensual extends Dato{
         
         return "FACTURAMENSUAL";
     }
-
-    @Override
-    public int compareTo(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }
