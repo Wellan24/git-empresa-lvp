@@ -9,7 +9,7 @@ package proyectoempresalvp.datos;
  *
  * @author Administrador
  */
-public class Empleados extends Dato{
+public class Empleado extends Dato{
     
     //Holaaaaaaaaaaaaaaaaaaaaaaaaaaaa 
     

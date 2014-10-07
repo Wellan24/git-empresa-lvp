@@ -5,10 +5,9 @@
  */
 package proyectoempresalvp.datos;
 
-/**
- *
- * @author Administrador
- */
+
+
+
 public class Cliente extends Dato{
     
    public Cliente( int numeroContacto, int cif, String descripcion,
