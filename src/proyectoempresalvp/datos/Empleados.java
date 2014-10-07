@@ -14,7 +14,7 @@ import java.util.HashMap;
 public class Empleados extends Dato{
 
     
-    
+    // Hi
     public HashMap<String, Object> devuelveTodosCampos() {
         
         return this;
