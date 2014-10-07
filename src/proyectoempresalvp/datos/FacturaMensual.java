@@ -8,8 +8,37 @@ package proyectoempresalvp.datos;
 import java.util.Date;
 
 
-public class FacturaMensual extends Dato{
+public class FacturaMensual extends Dato implements Comparable<FacturaExtraDetalles>{
 
+    /**
+     *  las claves son: NUMFACTURA, FECHA,NUMCLIENTE, DESCRIPCION,NUMCONTACTO, CIF,
+     *  NOMBRE, DOMICILIO, LOCALIDAD, PROVINCIA, EUROSMES, TANTOIVA, IVA, TOTAL,
+     *  REFMONEDA,DIACOBRO, FORMAPAGO, PERIODO, NUMPERIODO,NUMCUENTA,REFBANCO,
+     *  BANCOCOBRO,NUMBREBANCO
+     * @param numFactura
+     * @param fecha
+     * @param numCliente
+     * @param descripcion
+     * @param numContacto
+     * @param cif
+     * @param nombre
+     * @param domicilio
+     * @param localidad
+     * @param cpProvincia
+     * @param eurosMes
+     * @param tantoIva
+     * @param iva
+     * @param total
+     * @param refMoneda
+     * @param diaCobro
+     * @param formaPago
+     * @param periodo
+     * @param numPeriodo
+     * @param numCuenta
+     * @param refBanco
+     * @param bancoCobro
+     * @param nombreBanco 
+     */
     public FacturaMensual(int numFactura,Date fecha,int numCliente,
             String descripcion,int numContacto,int cif,String nombre,
             String domicilio,String localidad,int cpProvincia,int eurosMes,
@@ -48,6 +77,11 @@ public class FacturaMensual extends Dato{
     public String devuelveNombreTablaDato() {
         
         return "FACTURAMENSUAL";
+    }
+
+    @Override
+    public int compareTo(FacturaExtraDetalles o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

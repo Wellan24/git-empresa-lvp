@@ -8,8 +8,23 @@ package proyectoempresalvp.datos;
 import java.util.Date;
 
 
-public class Contrato extends Dato{
+public class Contrato extends Dato implements Comparable<FacturaExtraDetalles>{
 
+    /**
+     *  Las claves son: NUMCONTRATO, NUMCLIENTE, DESCRIPCION,INICIOCONTRATO,
+     *  FINCONTRATO, EUROSAÑO, EUROSMES, SITUACION, FORMAPAGO, DIACOBRO, TANTOIVA
+     * @param numContrato
+     * @param numCliente
+     * @param descripcion
+     * @param inicioContrato
+     * @param finContrato
+     * @param eurosAño
+     * @param eurosMes
+     * @param situacion
+     * @param formaPago
+     * @param diaCobro
+     * @param tantoIva 
+     */
     public Contrato(int numContrato,int numCliente,String descripcion,
             Date inicioContrato,Date finContrato,int eurosAño,int eurosMes,
             String situacion,String formaPago,int diaCobro,int tantoIva) {
@@ -33,6 +48,11 @@ public class Contrato extends Dato{
     public String devuelveNombreTablaDato() {
         
         return "CONTRATOS";
+    }
+
+    @Override
+    public int compareTo(FacturaExtraDetalles o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
