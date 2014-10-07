@@ -11,7 +11,12 @@ package proyectoempresalvp.datos;
  */
 public class FacturaExtraDetalles extends Dato{
 
-    public FacturaExtraDetalles() {
+    public FacturaExtraDetalles(int orden, int numero, String concepto, float importe) {
+        
+        this.put("ORDEN", orden);
+        this.put("NUMERO", numero);
+        this.put("CONCEPTO", concepto);
+        this.put("IMPORTE", importe);
     }
 
     @Override
