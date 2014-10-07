@@ -11,6 +11,8 @@ package proyectoempresalvp.datos;
  */
 public class Empleados extends Dato{
     
+    //Hi
+    
     @Override
     public String devuelveNombreTablaDato() {
         
