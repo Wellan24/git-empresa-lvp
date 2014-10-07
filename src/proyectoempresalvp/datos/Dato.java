@@ -11,8 +11,7 @@ import java.util.HashMap;
  *
  * @author Administrador
  */
-interface Dato {
+abstract class Dato extends HashMap<String, Object> implements Comparable{
     
-    HashMap<String, Object> devuelveTodosCampos();
-    String devuelveNombreTablaDato();
+    abstract String devuelveNombreTablaDato();
 }
