@@ -12,14 +12,13 @@ import java.util.HashMap;
  * @author Administrador
  */
 public class Empleados extends Dato{
-
     
-    // Hi
     public HashMap<String, Object> devuelveTodosCampos() {
         
         return this;
     }
 
+    //pepe
     @Override
     public String devuelveNombreTablaDato() {
         
