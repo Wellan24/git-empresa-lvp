@@ -5,12 +5,20 @@
  */
 package proyectoempresalvp.datos;
 
-/**
- *
- * @author Administrador
- */
+
 public class FacturaExtraDetalles extends Dato{
 
+    public FacturaExtraDetalles(int orden,int numeroFactura,String concepto,
+            Float importe) {
+        this.put("ORDEN",orden);
+        this.put("NUMEROFACTURA",numeroFactura);
+        this.put("CONCEPTO",concepto);
+        this.put("IMPORTE",importe);
+    }
+
+    
+    
+    
     @Override
     public String devuelveNombreTablaDato() {
         
