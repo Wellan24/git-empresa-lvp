@@ -11,11 +11,10 @@ import java.util.HashMap;
  *
  * @author Administrador
  */
-public class Empleados extends HashMap<String, Object> implements Dato{
+public class Empleados extends Dato{
 
     
     
-    @Override
     public HashMap<String, Object> devuelveTodosCampos() {
         
         return this;
@@ -25,6 +24,11 @@ public class Empleados extends HashMap<String, Object> implements Dato{
     public String devuelveNombreTablaDato() {
         
         return "empleados";
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
