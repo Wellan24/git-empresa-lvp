@@ -8,7 +8,7 @@ package proyectoempresalvp.datos;
 import java.util.Date;
 
 
-public class Empleado extends Dato implements Comparable<FacturaExtraDetalles>{
+public class Empleado extends Dato implements Comparable<Empleado>{
 
     /**
      *  Las claves son: NUMEMPLE, CIF, NOMRAPIDO, NOMBRE, DOMICILIO, LOCALIDAD,
@@ -74,7 +74,7 @@ public class Empleado extends Dato implements Comparable<FacturaExtraDetalles>{
     }
 
     @Override
-    public int compareTo(FacturaExtraDetalles o) {
+    public int compareTo(Empleado o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
