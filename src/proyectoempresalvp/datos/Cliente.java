@@ -11,12 +11,12 @@ package proyectoempresalvp.datos;
 public class Cliente extends Dato implements Comparable<Cliente>{
     
     /**
-     *   Las claves son: NUMEROCONTACTO, CIF, DESCRIPCION, NOMBRE, DOMICILIO,
+     *   Las claves son: NUMEROCLIENTE, CIF, DESCRIPCION, NOMBRE, DOMICILIO,
      *          LOCALIDAD, CP, PROVINCIA, PERSONACONTACTO, TLFCLIENTE,
      *          TLFCONTACTO, NOTAS, ENTIDAD, SUCURSAL, DC, CUENTA, REFBANCO,
      *          IBAN, BANCOCOBRO
      * 
-     * @param numeroContacto
+     * @param numeroCliente
      * @param cif
      * @param descripcion
      * @param nombre
@@ -36,12 +36,12 @@ public class Cliente extends Dato implements Comparable<Cliente>{
      * @param iban
      * @param bancoCobro 
      */
-   public Cliente( int numeroContacto, int cif, String descripcion,
+   public Cliente( int numeroCliente, int cif, String descripcion,
     String nombre,String domicilio,String localidad,int cp,
     String provincia,String personaContacto,int tlfCliente,int tlfContacto,
     String notas,int entidad,int sucursal,int dc, int cuenta,int refBanco,
     int iban,int bancoCobro) {
-        this.put("NUMEROCONTACTO", numeroContacto);
+        this.put("NUMEROCLIENTE", numeroCliente);
         this.put("CIF",cif);
         this.put("DESCRIPCION",descripcion);
         this.put("NOMBRE",nombre);
