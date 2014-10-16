@@ -61,33 +61,33 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PanelPrincipal.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
 
         jLabelImagen.setBackground(new java.awt.Color(102, 153, 255));
-        jLabelImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
+        jLabelImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo1.jpg"))); // NOI18N
 
         javax.swing.GroupLayout PanelPrincipalLayout = new javax.swing.GroupLayout(PanelPrincipal);
         PanelPrincipal.setLayout(PanelPrincipalLayout);
         PanelPrincipalLayout.setHorizontalGroup(
             PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelPrincipalLayout.createSequentialGroup()
-                .addGap(489, 489, 489)
-                .addComponent(jLabelImagen)
-                .addContainerGap(501, Short.MAX_VALUE))
+            .addComponent(jLabelImagen)
         );
         PanelPrincipalLayout.setVerticalGroup(
             PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPrincipalLayout.createSequentialGroup()
-                .addContainerGap(189, Short.MAX_VALUE)
-                .addComponent(jLabelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+            .addGroup(PanelPrincipalLayout.createSequentialGroup()
+                .addComponent(jLabelImagen)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        MenuPrincipal.setBackground(new java.awt.Color(255, 255, 255));
         MenuPrincipal.setFont(new java.awt.Font("Myriad Pro", 0, 12)); // NOI18N
 
+        jMenuClientes.setBackground(new java.awt.Color(255, 255, 255));
+        jMenuClientes.setForeground(new java.awt.Color(0, 0, 153));
         jMenuClientes.setText("      CLIENTES      ");
-        jMenuClientes.setFont(new java.awt.Font("Felix Titling", 0, 14)); // NOI18N
+        jMenuClientes.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 14)); // NOI18N
         MenuPrincipal.add(jMenuClientes);
 
+        jMenuContratos.setForeground(new java.awt.Color(0, 0, 153));
         jMenuContratos.setText("      CONTRATOS      ");
-        jMenuContratos.setFont(new java.awt.Font("Felix Titling", 0, 14)); // NOI18N
+        jMenuContratos.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 14)); // NOI18N
 
         jMenuItemGestion.setText("GESTIÓN");
         jMenuContratos.add(jMenuItemGestion);
@@ -97,20 +97,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         MenuPrincipal.add(jMenuContratos);
 
+        jMenuFacMens.setForeground(new java.awt.Color(0, 0, 153));
         jMenuFacMens.setText("      FACTURACIÓN MENSUAL      ");
         jMenuFacMens.setFont(new java.awt.Font("Felix Titling", 0, 14)); // NOI18N
         MenuPrincipal.add(jMenuFacMens);
 
+        jMenuFacEx.setForeground(new java.awt.Color(0, 0, 153));
         jMenuFacEx.setText("      FACTURAS EXTRA      ");
-        jMenuFacEx.setFont(new java.awt.Font("Felix Titling", 0, 14)); // NOI18N
+        jMenuFacEx.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 14)); // NOI18N
         MenuPrincipal.add(jMenuFacEx);
 
+        jMenuEmpleados.setForeground(new java.awt.Color(0, 0, 153));
         jMenuEmpleados.setText("      EMPLEADOS      ");
-        jMenuEmpleados.setFont(new java.awt.Font("Felix Titling", 0, 14)); // NOI18N
+        jMenuEmpleados.setFont(new java.awt.Font("Papyrus", 0, 14)); // NOI18N
         MenuPrincipal.add(jMenuEmpleados);
 
+        jMenuOtros.setForeground(new java.awt.Color(0, 0, 153));
         jMenuOtros.setText("      OTROS      ");
-        jMenuOtros.setFont(new java.awt.Font("Felix Titling", 0, 14)); // NOI18N
+        jMenuOtros.setFont(new java.awt.Font("Showcard Gothic", 0, 14)); // NOI18N
 
         jMenuItemHistorico.setText("HISTÓRICO DE FACTURAS");
         jMenuOtros.add(jMenuItemHistorico);
@@ -126,8 +130,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         MenuPrincipal.add(jMenuOtros);
 
+        jMenuPrograma.setForeground(new java.awt.Color(0, 0, 153));
         jMenuPrograma.setText("      PROGRAMA      ");
-        jMenuPrograma.setFont(new java.awt.Font("Felix Titling", 0, 14)); // NOI18N
+        jMenuPrograma.setFont(new java.awt.Font("Snap ITC", 0, 14)); // NOI18N
 
         jMenuItemCerrar.setText("CERRAR PROGRAMA");
         jMenuPrograma.add(jMenuItemCerrar);
@@ -152,16 +157,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(PanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(PanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(PanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(PanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 786, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
