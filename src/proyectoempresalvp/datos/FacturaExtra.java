@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author Administrador
  */
-public class FacturaExtra extends Dato{
+public class FacturaExtra extends Dato implements Comparable<FacturaExtra>{
 
     public FacturaExtra(int numeroFactura,int dia,String mes,int año,
             Date fecha,int cif,String nombre,String domicilio,String localidad,
@@ -45,7 +45,7 @@ public class FacturaExtra extends Dato{
     }
 
     @Override
-    public int compareTo(Object o) {
+    public int compareTo(FacturaExtra o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

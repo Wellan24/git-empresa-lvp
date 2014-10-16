@@ -5,8 +5,30 @@
  */
 package proyectoempresalvp.datos;
 
+import java.text.Collator;
+import java.util.Comparator;
 
-public class FacturaExtraDetalles extends Dato{
+/**
+ *
+ * @author Administrador
+ */
+public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtraDetalles>{
+
+    /**
+     *  Las claves son: ORDEN, NUMERO, CONCEPTO, IMPORTE
+     * 
+     * @param orden
+     * @param numero
+     * @param concepto
+     * @param importe 
+     */
+    public FacturaExtraDetalles(int orden, int numero, String concepto, float importe) {
+        
+        this.put("ORDEN", orden);
+        this.put("NUMERO", numero);
+        this.put("CONCEPTO", concepto);
+        this.put("IMPORTE", importe);
+    }
 
     public FacturaExtraDetalles(int orden,int numeroFactura,String concepto,
             Float importe) {
@@ -26,8 +48,31 @@ public class FacturaExtraDetalles extends Dato{
     }
 
     @Override
-    public int compareTo(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int compareTo(FacturaExtraDetalles o) {
+        
+        Collator c = Collator.getInstance();
+        c.setStrength(Collator.PRIMARY);
+        
+        if((int)this.get("ORDEN") != (int)o.get("ORDEN")){
+            
+            return (int)this.get("ORDEN") > (int)o.get("ORDEN") ? 1 : -1;
+            
+        }else if((int)this.get("NUMERO") != (int)o.get("NUMERO")){
+            
+            return (int)this.get("NUMERO") > (int)o.get("NUMERO") ? 1 : -1;
+            
+        }else if(c.compare((String)this.get("CONCEPTO"), (String)o.get("CONCEPTO")) != 0){
+            
+            return c.compare((String)this.get("CONCEPTO"), (String)o.get("CONCEPTO"));
+            
+        }else if((float)this.get("IMPORTE") != (float)o.get("IMPORTE")){
+            
+            return (float)this.get("IMPORTE") > (float)o.get("IMPORTE") ? 1 : -1;
+        }
+        
+        return 0;
     }
+
+    
     
 }
