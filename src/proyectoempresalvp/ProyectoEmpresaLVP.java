@@ -5,6 +5,8 @@
  */
 package proyectoempresalvp;
 
+import proyectoempresalvp.gestoras.GestoraBaseDatos;
+
 /**
  *
  * @author Administrador
@@ -15,7 +17,10 @@ public class ProyectoEmpresaLVP {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        GestoraBaseDatos.conectarBaseDatos();
+        GestoraBaseDatos.ejecutarSentencia(null);
+        GestoraBaseDatos.cerrarConexion();
     }
     
 }

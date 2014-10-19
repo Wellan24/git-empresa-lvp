@@ -43,7 +43,18 @@ public class GestoraBaseDatos {
         try {
             Statement s = GestoraBaseDatos.conexion.createStatement();
             
-            s.executeUpdate("Insert into prueba values('11')");
+            s.executeUpdate(sentencia);
+        } catch (SQLException ex) {
+            Logger.getLogger(GestoraBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static void cerrarConexion(){
+        
+        try {
+            
+            GestoraBaseDatos.conexion.commit();
+            GestoraBaseDatos.conexion.close();
         } catch (SQLException ex) {
             Logger.getLogger(GestoraBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
         }
