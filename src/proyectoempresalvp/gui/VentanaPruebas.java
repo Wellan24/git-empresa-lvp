@@ -5,6 +5,10 @@
  */
 package proyectoempresalvp.gui;
 
+import proyectoempresalvp.datos.Cliente;
+import proyectoempresalvp.datos.FacturaExtraDetalles;
+import proyectoempresalvp.gestoras.ModeloTabla;
+
 /**
  *
  * @author Oscar
@@ -16,6 +20,10 @@ public class VentanaPruebas extends javax.swing.JFrame {
      */
     public VentanaPruebas() {
         initComponents();
+        
+        FacturaExtraDetalles[] cl ={new FacturaExtraDetalles(10, 20, "Hola", 15)};
+        
+        tablaPrueba.setModel(new ModeloTabla(cl));
     }
 
     /**
