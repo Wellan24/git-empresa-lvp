@@ -18,7 +18,7 @@ public class ModeloTabla extends DefaultTableModel{
     Dato[] datos;
     String[] columnas = {"ID", "NOMBRE"};
     Class[] clases = {Integer.class, String.class};
-    Dato d;
+    Dato datoActual;
     
     public ModeloTabla(Dato[] datos) {
         
@@ -74,10 +74,10 @@ public class ModeloTabla extends DefaultTableModel{
         if(datos.length > 0){
             
             if(columnIndex == 0){
-            d = datos[rowIndex];
+            datoActual = datos[rowIndex];
             }
-            if(d != null){
-                return d.get(columnas[columnIndex]);
+            if(datoActual != null){
+                return datoActual.get(columnas[columnIndex]);
             }
         }
         
