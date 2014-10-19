@@ -62,22 +62,5 @@ public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtr
         
         return 0;
     }
-
-    @Override
-    public Class[] devuelveClases() {
-        
-        Class[] classes = new Class[this.size()];
-        ArrayList<Object> objetos = new ArrayList(this.values());
-        
-        for(int i = 0; i < classes.length; i++){            
-            
-                classes[i] = objetos.getClass();            
-        }
-        
-        return classes; 
-       
-    }
-
-    
     
 }
