@@ -19,7 +19,7 @@ public class ProyectoEmpresaLVP {
     public static void main(String[] args) {
         
         GestoraBaseDatos.conectarBaseDatos();
-        GestoraBaseDatos.ejecutarSentencia(null);
+        GestoraBaseDatos.ejecutarSentencia("Insert into prueba values('10');");
         GestoraBaseDatos.cerrarConexion();
     }
     
