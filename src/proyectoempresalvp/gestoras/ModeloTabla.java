@@ -18,6 +18,7 @@ public class ModeloTabla extends DefaultTableModel{
     Dato[] datos;
     String[] columnas = {"ID", "NOMBRE"};
     Class[] clases = {Integer.class, String.class};
+    Dato d;
     
     public ModeloTabla(Dato[] datos) {
         
@@ -29,37 +30,58 @@ public class ModeloTabla extends DefaultTableModel{
             for(Dato d : datos){
                 
                 if(d != null){
-                    clases = devuelveClases(d.devuelveValoresCampos());
-                    columnas = d.devuelveNombreCampos();
+                    clases = d.devuelveClases();
+                    columnas = d.keySet().toArray(new String[d.keySet().size()]);
                     break;
                 }
             }
         }
     }
     
-    @Override
-    public Object getValueAt(int row, int column) {
-        return super.getValueAt(row, column); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean isCellEditable(int row, int column) {
-        return super.isCellEditable(row, column); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getColumnName(int column) {
-        return super.getColumnName(column); //To change body of generated methods, choose Tools | Templates.
+   @Override
+    public int getRowCount() {
+        
+        return filas;
     }
 
     @Override
     public int getColumnCount() {
-        return super.getColumnCount(); //To change body of generated methods, choose Tools | Templates.
+        
+        return columnas.length;
+    }
+
+    @Override
+    public String getColumnName(int columnIndex) {        
+        
+        return columnas[columnIndex];
     }
 
     @Override
     public Class<?> getColumnClass(int columnIndex) {
-        return super.getColumnClass(columnIndex); //To change body of generated methods, choose Tools | Templates.
+        
+        return clases[columnIndex];
+    }
+
+    @Override
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
+        
+        return false;
+    }
+
+    @Override
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        
+        if(datos.length > 0){
+            
+            if(columnIndex == 0){
+            d = datos[rowIndex];
+            }
+            if(d != null){
+                return d.get(columnas[columnIndex]);
+            }
+        }
+        
+        return null;        
     }
     
     

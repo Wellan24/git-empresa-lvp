@@ -54,5 +54,10 @@ public class Contrato extends Dato implements Comparable<Contrato>{
     public int compareTo(Contrato o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public Class[] devuelveClases() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

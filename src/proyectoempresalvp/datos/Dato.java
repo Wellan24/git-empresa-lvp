@@ -11,7 +11,8 @@ import java.util.HashMap;
  *
  * @author Administrador
  */
-abstract class Dato extends HashMap<String, Object>{
+public abstract class Dato extends HashMap<String, Object>{
     
     public abstract String devuelveNombreTablaDato();
+    public abstract Class[] devuelveClases();
 }

@@ -48,5 +48,10 @@ public class FacturaExtra extends Dato implements Comparable<FacturaExtra>{
     public int compareTo(FacturaExtra o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public Class[] devuelveClases() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
