@@ -5,7 +5,6 @@
  */
 package proyectoempresalvp.gui;
 
-import proyectoempresalvp.datos.Cliente;
 import proyectoempresalvp.datos.FacturaExtraDetalles;
 import proyectoempresalvp.gestoras.ModeloTabla;
 
