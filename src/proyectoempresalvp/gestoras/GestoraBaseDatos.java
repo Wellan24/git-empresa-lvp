@@ -25,7 +25,7 @@ public class GestoraBaseDatos {
         try {
             
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            GestoraBaseDatos.conexion = DriverManager.getConnection("jdbc:ucanaccess://./DataBase/BaseDeDatosLVP.accdb"); 
+            GestoraBaseDatos.conexion = DriverManager.getConnection("jdbc:ucanaccess://../DataBase/BaseDeDatosLVP.accdb"); 
             
             
         } catch (ClassNotFoundException ex) {
