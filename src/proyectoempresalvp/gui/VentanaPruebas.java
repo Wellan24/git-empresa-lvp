@@ -21,7 +21,9 @@ public class VentanaPruebas extends javax.swing.JFrame {
     public VentanaPruebas() {
         initComponents();
         
-        FacturaExtraDetalles[] cl ={new FacturaExtraDetalles(10, 20, "Hola", 15)};
+        FacturaExtraDetalles[] cl ={new FacturaExtraDetalles(10, 20, "Hola", 15),
+            new FacturaExtraDetalles(10, 20, "Hola", 15),
+            new FacturaExtraDetalles(10, 20, "Hola", 15)};
         
         tablaPrueba.setModel(new ModeloTabla(cl));
     }
