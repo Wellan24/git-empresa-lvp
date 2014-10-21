@@ -15,6 +15,7 @@ import java.util.HashMap;
 public abstract class Dato extends HashMap<String, Object>{
     
     public abstract String devuelveNombreTablaDato();
+    public abstract String[] devuelveOrdenDeColumnas();
     public Class[] devuelveClases() {
         
         Class[] classes = new Class[this.size()];

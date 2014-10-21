@@ -62,5 +62,11 @@ public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtr
         
         return 0;
     }
+
+    @Override
+    public String[] devuelveOrdenDeColumnas() {
+        
+        return new String[]{"NUMERO","ORDEN", "CONCEPTO", "IMPORTE"};
+    }
     
 }

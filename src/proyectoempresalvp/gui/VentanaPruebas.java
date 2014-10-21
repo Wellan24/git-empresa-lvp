@@ -22,8 +22,9 @@ public class VentanaPruebas extends javax.swing.JFrame {
         
         FacturaExtraDetalles[] cl ={new FacturaExtraDetalles(10, 20, "Hola", 15),
             new FacturaExtraDetalles(10, 20, "Hola", 15),
-            new FacturaExtraDetalles(10, 20, "Hola", 15)};
+            new FacturaExtraDetalles(10, 20, "Hola", 15)};        
         
+        tablaPrueba.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tablaPrueba.setModel(new ModeloTabla(cl));
     }
 

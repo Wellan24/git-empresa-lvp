@@ -59,5 +59,10 @@ public class Contrato extends Dato implements Comparable<Contrato>{
     public Class[] devuelveClases() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public String[] devuelveOrdenDeColumnas() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
