@@ -5,6 +5,8 @@
  */
 package proyectoempresalvp;
 
+import proyectoempresalvp.datos.FacturaExtra;
+import proyectoempresalvp.datos.FacturaExtraDetalles;
 import proyectoempresalvp.gestoras.GestoraBaseDatos;
 
 /**
@@ -18,8 +20,9 @@ public class ProyectoEmpresaLVP {
      */
     public static void main(String[] args) {
         
+        
         GestoraBaseDatos.conectarBaseDatos();
-        GestoraBaseDatos.ejecutarSentencia("Insert into prueba values('10');");
+        GestoraBaseDatos.insertarDatos(new FacturaExtraDetalles(0, 1, "hola", 1));
         GestoraBaseDatos.cerrarConexion();
     }
     

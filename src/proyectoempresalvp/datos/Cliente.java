@@ -73,13 +73,10 @@ public class Cliente extends Dato implements Comparable<Cliente>{
     }
 
     @Override
-    public Class[] devuelveClases() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public String[] devuelveOrdenDeColumnas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        return new String[]{"NUMEROCLIENTE", "CIF", "DESCRIPCION", "NOMBRE", "DOMICILIO", "LOCALIDAD", "CP", "PROVINCIA", "PERSONACONTACTO", "TLFCLIENTE",
+            "TLFCONTACTO", "NOTAS", "ENTIDAD", "SUCURSAL", "DC", "CUENTA", "REFBANCO","IBAN", "BANCOCOBRO"};
     }
     
 }
