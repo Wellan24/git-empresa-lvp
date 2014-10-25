@@ -5,10 +5,13 @@
  */
 package proyectoempresalvp.datos;
 
+import java.text.Collator;
+import static proyectoempresalvp.datos.FacturaExtraDetalles.orden;
 
 
 
-public class Cliente extends Dato {
+
+public class Cliente extends Dato  implements Comparable<Cliente>{
     
     public static String[] orden = {"NUMEROCLIENTE", "CIF", "DESCRIPCION", "NOMBRE", "DOMICILIO","LOCALIDAD", "CP", "PROVINCIA"
             , "PERSONACONTACTO", "TLFCLIENTE","TLFCONTACTO", "NOTAS", "ENTIDAD", "SUCURSAL", "DC", "CUENTA", "REFBANCO","IBAN", "BANCOCOBRO"};
@@ -73,6 +76,43 @@ public class Cliente extends Dato {
     public String[] devuelveOrdenDeColumnas() {
         
         return orden;
+    }
+
+    @Override
+    public int compareTo(Cliente o) {
+        
+        Collator c = Collator.getInstance();
+        c.setStrength(Collator.PRIMARY);
+        
+        Object obj;
+        Object objO;
+        
+        for(String clave : orden){
+            
+            obj = this.get(clave);
+            objO = o.get(clave);
+            if(obj instanceof Integer){
+                
+                if((int)obj != (int)objO){
+            
+                    return (int)obj > (int)objO ? 1 : -1;            
+                }
+            }else if(obj instanceof String){
+                if(c.compare((String)obj, (String)objO) != 0){
+            
+                    return c.compare((String)obj, objO);            
+                }
+            }else if(obj instanceof Float){
+                
+                if((float)obj != (float)objO){
+            
+                    return (float)obj > (float)objO ? 1 : -1;
+                }
+            }         
+            
+        }
+        
+        return 0;
     }
     
 }

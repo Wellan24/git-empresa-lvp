@@ -5,10 +5,12 @@
  */
 package proyectoempresalvp.datos;
 
+import java.text.Collator;
 import java.util.Date;
+import static proyectoempresalvp.datos.FacturaExtraDetalles.orden;
 
 
-public class Empleado extends Dato{
+public class Empleado extends Dato  implements Comparable<Empleado>{
 
     public static String[] orden = {"NUMERO","ORDEN", "CONCEPTO", "IMPORTE"};
     /**
@@ -77,6 +79,49 @@ public class Empleado extends Dato{
     @Override
     public String[] devuelveOrdenDeColumnas() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int compareTo(Empleado o) {
+        
+        Collator c = Collator.getInstance();
+        c.setStrength(Collator.PRIMARY);
+        
+        Object obj;
+        Object objO;
+        
+        for(String clave : orden){
+            
+            obj = this.get(clave);
+            objO = o.get(clave);
+            if(obj instanceof Integer){
+                
+                if((int)obj != (int)objO){
+            
+                    return (int)obj > (int)objO ? 1 : -1;            
+                }
+            }else if(obj instanceof String){
+                if(c.compare((String)obj, (String)objO) != 0){
+            
+                    return c.compare((String)obj, objO);            
+                }
+            }else if(obj instanceof Float){
+                
+                if((float)obj != (float)objO){
+            
+                    return (float)obj > (float)objO ? 1 : -1;
+                }
+            }else if(obj instanceof Date){
+                
+                if(((Date)obj).compareTo((Date)objO) != 0){
+            
+                    return ((Date)obj).compareTo((Date)objO);
+                }
+            }         
+            
+        }
+        
+        return 0;
     }
     
 }

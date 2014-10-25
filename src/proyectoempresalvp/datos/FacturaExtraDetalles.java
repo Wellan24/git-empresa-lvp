@@ -11,7 +11,7 @@ import java.text.Collator;
  *
  * @author Administrador
  */
-public class FacturaExtraDetalles extends Dato{
+public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtraDetalles>{
 
     
     public static String[] orden = {"NUMERO","ORDEN", "CONCEPTO", "IMPORTE"};
@@ -36,6 +36,7 @@ public class FacturaExtraDetalles extends Dato{
         
         return "FACTURAEXTRADETALLES";
     }
+    @Override
     public int compareTo(FacturaExtraDetalles o) {
         
         Collator c = Collator.getInstance();
@@ -65,26 +66,8 @@ public class FacturaExtraDetalles extends Dato{
             
                     return (float)obj > (float)objO ? 1 : -1;
                 }
-            }
+            }         
             
-            
-        }
-        
-        if((int)this.get("ORDEN") != (int)o.get("ORDEN")){
-            
-            return (int)this.get("ORDEN") > (int)o.get("ORDEN") ? 1 : -1;
-            
-        }else if((int)this.get("NUMERO") != (int)o.get("NUMERO")){
-            
-            return (int)this.get("NUMERO") > (int)o.get("NUMERO") ? 1 : -1;
-            
-        }else if(c.compare((String)this.get("CONCEPTO"), (String)o.get("CONCEPTO")) != 0){
-            
-            return c.compare((String)this.get("CONCEPTO"), (String)o.get("CONCEPTO"));
-            
-        }else if((float)this.get("IMPORTE") != (float)o.get("IMPORTE")){
-            
-            return (float)this.get("IMPORTE") > (float)o.get("IMPORTE") ? 1 : -1;
         }
         
         return 0;
