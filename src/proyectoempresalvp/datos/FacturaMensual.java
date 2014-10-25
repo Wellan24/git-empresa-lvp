@@ -8,8 +8,9 @@ package proyectoempresalvp.datos;
 import java.util.Date;
 
 
-public class FacturaMensual extends Dato implements Comparable<FacturaMensual>{
+public class FacturaMensual extends Dato{
 
+    public static String[] orden = {"NUMERO","ORDEN", "CONCEPTO", "IMPORTE"};
     /**
      *  las claves son: NUMFACTURA, FECHA,NUMCLIENTE, DESCRIPCION,NUMCONTACTO, CIF,
      *  NOMBRE, DOMICILIO, LOCALIDAD, PROVINCIA, EUROSMES, TANTOIVA, IVA, TOTAL,
@@ -80,18 +81,9 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual>{
     }
 
     @Override
-    public int compareTo(FacturaMensual o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Class[] devuelveClases() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public String[] devuelveOrdenDeColumnas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        return orden; //To change body of generated methods, choose Tools | Templates.
     }
     
 }

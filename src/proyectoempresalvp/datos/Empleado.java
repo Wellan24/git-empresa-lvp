@@ -8,8 +8,9 @@ package proyectoempresalvp.datos;
 import java.util.Date;
 
 
-public class Empleado extends Dato implements Comparable<Empleado>{
+public class Empleado extends Dato{
 
+    public static String[] orden = {"NUMERO","ORDEN", "CONCEPTO", "IMPORTE"};
     /**
      *  Las claves son: NUMEMPLE, CIF, NOMRAPIDO, NOMBRE, DOMICILIO, LOCALIDAD,
      *  CP, PROVINCIA, TLF1, TLF2,ENTIDAD, SUCURSAL, DC, CUENTA, ALTA, NACIMIENTO,
@@ -71,16 +72,6 @@ public class Empleado extends Dato implements Comparable<Empleado>{
     public String devuelveNombreTablaDato() {
         
         return "empleados";
-    }
-
-    @Override
-    public int compareTo(Empleado o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Class[] devuelveClases() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

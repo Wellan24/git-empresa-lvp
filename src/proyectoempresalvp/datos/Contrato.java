@@ -8,8 +8,10 @@ package proyectoempresalvp.datos;
 import java.util.Date;
 
 
-public class Contrato extends Dato implements Comparable<Contrato>{
+public class Contrato extends Dato{
 
+    public static String[] orden = {"NUMCONTRATO", "NUMCLIENTE", "DESCRIPCION","INICIOCONTRATO","FINCONTRATO", "EUROSAÑO", "EUROSMES", 
+            "SITUACION", "FORMAPAGO", "DIACOBRO", "TANTOIVA"};
     /**
      *  Las claves son: NUMCONTRATO, NUMCLIENTE, DESCRIPCION,INICIOCONTRATO,
      *  FINCONTRATO, EUROSAÑO, EUROSMES, SITUACION, FORMAPAGO, DIACOBRO, TANTOIVA
@@ -51,15 +53,9 @@ public class Contrato extends Dato implements Comparable<Contrato>{
     }
 
     @Override
-    public int compareTo(Contrato o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public String[] devuelveOrdenDeColumnas() {
         
-        return new String[]{"NUMCONTRATO", "NUMCLIENTE", "DESCRIPCION","INICIOCONTRATO","FINCONTRATO", "EUROSAÑO", "EUROSMES", 
-            "SITUACION", "FORMAPAGO", "DIACOBRO", "TANTOIVA"};
+        return orden;
     }
     
 }

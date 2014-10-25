@@ -11,8 +11,10 @@ import java.text.Collator;
  *
  * @author Administrador
  */
-public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtraDetalles>{
+public class FacturaExtraDetalles extends Dato{
 
+    
+    public static String[] orden = {"NUMERO","ORDEN", "CONCEPTO", "IMPORTE"};
     /**
      *  Las claves son: ORDEN, NUMERO, CONCEPTO, IMPORTE
      * 
@@ -26,7 +28,7 @@ public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtr
         this.put("ORDEN", orden);
         this.put("NUMERO", numero);
         this.put("CONCEPTO", concepto);
-        this.put("IMPORTE", importe);
+        this.put("IMPORTE", importe);        
     }   
     
     @Override
@@ -34,12 +36,39 @@ public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtr
         
         return "FACTURAEXTRADETALLES";
     }
-
-    @Override
     public int compareTo(FacturaExtraDetalles o) {
         
         Collator c = Collator.getInstance();
         c.setStrength(Collator.PRIMARY);
+        
+        Object obj;
+        Object objO;
+        
+        for(String clave : orden){
+            
+            obj = this.get(clave);
+            objO = o.get(clave);
+            if(obj instanceof Integer){
+                
+                if((int)obj != (int)objO){
+            
+                    return (int)obj > (int)objO ? 1 : -1;            
+                }
+            }else if(obj instanceof String){
+                if(c.compare((String)obj, (String)objO) != 0){
+            
+                    return c.compare((String)obj, objO);            
+                }
+            }else if(obj instanceof Float){
+                
+                if((float)obj != (float)objO){
+            
+                    return (float)obj > (float)objO ? 1 : -1;
+                }
+            }
+            
+            
+        }
         
         if((int)this.get("ORDEN") != (int)o.get("ORDEN")){
             
@@ -64,7 +93,7 @@ public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtr
     @Override
     public String[] devuelveOrdenDeColumnas() {
         
-        return new String[]{"NUMERO","ORDEN", "CONCEPTO", "IMPORTE"};
+        return orden;
     }
     
 }

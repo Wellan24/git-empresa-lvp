@@ -11,8 +11,11 @@ import java.util.Date;
  *
  * @author Administrador
  */
-public class FacturaExtra extends Dato implements Comparable<FacturaExtra>{
+public class FacturaExtra extends Dato{
 
+    public static String[] orden = {"NUMERO","ORDEN", "CONCEPTO", "IMPORTE"};
+    
+    
     public FacturaExtra(int numeroFactura,int dia,String mes,int año,
             Date fecha,int cif,String nombre,String domicilio,String localidad,
             String provincia,int cp,int tantoIva,int ivaCalculado,
@@ -45,18 +48,9 @@ public class FacturaExtra extends Dato implements Comparable<FacturaExtra>{
     }
 
     @Override
-    public int compareTo(FacturaExtra o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Class[] devuelveClases() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public String[] devuelveOrdenDeColumnas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
+        return orden;
     }
     
 }

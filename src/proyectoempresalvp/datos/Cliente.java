@@ -8,8 +8,10 @@ package proyectoempresalvp.datos;
 
 
 
-public class Cliente extends Dato implements Comparable<Cliente>{
+public class Cliente extends Dato {
     
+    public static String[] orden = {"NUMEROCLIENTE", "CIF", "DESCRIPCION", "NOMBRE", "DOMICILIO","LOCALIDAD", "CP", "PROVINCIA"
+            , "PERSONACONTACTO", "TLFCLIENTE","TLFCONTACTO", "NOTAS", "ENTIDAD", "SUCURSAL", "DC", "CUENTA", "REFBANCO","IBAN", "BANCOCOBRO"};
     /**
      *   Las claves son: NUMEROCLIENTE, CIF, DESCRIPCION, NOMBRE, DOMICILIO,
      *          LOCALIDAD, CP, PROVINCIA, PERSONACONTACTO, TLFCLIENTE,
@@ -68,15 +70,9 @@ public class Cliente extends Dato implements Comparable<Cliente>{
     }
 
     @Override
-    public int compareTo(Cliente o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public String[] devuelveOrdenDeColumnas() {
         
-        return new String[]{"NUMEROCLIENTE", "CIF", "DESCRIPCION", "NOMBRE", "DOMICILIO", "LOCALIDAD", "CP", "PROVINCIA", "PERSONACONTACTO", "TLFCLIENTE",
-            "TLFCONTACTO", "NOTAS", "ENTIDAD", "SUCURSAL", "DC", "CUENTA", "REFBANCO","IBAN", "BANCOCOBRO"};
+        return orden;
     }
     
 }
