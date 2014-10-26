@@ -38,12 +38,9 @@ public class FacturaExtraTest {
     @Test
     public void testDevuelveNombreTablaDato() {
         System.out.println("devuelveNombreTablaDato");
-        FacturaExtra instance = null;
-        String expResult = "";
+        String expResult = "FACTURAEXTRA";
         String result = instance.devuelveNombreTablaDato();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -52,7 +49,8 @@ public class FacturaExtraTest {
     @Test
     public void testDevuelveOrdenDeColumnas() {
         System.out.println("devuelveOrdenDeColumnas");
-        String[] expResult = null;
+        String[] expResult = {"NUMEROFACTURA", "DIA", "MES", "AÑO", "FECHA", "CIF", "NOMBRE", "DOMICILIO", "LOCALIDAD",
+        "PROVINCIA", "CP", "TANTOIVA", "EUROSNETO", "CLIENTE"};
         String[] result = instance.devuelveOrdenDeColumnas();
         assertArrayEquals(expResult, result);
     }

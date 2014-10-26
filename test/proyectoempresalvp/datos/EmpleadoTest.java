@@ -51,7 +51,8 @@ public class EmpleadoTest {
     @Test
     public void testDevuelveOrdenDeColumnas() {
         System.out.println("devuelveOrdenDeColumnas");
-        String[] expResult = {"NUMERO","ORDEN", "CONCEPTO", "IMPORTE"};
+        String[] expResult = {"NUMEMPLE", "CIF", "NOMRAPIDO", "NOMBRE", "DOMICILIO", "LOCALIDAD","CP", "PROVINCIA"
+            , "TLF1", "TLF2","ENTIDAD", "SUCURSAL", "DC", "CUENTA", "ALTA", "NACIMIENTO","NOMINA", "SS", "BAJA", "CENTRO0", "HORAS0"};
         String[] result = instance.devuelveOrdenDeColumnas();
         assertArrayEquals(expResult, result);
     }

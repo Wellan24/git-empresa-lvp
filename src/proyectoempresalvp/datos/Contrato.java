@@ -7,7 +7,6 @@ package proyectoempresalvp.datos;
 
 import java.text.Collator;
 import java.util.Date;
-import static proyectoempresalvp.datos.FacturaExtraDetalles.orden;
 
 
 public class Contrato extends Dato  implements Comparable<Contrato>{

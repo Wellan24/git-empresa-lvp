@@ -14,9 +14,28 @@ import java.util.Date;
  */
 public class FacturaExtra extends Dato  implements Comparable<FacturaExtra>{
 
-    public static String[] orden = {"NUMERO", "ORDEN", "CONCEPTO", "IMPORTE"};
+    public static String[] orden = {"NUMEROFACTURA", "DIA", "MES", "AÑO", "FECHA", "CIF", "NOMBRE", "DOMICILIO", "LOCALIDAD",
+        "PROVINCIA", "CP", "TANTOIVA", "EUROSNETO", "CLIENTE"};
     
-    
+    /**
+     *  Las claves son: NUMEROFACTURA, DIA, MES, AÑO, FECHA, CIF, NOMBRE, DOMICILIO, LOCALIDAD, PROVINCIA, CP, TANTOIVA,
+     *              EUROSNETO, CLIENTE.
+     * 
+     * @param numeroFactura
+     * @param dia
+     * @param mes
+     * @param año
+     * @param fecha
+     * @param cif
+     * @param nombre
+     * @param domicilio
+     * @param localidad
+     * @param provincia
+     * @param cp
+     * @param tantoIva
+     * @param eurosNeto
+     * @param cliente 
+     */
     public FacturaExtra(int numeroFactura,int dia,String mes,int año,
             Date fecha,int cif,String nombre,String domicilio,String localidad,
             String provincia,int cp,int tantoIva,
