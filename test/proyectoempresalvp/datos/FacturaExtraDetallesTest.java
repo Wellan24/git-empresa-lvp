@@ -41,6 +41,7 @@ public class FacturaExtraDetallesTest {
         String expResult = "FACTURAEXTRADETALLES";
         String result = instance.devuelveNombreTablaDato();
         assertEquals(expResult, result);
+        
     }
     
     /**

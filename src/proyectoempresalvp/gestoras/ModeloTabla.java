@@ -31,7 +31,7 @@ public class ModeloTabla extends DefaultTableModel{
                 
                 if(d != null){
                     clases = d.devuelveClases();
-                    columnas = d.keySet().toArray(new String[d.keySet().size()]);
+                    columnas = d.devuelveOrdenDeColumnas();
                     break;
                 }
             }

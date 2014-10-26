@@ -412,6 +412,8 @@ public class VentanaGUI extends javax.swing.JFrame {
 
         jPcontratos.setBackground(new java.awt.Color(102, 102, 255));
 
+        jPgestion.setBackground(new java.awt.Color(102, 102, 255));
+
         javax.swing.GroupLayout jPgestionLayout = new javax.swing.GroupLayout(jPgestion);
         jPgestion.setLayout(jPgestionLayout);
         jPgestionLayout.setHorizontalGroup(
@@ -424,6 +426,8 @@ public class VentanaGUI extends javax.swing.JFrame {
         );
 
         PanelPesContratos.addTab("GESTION", jPgestion);
+
+        jPestudios.setBackground(new java.awt.Color(102, 102, 255));
 
         javax.swing.GroupLayout jPestudiosLayout = new javax.swing.GroupLayout(jPestudios);
         jPestudios.setLayout(jPestudiosLayout);
@@ -561,9 +565,8 @@ public class VentanaGUI extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(bReimprimeFac, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(bVerFacMens, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bHojasDomBan, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)))
+                    .addComponent(bVerFacMens, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bHojasDomBan, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -1215,6 +1218,8 @@ public class VentanaGUI extends javax.swing.JFrame {
 
         jPotros.setBackground(new java.awt.Color(102, 102, 255));
 
+        jPhistorico.setBackground(new java.awt.Color(102, 102, 255));
+
         javax.swing.GroupLayout jPhistoricoLayout = new javax.swing.GroupLayout(jPhistorico);
         jPhistorico.setLayout(jPhistoricoLayout);
         jPhistoricoLayout.setHorizontalGroup(
@@ -1227,6 +1232,8 @@ public class VentanaGUI extends javax.swing.JFrame {
         );
 
         PanelPesOtros.addTab("HISTORICO FACTURAS", jPhistorico);
+
+        jPhojasBan.setBackground(new java.awt.Color(102, 102, 255));
 
         javax.swing.GroupLayout jPhojasBanLayout = new javax.swing.GroupLayout(jPhojasBan);
         jPhojasBan.setLayout(jPhojasBanLayout);
@@ -1241,6 +1248,8 @@ public class VentanaGUI extends javax.swing.JFrame {
 
         PanelPesOtros.addTab("HOJAS BANCO", jPhojasBan);
 
+        jPrecibos.setBackground(new java.awt.Color(102, 102, 255));
+
         javax.swing.GroupLayout jPrecibosLayout = new javax.swing.GroupLayout(jPrecibos);
         jPrecibos.setLayout(jPrecibosLayout);
         jPrecibosLayout.setHorizontalGroup(
@@ -1253,6 +1262,8 @@ public class VentanaGUI extends javax.swing.JFrame {
         );
 
         PanelPesOtros.addTab("RECIBOS", jPrecibos);
+
+        jPetiquetas.setBackground(new java.awt.Color(102, 102, 255));
 
         javax.swing.GroupLayout jPetiquetasLayout = new javax.swing.GroupLayout(jPetiquetas);
         jPetiquetas.setLayout(jPetiquetasLayout);
@@ -1282,6 +1293,8 @@ public class VentanaGUI extends javax.swing.JFrame {
 
         jPprograma.setBackground(new java.awt.Color(102, 102, 255));
 
+        jPcerrar.setBackground(new java.awt.Color(102, 102, 255));
+
         javax.swing.GroupLayout jPcerrarLayout = new javax.swing.GroupLayout(jPcerrar);
         jPcerrar.setLayout(jPcerrarLayout);
         jPcerrarLayout.setHorizontalGroup(
@@ -1294,6 +1307,8 @@ public class VentanaGUI extends javax.swing.JFrame {
         );
 
         PanelPesPrograma.addTab("CERRAR PROGRAMA", jPcerrar);
+
+        jPcontraseña.setBackground(new java.awt.Color(102, 102, 255));
 
         javax.swing.GroupLayout jPcontraseñaLayout = new javax.swing.GroupLayout(jPcontraseña);
         jPcontraseña.setLayout(jPcontraseñaLayout);
@@ -1308,6 +1323,8 @@ public class VentanaGUI extends javax.swing.JFrame {
 
         PanelPesPrograma.addTab("CAMBIAR CONTRASEÑA", jPcontraseña);
 
+        jPipc.setBackground(new java.awt.Color(102, 102, 255));
+
         javax.swing.GroupLayout jPipcLayout = new javax.swing.GroupLayout(jPipc);
         jPipc.setLayout(jPipcLayout);
         jPipcLayout.setHorizontalGroup(
@@ -1321,6 +1338,8 @@ public class VentanaGUI extends javax.swing.JFrame {
 
         PanelPesPrograma.addTab("ACTUALIZAR IPC", jPipc);
 
+        jPnumFac.setBackground(new java.awt.Color(102, 102, 255));
+
         javax.swing.GroupLayout jPnumFacLayout = new javax.swing.GroupLayout(jPnumFac);
         jPnumFac.setLayout(jPnumFacLayout);
         jPnumFacLayout.setHorizontalGroup(
@@ -1333,6 +1352,8 @@ public class VentanaGUI extends javax.swing.JFrame {
         );
 
         PanelPesPrograma.addTab("AJUSTAR NUMERO FACTURA", jPnumFac);
+
+        jPcopiasSeg.setBackground(new java.awt.Color(102, 102, 255));
 
         javax.swing.GroupLayout jPcopiasSegLayout = new javax.swing.GroupLayout(jPcopiasSeg);
         jPcopiasSeg.setLayout(jPcopiasSegLayout);

@@ -5,8 +5,8 @@
  */
 package proyectoempresalvp.gui;
 
-import proyectoempresalvp.datos.Cliente;
 import proyectoempresalvp.datos.FacturaExtraDetalles;
+import proyectoempresalvp.gestoras.GestoraBaseDatos;
 import proyectoempresalvp.gestoras.ModeloTabla;
 
 /**
@@ -23,9 +23,14 @@ public class VentanaPruebas extends javax.swing.JFrame {
         
         FacturaExtraDetalles[] cl ={new FacturaExtraDetalles(10, 20, "Hola", 15),
             new FacturaExtraDetalles(10, 20, "Hola", 15),
-            new FacturaExtraDetalles(10, 20, "Hola", 15)};
+            new FacturaExtraDetalles(10, 20, "Hola", 15)};        
         
+        tablaPrueba.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tablaPrueba.setModel(new ModeloTabla(cl));
+        
+        GestoraBaseDatos.conectarBaseDatos();
+        GestoraBaseDatos.ejecutarSentencia("Insert into prueba values('320');");
+        GestoraBaseDatos.cerrarConexion();
     }
 
     /**

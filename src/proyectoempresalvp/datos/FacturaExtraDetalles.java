@@ -15,6 +15,8 @@ import java.util.Collection;
  */
 public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtraDetalles>{
 
+    
+    public static String[] orden = {"NUMERO","ORDEN", "CONCEPTO", "IMPORTE"};
     /**
      *  Las claves son: ORDEN, NUMERO, CONCEPTO, IMPORTE
      * 
@@ -28,7 +30,7 @@ public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtr
         this.put("ORDEN", orden);
         this.put("NUMERO", numero);
         this.put("CONCEPTO", concepto);
-        this.put("IMPORTE", importe);
+        this.put("IMPORTE", importe);        
     }   
     
     @Override
@@ -36,31 +38,47 @@ public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtr
         
         return "FACTURAEXTRADETALLES";
     }
-
     @Override
     public int compareTo(FacturaExtraDetalles o) {
         
         Collator c = Collator.getInstance();
         c.setStrength(Collator.PRIMARY);
         
-        if((int)this.get("ORDEN") != (int)o.get("ORDEN")){
+        Object obj;
+        Object objO;
+        
+        for(String clave : orden){
             
-            return (int)this.get("ORDEN") > (int)o.get("ORDEN") ? 1 : -1;
+            obj = this.get(clave);
+            objO = o.get(clave);
+            if(obj instanceof Integer){
+                
+                if((int)obj != (int)objO){
             
-        }else if((int)this.get("NUMERO") != (int)o.get("NUMERO")){
+                    return (int)obj > (int)objO ? 1 : -1;            
+                }
+            }else if(obj instanceof String){
+                if(c.compare((String)obj, (String)objO) != 0){
             
-            return (int)this.get("NUMERO") > (int)o.get("NUMERO") ? 1 : -1;
+                    return c.compare((String)obj, objO);            
+                }
+            }else if(obj instanceof Float){
+                
+                if((float)obj != (float)objO){
             
-        }else if(c.compare((String)this.get("CONCEPTO"), (String)o.get("CONCEPTO")) != 0){
+                    return (float)obj > (float)objO ? 1 : -1;
+                }
+            }         
             
-            return c.compare((String)this.get("CONCEPTO"), (String)o.get("CONCEPTO"));
-            
-        }else if((float)this.get("IMPORTE") != (float)o.get("IMPORTE")){
-            
-            return (float)this.get("IMPORTE") > (float)o.get("IMPORTE") ? 1 : -1;
         }
         
         return 0;
+    }
+
+    @Override
+    public String[] devuelveOrdenDeColumnas() {
+        
+        return orden;
     }
     
 }
