@@ -24,7 +24,7 @@ public class PanelImagen extends JPanel implements Cloneable {
     @Override
     public void paintComponent(Graphics g) {
 
-        g.drawImage(img.getImage(), 0, 0, 1200, 840, null);
+        g.drawImage(img.getImage(), 0, 0, 1205, 840, null);
         super.paintComponent(g);
     }
 

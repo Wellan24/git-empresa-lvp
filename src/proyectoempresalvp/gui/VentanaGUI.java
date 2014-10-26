@@ -36,8 +36,7 @@ public class VentanaGUI extends javax.swing.JFrame {
         buttonGroupFacExtra = new javax.swing.ButtonGroup();
         PanelGUI = new javax.swing.JPanel();
         PanelPestañasPrincipal = new javax.swing.JTabbedPane();
-        jPinicio = new javax.swing.JPanel();
-        jLabelImagen = new javax.swing.JLabel();
+        jPinicio = PanelImagen.dameNuevoPanel();
         jPclientes = PanelImagen.dameNuevoPanel();
         jPinsertarCli = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -84,8 +83,8 @@ public class VentanaGUI extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jPcontratos = new javax.swing.JPanel();
         PanelPesContratos = new javax.swing.JTabbedPane();
-        jPgestion = new javax.swing.JPanel();
-        jPestudios = new javax.swing.JPanel();
+        jPgestion = PanelImagen.dameNuevoPanel();
+        jPestudios = PanelImagen.dameNuevoPanel();
         jPfacMens = PanelImagen.dameNuevoPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel38 = new javax.swing.JLabel();
@@ -106,7 +105,7 @@ public class VentanaGUI extends javax.swing.JFrame {
         bVerFacMens = new javax.swing.JButton();
         bReimprimeFac = new javax.swing.JButton();
         jLabel43 = new javax.swing.JLabel();
-        jPfacExtra = new javax.swing.JPanel();
+        jPfacExtra = PanelImagen.dameNuevoPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel44 = new javax.swing.JLabel();
         rbCliEmp = new javax.swing.JRadioButton();
@@ -153,7 +152,7 @@ public class VentanaGUI extends javax.swing.JFrame {
         bImprimir = new javax.swing.JButton();
         bNuevaFac = new javax.swing.JButton();
         bModifFac = new javax.swing.JButton();
-        jPempleados = new javax.swing.JPanel();
+        jPempleados = PanelImagen.dameNuevoPanel();
         jPdatosPer = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -208,10 +207,10 @@ public class VentanaGUI extends javax.swing.JFrame {
         jLabel37 = new javax.swing.JLabel();
         jPotros = new javax.swing.JPanel();
         PanelPesOtros = new javax.swing.JTabbedPane();
-        jPhistorico = new javax.swing.JPanel();
-        jPhojasBan = new javax.swing.JPanel();
-        jPrecibos = new javax.swing.JPanel();
-        jPetiquetas = new javax.swing.JPanel();
+        jPhistorico = PanelImagen.dameNuevoPanel();
+        jPhojasBan = PanelImagen.dameNuevoPanel();
+        jPrecibos = PanelImagen.dameNuevoPanel();
+        jPetiquetas = PanelImagen.dameNuevoPanel();
         jPprograma = new javax.swing.JPanel();
         PanelPesPrograma = new javax.swing.JTabbedPane();
         jPcerrar = new javax.swing.JPanel();
@@ -222,19 +221,15 @@ public class VentanaGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabelImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo1.jpg"))); // NOI18N
-
         javax.swing.GroupLayout jPinicioLayout = new javax.swing.GroupLayout(jPinicio);
         jPinicio.setLayout(jPinicioLayout);
         jPinicioLayout.setHorizontalGroup(
             jPinicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPinicioLayout.createSequentialGroup()
-                .addComponent(jLabelImagen)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGap(0, 1593, Short.MAX_VALUE)
         );
         jPinicioLayout.setVerticalGroup(
             jPinicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 835, Short.MAX_VALUE)
         );
 
         PanelPestañasPrincipal.addTab("INICIO", jPinicio);
@@ -1591,7 +1586,6 @@ public class VentanaGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabelImagen;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
