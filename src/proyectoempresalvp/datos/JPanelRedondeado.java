@@ -44,10 +44,9 @@ public class JPanelRedondeado extends JPanel {
         g2.setPaint(color);
         g2.fillRect(0, 0, getWidth(), getHeight());
         
-        g2.setStroke(new BasicStroke(0.1f));
-        g2.setPaint(new GradientPaint(0.0f, 0.0f, color,
-                0.0f, getHeight(), color));
-        g2.drawRoundRect(0, 0, getWidth() - 2, getHeight() - 2, 18, 18);
+        g2.setStroke(new BasicStroke(3f));
+        g2.setPaint(Color.BLACK);
+        g2.drawRoundRect(0, 0, getWidth() -1, getHeight() - 2, 18, 18);
 
         g2.setPaint(oldPaint);
         super.paintComponent(g);
