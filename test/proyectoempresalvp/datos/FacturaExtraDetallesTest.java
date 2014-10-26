@@ -71,5 +71,16 @@ public class FacturaExtraDetallesTest {
         int result = instance.compareTo(o);
         assertEquals(expResult, result);
     }
+
+    /**
+     * Test of devuelveOrdenDeColumnas method, of class FacturaExtraDetalles.
+     */
+    @Test
+    public void testDevuelveOrdenDeColumnas() {
+        System.out.println("devuelveOrdenDeColumnas");
+        String[] expResult = {"NUMERO","ORDEN", "CONCEPTO", "IMPORTE"};
+        String[] result = instance.devuelveOrdenDeColumnas();
+        assertArrayEquals(expResult, result);
+    }
     
 }

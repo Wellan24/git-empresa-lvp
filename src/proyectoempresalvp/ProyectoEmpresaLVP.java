@@ -5,7 +5,6 @@
  */
 package proyectoempresalvp;
 
-import proyectoempresalvp.datos.FacturaExtra;
 import proyectoempresalvp.datos.FacturaExtraDetalles;
 import proyectoempresalvp.gestoras.GestoraBaseDatos;
 

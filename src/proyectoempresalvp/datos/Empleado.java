@@ -7,12 +7,12 @@ package proyectoempresalvp.datos;
 
 import java.text.Collator;
 import java.util.Date;
-import static proyectoempresalvp.datos.FacturaExtraDetalles.orden;
 
 
 public class Empleado extends Dato  implements Comparable<Empleado>{
 
-    public static String[] orden = {"NUMERO","ORDEN", "CONCEPTO", "IMPORTE"};
+    public static String[] orden = {"NUMEMPLE", "CIF", "NOMRAPIDO", "NOMBRE", "DOMICILIO", "LOCALIDAD","CP", "PROVINCIA"
+            , "TLF1", "TLF2","ENTIDAD", "SUCURSAL", "DC", "CUENTA", "ALTA", "NACIMIENTO","NOMINA", "SS", "BAJA", "CENTRO0", "HORAS0"};
     /**
      *  Las claves son: NUMEMPLE, CIF, NOMRAPIDO, NOMBRE, DOMICILIO, LOCALIDAD,
      *  CP, PROVINCIA, TLF1, TLF2,ENTIDAD, SUCURSAL, DC, CUENTA, ALTA, NACIMIENTO,
@@ -73,12 +73,13 @@ public class Empleado extends Dato  implements Comparable<Empleado>{
     @Override
     public String devuelveNombreTablaDato() {
         
-        return "empleados";
+        return "EMPLEADOS";
     }
 
     @Override
     public String[] devuelveOrdenDeColumnas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        return orden;
     }
 
     @Override

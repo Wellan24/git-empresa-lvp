@@ -7,7 +7,6 @@ package proyectoempresalvp.datos;
 
 import java.text.Collator;
 import java.util.Date;
-import static proyectoempresalvp.datos.FacturaExtraDetalles.orden;
 
 
 public class Contrato extends Dato  implements Comparable<Contrato>{
@@ -101,11 +100,6 @@ public class Contrato extends Dato  implements Comparable<Contrato>{
         }
         
         return 0;
-    }
-
-    @Override
-    public Class[] devuelveClases() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

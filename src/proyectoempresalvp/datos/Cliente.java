@@ -6,7 +6,6 @@
 package proyectoempresalvp.datos;
 
 import java.text.Collator;
-import static proyectoempresalvp.datos.FacturaExtraDetalles.orden;
 
 
 
@@ -113,11 +112,6 @@ public class Cliente extends Dato  implements Comparable<Cliente>{
         }
         
         return 0;
-    }
-
-    @Override
-    public Class[] devuelveClases() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

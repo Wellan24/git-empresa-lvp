@@ -7,7 +7,6 @@ package proyectoempresalvp.datos;
 
 import java.text.Collator;
 import java.util.Date;
-import static proyectoempresalvp.datos.FacturaExtraDetalles.orden;
 
 /**
  *
@@ -15,13 +14,32 @@ import static proyectoempresalvp.datos.FacturaExtraDetalles.orden;
  */
 public class FacturaExtra extends Dato  implements Comparable<FacturaExtra>{
 
-    public static String[] orden = {"NUMERO","ORDEN", "CONCEPTO", "IMPORTE"};
+    public static String[] orden = {"NUMEROFACTURA", "DIA", "MES", "AÑO", "FECHA", "CIF", "NOMBRE", "DOMICILIO", "LOCALIDAD",
+        "PROVINCIA", "CP", "TANTOIVA", "EUROSNETO", "CLIENTE"};
     
-    
+    /**
+     *  Las claves son: NUMEROFACTURA, DIA, MES, AÑO, FECHA, CIF, NOMBRE, DOMICILIO, LOCALIDAD, PROVINCIA, CP, TANTOIVA,
+     *              EUROSNETO, CLIENTE.
+     * 
+     * @param numeroFactura
+     * @param dia
+     * @param mes
+     * @param año
+     * @param fecha
+     * @param cif
+     * @param nombre
+     * @param domicilio
+     * @param localidad
+     * @param provincia
+     * @param cp
+     * @param tantoIva
+     * @param eurosNeto
+     * @param cliente 
+     */
     public FacturaExtra(int numeroFactura,int dia,String mes,int año,
             Date fecha,int cif,String nombre,String domicilio,String localidad,
-            String provincia,int cp,int tantoIva,int ivaCalculado,
-            int totalEuros,String cliente) {
+            String provincia,int cp,int tantoIva,
+            int eurosNeto,String cliente) {
         this.put("NUMEROFACTURA",numeroFactura);
         this.put("DIA",dia);
         this.put("MES",mes);
@@ -34,8 +52,7 @@ public class FacturaExtra extends Dato  implements Comparable<FacturaExtra>{
         this.put("PROVINCIA",provincia);
         this.put("CP",cp);
         this.put("TANTOIVA",tantoIva);
-        this.put("IVACALCULADO",ivaCalculado);
-        this.put("TOTALEUROS",totalEuros);
+        this.put("EUROSNETO",eurosNeto);
         this.put("CLIENTE",cliente);
     }
 
@@ -96,11 +113,6 @@ public class FacturaExtra extends Dato  implements Comparable<FacturaExtra>{
         }
         
         return 0;
-    }
-
-    @Override
-    public Class[] devuelveClases() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
