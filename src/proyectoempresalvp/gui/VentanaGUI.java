@@ -5,6 +5,8 @@
  */
 package proyectoempresalvp.gui;
 
+import proyectoempresalvp.datos.PanelImagen;
+
 /**
  *
  * @author Administrador
@@ -36,7 +38,7 @@ public class VentanaGUI extends javax.swing.JFrame {
         PanelPestañasPrincipal = new javax.swing.JTabbedPane();
         jPinicio = new javax.swing.JPanel();
         jLabelImagen = new javax.swing.JLabel();
-        jPclientes = new javax.swing.JPanel();
+        jPclientes = PanelImagen.dameNuevoPanel();
         jPinsertarCli = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -84,7 +86,7 @@ public class VentanaGUI extends javax.swing.JFrame {
         PanelPesContratos = new javax.swing.JTabbedPane();
         jPgestion = new javax.swing.JPanel();
         jPestudios = new javax.swing.JPanel();
-        jPfacMens = new javax.swing.JPanel();
+        jPfacMens = PanelImagen.dameNuevoPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
@@ -408,7 +410,7 @@ public class VentanaGUI extends javax.swing.JFrame {
                 .addContainerGap(69, Short.MAX_VALUE))
         );
 
-        PanelPestañasPrincipal.addTab("CLIENTES", jPclientes);
+        PanelPestañasPrincipal.addTab("CLIENTES", null, jPclientes, "");
 
         jPcontratos.setBackground(new java.awt.Color(102, 102, 255));
 
@@ -561,9 +563,8 @@ public class VentanaGUI extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(bReimprimeFac, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(bVerFacMens, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bHojasDomBan, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)))
+                    .addComponent(bVerFacMens, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bHojasDomBan, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(

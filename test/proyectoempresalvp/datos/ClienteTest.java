@@ -16,7 +16,10 @@ import static org.junit.Assert.*;
  */
 public class ClienteTest {
     
+    Cliente instance;
+    
     public ClienteTest() {
+        instance = new Cliente(10, 10, "", "", "", "", 10, "", "", 10, 10, "", 10, 10, 10, 10, 10, 10, 10);
     }
     
     @BeforeClass
@@ -33,12 +36,9 @@ public class ClienteTest {
     @Test
     public void testDevuelveNombreTablaDato() {
         System.out.println("devuelveNombreTablaDato");
-        Cliente instance = null;
-        String expResult = "";
+        String expResult = "CLIENTES";
         String result = instance.devuelveNombreTablaDato();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -47,12 +47,10 @@ public class ClienteTest {
     @Test
     public void testDevuelveOrdenDeColumnas() {
         System.out.println("devuelveOrdenDeColumnas");
-        Cliente instance = null;
-        String[] expResult = null;
+        String[] expResult = {"NUMEROCLIENTE", "CIF", "DESCRIPCION", "NOMBRE", "DOMICILIO","LOCALIDAD", "CP", "PROVINCIA"
+            , "PERSONACONTACTO", "TLFCLIENTE","TLFCONTACTO", "NOTAS", "ENTIDAD", "SUCURSAL", "DC", "CUENTA", "REFBANCO","IBAN", "BANCOCOBRO"};
         String[] result = instance.devuelveOrdenDeColumnas();
         assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -61,13 +59,10 @@ public class ClienteTest {
     @Test
     public void testCompareTo() {
         System.out.println("compareTo");
-        Cliente o = null;
-        Cliente instance = null;
+        Cliente o = new Cliente(10, 10, "", "", "", "", 10, "", "", 10, 10, "", 10, 10, 10, 10, 10, 10, 10);
         int expResult = 0;
         int result = instance.compareTo(o);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

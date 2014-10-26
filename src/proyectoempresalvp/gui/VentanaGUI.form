@@ -102,10 +102,14 @@
                   <Color blue="ff" green="66" red="66" type="rgb"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="PanelImagen.dameNuevoPanel()"/>
+              </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="CLIENTES">
+                  <JTabbedPaneConstraints tabName="CLIENTES" toolTip="">
                     <Property name="tabTitle" type="java.lang.String" value="CLIENTES"/>
+                    <Property name="tabToolTip" type="java.lang.String" value=""/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -655,6 +659,9 @@
                   <Color blue="ff" green="66" red="66" type="rgb"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="PanelImagen.dameNuevoPanel()"/>
+              </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="FACTURACION MENSUAL">
@@ -899,10 +906,8 @@
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="bReimprimeFac" pref="339" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="bVerFacMens" max="32767" attributes="0"/>
-                                      <Component id="bHojasDomBan" pref="339" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="bVerFacMens" max="32767" attributes="0"/>
+                                  <Component id="bHojasDomBan" pref="339" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
