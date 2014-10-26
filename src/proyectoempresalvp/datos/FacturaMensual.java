@@ -7,12 +7,13 @@ package proyectoempresalvp.datos;
 
 import java.text.Collator;
 import java.util.Date;
-import static proyectoempresalvp.datos.FacturaExtraDetalles.orden;
 
 
 public class FacturaMensual extends Dato  implements Comparable<FacturaMensual>{
 
-    public static String[] orden = {"NUMERO","ORDEN", "CONCEPTO", "IMPORTE"};
+    public static String[] orden = {"NUMFACTURA", "FECHA","NUMCLIENTE", "DESCRIPCION","NUMCONTACTO", "CIF","NOMBRE", "DOMICILIO",
+        "LOCALIDAD", "PROVINCIA", "EUROSMES", "TANTOIVA","REFMONEDA","DIACOBRO", "FORMAPAGO", "PERIODO", "NUMPERIODO",
+        "NUMCUENTA","REFBANCO","BANCOCOBRO","NUMBREBANCO"};
     /**
      *  las claves son: NUMFACTURA, FECHA,NUMCLIENTE, DESCRIPCION,NUMCONTACTO, CIF,
      *  NOMBRE, DOMICILIO, LOCALIDAD, PROVINCIA, EUROSMES, TANTOIVA, IVA, TOTAL,
@@ -30,8 +31,6 @@ public class FacturaMensual extends Dato  implements Comparable<FacturaMensual>{
      * @param cpProvincia
      * @param eurosMes
      * @param tantoIva
-     * @param iva
-     * @param total
      * @param refMoneda
      * @param diaCobro
      * @param formaPago
@@ -45,7 +44,7 @@ public class FacturaMensual extends Dato  implements Comparable<FacturaMensual>{
     public FacturaMensual(int numFactura,Date fecha,int numCliente,
             String descripcion,int numContacto,int cif,String nombre,
             String domicilio,String localidad,int cpProvincia,int eurosMes,
-            int tantoIva,int iva,int total,String refMoneda,int diaCobro,
+            int tantoIva,String refMoneda,int diaCobro,
             String formaPago,String periodo,int numPeriodo,int numCuenta,
             int refBanco,int bancoCobro,String nombreBanco) {
         this.put("NUMFACTURA",numFactura);
@@ -60,8 +59,6 @@ public class FacturaMensual extends Dato  implements Comparable<FacturaMensual>{
         this.put("PROVINCIA",cpProvincia);
         this.put("EUROSMES",eurosMes);
         this.put("TANTOIVA",tantoIva);
-        this.put("IVA",iva);
-        this.put("TOTAL",total);
         this.put("REFMONEDA",refMoneda);
         this.put("DIACOBRO",diaCobro);
         this.put("FORMAPAGO",formaPago);

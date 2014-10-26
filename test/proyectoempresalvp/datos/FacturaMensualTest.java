@@ -5,6 +5,7 @@
  */
 package proyectoempresalvp.datos;
 
+import java.sql.Date;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -16,7 +17,11 @@ import static org.junit.Assert.*;
  */
 public class FacturaMensualTest {
     
+    FacturaMensual instance;
+    
     public FacturaMensualTest() {
+        
+        instance = new FacturaMensual(10, Date.valueOf("2010-10-10"), 10, "", 10, 10, "", "", "", 10, 10, 10, "", 10, "", "", 10, 10, 10, 10, "");
     }
     
     @BeforeClass
@@ -33,12 +38,9 @@ public class FacturaMensualTest {
     @Test
     public void testDevuelveNombreTablaDato() {
         System.out.println("devuelveNombreTablaDato");
-        FacturaMensual instance = null;
-        String expResult = "";
+        String expResult = "FACTURAMENSUAL";
         String result = instance.devuelveNombreTablaDato();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -47,12 +49,11 @@ public class FacturaMensualTest {
     @Test
     public void testDevuelveOrdenDeColumnas() {
         System.out.println("devuelveOrdenDeColumnas");
-        FacturaMensual instance = null;
-        String[] expResult = null;
+        String[] expResult = {"NUMFACTURA", "FECHA","NUMCLIENTE", "DESCRIPCION","NUMCONTACTO", "CIF","NOMBRE", "DOMICILIO",
+        "LOCALIDAD", "PROVINCIA", "EUROSMES", "TANTOIVA","REFMONEDA","DIACOBRO", "FORMAPAGO", "PERIODO", "NUMPERIODO",
+        "NUMCUENTA","REFBANCO","BANCOCOBRO","NUMBREBANCO"};
         String[] result = instance.devuelveOrdenDeColumnas();
         assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -61,13 +62,10 @@ public class FacturaMensualTest {
     @Test
     public void testCompareTo() {
         System.out.println("compareTo");
-        FacturaMensual o = null;
-        FacturaMensual instance = null;
-        int expResult = 0;
+        FacturaMensual o = new FacturaMensual(11, Date.valueOf("2010-10-10"), 10, "", 10, 10, "", "", "", 10, 10, 10, "", 10, "", "", 10, 10, 10, 10, "");
+        int expResult = -1;
         int result = instance.compareTo(o);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

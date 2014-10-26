@@ -6,7 +6,6 @@
 package proyectoempresalvp.datos;
 
 import java.text.Collator;
-import static proyectoempresalvp.datos.FacturaExtraDetalles.orden;
 
 
 
