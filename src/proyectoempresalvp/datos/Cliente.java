@@ -71,5 +71,10 @@ public class Cliente extends Dato implements Comparable<Cliente>{
     public int compareTo(Cliente o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public Class[] devuelveClases() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

@@ -6,7 +6,8 @@
 package proyectoempresalvp.datos;
 
 import java.text.Collator;
-import java.util.Comparator;
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  *
@@ -28,18 +29,7 @@ public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtr
         this.put("NUMERO", numero);
         this.put("CONCEPTO", concepto);
         this.put("IMPORTE", importe);
-    }
-
-    public FacturaExtraDetalles(int orden,int numeroFactura,String concepto,
-            Float importe) {
-        this.put("ORDEN",orden);
-        this.put("NUMEROFACTURA",numeroFactura);
-        this.put("CONCEPTO",concepto);
-        this.put("IMPORTE",importe);
-    }
-
-    
-    
+    }   
     
     @Override
     public String devuelveNombreTablaDato() {
@@ -72,7 +62,5 @@ public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtr
         
         return 0;
     }
-
-    
     
 }

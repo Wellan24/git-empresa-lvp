@@ -5,13 +5,26 @@
  */
 package proyectoempresalvp.datos;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  *
  * @author Administrador
  */
-abstract class Dato extends HashMap<String, Object>{
+public abstract class Dato extends HashMap<String, Object>{
     
     public abstract String devuelveNombreTablaDato();
+    public Class[] devuelveClases() {
+        
+        Class[] classes = new Class[this.size()];
+        ArrayList<Object> objetos = new ArrayList(this.values());
+        
+        for(int i = 0; i < classes.length; i++){            
+            
+                classes[i] = objetos.getClass();            
+        }
+        
+        return classes;        
+    }
 }
