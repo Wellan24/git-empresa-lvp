@@ -271,13 +271,13 @@ public class VentanaGUI extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         atNotas = new javax.swing.JTextArea();
         jLabel37 = new javax.swing.JLabel();
-        jPotros = new javax.swing.JPanel();
+        jPotros = PanelImagen.dameNuevoPanelSinLetras();
         PanelPesOtros = new javax.swing.JTabbedPane();
         jPhistorico = PanelImagen.dameNuevoPanelSinLetras();
         jPhojasBan = PanelImagen.dameNuevoPanelSinLetras();
         jPrecibos = PanelImagen.dameNuevoPanelSinLetras();
         jPetiquetas = PanelImagen.dameNuevoPanelSinLetras();
-        jPprograma = new javax.swing.JPanel();
+        jPprograma = PanelImagen.dameNuevoPanelSinLetras();
         PanelPesPrograma = new javax.swing.JTabbedPane();
         jPcerrar = PanelImagen.dameNuevoPanelSinLetras();
         jPcontraseña = PanelImagen.dameNuevoPanelSinLetras();
