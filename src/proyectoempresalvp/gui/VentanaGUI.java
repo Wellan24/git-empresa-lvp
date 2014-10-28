@@ -106,7 +106,7 @@ public class VentanaGUI extends javax.swing.JFrame {
         bVerFacMens = new javax.swing.JButton();
         bReimprimeFac = new javax.swing.JButton();
         jLabel43 = new javax.swing.JLabel();
-        jPfacExtra = new javax.swing.JPanel();
+        jPfacExtra = PanelImagen.dameNuevoPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel44 = new javax.swing.JLabel();
         rbCliEmp = new javax.swing.JRadioButton();
@@ -153,7 +153,7 @@ public class VentanaGUI extends javax.swing.JFrame {
         bImprimir = new javax.swing.JButton();
         bNuevaFac = new javax.swing.JButton();
         bModifFac = new javax.swing.JButton();
-        jPempleados = new javax.swing.JPanel();
+        jPempleados = PanelImagen.dameNuevoPanel();
         jPdatosPer = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -214,15 +214,15 @@ public class VentanaGUI extends javax.swing.JFrame {
         jPetiquetas = new javax.swing.JPanel();
         jPprograma = new javax.swing.JPanel();
         PanelPesPrograma = new javax.swing.JTabbedPane();
-        jPcerrar = new javax.swing.JPanel();
-        jPcontraseña = new javax.swing.JPanel();
-        jPipc = new javax.swing.JPanel();
-        jPnumFac = new javax.swing.JPanel();
-        jPcopiasSeg = new javax.swing.JPanel();
+        jPcerrar = PanelImagen.dameNuevoPanel();
+        jPcontraseña = PanelImagen.dameNuevoPanel();
+        jPipc = PanelImagen.dameNuevoPanel();
+        jPnumFac = PanelImagen.dameNuevoPanel();
+        jPcopiasSeg = PanelImagen.dameNuevoPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabelImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo1.jpg"))); // NOI18N
+        jLabelImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoInicio.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPinicioLayout = new javax.swing.GroupLayout(jPinicio);
         jPinicio.setLayout(jPinicioLayout);
