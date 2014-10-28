@@ -5,7 +5,8 @@
  */
 package proyectoempresalvp.gui;
 
-import proyectoempresalvp.datos.PanelImagen;
+import proyectoempresalvp.datosUI.JPanelTranslucido;
+import proyectoempresalvp.datosUI.PanelImagen;
 
 /**
  *
@@ -38,7 +39,7 @@ public class VentanaGUI extends javax.swing.JFrame {
         PanelPestañasPrincipal = new javax.swing.JTabbedPane();
         jPinicio = PanelImagen.dameNuevoPanel();
         jPclientes = PanelImagen.dameNuevoPanel();
-        jPinsertarCli = new javax.swing.JPanel();
+        jPinsertarCli = new JPanelTranslucido();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
