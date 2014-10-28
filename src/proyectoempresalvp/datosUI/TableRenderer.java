@@ -19,6 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
+import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
@@ -29,12 +30,17 @@ import javax.swing.table.TableCellRenderer;
  */
 public class TableRenderer extends JLabel implements TableCellRenderer {
 
-    private static final Color color = new Color(0x000000);
-    private static final Border borde = BorderFactory.createLineBorder(color, 1);
+    private static final Color colorNegro = new Color(0x000000);
+    private static final Color colorAzulClaro = new Color(231, 247, 252);
+    private static final Color colorAzulOscuro = new Color(0x74b8f1);
+    private static final Color colorAzulSeleccionado = new Color(0xa4d2f9);
+
+    boolean isSelected;
 
     public TableRenderer() {
 
         setOpaque(true);
+        isSelected = false;
     }
 
     @Override
@@ -44,17 +50,19 @@ public class TableRenderer extends JLabel implements TableCellRenderer {
 
         setText(value.toString());
 
-        setBackground(new Color(231, 247, 252));
-        setForeground(color);
+        setBackground(colorAzulClaro);
+        setForeground(colorNegro);
         setBorder(null);
-
-        if (hasFocus) {
-            setBorder(borde);
-        }
+        this.isSelected = false;
         if (isSelected) {
 
-            setBackground(new Color(0x5bb1f9));
-            setForeground(new Color(0xFFFFFF));
+            this.isSelected = true;
+            setBackground(colorAzulOscuro);
+//            setForeground(new Color(0xFFFFFF));
+        }
+        if (hasFocus) {
+
+            setBackground(colorAzulSeleccionado);
         }
 
         return this;
@@ -62,14 +70,18 @@ public class TableRenderer extends JLabel implements TableCellRenderer {
 
     @Override
     protected void paintComponent(Graphics g) {
-        Graphics2D g2 = (Graphics2D) g;
+        if (!isSelected) {
+            Graphics2D g2 = (Graphics2D) g;
 
-        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
-                RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-        AlphaComposite old = (AlphaComposite) g2.getComposite();
-        g2.setComposite(AlphaComposite.SrcOver.derive(0.8f));
-        super.paintComponent(g);
+            g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
+                    RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+            AlphaComposite old = (AlphaComposite) g2.getComposite();
+            g2.setComposite(AlphaComposite.SrcOver.derive(0.8f));
+            super.paintComponent(g);
 
-        g2.setComposite(old);
+            g2.setComposite(old);
+        } else {
+            super.paintComponent(g);
+        }
     }
 }
