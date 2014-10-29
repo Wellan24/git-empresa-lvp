@@ -5,7 +5,8 @@
  */
 package proyectoempresalvp.gui;
 
-import proyectoempresalvp.datos.PanelImagen;
+import proyectoempresalvp.datosUI.PanelImagen;
+import proyectoempresalvp.datosUI.JPanelTranslucido;
 
 /**
  *
@@ -43,8 +44,9 @@ public class VentanaGUI extends javax.swing.JFrame {
         jLabel87 = new javax.swing.JLabel();
         jLabel86 = new javax.swing.JLabel();
         ctContraseña = new javax.swing.JTextField();
+        bAceptarContraseña = new javax.swing.JButton();
         jPclientes = PanelImagen.dameNuevoPanelSinLetras();
-        jPinsertarCli = new javax.swing.JPanel();
+        jPinsertarCli = new JPanelTranslucido();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -89,6 +91,72 @@ public class VentanaGUI extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jPcontratos = PanelImagen.dameNuevoPanelSinLetras();
         PanelPesContratos = new javax.swing.JTabbedPane();
+        jPestudios = new javax.swing.JPanel();
+        jPgestion = new javax.swing.JPanel();
+        jPanelDatosCli = new javax.swing.JPanel();
+        jLabel60 = new javax.swing.JLabel();
+        jLabel61 = new javax.swing.JLabel();
+        jLabel62 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
+        jLabel64 = new javax.swing.JLabel();
+        jLabel65 = new javax.swing.JLabel();
+        jLabel66 = new javax.swing.JLabel();
+        jLabel67 = new javax.swing.JLabel();
+        jLabel68 = new javax.swing.JLabel();
+        jLabel69 = new javax.swing.JLabel();
+        ctNumCli = new javax.swing.JTextField();
+        ctDes = new javax.swing.JTextField();
+        ctNo = new javax.swing.JTextField();
+        ctDomicili = new javax.swing.JTextField();
+        ctLocali = new javax.swing.JTextField();
+        ctCodP = new javax.swing.JTextField();
+        ctProvinci = new javax.swing.JTextField();
+        ctNifiCif = new javax.swing.JTextField();
+        ctTelefon = new javax.swing.JTextField();
+        ctNumCuent = new javax.swing.JTextField();
+        jPanelDatosContr = new javax.swing.JPanel();
+        jLabel70 = new javax.swing.JLabel();
+        jLabel71 = new javax.swing.JLabel();
+        jLabel72 = new javax.swing.JLabel();
+        jLabel73 = new javax.swing.JLabel();
+        jLabel74 = new javax.swing.JLabel();
+        ctNumCon = new javax.swing.JTextField();
+        jLabel75 = new javax.swing.JLabel();
+        ctIvaCon = new javax.swing.JTextField();
+        ctPerIn = new javax.swing.JTextField();
+        jLabel76 = new javax.swing.JLabel();
+        ctPerFin = new javax.swing.JTextField();
+        ctIAeur = new javax.swing.JTextField();
+        ctIApts = new javax.swing.JTextField();
+        jLabel77 = new javax.swing.JLabel();
+        jLabel78 = new javax.swing.JLabel();
+        ctIMeur = new javax.swing.JTextField();
+        ctIMpts = new javax.swing.JTextField();
+        jLabel79 = new javax.swing.JLabel();
+        jLabel80 = new javax.swing.JLabel();
+        ctFormPag = new javax.swing.JTextField();
+        jLabel81 = new javax.swing.JLabel();
+        ctSitua = new javax.swing.JTextField();
+        jLabel82 = new javax.swing.JLabel();
+        ctDiaCobro2 = new javax.swing.JTextField();
+        ctDiaCobr1 = new javax.swing.JTextField();
+        jLabel83 = new javax.swing.JLabel();
+        ctRefHojBan = new javax.swing.JTextField();
+        jPanelContratos = new javax.swing.JPanel();
+        rbActivos = new javax.swing.JRadioButton();
+        rbCancelados = new javax.swing.JRadioButton();
+        rbTodos = new javax.swing.JRadioButton();
+        rbDescripcion = new javax.swing.JRadioButton();
+        rbNumCli = new javax.swing.JRadioButton();
+        rbNumContra = new javax.swing.JRadioButton();
+        jLabel84 = new javax.swing.JLabel();
+        jLabel85 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTableContratos = new javax.swing.JTable();
+        bModificarContrato = new javax.swing.JButton();
+        bEstudiosActivos = new javax.swing.JButton();
+        bNuevoContr = new javax.swing.JButton();
+        bFormuClientes = new javax.swing.JButton();
         jPfacMens = PanelImagen.dameNuevoPanelSinLetras();
         jPanel1 = new javax.swing.JPanel();
         jLabel38 = new javax.swing.JLabel();
@@ -211,93 +279,20 @@ public class VentanaGUI extends javax.swing.JFrame {
         jLabel37 = new javax.swing.JLabel();
         jPotros = PanelImagen.dameNuevoPanelSinLetras();
         PanelPesOtros = new javax.swing.JTabbedPane();
-        jPhistorico = PanelImagen.dameNuevoPanelSinLetras();
-        jPhojasBan = PanelImagen.dameNuevoPanelSinLetras();
-        jPrecibos = PanelImagen.dameNuevoPanelSinLetras();
-        jPetiquetas = PanelImagen.dameNuevoPanelSinLetras();
-        jPestudios = PanelImagen.dameNuevoPanelSinLetras();
-        jPgestion = PanelImagen.dameNuevoPanelSinLetras();
-        jPanelDatosCli = new javax.swing.JPanel();
-        jLabel60 = new javax.swing.JLabel();
-        jLabel61 = new javax.swing.JLabel();
-        jLabel62 = new javax.swing.JLabel();
-        jLabel63 = new javax.swing.JLabel();
-        jLabel64 = new javax.swing.JLabel();
-        jLabel65 = new javax.swing.JLabel();
-        jLabel66 = new javax.swing.JLabel();
-        jLabel67 = new javax.swing.JLabel();
-        jLabel68 = new javax.swing.JLabel();
-        jLabel69 = new javax.swing.JLabel();
-        ctNumCli = new javax.swing.JTextField();
-        ctDes = new javax.swing.JTextField();
-        ctNo = new javax.swing.JTextField();
-        ctDomicili = new javax.swing.JTextField();
-        ctLocali = new javax.swing.JTextField();
-        ctCodP = new javax.swing.JTextField();
-        ctProvinci = new javax.swing.JTextField();
-        ctNifiCif = new javax.swing.JTextField();
-        ctTelefon = new javax.swing.JTextField();
-        ctNumCuent = new javax.swing.JTextField();
-        jPanelDatosContr = new javax.swing.JPanel();
-        jLabel70 = new javax.swing.JLabel();
-        jLabel71 = new javax.swing.JLabel();
-        jLabel72 = new javax.swing.JLabel();
-        jLabel73 = new javax.swing.JLabel();
-        jLabel74 = new javax.swing.JLabel();
-        ctNumCon = new javax.swing.JTextField();
-        jLabel75 = new javax.swing.JLabel();
-        ctIvaCon = new javax.swing.JTextField();
-        ctPerIn = new javax.swing.JTextField();
-        jLabel76 = new javax.swing.JLabel();
-        ctPerFin = new javax.swing.JTextField();
-        ctIAeur = new javax.swing.JTextField();
-        ctIApts = new javax.swing.JTextField();
-        jLabel77 = new javax.swing.JLabel();
-        jLabel78 = new javax.swing.JLabel();
-        ctIMeur = new javax.swing.JTextField();
-        ctIMpts = new javax.swing.JTextField();
-        jLabel79 = new javax.swing.JLabel();
-        jLabel80 = new javax.swing.JLabel();
-        ctFormPag = new javax.swing.JTextField();
-        jLabel81 = new javax.swing.JLabel();
-        ctSitua = new javax.swing.JTextField();
-        jLabel82 = new javax.swing.JLabel();
-        ctDiaCobro2 = new javax.swing.JTextField();
-        ctDiaCobr1 = new javax.swing.JTextField();
-        jLabel83 = new javax.swing.JLabel();
-        ctRefHojBan = new javax.swing.JTextField();
-        jPanelContratos = new javax.swing.JPanel();
-        rbActivos = new javax.swing.JRadioButton();
-        rbCancelados = new javax.swing.JRadioButton();
-        rbTodos = new javax.swing.JRadioButton();
-        rbDescripcion = new javax.swing.JRadioButton();
-        rbNumCli = new javax.swing.JRadioButton();
-        rbNumContra = new javax.swing.JRadioButton();
-        jLabel84 = new javax.swing.JLabel();
-        jLabel85 = new javax.swing.JLabel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jTableContratos = new javax.swing.JTable();
-        bModificarContrato = new javax.swing.JButton();
-        bEstudiosActivos = new javax.swing.JButton();
-        bNuevoContr = new javax.swing.JButton();
-        bFormuClientes = new javax.swing.JButton();
+        jPhistorico = new javax.swing.JPanel();
+        jPhojasBan = new javax.swing.JPanel();
+        jPrecibos = new javax.swing.JPanel();
+        jPetiquetas = new javax.swing.JPanel();
+        jPprograma = PanelImagen.dameNuevoPanelSinLetras();
         PanelPesPrograma = new javax.swing.JTabbedPane();
-        jPcerrar = PanelImagen.dameNuevoPanelSinLetras();
-        jPcontraseña = PanelImagen.dameNuevoPanelSinLetras();
-        jPipc = PanelImagen.dameNuevoPanelSinLetras();
-        jPnumFac = PanelImagen.dameNuevoPanelSinLetras();
-        jPcopiasSeg = PanelImagen.dameNuevoPanelSinLetras();
+        jPcerrar =  new javax.swing.JPanel();
+        jPcontraseña =  new javax.swing.JPanel();
+        jPipc =  new javax.swing.JPanel();
+        jPnumFac =  new javax.swing.JPanel();
+        jPcopiasSeg =  new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jPinicioLayout = new javax.swing.GroupLayout(jPinicio);
-        jPinicio.setLayout(jPinicioLayout);
-        jPinicioLayout.setHorizontalGroup(
-            jPinicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        jPprograma = PanelImagen.dameNuevoPanelSinLetras();
-        );
-        jPinicioLayout.setVerticalGroup(
-            jPinicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         jPanelContraseña.setBackground(new java.awt.Color(255, 255, 204));
 
         jLabel87.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoContraseña.png"))); // NOI18N
@@ -312,34 +307,54 @@ public class VentanaGUI extends javax.swing.JFrame {
             }
         });
 
+        bAceptarContraseña.setText("Aceptar");
+
         javax.swing.GroupLayout jPanelContraseñaLayout = new javax.swing.GroupLayout(jPanelContraseña);
         jPanelContraseña.setLayout(jPanelContraseñaLayout);
         jPanelContraseñaLayout.setHorizontalGroup(
             jPanelContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelContraseñaLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jLabel87)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel86)
-                .addGap(18, 18, 18)
-                .addComponent(ctContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelContraseñaLayout.createSequentialGroup()
+                        .addComponent(jLabel86)
+                        .addGap(18, 18, 18)
+                        .addComponent(ctContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bAceptarContraseña))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanelContraseñaLayout.setVerticalGroup(
             jPanelContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelContraseñaLayout.createSequentialGroup()
-                .addGroup(jPanelContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelContraseñaLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addGroup(jPanelContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel86)
-                            .addComponent(ctContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanelContraseñaLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel87, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addComponent(jLabel87, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanelContraseñaLayout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addGroup(jPanelContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel86)
+                    .addComponent(ctContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bAceptarContraseña)
+                .addGap(27, 27, 27))
         );
 
+        javax.swing.GroupLayout jPinicioLayout = new javax.swing.GroupLayout(jPinicio);
+        jPinicio.setLayout(jPinicioLayout);
+        jPinicioLayout.setHorizontalGroup(
+            jPinicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPinicioLayout.createSequentialGroup()
+                .addContainerGap(660, Short.MAX_VALUE)
+                .addComponent(jPanelContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(595, 595, 595))
+        );
+        jPinicioLayout.setVerticalGroup(
+            jPinicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPinicioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanelContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(659, Short.MAX_VALUE))
         );
 
         PanelPestañasPrincipal.addTab("INICIO", jPinicio);
@@ -514,10 +529,8 @@ public class VentanaGUI extends javax.swing.JFrame {
         );
 
         PanelPestañasPrincipal.addTab("CLIENTES", null, jPclientes, "");
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPinicioLayout.createSequentialGroup()
-                .addContainerGap(660, Short.MAX_VALUE)
-                .addComponent(jPanelContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(595, 595, 595))
+
+        jPestudios.setOpaque(false);
 
         javax.swing.GroupLayout jPestudiosLayout = new javax.swing.GroupLayout(jPestudios);
         jPestudios.setLayout(jPestudiosLayout);
@@ -531,6 +544,8 @@ public class VentanaGUI extends javax.swing.JFrame {
         );
 
         PanelPesContratos.addTab("ESTUDIOS ACTIVOS", jPestudios);
+
+        jPgestion.setOpaque(false);
 
         jPanelDatosCli.setBackground(new java.awt.Color(102, 153, 255));
 
@@ -680,17 +695,15 @@ public class VentanaGUI extends javax.swing.JFrame {
                         .addComponent(jLabel76))
                     .addGroup(jPanelDatosContrLayout.createSequentialGroup()
                         .addComponent(jLabel70)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelDatosContrLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(ctNumCon, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(101, 101, 101)
                                 .addComponent(jLabel75)
                                 .addGap(18, 18, 18)
                                 .addComponent(ctIvaCon, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDatosContrLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ctPerFin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(ctPerFin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelDatosContrLayout.createSequentialGroup()
                             .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1718,10 +1731,8 @@ public class VentanaGUI extends javax.swing.JFrame {
 
         PanelPestañasPrincipal.addTab("EMPLEADOS", jPempleados);
 
-            .addGroup(jPinicioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanelContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(659, Short.MAX_VALUE))
+        jPhistorico.setOpaque(false);
+
         javax.swing.GroupLayout jPhistoricoLayout = new javax.swing.GroupLayout(jPhistorico);
         jPhistorico.setLayout(jPhistoricoLayout);
         jPhistoricoLayout.setHorizontalGroup(
@@ -1734,6 +1745,8 @@ public class VentanaGUI extends javax.swing.JFrame {
         );
 
         PanelPesOtros.addTab("HISTORICO FACTURAS", jPhistorico);
+
+        jPhojasBan.setOpaque(false);
 
         javax.swing.GroupLayout jPhojasBanLayout = new javax.swing.GroupLayout(jPhojasBan);
         jPhojasBan.setLayout(jPhojasBanLayout);
@@ -1748,6 +1761,8 @@ public class VentanaGUI extends javax.swing.JFrame {
 
         PanelPesOtros.addTab("HOJAS BANCO", jPhojasBan);
 
+        jPrecibos.setOpaque(false);
+
         javax.swing.GroupLayout jPrecibosLayout = new javax.swing.GroupLayout(jPrecibos);
         jPrecibos.setLayout(jPrecibosLayout);
         jPrecibosLayout.setHorizontalGroup(
@@ -1760,6 +1775,8 @@ public class VentanaGUI extends javax.swing.JFrame {
         );
 
         PanelPesOtros.addTab("RECIBOS", jPrecibos);
+
+        jPetiquetas.setOpaque(false);
 
         javax.swing.GroupLayout jPetiquetasLayout = new javax.swing.GroupLayout(jPetiquetas);
         jPetiquetas.setLayout(jPetiquetasLayout);
@@ -1787,6 +1804,8 @@ public class VentanaGUI extends javax.swing.JFrame {
 
         PanelPestañasPrincipal.addTab("OTROS", jPotros);
 
+        jPcerrar.setOpaque(false);
+
         javax.swing.GroupLayout jPcerrarLayout = new javax.swing.GroupLayout(jPcerrar);
         jPcerrar.setLayout(jPcerrarLayout);
         jPcerrarLayout.setHorizontalGroup(
@@ -1799,6 +1818,8 @@ public class VentanaGUI extends javax.swing.JFrame {
         );
 
         PanelPesPrograma.addTab("CERRAR PROGRAMA", jPcerrar);
+
+        jPcontraseña.setOpaque(false);
 
         javax.swing.GroupLayout jPcontraseñaLayout = new javax.swing.GroupLayout(jPcontraseña);
         jPcontraseña.setLayout(jPcontraseñaLayout);
@@ -1813,6 +1834,8 @@ public class VentanaGUI extends javax.swing.JFrame {
 
         PanelPesPrograma.addTab("CAMBIAR CONTRASEÑA", jPcontraseña);
 
+        jPipc.setOpaque(false);
+
         javax.swing.GroupLayout jPipcLayout = new javax.swing.GroupLayout(jPipc);
         jPipc.setLayout(jPipcLayout);
         jPipcLayout.setHorizontalGroup(
@@ -1826,6 +1849,8 @@ public class VentanaGUI extends javax.swing.JFrame {
 
         PanelPesPrograma.addTab("ACTUALIZAR IPC", jPipc);
 
+        jPnumFac.setOpaque(false);
+
         javax.swing.GroupLayout jPnumFacLayout = new javax.swing.GroupLayout(jPnumFac);
         jPnumFac.setLayout(jPnumFacLayout);
         jPnumFacLayout.setHorizontalGroup(
@@ -1838,6 +1863,8 @@ public class VentanaGUI extends javax.swing.JFrame {
         );
 
         PanelPesPrograma.addTab("AJUSTAR NUMERO FACTURA", jPnumFac);
+
+        jPcopiasSeg.setOpaque(false);
 
         javax.swing.GroupLayout jPcopiasSegLayout = new javax.swing.GroupLayout(jPcopiasSeg);
         jPcopiasSeg.setLayout(jPcopiasSegLayout);
@@ -1970,6 +1997,7 @@ public class VentanaGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane aNotas;
     private javax.swing.JTextArea atConcepto;
     private javax.swing.JTextArea atNotas;
+    private javax.swing.JButton bAceptarContraseña;
     private javax.swing.JButton bAñade;
     private javax.swing.JButton bAñadir;
     private javax.swing.JButton bBorra;
