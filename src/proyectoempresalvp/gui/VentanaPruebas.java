@@ -69,7 +69,7 @@ public class VentanaPruebas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = PanelImagen.dameNuevoPanel();
+        jPanel1 = PanelImagen.dameNuevoPanelSinLetras();
         jPanel2 = new JPanelTranslucido();
         jScrollPane1 = new ScrollPaneTranslucido();
         tablaPrueba = new Tabla();

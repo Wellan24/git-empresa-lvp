@@ -37,8 +37,8 @@ public class VentanaGUI extends javax.swing.JFrame {
         buttonGroupFacExtra = new javax.swing.ButtonGroup();
         PanelGUI = new javax.swing.JPanel();
         PanelPestañasPrincipal = new javax.swing.JTabbedPane();
-        jPinicio = PanelImagen.dameNuevoPanel();
-        jPclientes = PanelImagen.dameNuevoPanel();
+        jPinicio = PanelImagen.dameNuevoPanelConLetras();
+        jPclientes = PanelImagen.dameNuevoPanelSinLetras();
         jPinsertarCli = new JPanelTranslucido();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -84,9 +84,9 @@ public class VentanaGUI extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jPcontratos = new javax.swing.JPanel();
         PanelPesContratos = new javax.swing.JTabbedPane();
-        jPgestion = PanelImagen.dameNuevoPanel();
-        jPestudios = PanelImagen.dameNuevoPanel();
-        jPfacMens = PanelImagen.dameNuevoPanel();
+        jPgestion = PanelImagen.dameNuevoPanelSinLetras();
+        jPestudios = PanelImagen.dameNuevoPanelSinLetras();
+        jPfacMens = PanelImagen.dameNuevoPanelSinLetras();
         jPanel1 = new javax.swing.JPanel();
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
@@ -106,7 +106,7 @@ public class VentanaGUI extends javax.swing.JFrame {
         bVerFacMens = new javax.swing.JButton();
         bReimprimeFac = new javax.swing.JButton();
         jLabel43 = new javax.swing.JLabel();
-        jPfacExtra = PanelImagen.dameNuevoPanel();
+        jPfacExtra = PanelImagen.dameNuevoPanelSinLetras();
         jPanel3 = new javax.swing.JPanel();
         jLabel44 = new javax.swing.JLabel();
         rbCliEmp = new javax.swing.JRadioButton();
@@ -153,7 +153,7 @@ public class VentanaGUI extends javax.swing.JFrame {
         bImprimir = new javax.swing.JButton();
         bNuevaFac = new javax.swing.JButton();
         bModifFac = new javax.swing.JButton();
-        jPempleados = PanelImagen.dameNuevoPanel();
+        jPempleados = PanelImagen.dameNuevoPanelSinLetras();
         jPdatosPer = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -208,10 +208,10 @@ public class VentanaGUI extends javax.swing.JFrame {
         jLabel37 = new javax.swing.JLabel();
         jPotros = new javax.swing.JPanel();
         PanelPesOtros = new javax.swing.JTabbedPane();
-        jPhistorico = PanelImagen.dameNuevoPanel();
-        jPhojasBan = PanelImagen.dameNuevoPanel();
-        jPrecibos = PanelImagen.dameNuevoPanel();
-        jPetiquetas = PanelImagen.dameNuevoPanel();
+        jPhistorico = PanelImagen.dameNuevoPanelSinLetras();
+        jPhojasBan = PanelImagen.dameNuevoPanelSinLetras();
+        jPrecibos = PanelImagen.dameNuevoPanelSinLetras();
+        jPetiquetas = PanelImagen.dameNuevoPanelSinLetras();
         jPprograma = new javax.swing.JPanel();
         PanelPesPrograma = new javax.swing.JTabbedPane();
         jPcerrar = new javax.swing.JPanel();

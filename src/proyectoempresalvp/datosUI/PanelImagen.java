@@ -16,29 +16,50 @@ import javax.swing.JPanel;
  */
 public class PanelImagen extends JPanel implements Cloneable {
 
-    private static ImageIcon img;
+    private static ImageIcon imagenSinLetras;
+    private static ImageIcon imagenConLetras;
+    private ImageIcon imagen;
 
-    public PanelImagen() {
+    public PanelImagen(ImageIcon imagen) {
+        
+        this.imagen = imagen;
+        System.out.println(imagen);
     }
 
     @Override
     public void paintComponent(Graphics g) {
 
-        g.drawImage(img.getImage(), 0, 0, 1205, 840, null);
+        g.drawImage(imagenSinLetras.getImage(), 0, 0, 1200, 840, null);
         super.paintComponent(g);
     }
 
-    public static PanelImagen dameNuevoPanel() {
+    public static PanelImagen dameNuevoPanelSinLetras() {
 
-        if (img == null) {
+        if (imagenSinLetras == null) {
 
-            ImageIcon imagenFondo = new ImageIcon(PanelImagen.class.getResource("/images/fondo1.jpg"));
+            ImageIcon imagenFondo = new ImageIcon(PanelImagen.class.getResource("/images/fondoSinLetras.jpg"));
             Image imagen = imagenFondo.getImage();
             imagen = imagen.getScaledInstance(1200, 840, 0);
-            img = new ImageIcon(imagen);
+            imagenSinLetras = new ImageIcon(imagen);
         }
         
-        PanelImagen dev = new PanelImagen();
+        PanelImagen dev = new PanelImagen(imagenSinLetras);
+        dev.setOpaque(false);
+
+        return dev;
+    }
+    
+    public static PanelImagen dameNuevoPanelConLetras() {
+
+        if (imagenConLetras == null) {
+
+            ImageIcon imagenFondo = new ImageIcon(PanelImagen.class.getResource("/images/fondoInicio.jpg"));
+            Image imagen = imagenFondo.getImage();
+            imagen = imagen.getScaledInstance(1200, 840, 0);
+            imagenConLetras = new ImageIcon(imagen);
+        }
+        
+        PanelImagen dev = new PanelImagen(imagenConLetras);
         dev.setOpaque(false);
 
         return dev;
