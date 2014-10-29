@@ -28,7 +28,6 @@ public class PanelImagen extends JPanel implements Cloneable {
     public PanelImagen(ImageIcon imagen) {
         
         this.imagen = imagen;
-        System.out.println(imagen);
     }
 
     @Override
