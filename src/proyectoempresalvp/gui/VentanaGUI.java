@@ -452,18 +452,22 @@ public class VentanaGUI extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTableClientes);
 
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 153, 153));
         jLabel16.setText("Ordenar listado por:");
 
         buttonGroupOrdLis.add(cbNombre);
+        cbNombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cbNombre.setForeground(new java.awt.Color(255, 153, 153));
         cbNombre.setText("Nombre");
 
         buttonGroupOrdLis.add(cbDescripcion);
+        cbDescripcion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cbDescripcion.setForeground(new java.awt.Color(255, 153, 153));
         cbDescripcion.setText("Descripción");
 
         buttonGroupOrdLis.add(cbNif);
+        cbNif.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cbNif.setForeground(new java.awt.Color(255, 153, 153));
         cbNif.setText("NIF/CIF");
 
@@ -488,17 +492,19 @@ public class VentanaGUI extends javax.swing.JFrame {
                 .addGroup(jPclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(bImprime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPclientesLayout.createSequentialGroup()
-                        .addComponent(jLabel16)
-                        .addGap(26, 26, 26)
-                        .addComponent(cbNombre)
-                        .addGap(30, 30, 30)
-                        .addComponent(cbDescripcion)
-                        .addGap(29, 29, 29)
-                        .addComponent(cbNif))
                     .addGroup(jPclientesLayout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addComponent(jLabel17)))
+                        .addGroup(jPclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPclientesLayout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cbNombre)
+                                .addGap(52, 52, 52)
+                                .addComponent(cbDescripcion)
+                                .addGap(63, 63, 63)
+                                .addComponent(cbNif)
+                                .addGap(19, 19, 19))
+                            .addComponent(jLabel17))))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
         jPclientesLayout.setVerticalGroup(

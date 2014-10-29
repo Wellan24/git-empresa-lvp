@@ -5,6 +5,7 @@
  */
 package proyectoempresalvp.gestoras;
 
+import java.math.BigDecimal;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -33,11 +34,11 @@ public class GestoraTest {
     @Test
     public void testCalculaPrecioConIva() {
         System.out.println("calculaPrecioConIva");
-        float precio = 45F;
-        float iva = 16F;
-        float expResult = 52.2F;
-        float result = Gestora.calculaPrecioConIva(precio, iva);
-        assertEquals(expResult, result, 0.001);
+        String precio = "45";
+        String iva = "16";
+        BigDecimal expResult = new BigDecimal("52.20");
+        BigDecimal result = Gestora.calculaPrecioConIva(precio, iva);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -46,23 +47,10 @@ public class GestoraTest {
     @Test
     public void testCalculaIva() {
         System.out.println("calculaIva");
-        float precio = 45F;
-        float iva = 16F;
-        float expResult = 7.2F;
-        float result = Gestora.calculaIva(precio, iva);
-        assertEquals(expResult, result, 0.001);
-    }
-
-    /**
-     * Test of redondeaFloat method, of class Gestora.
-     */
-    @Test
-    public void testRedondeaFloat() {
-        System.out.println("redondeaFloat");
-        float n = 1456.234567F;
-        int decimales = 2;
-        String expResult = "1456,23";
-        String result = Gestora.redondeaFloat(n, decimales);
+        String precio = "45";
+        String iva = "16";
+        BigDecimal expResult = new BigDecimal("7.20");
+        BigDecimal result = Gestora.calculaIva(precio, iva);
         assertEquals(expResult, result);
     }
     

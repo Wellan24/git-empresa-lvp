@@ -5,7 +5,8 @@
  */
 package proyectoempresalvp.gestoras;
 
-import java.text.DecimalFormat;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  *
@@ -13,19 +14,31 @@ import java.text.DecimalFormat;
  */
 public class Gestora {
     
-    public static float calculaPrecioConIva(float precio, float iva){
+    /**
+     * 
+     * @param precio
+     * @param iva
+     * @return Un BigDecimal redondeado a 2 decimales
+     */
+    public static BigDecimal calculaPrecioConIva(String precio, String iva){
         
-        return precio * (1 + iva / 100);
+        BigDecimal dev = new BigDecimal(precio);
+        dev = dev.multiply(new BigDecimal("1."+iva));
+        dev.setScale(2, RoundingMode.HALF_EVEN);
+        return dev;
     }
     
-    public static float calculaIva(float precio, float iva){
+    /**
+     * 
+     * @param precio
+     * @param iva
+     * @return Un BigDecimal redondeado a 2 decimales
+     */
+    public static BigDecimal calculaIva(String precio, String iva){
         
-        return precio * iva / 100;
-    }
-    
-    public static String redondeaFloat(float n, int decimales){
-        
-        DecimalFormat d = new DecimalFormat("###.##");       
-        return d.format(n);
+        BigDecimal dev = new BigDecimal(precio);
+        dev = dev.multiply(new BigDecimal("0."+iva));
+        dev.setScale(2, RoundingMode.HALF_EVEN);
+        return dev;
     }
 }
