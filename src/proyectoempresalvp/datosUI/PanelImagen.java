@@ -7,6 +7,11 @@ package proyectoempresalvp.datosUI;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
@@ -29,7 +34,7 @@ public class PanelImagen extends JPanel implements Cloneable {
     @Override
     public void paintComponent(Graphics g) {
 
-        g.drawImage(imagenSinLetras.getImage(), 0, 0, 1200, 840, null);
+        g.drawImage(imagen.getImage(), 0, 0, 1200, 840, null);
         super.paintComponent(g);
     }
 
@@ -52,7 +57,7 @@ public class PanelImagen extends JPanel implements Cloneable {
     public static PanelImagen dameNuevoPanelConLetras() {
 
         if (imagenConLetras == null) {
-
+            
             ImageIcon imagenFondo = new ImageIcon(PanelImagen.class.getResource("/images/fondoInicio.jpg"));
             Image imagen = imagenFondo.getImage();
             imagen = imagen.getScaledInstance(1200, 840, 0);
