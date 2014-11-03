@@ -328,7 +328,7 @@ public class VentanaGUI extends javax.swing.JFrame {
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaHistoricoFacturas = new javax.swing.JTable();
         jPanel8 = new javax.swing.JPanel();
         jLabel101 = new javax.swing.JLabel();
         jLabel102 = new javax.swing.JLabel();
@@ -2079,7 +2079,7 @@ public class VentanaGUI extends javax.swing.JFrame {
                 .addGap(17, 17, 17))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaHistoricoFacturas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -2090,7 +2090,7 @@ public class VentanaGUI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane8.setViewportView(jTable1);
+        jScrollPane8.setViewportView(tablaHistoricoFacturas);
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 204));
 
@@ -2699,7 +2699,6 @@ public class VentanaGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JTable jTablaEmple;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTableClientes;
     private javax.swing.JTable jTableContratos;
     private javax.swing.JTextArea jTextArea1;
@@ -2717,6 +2716,7 @@ public class VentanaGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbTods;
     private javax.swing.JTable tablaFacExtra;
     private javax.swing.JTable tablaFacMensuales;
+    private javax.swing.JTable tablaHistoricoFacturas;
     // End of variables declaration//GEN-END:variables
 }
 
