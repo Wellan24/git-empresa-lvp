@@ -48,13 +48,7 @@ public class VentanaPruebas extends javax.swing.JFrame {
         new Cliente(10, 10, "", "", "", "", 10, "", "", 10, 10, "", 10, 10, 10, 10, 10, 10, 10),
         new Cliente(10, 10, "", "", "", "", 10, "", "", 10, 10, "", 10, 10, 10, 10, 10, 10, 10)};   
         
-        tablaPrueba.setSelectionBackground(new Color(0xc3ecff));
-        tablaPrueba.setSelectionForeground(new Color( 0,0,0)); 
         
-//        tablaPrueba.setGridColor(new Color(0x50b3e1));
-        tablaPrueba.setDefaultRenderer(Object.class, new TableRenderer());
-       
-        tablaPrueba.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tablaPrueba.setModel(new ModeloTabla(cl));
         GestoraBaseDatos.conectarBaseDatos();
         GestoraBaseDatos.ejecutarSentencia("Insert into prueba values('320');");

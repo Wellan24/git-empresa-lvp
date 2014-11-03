@@ -23,8 +23,8 @@ import javax.swing.JViewport;
 public class ScrollPanelRedondo extends JScrollPane{
     
     private final Color color = new Color(0xEFFBFB);
-    private final int arcw = 20;
-    private final int arch = 20;
+    private final int arcw = 2;
+    private final int arch = 2;
 
     public ScrollPanelRedondo() {
         super();
@@ -47,7 +47,7 @@ public class ScrollPanelRedondo extends JScrollPane{
 
         g2.setStroke(new BasicStroke(4f));
         g2.setPaint(Color.BLACK);
-        g2.drawRoundRect(0, 0, getWidth() - 2, getHeight() - 2, 18, 18);
+        g2.drawRoundRect(0, 0, getWidth() - 2, getHeight() - 2, 0, 0);
 
         g2.setPaint(oldPaint);
         super.paintComponent(g);

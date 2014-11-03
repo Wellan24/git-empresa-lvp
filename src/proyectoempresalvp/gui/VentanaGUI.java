@@ -7,6 +7,8 @@ package proyectoempresalvp.gui;
 
 import proyectoempresalvp.datosUI.PanelImagen;
 import proyectoempresalvp.datosUI.JPanelTranslucido;
+import proyectoempresalvp.datosUI.ScrollPaneTranslucido;
+import proyectoempresalvp.datosUI.Tabla;
 
 /**
  *
@@ -83,8 +85,8 @@ public class VentanaGUI extends javax.swing.JFrame {
         bModificar = new javax.swing.JButton();
         bFormularioCon = new javax.swing.JButton();
         bImprime = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableClientes = new javax.swing.JTable();
+        jScrollPane1 = new ScrollPaneTranslucido();
+        jTableClientes = new Tabla();
         jLabel16 = new javax.swing.JLabel();
         cbNombre = new javax.swing.JCheckBox();
         cbDescripcion = new javax.swing.JCheckBox();
@@ -94,7 +96,7 @@ public class VentanaGUI extends javax.swing.JFrame {
         PanelPesContratos = new javax.swing.JTabbedPane();
         jPestudios = new javax.swing.JPanel();
         jPgestion = new javax.swing.JPanel();
-        jPanelDatosCli = new javax.swing.JPanel();
+        jPanelDatosCli = new JPanelTranslucido();
         jLabel60 = new javax.swing.JLabel();
         jLabel61 = new javax.swing.JLabel();
         jLabel62 = new javax.swing.JLabel();
@@ -115,7 +117,7 @@ public class VentanaGUI extends javax.swing.JFrame {
         ctNifiCif = new javax.swing.JTextField();
         ctTelefon = new javax.swing.JTextField();
         ctNumCuent = new javax.swing.JTextField();
-        jPanelDatosContr = new javax.swing.JPanel();
+        jPanelDatosContr = new JPanelTranslucido();
         jLabel70 = new javax.swing.JLabel();
         jLabel71 = new javax.swing.JLabel();
         jLabel72 = new javax.swing.JLabel();
@@ -152,14 +154,14 @@ public class VentanaGUI extends javax.swing.JFrame {
         rbNumContra = new javax.swing.JRadioButton();
         jLabel84 = new javax.swing.JLabel();
         jLabel85 = new javax.swing.JLabel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jTableContratos = new javax.swing.JTable();
+        jScrollPane7 = new ScrollPaneTranslucido();
+        jTableContratos = new Tabla();
         bModificarContrato = new javax.swing.JButton();
         bEstudiosActivos = new javax.swing.JButton();
         bNuevoContr = new javax.swing.JButton();
         bFormuClientes = new javax.swing.JButton();
         jPfacMens = PanelImagen.dameNuevoPanelSinLetras();
-        jPanel1 = new javax.swing.JPanel();
+        jPanel1 = new JPanelTranslucido();
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
@@ -167,23 +169,23 @@ public class VentanaGUI extends javax.swing.JFrame {
         ctIva = new javax.swing.JTextField();
         cbPeriodo = new javax.swing.JComboBox();
         bExamFac = new javax.swing.JButton();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tablaFacMensuales = new javax.swing.JTable();
+        jScrollPane4 = new ScrollPaneTranslucido();
+        tablaFacMensuales = new Tabla();
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
         cbNumFac = new javax.swing.JCheckBox();
         cbDescrip = new javax.swing.JCheckBox();
-        jPanel2 = new javax.swing.JPanel();
+        jPanel2 = new JPanelTranslucido();
         bHojasDomBan = new javax.swing.JButton();
         bVerFacMens = new javax.swing.JButton();
         bReimprimeFac = new javax.swing.JButton();
         jLabel43 = new javax.swing.JLabel();
         jPfacExtra = PanelImagen.dameNuevoPanelSinLetras();
-        jPanel3 = new javax.swing.JPanel();
+        jPanel3 = new JPanelTranslucido();
         jLabel44 = new javax.swing.JLabel();
         rbCliEmp = new javax.swing.JRadioButton();
         rbCliOcas = new javax.swing.JRadioButton();
-        jPanel4 = new javax.swing.JPanel();
+        jPanel4 = new JPanelTranslucido();
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
@@ -196,7 +198,7 @@ public class VentanaGUI extends javax.swing.JFrame {
         ctCodpos = new javax.swing.JTextField();
         ctProvin = new javax.swing.JTextField();
         ctNcif = new javax.swing.JTextField();
-        jPanel5 = new javax.swing.JPanel();
+        jPanel5 = new JPanelTranslucido();
         jLabel51 = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
         jLabel53 = new javax.swing.JLabel();
@@ -208,7 +210,7 @@ public class VentanaGUI extends javax.swing.JFrame {
         ctTotal = new javax.swing.JTextField();
         ctIvaa = new javax.swing.JTextField();
         jLabel56 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
+        jPanel6 = new JPanelTranslucido();
         jLabel57 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         atConcepto = new javax.swing.JTextArea();
@@ -219,14 +221,14 @@ public class VentanaGUI extends javax.swing.JFrame {
         jLabel58 = new javax.swing.JLabel();
         ctImporte = new javax.swing.JTextField();
         jLabel59 = new javax.swing.JLabel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        tablaFacExtra = new javax.swing.JTable();
+        jScrollPane6 = new ScrollPaneTranslucido();
+        tablaFacExtra = new Tabla();
         bGuardar = new javax.swing.JButton();
         bImprimir = new javax.swing.JButton();
         bNuevaFac = new javax.swing.JButton();
         bModifFac = new javax.swing.JButton();
         jPempleados = PanelImagen.dameNuevoPanelSinLetras();
-        jPdatosPer = new javax.swing.JPanel();
+        jPdatosPer = new JPanelTranslucido();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -247,7 +249,7 @@ public class VentanaGUI extends javax.swing.JFrame {
         ctNifCif = new javax.swing.JTextField();
         ctTelef = new javax.swing.JTextField();
         ctMov = new javax.swing.JTextField();
-        jPdatosProf = new javax.swing.JPanel();
+        jPdatosProf = new JPanelTranslucido();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
@@ -268,8 +270,8 @@ public class VentanaGUI extends javax.swing.JFrame {
         bAñadir = new javax.swing.JButton();
         bModif = new javax.swing.JButton();
         bVacBajas = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTablaEmple = new javax.swing.JTable();
+        jScrollPane2 = new ScrollPaneTranslucido();
+        jTablaEmple = new Tabla();
         jLabel35 = new javax.swing.JLabel();
         bImprimirLis = new javax.swing.JButton();
         jLabel36 = new javax.swing.JLabel();

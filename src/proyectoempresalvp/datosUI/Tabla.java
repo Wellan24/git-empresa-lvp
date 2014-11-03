@@ -19,13 +19,12 @@ import javax.swing.JTable;
  */
 public class Tabla extends JTable{
 
-    private final Color color = new Color(0xEFFBFB);
-    private final int arcw = 20;
-    private final int arch = 20;
 
     public Tabla() {        
         super();
         setOpaque(false);
+        setDefaultRenderer(Object.class, new TableRenderer());       
+        setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
     }   
     
 
@@ -36,7 +35,7 @@ public class Tabla extends JTable{
         
         g2.setStroke(new BasicStroke(4f));
         g2.setPaint(Color.BLACK);
-        g2.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 2, 18, 18);
+//        g2.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 2, 1, 1);
         
         g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
                 RenderingHints.VALUE_INTERPOLATION_BILINEAR);

@@ -6,22 +6,13 @@
 package proyectoempresalvp.datosUI;
 
 import java.awt.AlphaComposite;
-import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Paint;
 import java.awt.RenderingHints;
-import java.awt.geom.RoundRectangle2D;
-import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JTable;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.Border;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.LineBorder;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 
 /**
@@ -48,24 +39,24 @@ public class TableRenderer extends JLabel implements TableCellRenderer {
             final Object value, final boolean isSelected, final boolean hasFocus,
             final int row, final int column) {
 
-        setText(value.toString());
-
-        setBackground(colorAzulClaro);
-        setForeground(colorNegro);
-        setBorder(null);
-        this.isSelected = false;
-        if (isSelected) {
-
-            this.isSelected = true;
-            setBackground(colorAzulOscuro);
-//            setForeground(new Color(0xFFFFFF));
+        if (value != null) {
+            setText(value.toString());
         }
-        if (hasFocus) {
+            setBackground(colorAzulClaro);
+            setForeground(colorNegro);
+            setBorder(null);
+            this.isSelected = false;
+            if (isSelected) {
 
-            setBackground(colorAzulSeleccionado);
-        }
+                this.isSelected = true;
+                setBackground(colorAzulOscuro);
+            }
+            if (hasFocus) {
 
-        return this;
+                setBackground(colorAzulSeleccionado);
+            }
+
+            return this;
     }
 
     @Override
