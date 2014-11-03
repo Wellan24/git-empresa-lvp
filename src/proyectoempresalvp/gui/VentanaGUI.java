@@ -1896,7 +1896,7 @@ public class VentanaGUI extends javax.swing.JFrame {
         );
         jPprogramaLayout.setVerticalGroup(
             jPprogramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelPesPrograma)
+            .addComponent(PanelPesPrograma, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         PanelPestañasPrincipal.addTab("PROGRAMA", jPprograma);
