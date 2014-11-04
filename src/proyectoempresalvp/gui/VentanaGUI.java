@@ -48,6 +48,7 @@ public class VentanaGUI extends javax.swing.JFrame {
         buttonGroupRecibosBancos = new javax.swing.ButtonGroup();
         buttonGroupRecibosMoneda = new javax.swing.ButtonGroup();
         buttonGroupSelectListClient = new javax.swing.ButtonGroup();
+        buttonGroupIPC = new javax.swing.ButtonGroup();
         PanelGUI = new javax.swing.JPanel();
         PanelPestañasPrincipal = new javax.swing.JTabbedPane();
         jPinicio = PanelImagen.dameNuevoPanelConLetras();
@@ -475,7 +476,31 @@ public class VentanaGUI extends javax.swing.JFrame {
         PanelPesPrograma = new javax.swing.JTabbedPane();
         jPcerrar =  new javax.swing.JPanel();
         jPcontraseña =  new javax.swing.JPanel();
+        jPanelContras = new JPanelTranslucido();
+        jLabel145 = new javax.swing.JLabel();
+        jLabel146 = new javax.swing.JLabel();
+        jLabel147 = new javax.swing.JLabel();
+        jLabel148 = new javax.swing.JLabel();
+        jLabel149 = new javax.swing.JLabel();
+        ctClaveAc = new javax.swing.JTextField();
+        ctNueva = new javax.swing.JTextField();
+        ctConfirNueva = new javax.swing.JTextField();
+        bCancel = new javax.swing.JButton();
+        bAcep = new javax.swing.JButton();
         jPipc =  new javax.swing.JPanel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        tablaIPC = new javax.swing.JTable();
+        jPanel12 = new JPanelTranslucido();
+        jLabel150 = new javax.swing.JLabel();
+        rbDes = new javax.swing.JRadioButton();
+        rbNumC = new javax.swing.JRadioButton();
+        rbNcli = new javax.swing.JRadioButton();
+        jLabel151 = new javax.swing.JLabel();
+        ctIPC = new javax.swing.JTextField();
+        jLabel152 = new javax.swing.JLabel();
+        bPrevisual = new javax.swing.JButton();
+        bImpriLisVis = new javax.swing.JButton();
+        bGuardaNuImpo = new javax.swing.JButton();
         jPnumFac =  new javax.swing.JPanel();
         jPcopiasSeg =  new javax.swing.JPanel();
 
@@ -539,7 +564,7 @@ public class VentanaGUI extends javax.swing.JFrame {
             .addGroup(jPinicioLayout.createSequentialGroup()
                 .addGap(639, 639, 639)
                 .addComponent(jPanelContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1106, Short.MAX_VALUE))
+                .addContainerGap(1625, Short.MAX_VALUE))
         );
         jPinicioLayout.setVerticalGroup(
             jPinicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -697,7 +722,7 @@ public class VentanaGUI extends javax.swing.JFrame {
                                 .addComponent(cbNif)
                                 .addGap(19, 19, 19))
                             .addComponent(jLabel17))))
-                .addContainerGap(1121, Short.MAX_VALUE))
+                .addContainerGap(1640, Short.MAX_VALUE))
         );
         jPclientesLayout.setVerticalGroup(
             jPclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1130,7 +1155,7 @@ public class VentanaGUI extends javax.swing.JFrame {
                 .addGroup(jPgestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanelContratos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE))
-                .addContainerGap(1127, Short.MAX_VALUE))
+                .addContainerGap(1646, Short.MAX_VALUE))
         );
         jPgestionLayout.setVerticalGroup(
             jPgestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1326,7 +1351,7 @@ public class VentanaGUI extends javax.swing.JFrame {
                             .addComponent(cbNumFac)))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel43))
-                .addContainerGap(1138, Short.MAX_VALUE))
+                .addContainerGap(1657, Short.MAX_VALUE))
         );
         jPfacMensLayout.setVerticalGroup(
             jPfacMensLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1681,7 +1706,7 @@ public class VentanaGUI extends javax.swing.JFrame {
                         .addComponent(bNuevaFac, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(bModifFac, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1181, Short.MAX_VALUE))
+                .addContainerGap(1700, Short.MAX_VALUE))
         );
         jPfacExtraLayout.setVerticalGroup(
             jPfacExtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1884,7 +1909,7 @@ public class VentanaGUI extends javax.swing.JFrame {
                             .addComponent(rbDescrip, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(rbNumEm, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap(1134, Short.MAX_VALUE))
+                .addContainerGap(1653, Short.MAX_VALUE))
         );
         jPempleadosLayout.setVerticalGroup(
             jPempleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2178,7 +2203,7 @@ public class VentanaGUI extends javax.swing.JFrame {
                 .addGroup(jPhojasBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane9)
                     .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(1174, Short.MAX_VALUE))
+                .addContainerGap(1693, Short.MAX_VALUE))
         );
         jPhojasBanLayout.setVerticalGroup(
             jPhojasBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2522,7 +2547,7 @@ public class VentanaGUI extends javax.swing.JFrame {
                     .addComponent(jPanelSelecRecibo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(41, 41, 41)
                 .addComponent(jPanelRecibo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1152, Short.MAX_VALUE))
+                .addContainerGap(1671, Short.MAX_VALUE))
         );
         jPrecibosLayout.setVerticalGroup(
             jPrecibosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2804,7 +2829,7 @@ public class VentanaGUI extends javax.swing.JFrame {
                             .addComponent(jLabel143)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(rbN))))
-                .addContainerGap(1104, Short.MAX_VALUE))
+                .addContainerGap(1623, Short.MAX_VALUE))
         );
         jPetiquetasLayout.setVerticalGroup(
             jPetiquetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3172,7 +3197,7 @@ public class VentanaGUI extends javax.swing.JFrame {
                         .addComponent(bActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bImprim, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1192, Short.MAX_VALUE))
+                .addContainerGap(1711, Short.MAX_VALUE))
         );
         jPhistoricoLayout.setVerticalGroup(
             jPhistoricoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3215,7 +3240,7 @@ public class VentanaGUI extends javax.swing.JFrame {
         jPcerrar.setLayout(jPcerrarLayout);
         jPcerrarLayout.setHorizontalGroup(
             jPcerrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2267, Short.MAX_VALUE)
+            .addGap(0, 2786, Short.MAX_VALUE)
         );
         jPcerrarLayout.setVerticalGroup(
             jPcerrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3226,30 +3251,211 @@ public class VentanaGUI extends javax.swing.JFrame {
 
         jPcontraseña.setOpaque(false);
 
+        jPanelContras.setBackground(new java.awt.Color(204, 204, 255));
+
+        jLabel145.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel145.setText("CAMBIO DE CONTRASEÑA DE ACCESO");
+
+        jLabel146.setForeground(new java.awt.Color(255, 102, 102));
+        jLabel146.setText("LAS CONTRASEÑAS ADMITEN UN MÁXIMO DE 8 CARACTERES DIFERENCIANDO MAYUSCULAS Y MINUSCULAS");
+
+        jLabel147.setText("CLAVE DE ACCESO A LA APLICACION");
+
+        jLabel148.setText("NUEVA CLAVE:");
+
+        jLabel149.setText("CONFIRME NUEVA CLAVE:");
+
+        bCancel.setBackground(new java.awt.Color(255, 51, 51));
+        bCancel.setText("CANCELAR");
+
+        bAcep.setBackground(new java.awt.Color(153, 255, 153));
+        bAcep.setText("ACEPTAR");
+
+        javax.swing.GroupLayout jPanelContrasLayout = new javax.swing.GroupLayout(jPanelContras);
+        jPanelContras.setLayout(jPanelContrasLayout);
+        jPanelContrasLayout.setHorizontalGroup(
+            jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelContrasLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelContrasLayout.createSequentialGroup()
+                        .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel146)
+                            .addGroup(jPanelContrasLayout.createSequentialGroup()
+                                .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel147)
+                                    .addComponent(jLabel148)
+                                    .addComponent(jLabel149))
+                                .addGap(65, 65, 65)
+                                .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ctClaveAc)
+                                    .addComponent(ctNueva)
+                                    .addComponent(ctConfirNueva, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)))
+                            .addComponent(jLabel145))
+                        .addContainerGap(43, Short.MAX_VALUE))
+                    .addGroup(jPanelContrasLayout.createSequentialGroup()
+                        .addComponent(bCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bAcep, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(89, 89, 89))))
+        );
+        jPanelContrasLayout.setVerticalGroup(
+            jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelContrasLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel145)
+                .addGap(3, 3, 3)
+                .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelContrasLayout.createSequentialGroup()
+                        .addComponent(jLabel146)
+                        .addGap(50, 50, 50)
+                        .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel147)
+                            .addComponent(ctClaveAc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel148))
+                    .addComponent(ctNueva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel149)
+                    .addComponent(ctConfirNueva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(78, 78, 78)
+                .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bCancel)
+                    .addComponent(bAcep))
+                .addContainerGap(57, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPcontraseñaLayout = new javax.swing.GroupLayout(jPcontraseña);
         jPcontraseña.setLayout(jPcontraseñaLayout);
         jPcontraseñaLayout.setHorizontalGroup(
             jPcontraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2267, Short.MAX_VALUE)
+            .addGroup(jPcontraseñaLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jPanelContras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(2135, Short.MAX_VALUE))
         );
         jPcontraseñaLayout.setVerticalGroup(
             jPcontraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 807, Short.MAX_VALUE)
+            .addGroup(jPcontraseñaLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jPanelContras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(404, Short.MAX_VALUE))
         );
 
         PanelPesPrograma.addTab("CAMBIAR CONTRASEÑA", jPcontraseña);
 
         jPipc.setOpaque(false);
 
+        tablaIPC.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane12.setViewportView(tablaIPC);
+
+        jPanel12.setBackground(new java.awt.Color(204, 204, 255));
+
+        jLabel150.setText("Ordenar por:");
+
+        buttonGroupIPC.add(rbDes);
+        rbDes.setText("Descripción");
+
+        buttonGroupIPC.add(rbNumC);
+        rbNumC.setText("Nº Contrato");
+
+        buttonGroupIPC.add(rbNcli);
+        rbNcli.setText("Nº Cliente");
+
+        jLabel151.setText("AJUSTE IPC:");
+
+        jLabel152.setText("%");
+
+        bPrevisual.setText("Previsualizar");
+
+        bImpriLisVis.setText("Imprimir Listado Visible");
+
+        bGuardaNuImpo.setText("Guardar Nuevos Importes");
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(bGuardaNuImpo, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bImpriLisVis, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel12Layout.createSequentialGroup()
+                            .addGap(101, 101, 101)
+                            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(rbNumC)
+                                .addComponent(rbDes)
+                                .addComponent(rbNcli)))
+                        .addGroup(jPanel12Layout.createSequentialGroup()
+                            .addGap(38, 38, 38)
+                            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel150)
+                                .addGroup(jPanel12Layout.createSequentialGroup()
+                                    .addGap(19, 19, 19)
+                                    .addComponent(jLabel151)
+                                    .addGap(38, 38, 38)
+                                    .addComponent(ctIPC, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel152))
+                                .addComponent(bPrevisual, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel150)
+                .addGap(18, 18, 18)
+                .addComponent(rbDes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(rbNumC)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(rbNcli)
+                .addGap(60, 60, 60)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel151)
+                    .addComponent(ctIPC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel152))
+                .addGap(36, 36, 36)
+                .addComponent(bPrevisual)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bImpriLisVis)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bGuardaNuImpo)
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPipcLayout = new javax.swing.GroupLayout(jPipc);
         jPipc.setLayout(jPipcLayout);
         jPipcLayout.setHorizontalGroup(
             jPipcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2267, Short.MAX_VALUE)
+            .addGroup(jPipcLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78)
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1727, Short.MAX_VALUE))
         );
         jPipcLayout.setVerticalGroup(
             jPipcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 807, Short.MAX_VALUE)
+            .addGroup(jPipcLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(jPipcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(219, Short.MAX_VALUE))
         );
 
         PanelPesPrograma.addTab("ACTUALIZAR IPC", jPipc);
@@ -3260,7 +3466,7 @@ public class VentanaGUI extends javax.swing.JFrame {
         jPnumFac.setLayout(jPnumFacLayout);
         jPnumFacLayout.setHorizontalGroup(
             jPnumFacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2267, Short.MAX_VALUE)
+            .addGap(0, 2786, Short.MAX_VALUE)
         );
         jPnumFacLayout.setVerticalGroup(
             jPnumFacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3275,7 +3481,7 @@ public class VentanaGUI extends javax.swing.JFrame {
         jPcopiasSeg.setLayout(jPcopiasSegLayout);
         jPcopiasSegLayout.setHorizontalGroup(
             jPcopiasSegLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2267, Short.MAX_VALUE)
+            .addGap(0, 2786, Short.MAX_VALUE)
         );
         jPcopiasSegLayout.setVerticalGroup(
             jPcopiasSegLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3430,6 +3636,7 @@ public class VentanaGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane aNotas;
     private javax.swing.JTextArea atConcepto;
     private javax.swing.JTextArea atNotas;
+    private javax.swing.JButton bAcep;
     private javax.swing.JButton bAceptarContraseña;
     private javax.swing.JButton bActualizar;
     private javax.swing.JButton bAñad;
@@ -3438,6 +3645,7 @@ public class VentanaGUI extends javax.swing.JFrame {
     private javax.swing.JButton bAñadir;
     private javax.swing.JButton bAñadirDom;
     private javax.swing.JButton bBorra;
+    private javax.swing.JButton bCancel;
     private javax.swing.JButton bCancela;
     private javax.swing.JButton bEstudiosActivos;
     private javax.swing.JButton bEtiqLibre;
@@ -3445,10 +3653,12 @@ public class VentanaGUI extends javax.swing.JFrame {
     private javax.swing.JButton bFormuClientes;
     private javax.swing.JButton bFormularioCon;
     private javax.swing.JButton bGeneraRecibos;
+    private javax.swing.JButton bGuardaNuImpo;
     private javax.swing.JButton bGuardar;
     private javax.swing.JButton bHojasDomBan;
     private javax.swing.JButton bImp;
     private javax.swing.JButton bImpri;
+    private javax.swing.JButton bImpriLisVis;
     private javax.swing.JButton bImprim;
     private javax.swing.JButton bImprime;
     private javax.swing.JButton bImprimeRec;
@@ -3461,6 +3671,7 @@ public class VentanaGUI extends javax.swing.JFrame {
     private javax.swing.JButton bNuevaFac;
     private javax.swing.JButton bNuevo;
     private javax.swing.JButton bNuevoContr;
+    private javax.swing.JButton bPrevisual;
     private javax.swing.JButton bQuita;
     private javax.swing.JButton bQuitaTodos;
     private javax.swing.JButton bReimprimeFac;
@@ -3475,6 +3686,7 @@ public class VentanaGUI extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroupHistoricoFacturas2;
     private javax.swing.ButtonGroup buttonGroupHojasBan12;
     private javax.swing.ButtonGroup buttonGroupHojasBancoSelec;
+    private javax.swing.ButtonGroup buttonGroupIPC;
     private javax.swing.ButtonGroup buttonGroupOrdLis;
     private javax.swing.ButtonGroup buttonGroupOrden;
     private javax.swing.ButtonGroup buttonGroupRecibosBancos;
@@ -3505,6 +3717,7 @@ public class VentanaGUI extends javax.swing.JFrame {
     private javax.swing.JTextField ctCCC;
     private javax.swing.JTextField ctCI;
     private javax.swing.JTextField ctCIF;
+    private javax.swing.JTextField ctClaveAc;
     private javax.swing.JTextField ctCliente;
     private javax.swing.JTextField ctCodH;
     private javax.swing.JTextField ctCodP;
@@ -3512,6 +3725,7 @@ public class VentanaGUI extends javax.swing.JFrame {
     private javax.swing.JTextField ctCodPos;
     private javax.swing.JTextField ctCodpos;
     private javax.swing.JTextField ctConceptoRemesa;
+    private javax.swing.JTextField ctConfirNueva;
     private javax.swing.JTextField ctContacto;
     private javax.swing.JTextField ctContraseña;
     private javax.swing.JTextField ctCp;
@@ -3536,6 +3750,7 @@ public class VentanaGUI extends javax.swing.JFrame {
     private javax.swing.JTextField ctIApts;
     private javax.swing.JTextField ctIMeur;
     private javax.swing.JTextField ctIMpts;
+    private javax.swing.JTextField ctIPC;
     private javax.swing.JTextField ctImporte;
     private javax.swing.JTextField ctIv;
     private javax.swing.JTextField ctIva;
@@ -3569,6 +3784,7 @@ public class VentanaGUI extends javax.swing.JFrame {
     private javax.swing.JTextField ctNomb;
     private javax.swing.JTextField ctNombre;
     private javax.swing.JTextField ctNomina;
+    private javax.swing.JTextField ctNueva;
     private javax.swing.JTextField ctNum;
     private javax.swing.JTextField ctNumCli;
     private javax.swing.JTextField ctNumCon;
@@ -3678,7 +3894,15 @@ public class VentanaGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel142;
     private javax.swing.JLabel jLabel143;
     private javax.swing.JLabel jLabel144;
+    private javax.swing.JLabel jLabel145;
+    private javax.swing.JLabel jLabel146;
+    private javax.swing.JLabel jLabel147;
+    private javax.swing.JLabel jLabel148;
+    private javax.swing.JLabel jLabel149;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel150;
+    private javax.swing.JLabel jLabel151;
+    private javax.swing.JLabel jLabel152;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -3775,6 +3999,7 @@ public class VentanaGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -3783,6 +4008,7 @@ public class VentanaGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JPanel jPanelContras;
     private javax.swing.JPanel jPanelContraseña;
     private javax.swing.JPanel jPanelContratos;
     private javax.swing.JPanel jPanelDatosCli;
@@ -3818,6 +4044,7 @@ public class VentanaGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -3840,6 +4067,7 @@ public class VentanaGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbCancelados;
     private javax.swing.JRadioButton rbCliEmp;
     private javax.swing.JRadioButton rbCliOcas;
+    private javax.swing.JRadioButton rbDes;
     private javax.swing.JRadioButton rbDescrip;
     private javax.swing.JRadioButton rbDescripcion;
     private javax.swing.JComboBox rbEa;
@@ -3849,6 +4077,8 @@ public class VentanaGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbEuros;
     private javax.swing.JRadioButton rbExtraor;
     private javax.swing.JRadioButton rbN;
+    private javax.swing.JRadioButton rbNcli;
+    private javax.swing.JRadioButton rbNumC;
     private javax.swing.JRadioButton rbNumCli;
     private javax.swing.JRadioButton rbNumContra;
     private javax.swing.JRadioButton rbNumEm;
@@ -3864,6 +4094,7 @@ public class VentanaGUI extends javax.swing.JFrame {
     private javax.swing.JTable tablaFacExtra;
     private javax.swing.JTable tablaFacMensuales;
     private javax.swing.JTable tablaHistoricoFacturas;
+    private javax.swing.JTable tablaIPC;
     private javax.swing.JTable tablaListadoActuali;
     private javax.swing.JTable tablasEtiquetasImpri;
     // End of variables declaration//GEN-END:variables
