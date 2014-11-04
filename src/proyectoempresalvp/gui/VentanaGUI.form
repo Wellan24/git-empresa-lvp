@@ -3848,34 +3848,34 @@
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                   <Component id="jLabel137" min="-2" max="-2" attributes="0"/>
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="cbFLdia" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" attributes="0">
                                                           <Group type="102" alignment="0" attributes="0">
-                                                              <Component id="jComboBox3" min="-2" pref="93" max="-2" attributes="0"/>
+                                                              <Component id="cbFLmes" min="-2" pref="93" max="-2" attributes="0"/>
                                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                              <Component id="jComboBox4" min="-2" pref="71" max="-2" attributes="0"/>
+                                                              <Component id="cbFLaño" min="-2" pref="71" max="-2" attributes="0"/>
                                                               <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                                                              <Component id="jComboBox5" min="-2" pref="70" max="-2" attributes="0"/>
+                                                              <Component id="cbVdia" min="-2" pref="70" max="-2" attributes="0"/>
                                                           </Group>
                                                           <Component id="jLabel131" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       </Group>
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" attributes="0">
                                                           <Group type="102" attributes="0">
-                                                              <Component id="jComboBox6" min="-2" pref="80" max="-2" attributes="0"/>
+                                                              <Component id="cbVmes" min="-2" pref="80" max="-2" attributes="0"/>
                                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                              <Component id="jComboBox7" min="-2" pref="78" max="-2" attributes="0"/>
+                                                              <Component id="cbVaño" min="-2" pref="78" max="-2" attributes="0"/>
                                                           </Group>
                                                           <Component id="jLabel132" min="-2" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jTextField1" min="-2" pref="118" max="-2" attributes="0"/>
+                                                      <Component id="ctNum" min="-2" pref="118" max="-2" attributes="0"/>
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Component id="jTextField2" min="-2" pref="289" max="-2" attributes="0"/>
+                                                      <Component id="ctLugarLib" min="-2" pref="289" max="-2" attributes="0"/>
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Component id="jTextField3" min="-2" pref="109" max="-2" attributes="0"/>
+                                                      <Component id="ctimport" min="-2" pref="109" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -3887,8 +3887,8 @@
                                                           <Group type="102" attributes="0">
                                                               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                                  <Component id="jTextField4" max="32767" attributes="0"/>
-                                                                  <Component id="jTextField5" max="32767" attributes="0"/>
+                                                                  <Component id="ctPagara" max="32767" attributes="0"/>
+                                                                  <Component id="ctLaCantidad" max="32767" attributes="0"/>
                                                               </Group>
                                                           </Group>
                                                           <Group type="102" alignment="0" attributes="0">
@@ -3899,16 +3899,16 @@
                                                       </Group>
                                                   </Group>
                                                   <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="jTextField6" min="-2" pref="229" max="-2" attributes="0"/>
+                                                      <Component id="ctPagadero" min="-2" pref="229" max="-2" attributes="0"/>
                                                       <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="jTextField7" min="-2" pref="287" max="-2" attributes="0"/>
+                                                      <Component id="ctNumCuentaR" min="-2" pref="287" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                          <Component id="jTextField11" alignment="0" pref="321" max="32767" attributes="0"/>
-                                                          <Component id="jTextField10" alignment="0" max="32767" attributes="0"/>
-                                                          <Component id="jTextField9" alignment="0" max="32767" attributes="0"/>
-                                                          <Component id="jTextField8" alignment="0" max="32767" attributes="0"/>
+                                                          <Component id="ctNDpag4" alignment="0" pref="321" max="32767" attributes="0"/>
+                                                          <Component id="ctNDpag3" alignment="0" max="32767" attributes="0"/>
+                                                          <Component id="ctNDpag2" alignment="0" max="32767" attributes="0"/>
+                                                          <Component id="ctNDpag1" alignment="0" max="32767" attributes="0"/>
                                                       </Group>
                                                       <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                                                       <Component id="bImprimeRec" max="32767" attributes="0"/>
@@ -3936,9 +3936,9 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctNum" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctLugarLib" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctimport" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -3947,22 +3947,22 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBox3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBox4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBox5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBox6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBox7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cbFLdia" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cbFLmes" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cbFLaño" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cbVdia" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cbVmes" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cbVaño" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel133" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctPagara" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel134" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctLaCantidad" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -3971,21 +3971,21 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctNumCuentaR" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctPagadero" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                                       <Component id="jLabel137" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Component id="jTextField8" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ctNDpag1" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jTextField9" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ctNDpag2" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jTextField10" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ctNDpag3" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jTextField11" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ctNDpag4" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="bImprimeRec" min="-2" pref="101" max="-2" attributes="0"/>
                                       </Group>
@@ -4002,28 +4002,28 @@
                                 <Property name="text" type="java.lang.String" value="N&#xfa;mero"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField1">
+                            <Component class="javax.swing.JTextField" name="ctNum">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel129">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Lugar de Libramiento"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField2">
+                            <Component class="javax.swing.JTextField" name="ctLugarLib">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel130">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Importe"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField3">
+                            <Component class="javax.swing.JTextField" name="ctimport">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel131">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Fecha de Libramiento"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JComboBox" name="jComboBox2">
+                            <Component class="javax.swing.JComboBox" name="cbFLdia">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="4">
@@ -4035,7 +4035,7 @@
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JComboBox" name="jComboBox3">
+                            <Component class="javax.swing.JComboBox" name="cbFLmes">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="4">
@@ -4047,7 +4047,7 @@
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JComboBox" name="jComboBox4">
+                            <Component class="javax.swing.JComboBox" name="cbFLa&#xf1;o">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="4">
@@ -4064,7 +4064,7 @@
                                 <Property name="text" type="java.lang.String" value="Vencimiento"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JComboBox" name="jComboBox5">
+                            <Component class="javax.swing.JComboBox" name="cbVdia">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="4">
@@ -4076,7 +4076,7 @@
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JComboBox" name="jComboBox6">
+                            <Component class="javax.swing.JComboBox" name="cbVmes">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="4">
@@ -4088,7 +4088,7 @@
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JComboBox" name="jComboBox7">
+                            <Component class="javax.swing.JComboBox" name="cbVa&#xf1;o">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="4">
@@ -4110,9 +4110,9 @@
                                 <Property name="text" type="java.lang.String" value="LA CANTIDAD DE:"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField4">
+                            <Component class="javax.swing.JTextField" name="ctPagara">
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField5">
+                            <Component class="javax.swing.JTextField" name="ctLaCantidad">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel135">
                               <Properties>
@@ -4124,22 +4124,22 @@
                                 <Property name="text" type="java.lang.String" value="N&#xba; de Cuenta:"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField6">
+                            <Component class="javax.swing.JTextField" name="ctPagadero">
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField7">
+                            <Component class="javax.swing.JTextField" name="ctNumCuentaR">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel137">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Nombre y domicilio del pagador"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField8">
+                            <Component class="javax.swing.JTextField" name="ctNDpag1">
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField9">
+                            <Component class="javax.swing.JTextField" name="ctNDpag2">
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField10">
+                            <Component class="javax.swing.JTextField" name="ctNDpag3">
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField11">
+                            <Component class="javax.swing.JTextField" name="ctNDpag4">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel138">
                               <Properties>
