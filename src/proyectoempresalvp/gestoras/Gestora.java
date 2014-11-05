@@ -63,20 +63,20 @@ public class Gestora {
 
     /**
      * 
-     * @param str
+     * @param IBAN
      * @return true si es válido y si no lo es false
      */
-    public static boolean esValidoIBAN(String str) {
+    public static boolean esValidoIBAN(String IBAN) {
 
         // \\s+ sirve para seleccionar uno o más espacios en blanco, \\s solo para uno
-        str = str.replaceAll("\\s+", "");
+        IBAN = IBAN.replaceAll("\\s+", "");
 
-        if (Pattern.matches("([A-Z]{2}+[0-9]{14}+)", str)) {
+        if (Pattern.matches("([A-Z]{2}+[0-9]{14}+)", IBAN)) {
 
-            String convertedStr = str.substring(4) + Character.getNumericValue(str.charAt(0))
-                    + Character.getNumericValue(str.charAt(1)) + str.substring(2, 4);
-            long theCheckDigits = Long.parseLong(convertedStr) % 97;
-            return (theCheckDigits == 1);
+            String stringConvertido = IBAN.substring(4) + Character.getNumericValue(IBAN.charAt(0))
+                    + Character.getNumericValue(IBAN.charAt(1)) + IBAN.substring(2, 4);
+            long digitosControl = Long.parseLong(stringConvertido) % 97;
+            return (digitosControl == 1);
         } else {
 
             return false;
