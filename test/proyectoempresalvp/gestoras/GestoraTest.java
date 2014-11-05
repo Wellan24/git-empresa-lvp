@@ -34,7 +34,7 @@ public class GestoraTest {
     @Test
     public void testCalculaPrecioConIva() {
         System.out.println("calculaPrecioConIva");
-        String precio = "45";
+        BigDecimal precio = Gestora.creaBigDecimal("45");
         String iva = "16";
         BigDecimal expResult = new BigDecimal("52.20");
         BigDecimal result = Gestora.calculaPrecioConIva(precio, iva);
@@ -47,10 +47,22 @@ public class GestoraTest {
     @Test
     public void testCalculaIva() {
         System.out.println("calculaIva");
-        String precio = "45";
+        BigDecimal precio = Gestora.creaBigDecimal("45");
         String iva = "16";
         BigDecimal expResult = new BigDecimal("7.20");
         BigDecimal result = Gestora.calculaIva(precio, iva);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of creaBigDecimal method, of class Gestora.
+     */
+    @Test
+    public void testCreaBigDecimal() {
+        System.out.println("creaBigDecimal");
+        String texto = "";
+        BigDecimal expResult = new BigDecimal("0");
+        BigDecimal result = Gestora.creaBigDecimal(texto);
         assertEquals(expResult, result);
     }
     

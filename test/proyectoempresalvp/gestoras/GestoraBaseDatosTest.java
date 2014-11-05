@@ -59,33 +59,33 @@ public class GestoraBaseDatosTest {
     /**
      * Test of insertarDatos method, of class GestoraBaseDatos.
      */
-    @Test
-    public void testInsertarDatos() {
-        System.out.println("insertarDatos");
-        boolean expResult = true;
-        boolean result = GestoraBaseDatos.insertarDatos(prueba);
-        assertEquals(expResult, result);
-    }
+//    @Test
+//    public void testInsertarDatos() {
+//        System.out.println("insertarDatos");
+//        boolean expResult = true;
+//        boolean result = GestoraBaseDatos.insertarDatos(prueba);
+//        assertEquals(expResult, result);
+//    }
 
     /**
      * Test of comprobarExiste method, of class GestoraBaseDatos.
      */
-    @Test
-    public void testComprobarExiste() {
-        System.out.println("comprobarExiste");
-        String primaryKey = prueba.devuelveOrdenDeColumnas()[0];
-        boolean expResult = true;
-        boolean result = GestoraBaseDatos.comprobarExiste(prueba, primaryKey);
-        assertEquals(expResult, result);
-    }
+//    @Test
+//    public void testComprobarExiste() {
+//        System.out.println("comprobarExiste");
+//        String primaryKey = prueba.devuelveOrdenDeColumnas()[0];
+//        boolean expResult = true;
+//        boolean result = GestoraBaseDatos.comprobarExiste(prueba, primaryKey);
+//        assertEquals(expResult, result);
+//    }
     
     /**
      * Test of cerrarConexion method, of class GestoraBaseDatos.
      */
-    @Test
-    public void testCerrarConexion() {
-        System.out.println("cerrarConexion");
-        GestoraBaseDatos.cerrarConexion();
-    }
+//    @Test
+//    public void testCerrarConexion() {
+//        System.out.println("cerrarConexion");
+//        GestoraBaseDatos.cerrarConexion();
+//    }
     
 }
