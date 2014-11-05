@@ -65,5 +65,17 @@ public class GestoraTest {
         BigDecimal result = Gestora.creaBigDecimal(texto);
         assertEquals(expResult, result);
     }
+
+    /**
+     * Test of isValidIBAN method, of class Gestora.
+     */
+    @Test
+    public void testIsValidIBAN() {
+        System.out.println("isValidIBAN");
+        String str = "ES80 2310 0001 1800 0001 2345";
+        boolean expResult = false;
+        boolean result = Gestora.isValidIBAN(str);
+        assertEquals(expResult, result);
+    }
     
 }

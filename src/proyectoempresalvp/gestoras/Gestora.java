@@ -7,6 +7,7 @@ package proyectoempresalvp.gestoras;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -49,14 +50,36 @@ public class Gestora {
 
         BigDecimal dev;
         if (!texto.isEmpty()) {
-            
+
             dev = new BigDecimal(texto);
         } else {
-            
+
             dev = new BigDecimal("0");
         }
 
         dev.setScale(2, RoundingMode.HALF_EVEN);
         return dev;
+    }
+
+    /**
+     * 
+     * @param str
+     * @return true si es válido y si no lo es false
+     */
+    public static boolean isValidIBAN(String str) {
+
+        // \\s+ sirve para seleccionar uno o más espacios en blanco, \\s solo para uno
+        str = str.replaceAll("\\s+", "");
+
+        if (Pattern.matches("([A-Z]{2}+[0-9]{14}+)", str)) {
+
+            String convertedStr = str.substring(4) + Character.getNumericValue(str.charAt(0))
+                    + Character.getNumericValue(str.charAt(1)) + str.substring(2, 4);
+            long theCheckDigits = Long.parseLong(convertedStr) % 97;
+            return (theCheckDigits == 1);
+        } else {
+
+            return false;
+        }
     }
 }
