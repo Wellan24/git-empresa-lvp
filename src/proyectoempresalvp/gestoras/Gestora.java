@@ -66,7 +66,7 @@ public class Gestora {
      * @param str
      * @return true si es válido y si no lo es false
      */
-    public static boolean isValidIBAN(String str) {
+    public static boolean esValidoIBAN(String str) {
 
         // \\s+ sirve para seleccionar uno o más espacios en blanco, \\s solo para uno
         str = str.replaceAll("\\s+", "");
