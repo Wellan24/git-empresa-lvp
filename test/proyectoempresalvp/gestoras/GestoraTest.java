@@ -67,14 +67,27 @@ public class GestoraTest {
     }
 
     /**
-     * Test of isValidIBAN method, of class Gestora.
+     * Test of esValidoIBAN method, of class Gestora.
      */
     @Test
-    public void testIsValidIBAN() {
-        System.out.println("isValidIBAN");
+    public void testEsValidoIBAN() {
+        System.out.println("EsValidoIBAN");
         String str = "ES80 2310 0001 1800 0001 2345";
         boolean expResult = false;
         boolean result = Gestora.esValidoIBAN(str);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of CalcularIban method, of class Gestora.
+     */
+    @Test
+    public void testcalcularIbanEspaña() {
+        
+        System.out.println("CalcularIban");
+        String cuenta = "20770024003102575766"; //"2310 0001 1800 0001 2345";
+        String expResult = "ES7620770024003102575766"; //"ES8023100001180000012345";
+        String result = Gestora.calcularIbanEspaña(cuenta);
         assertEquals(expResult, result);
     }
     

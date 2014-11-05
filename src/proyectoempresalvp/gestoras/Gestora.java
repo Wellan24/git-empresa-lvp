@@ -15,6 +15,10 @@ import java.util.regex.Pattern;
  */
 public class Gestora {
 
+    private static final int BBAN_INDEX = 4;
+    private static final long CHECK_DIGITS_MAX = 999999999;
+    private static final long CHECK_DIGITS_MODULUS = 97;
+
     /**
      *
      * @param precio
@@ -62,7 +66,7 @@ public class Gestora {
     }
 
     /**
-     * 
+     *
      * @param IBAN
      * @return true si es válido y si no lo es false
      */
@@ -82,4 +86,31 @@ public class Gestora {
             return false;
         }
     }
+
+    public static String calcularIbanEspaña(String cuenta) {
+
+        cuenta = cuenta.replaceAll("\\s+", "");
+
+        if (Pattern.matches("([0-9]{20})", cuenta)) {
+
+            String aux = cuenta + "142800";
+            
+            long total = 0;
+	        for (int i = 0; i < aux.length(); i++) {
+	            int charValue = Character.getNumericValue(aux.charAt(i));
+	            total = (charValue > 9 ? total * 100 : total * 10) + charValue;
+	            if (String.valueOf(total).length() > 9) {
+	                total = (total % 97);
+	            }
+	        }
+                
+            int digitosControl = 98 - (int)(total % 97);
+            return "ES" + digitosControl + cuenta;
+
+        } else {
+
+            return null;
+        }
+    }
 }
+
