@@ -3527,6 +3527,7 @@
                         </Container>
                         <Container class="javax.swing.JScrollPane" name="jScrollPane9">
                           <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new ScrollPaneTranslucido()"/>
                             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                           </AuxValues>
 
@@ -3543,6 +3544,9 @@
                                   </Table>
                                 </Property>
                               </Properties>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Tabla()"/>
+                              </AuxValues>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -4318,6 +4322,7 @@
                       <SubComponents>
                         <Container class="javax.swing.JScrollPane" name="jScrollPane10">
                           <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new ScrollPaneTranslucido()"/>
                             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                           </AuxValues>
 
@@ -4334,11 +4339,15 @@
                                   </Table>
                                 </Property>
                               </Properties>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value=" new Tabla()"/>
+                              </AuxValues>
                             </Component>
                           </SubComponents>
                         </Container>
                         <Container class="javax.swing.JScrollPane" name="jScrollPane11">
                           <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new ScrollPaneTranslucido()"/>
                             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                           </AuxValues>
 
@@ -4355,6 +4364,9 @@
                                   </Table>
                                 </Property>
                               </Properties>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value=" new Tabla()"/>
+                              </AuxValues>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -5188,6 +5200,7 @@
                         </Container>
                         <Container class="javax.swing.JScrollPane" name="jScrollPane8">
                           <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new ScrollPaneTranslucido()"/>
                             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                           </AuxValues>
 
@@ -5204,6 +5217,9 @@
                                   </Table>
                                 </Property>
                               </Properties>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value=" new Tabla()"/>
+                              </AuxValues>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -5340,7 +5356,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="PanelPesPrograma" alignment="0" pref="2791" max="32767" attributes="0"/>
+                      <Component id="PanelPesPrograma" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -5593,6 +5609,7 @@
                       <SubComponents>
                         <Container class="javax.swing.JScrollPane" name="jScrollPane12">
                           <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new ScrollPaneTranslucido()"/>
                             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                           </AuxValues>
 
@@ -5609,6 +5626,9 @@
                                   </Table>
                                 </Property>
                               </Properties>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value=" new Tabla()"/>
+                              </AuxValues>
                             </Component>
                           </SubComponents>
                         </Container>

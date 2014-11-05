@@ -324,8 +324,8 @@ public class VentanaGUI extends javax.swing.JFrame {
         jLabel121 = new javax.swing.JLabel();
         rbEur = new javax.swing.JRadioButton();
         rbPes = new javax.swing.JRadioButton();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        jTHojasBanco = new javax.swing.JTable();
+        jScrollPane9 = new ScrollPaneTranslucido();
+        jTHojasBanco = new Tabla();
         bAñadirDom = new javax.swing.JButton();
         bImp = new javax.swing.JButton();
         jPrecibos = new javax.swing.JPanel();
@@ -378,10 +378,10 @@ public class VentanaGUI extends javax.swing.JFrame {
         jPanelSelecRecibo = new JPanelTranslucido();
         jLabel139 = new javax.swing.JLabel();
         jPetiquetas = new javax.swing.JPanel();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        tablaListadoActuali = new javax.swing.JTable();
-        jScrollPane11 = new javax.swing.JScrollPane();
-        tablasEtiquetasImpri = new javax.swing.JTable();
+        jScrollPane10 = new ScrollPaneTranslucido();
+        tablaListadoActuali =  new Tabla();
+        jScrollPane11 = new ScrollPaneTranslucido();
+        tablasEtiquetasImpri =  new Tabla();
         jLabel140 = new javax.swing.JLabel();
         jLabel141 = new javax.swing.JLabel();
         jPanel11 = new JPanelTranslucido();
@@ -460,8 +460,8 @@ public class VentanaGUI extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        tablaHistoricoFacturas = new javax.swing.JTable();
+        jScrollPane8 = new ScrollPaneTranslucido();
+        tablaHistoricoFacturas =  new Tabla();
         jPanel8 = new javax.swing.JPanel();
         jLabel101 = new javax.swing.JLabel();
         jLabel102 = new javax.swing.JLabel();
@@ -488,8 +488,8 @@ public class VentanaGUI extends javax.swing.JFrame {
         bCancel = new javax.swing.JButton();
         bAcep = new javax.swing.JButton();
         jPipc =  new javax.swing.JPanel();
-        jScrollPane12 = new javax.swing.JScrollPane();
-        tablaIPC = new javax.swing.JTable();
+        jScrollPane12 = new ScrollPaneTranslucido();
+        tablaIPC =  new Tabla();
         jPanel12 = new JPanelTranslucido();
         jLabel150 = new javax.swing.JLabel();
         rbDes = new javax.swing.JRadioButton();
@@ -3557,7 +3557,7 @@ public class VentanaGUI extends javax.swing.JFrame {
         jPprograma.setLayout(jPprogramaLayout);
         jPprogramaLayout.setHorizontalGroup(
             jPprogramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelPesPrograma, javax.swing.GroupLayout.DEFAULT_SIZE, 2791, Short.MAX_VALUE)
+            .addComponent(PanelPesPrograma)
         );
         jPprogramaLayout.setVerticalGroup(
             jPprogramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
