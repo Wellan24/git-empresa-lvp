@@ -9,6 +9,7 @@ import proyectoempresalvp.datosUI.PanelImagen;
 import proyectoempresalvp.datosUI.JPanelTranslucido;
 import proyectoempresalvp.datosUI.ScrollPaneTranslucido;
 import proyectoempresalvp.datosUI.Tabla;
+import proyectoempresalvp.gestoras.Gestora;
 
 /**
  *
@@ -467,10 +468,8 @@ public class VentanaGUI extends javax.swing.JFrame {
         ctIv = new javax.swing.JTextField();
         ctTotfac = new javax.swing.JTextField();
         ctTotPes = new javax.swing.JTextField();
-        jPprograma = PanelImagen.dameNuevoPanelSinLetras();
-        PanelIban = new javax.swing.JTabbedPane();
         jPcerrar =  new javax.swing.JPanel();
-        jPanel14 = new javax.swing.JPanel();
+        jPanel14 = new JPanelTranslucido();
         jLabel28 = new javax.swing.JLabel();
         ctComprobarIban = new javax.swing.JTextField();
         bComprobarIban = new javax.swing.JButton();
@@ -479,6 +478,8 @@ public class VentanaGUI extends javax.swing.JFrame {
         ctIbanCalcular = new javax.swing.JTextField();
         ctIbanCalculado = new javax.swing.JTextField();
         bCalcular = new javax.swing.JButton();
+        jPprograma = PanelImagen.dameNuevoPanelSinLetras();
+        PanelIban = new javax.swing.JTabbedPane();
         jPcontraseña =  new javax.swing.JPanel();
         jPanelContras = new JPanelTranslucido();
         jLabel145 = new javax.swing.JLabel();
@@ -3486,30 +3487,25 @@ public class VentanaGUI extends javax.swing.JFrame {
 
         PanelPesOtros.addTab("HISTORICO FACTURAS", jPhistorico);
 
-        javax.swing.GroupLayout jPotrosLayout = new javax.swing.GroupLayout(jPotros);
-        jPotros.setLayout(jPotrosLayout);
-        jPotrosLayout.setHorizontalGroup(
-            jPotrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelPesOtros)
-        );
-        jPotrosLayout.setVerticalGroup(
-            jPotrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelPesOtros)
-        );
-
-        PanelPestañasPrincipal.addTab("OTROS", jPotros);
-
         jPcerrar.setOpaque(false);
-
-        jPanel14.setBackground(new java.awt.Color(204, 255, 204));
 
         jLabel28.setText("Comprobar IBAN:");
 
         bComprobarIban.setText("Comprobar");
+        bComprobarIban.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bComprobarIbanActionPerformed(evt);
+            }
+        });
 
         jLabel29.setText("Calcular Iban:");
 
         bCalcular.setText("Calcular");
+        bCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCalcularActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -3571,7 +3567,20 @@ public class VentanaGUI extends javax.swing.JFrame {
                 .addContainerGap(392, Short.MAX_VALUE))
         );
 
-        PanelIban.addTab("IBAN", jPcerrar);
+        PanelPesOtros.addTab("IBAN", jPcerrar);
+
+        javax.swing.GroupLayout jPotrosLayout = new javax.swing.GroupLayout(jPotros);
+        jPotros.setLayout(jPotrosLayout);
+        jPotrosLayout.setHorizontalGroup(
+            jPotrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(PanelPesOtros)
+        );
+        jPotrosLayout.setVerticalGroup(
+            jPotrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(PanelPesOtros)
+        );
+
+        PanelPestañasPrincipal.addTab("OTROS", jPotros);
 
         jPcontraseña.setOpaque(false);
 
@@ -3987,6 +3996,16 @@ public class VentanaGUI extends javax.swing.JFrame {
     private void rbNumEmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbNumEmActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rbNumEmActionPerformed
+
+    private void bComprobarIbanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComprobarIbanActionPerformed
+        
+        comprobarIban();
+    }//GEN-LAST:event_bComprobarIbanActionPerformed
+
+    private void bCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcularActionPerformed
+       
+        calcularIban();
+    }//GEN-LAST:event_bCalcularActionPerformed
 
     /**
      * @param args the command line arguments
@@ -4505,5 +4524,15 @@ public class VentanaGUI extends javax.swing.JFrame {
     private javax.swing.JTable tablaListadoActuali;
     private javax.swing.JTable tablasEtiquetasImpri;
     // End of variables declaration//GEN-END:variables
+
+    private void comprobarIban() {
+        
+        labelIbanComprobado.setText((Gestora.esValidoIBAN(ctComprobarIban.getText()) ? "Es válido" : "No es válido"));
+    }
+
+    private void calcularIban() {
+        
+        ctIbanCalculado.setText(Gestora.calcularIbanEspaña(ctIbanCalcular.getText()));
+    }
 }
 

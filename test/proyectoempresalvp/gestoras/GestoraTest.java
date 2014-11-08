@@ -72,8 +72,8 @@ public class GestoraTest {
     @Test
     public void testEsValidoIBAN() {
         System.out.println("EsValidoIBAN");
-        String str = "ES80 2310 0001 1800 0001 2345";
-        boolean expResult = false;
+        String str = "ES7620770024003102575766";
+        boolean expResult = true;
         boolean result = Gestora.esValidoIBAN(str);
         assertEquals(expResult, result);
     }

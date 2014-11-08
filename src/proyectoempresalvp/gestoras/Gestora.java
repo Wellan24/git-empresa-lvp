@@ -75,23 +75,35 @@ public class Gestora {
         // \\s+ sirve para seleccionar uno o más espacios en blanco, \\s solo para uno
         IBAN = IBAN.replaceAll("\\s+", "");
 
-        if (Pattern.matches("([A-Z]{2}+[0-9]{14}+)", IBAN)) {
+        if (IBAN.length() == 24) {
 
             String stringConvertido = IBAN.substring(4) + Character.getNumericValue(IBAN.charAt(0))
                     + Character.getNumericValue(IBAN.charAt(1)) + IBAN.substring(2, 4);
-            long digitosControl = Long.parseLong(stringConvertido) % 97;
+
+            long total = 0;
+            for (int i = 0; i < stringConvertido.length(); i++) {
+                int charValue = Character.getNumericValue(stringConvertido.charAt(i));
+                total = (charValue > 9 ? total * 100 : total * 10) + charValue;
+                if (String.valueOf(total).length() > 9) {
+                    total = (total % 97);
+                }
+            }
+
+            long digitosControl = total % 97;
+
             return (digitosControl == 1);
         } else {
 
             return false;
         }
     }
+
     /**
-     *  Cuenta es un parametro en formato CCC: 4 dígitos para el banco, 4 para la sucursal,
-     *  2 dígitos de control y 10 para el número de cuenta en la entidad y oficina.
+     * Cuenta es un parametro en formato CCC: 4 dígitos para el banco, 4 para la sucursal, 2 dígitos de control y 10
+     * para el número de cuenta en la entidad y oficina.
+     *
      * @param cuenta
-     * @return Un IBAN válido para españa ESXX + cuenta, donde XX
-     *         son los dígitos de control.
+     * @return Un IBAN válido para españa ESXX + cuenta, donde XX son los dígitos de control.
      */
     public static String calcularIbanEspaña(String cuenta) {
 
@@ -100,17 +112,17 @@ public class Gestora {
         if (Pattern.matches("([0-9]{20})", cuenta)) {
 
             String aux = cuenta + "142800";
-            
+
             long total = 0;
-	        for (int i = 0; i < aux.length(); i++) {
-	            int charValue = Character.getNumericValue(aux.charAt(i));
-	            total = (charValue > 9 ? total * 100 : total * 10) + charValue;
-	            if (String.valueOf(total).length() > 9) {
-	                total = (total % 97);
-	            }
-	        }
-                
-            int digitosControl = 98 - (int)(total % 97);
+            for (int i = 0; i < aux.length(); i++) {
+                int charValue = Character.getNumericValue(aux.charAt(i));
+                total = (charValue > 9 ? total * 100 : total * 10) + charValue;
+                if (String.valueOf(total).length() > 9) {
+                    total = (total % 97);
+                }
+            }
+
+            int digitosControl = 98 - (int) (total % 97);
             return "ES" + digitosControl + cuenta;
 
         } else {
@@ -119,4 +131,3 @@ public class Gestora {
         }
     }
 }
-
