@@ -102,7 +102,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="639" max="-2" attributes="0"/>
                           <Component id="jPanelContraseña" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="1690" max="32767" attributes="0"/>
+                          <EmptySpace pref="1696" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -249,7 +249,7 @@
                                   <Component id="jScrollPane1" alignment="0" min="-2" pref="622" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="1693" max="32767" attributes="0"/>
+                          <EmptySpace pref="1699" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -812,7 +812,7 @@
                                       <Component id="jPanelContratos" max="32767" attributes="0"/>
                                       <Component id="jScrollPane7" pref="518" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="1707" max="32767" attributes="0"/>
+                                  <EmptySpace pref="1713" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1554,7 +1554,7 @@
                               <Component id="jScrollPane4" min="-2" pref="583" max="-2" attributes="0"/>
                               <Component id="jLabel43" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="1722" max="32767" attributes="0"/>
+                          <EmptySpace pref="1728" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1875,7 +1875,7 @@
                                   <Component id="bModifFac" min="-2" pref="154" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="1765" max="32767" attributes="0"/>
+                          <EmptySpace pref="1771" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2506,7 +2506,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="1714" max="32767" attributes="0"/>
+                          <EmptySpace pref="1720" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3134,7 +3134,7 @@
                                       <Component id="jScrollPane9" max="32767" attributes="0"/>
                                       <Component id="jPanel10" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="1758" max="32767" attributes="0"/>
+                                  <EmptySpace pref="1764" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -3631,7 +3631,7 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                                   <Component id="jPanelRecibo" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="1736" max="32767" attributes="0"/>
+                                  <EmptySpace pref="1742" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -4312,7 +4312,7 @@
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="1688" max="32767" attributes="0"/>
+                                  <EmptySpace pref="1694" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -4799,7 +4799,7 @@
                                           <Component id="bImprim" min="-2" pref="200" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="1776" max="32767" attributes="0"/>
+                                  <EmptySpace pref="1782" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -5395,17 +5395,17 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="PanelPesPrograma" alignment="0" max="32767" attributes="0"/>
+                      <Component id="PanelIban" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="PanelPesPrograma" alignment="1" max="32767" attributes="0"/>
+                      <Component id="PanelIban" alignment="1" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Container class="javax.swing.JTabbedPane" name="PanelPesPrograma">
+                <Container class="javax.swing.JTabbedPane" name="PanelIban">
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
                   <SubComponents>
@@ -5416,8 +5416,8 @@
                       </AuxValues>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                          <JTabbedPaneConstraints tabName="CERRAR PROGRAMA">
-                            <Property name="tabTitle" type="java.lang.String" value="CERRAR PROGRAMA"/>
+                          <JTabbedPaneConstraints tabName="IBAN">
+                            <Property name="tabTitle" type="java.lang.String" value="IBAN"/>
                           </JTabbedPaneConstraints>
                         </Constraint>
                       </Constraints>
@@ -5425,15 +5425,116 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <EmptySpace min="0" pref="2851" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                  <Component id="jPanel14" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="1717" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <EmptySpace min="0" pref="807" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                                  <Component id="jPanel14" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="392" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                         </DimensionLayout>
                       </Layout>
+                      <SubComponents>
+                        <Container class="javax.swing.JPanel" name="jPanel14">
+                          <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="cc" green="ff" red="cc" type="rgb"/>
+                            </Property>
+                          </Properties>
+
+                          <Layout>
+                            <DimensionLayout dim="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel28" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel29" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="ctComprobarIban" pref="153" max="32767" attributes="0"/>
+                                          <Component id="ctIbanCalcular" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="bComprobarIban" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="labelIbanComprobado" min="-2" pref="113" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="ctIbanCalculado" min="-2" pref="153" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="bCalcular" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace pref="536" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                            </DimensionLayout>
+                            <DimensionLayout dim="1">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctComprobarIban" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="bComprobarIban" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelIbanComprobado" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctIbanCalcular" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctIbanCalculado" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="bCalcular" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace pref="259" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                            </DimensionLayout>
+                          </Layout>
+                          <SubComponents>
+                            <Component class="javax.swing.JLabel" name="jLabel28">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Comprobar IBAN:"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JTextField" name="ctComprobarIban">
+                            </Component>
+                            <Component class="javax.swing.JButton" name="bComprobarIban">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Comprobar"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="labelIbanComprobado">
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel29">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Calcular Iban:"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JTextField" name="ctIbanCalcular">
+                            </Component>
+                            <Component class="javax.swing.JTextField" name="ctIbanCalculado">
+                            </Component>
+                            <Component class="javax.swing.JButton" name="bCalcular">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Calcular"/>
+                              </Properties>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                      </SubComponents>
                     </Container>
                     <Container class="javax.swing.JPanel" name="jPcontrase&#xf1;a">
                       <AuxValues>
@@ -5454,7 +5555,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                                   <Component id="jPanelContras" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="2200" max="32767" attributes="0"/>
+                                  <EmptySpace pref="2206" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -5628,7 +5729,7 @@
                                   <Component id="jScrollPane12" min="-2" pref="641" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                                   <Component id="jPanel12" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="1792" max="32767" attributes="0"/>
+                                  <EmptySpace pref="1798" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -5826,7 +5927,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                                   <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="2130" max="32767" attributes="0"/>
+                                  <EmptySpace pref="2136" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -5947,7 +6048,7 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <EmptySpace min="0" pref="2851" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="2857" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">

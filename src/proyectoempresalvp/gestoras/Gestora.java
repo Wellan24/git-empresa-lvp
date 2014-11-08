@@ -86,7 +86,13 @@ public class Gestora {
             return false;
         }
     }
-
+    /**
+     *  Cuenta es un parametro en formato CCC: 4 dígitos para el banco, 4 para la sucursal,
+     *  2 dígitos de control y 10 para el número de cuenta en la entidad y oficina.
+     * @param cuenta
+     * @return Un IBAN válido para españa ESXX + cuenta, donde XX
+     *         son los dígitos de control.
+     */
     public static String calcularIbanEspaña(String cuenta) {
 
         cuenta = cuenta.replaceAll("\\s+", "");
