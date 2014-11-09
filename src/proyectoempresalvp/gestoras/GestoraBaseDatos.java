@@ -29,7 +29,9 @@ public class GestoraBaseDatos {
 
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             GestoraBaseDatos.conexion = DriverManager.getConnection("jdbc:ucanaccess://../DataBase/BaseDeDatosLVP.accdb");
-
+            if (sentencia == null) 
+                sentencia = GestoraBaseDatos.conexion.createStatement();
+            
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(GestoraBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
             return false;
@@ -43,10 +45,8 @@ public class GestoraBaseDatos {
     public static void ejecutarSentencia(String textoSentencia) {
 
         try {
-            if (sentencia == null) {
-
+            if (sentencia == null) 
                 sentencia = GestoraBaseDatos.conexion.createStatement();
-            }
 
             sentencia.executeUpdate(textoSentencia);
         } catch (SQLException ex) {

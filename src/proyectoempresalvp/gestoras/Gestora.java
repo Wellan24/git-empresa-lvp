@@ -15,10 +15,6 @@ import java.util.regex.Pattern;
  */
 public class Gestora {
 
-    private static final int BBAN_INDEX = 4;
-    private static final long CHECK_DIGITS_MAX = 999999999;
-    private static final long CHECK_DIGITS_MODULUS = 97;
-
     /**
      *
      * @param precio
