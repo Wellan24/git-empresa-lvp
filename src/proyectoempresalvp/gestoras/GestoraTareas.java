@@ -39,7 +39,10 @@ public class GestoraTareas extends Thread {
 
         String[] primera = fechaUno.split("/");
         String[] segunda = fechaDos.split("/");
-        return 0;
+        
+        return Math.abs(Integer.parseInt(primera[0]) - Integer.parseInt(segunda[0]))
+                + Math.abs(Integer.parseInt(primera[1]) - Integer.parseInt(segunda[1]))*30
+                + Math.abs(Integer.parseInt(primera[2]) - Integer.parseInt(segunda[2]))*365;
     }
 
     public static boolean comprobarFormatoFechaCorrecto(String fecha) {

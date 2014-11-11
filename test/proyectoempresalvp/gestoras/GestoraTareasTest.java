@@ -33,6 +33,9 @@ public class GestoraTareasTest {
         this.correcto = correcto;
     }
 
+    public GestoraTareasTest() {
+    }
+    
     @BeforeClass
     public static void setUpClass() {
     }
@@ -40,7 +43,7 @@ public class GestoraTareasTest {
     @AfterClass
     public static void tearDownClass() {
     }
-
+    
     /**
      * Test of comprobarFormatoFechaCorrecto method, of class GestoraTareas.
      */
@@ -83,6 +86,18 @@ public class GestoraTareasTest {
             new Object[]{"31/9/2010", false}, new Object[]{"31/09/2010", false},
             new Object[]{"31/11/2010", false}
                 });
+    }
+    /**
+     * Test of calcularDiferenciaFechas method, of class GestoraTareas.
+     */
+    @Test
+    public void testCalcularDiferenciaFechas() {
+        System.out.println("calcularDiferenciaFechas");
+        String fechaUno = "15/11/2011";
+        String fechaDos = "20/10/2010";
+        int expResult = 400;
+        int result = GestoraTareas.calcularDiferenciaFechas(fechaUno, fechaDos);
+        assertEquals(expResult, result);
     }
 
 }
