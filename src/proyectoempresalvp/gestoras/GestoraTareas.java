@@ -1,0 +1,88 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyectoempresalvp.gestoras;
+
+import java.util.Calendar;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+/**
+ * @author Oscar
+ * @date 11-nov-2014
+ * @time 21:22:39
+ */
+public class GestoraTareas extends Thread {
+
+    public GestoraTareas() {
+
+    }
+
+    @Override
+    public void run() {
+
+        Calendar c = Calendar.getInstance();
+        String fecha = c.get(Calendar.DATE) + "/" + c.get(Calendar.DATE) + "/" + c.get(Calendar.DATE);
+        // Consultar la base de datos * Iterador y Select * * y comprobar si cumplen 
+    }
+
+    /**
+     * Devuelve los <u>días</u> de diferencia entre dos fechas
+     *
+     * @param fechaUno
+     * @param fechaDos
+     * @return
+     */
+    public static int calcularDiferenciaFechas(String fechaUno, String fechaDos) {
+
+        String[] primera = fechaUno.split("/");
+        String[] segunda = fechaDos.split("/");
+        return 0;
+    }
+
+    public static boolean comprobarFormatoFechaCorrecto(String fecha) {
+
+        String[] f = fecha.split("/");
+
+        int año;
+        int mes;
+        int dia;
+        try {
+            dia = Integer.parseInt(f[0]);
+            mes = Integer.parseInt(f[1]);
+            año = Integer.parseInt(f[2]);
+            
+        } catch (NumberFormatException numberFormatException) {
+            
+            System.out.println("error " + fecha);
+            return false;
+        }
+        System.out.println("sin error " + fecha + " d " + dia + " m " + mes + " a " + año);
+        if (año < 0 || mes < 1 || mes > 12 || dia < 1 || dia > 31) 
+            return false;
+        
+        switch (mes) {
+            case 2:
+                
+                if (dia > 29) 
+                    return false;
+                
+                if (!(((año % 4 == 0) && (año % 100 != 0)) || (año % 400 == 0)) && dia == 29) 
+                    return false;
+                
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                if (dia > 30) 
+                    return false;
+                
+                break;
+        }
+        return true;
+
+    }
+}

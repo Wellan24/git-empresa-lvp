@@ -27,6 +27,14 @@ public class Tarea extends Dato{
         this.put("FECHA", fecha);
         this.put("PERIODO", periodo);
     }
+    
+    /**
+     * Comprueba si la fecha tiene que realizarse en los próximos 15 días
+     * @param fechaActual 
+     */
+    public void comprobarTareaEnProximosQuinceDias(String fechaActual){
+        
+    }
 
     @Override
     public String devuelveNombreTablaDato() {
