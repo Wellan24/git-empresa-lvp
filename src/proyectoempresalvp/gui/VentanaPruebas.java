@@ -5,15 +5,11 @@
  */
 package proyectoempresalvp.gui;
 
-import java.awt.Color;
-import java.awt.Component;
-import javax.swing.table.DefaultTableCellRenderer;
 import proyectoempresalvp.datos.Cliente;
 import proyectoempresalvp.datosUI.JPanelTranslucido;
 import proyectoempresalvp.datosUI.PanelImagen;
 import proyectoempresalvp.datosUI.ScrollPaneTranslucido;
 import proyectoempresalvp.datosUI.Tabla;
-import proyectoempresalvp.datosUI.TableRenderer;
 import proyectoempresalvp.gestoras.GestoraBaseDatos;
 import proyectoempresalvp.gestoras.ModeloTabla;
 
@@ -51,7 +47,7 @@ public class VentanaPruebas extends javax.swing.JFrame {
         
         tablaPrueba.setModel(new ModeloTabla(cl));
         GestoraBaseDatos.conectarBaseDatos();
-        GestoraBaseDatos.ejecutarSentencia("Insert into prueba values('320');");
+        GestoraBaseDatos.ejecutarSentenciaUpdate("Insert into prueba values('320');");
         GestoraBaseDatos.cerrarConexion();
     }
 

@@ -29,9 +29,10 @@ public class GestoraBaseDatos {
 
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             GestoraBaseDatos.conexion = DriverManager.getConnection("jdbc:ucanaccess://../DataBase/BaseDeDatosLVP.accdb");
-            if (sentencia == null) 
+            if (sentencia == null) {
                 sentencia = GestoraBaseDatos.conexion.createStatement();
-            
+            }
+
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(GestoraBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
             return false;
@@ -42,7 +43,7 @@ public class GestoraBaseDatos {
         return true;
     }
 
-    public static void ejecutarSentencia(String textoSentencia) {
+    public static void ejecutarSentenciaUpdate(String textoSentencia) {
 
         try {
             if (sentencia == null) 
@@ -52,6 +53,26 @@ public class GestoraBaseDatos {
         } catch (SQLException ex) {
             Logger.getLogger(GestoraBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    /**
+     * @param textoSentencia
+     * @return Devuelve un ResultSet con los datos de la consulta o null si hay una excepción
+     */
+    public static ResultSet ejecutarSentenciaQuery(String textoSentencia) {
+
+        Statement sentenciaLocal;
+        ResultSet dev = null;
+        try { 
+            
+            sentenciaLocal = GestoraBaseDatos.conexion.createStatement();
+
+            dev = sentenciaLocal.executeQuery(textoSentencia);
+        } catch (SQLException ex) {
+            Logger.getLogger(GestoraBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return dev;
     }
 
     public static void cerrarConexion() {
@@ -73,7 +94,7 @@ public class GestoraBaseDatos {
         if (!comprobarExiste(d, claves[0])) {
 
             StringBuilder textoSentencia = construyeSentencia(d, claves);
-            GestoraBaseDatos.ejecutarSentencia(textoSentencia.toString());
+            GestoraBaseDatos.ejecutarSentenciaUpdate(textoSentencia.toString());
             return comprobarExiste(d, claves[0]);
         }
         return false;
@@ -95,6 +116,7 @@ public class GestoraBaseDatos {
     }
 
     private static StringBuilder construyeSentencia(Dato d, String[] claves) {
+        
         StringBuilder textoSentencia = new StringBuilder("insert into ");
         textoSentencia.append(d.devuelveNombreTablaDato());
         textoSentencia.append("(");

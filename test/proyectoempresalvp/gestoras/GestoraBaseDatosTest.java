@@ -52,7 +52,7 @@ public class GestoraBaseDatosTest {
     public void testEjecutarSentencia() {
         System.out.println("ejecutarSentencia");
         String textoSentencia = "Insert into prueba values (1)";
-        GestoraBaseDatos.ejecutarSentencia(textoSentencia);  
+        GestoraBaseDatos.ejecutarSentenciaUpdate(textoSentencia);  
     }
     
 
