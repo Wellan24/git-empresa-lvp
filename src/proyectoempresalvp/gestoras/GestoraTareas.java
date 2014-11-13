@@ -22,9 +22,11 @@ public class GestoraTareas extends Thread {
 
     public static ArrayList<Tarea> tareas;
     public static String tareasARealizar;
+    public static ObservadorTareas observador;
 
-    public GestoraTareas() {
+    public GestoraTareas(ObservadorTareas observador) {
 
+        GestoraTareas.observador = observador;
     }
 
     @Override
@@ -57,6 +59,7 @@ public class GestoraTareas extends Thread {
         }
 
         tareasARealizar = string.toString();
+        GestoraTareas.observador.avisar();
     }
 
     /**
@@ -120,5 +123,13 @@ public class GestoraTareas extends Thread {
         }
         return true;
 
+    }
+
+    public static synchronized ArrayList<Tarea> getTareas() {
+        return tareas;
+    }
+
+    public static synchronized String getTareasARealizar() {
+        return tareasARealizar;
     }
 }

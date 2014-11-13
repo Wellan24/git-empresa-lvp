@@ -13,5 +13,5 @@ package proyectoempresalvp.gestoras;
  */
 public interface ObservadorTareas {
 
-    public void avisar(String tareas);
+    public void avisar();
 }
