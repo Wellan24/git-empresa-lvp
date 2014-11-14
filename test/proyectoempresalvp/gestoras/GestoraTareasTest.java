@@ -31,9 +31,6 @@ public class GestoraTareasTest {
         this.fecha = fecha;
         this.correcto = correcto;
     }
-
-    public GestoraTareasTest() {
-    }
     
     @BeforeClass
     public static void setUpClass() {

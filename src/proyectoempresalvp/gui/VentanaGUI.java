@@ -11,12 +11,13 @@ import proyectoempresalvp.datosUI.JPanelTranslucido;
 import proyectoempresalvp.datosUI.ScrollPaneTranslucido;
 import proyectoempresalvp.datosUI.Tabla;
 import proyectoempresalvp.gestoras.Gestora;
+import proyectoempresalvp.gestoras.ObservadorTareas;
 
 /**
  *
  * @author Administrador
  */
-public class VentanaGUI extends javax.swing.JFrame {
+public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas{
 
     /**
      * Creates new form VentanaGUI
@@ -4540,5 +4541,14 @@ public class VentanaGUI extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(this, "Tiene que tener 20 caracteres");
         }
+    }
+
+    @Override
+    public void avisar() {
+        
+        /**
+         * 
+         * Actualizar la tabla de tareas y mostrar JOptionPane con las de los ultimos 15
+         */
     }
 }

@@ -51,7 +51,7 @@ public class GestoraTareas extends Thread {
                 tareaActual = new Tarea(tareasComprobar.getString(1), tareasComprobar.getString(2), tareasComprobar.getInt(3), tareasComprobar.getString(4));
                 tareas.add(tareaActual);
 
-                if (tareaActual.comprobarTareaEnProximosQuinceDias(fecha));
+                if (tareaActual.comprobarTareaEnProximosQuinceDias(fecha))
                     string.append("El día ").append(tareaActual.get("FECHA")).append(" hay ").append(tareaActual.get("CONCEPTO"));
             }
         } catch (SQLException ex) {
