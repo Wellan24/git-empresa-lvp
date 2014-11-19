@@ -6,6 +6,7 @@
 package proyectoempresalvp.datos;
 
 import proyectoempresalvp.gestoras.GestoraTareas;
+import proyectoempresalvp.gestoras.UtilidadesTareas;
 
 /**
  * @author Oscar
@@ -14,7 +15,7 @@ import proyectoempresalvp.gestoras.GestoraTareas;
  */
 public class Tarea extends Dato {
 
-    private static final String[] orden = {"CONCEPTO", "FECHA", "PERIODO"};
+    private static final String[] orden = {"CONCEPTO", "FECHA", "PERIODO", "CLIENTE"};
 
     /**
      * Fecha en formato dd/mm/aa y periodo en meses
@@ -40,7 +41,8 @@ public class Tarea extends Dato {
      */
     public boolean comprobarTareaEnProximosQuinceDias(String fechaActual) {
 
-        return GestoraTareas.calcularDiferenciaFechas((String) this.get("FECHA"), fechaActual) <= 15;
+       
+        return UtilidadesTareas.calcularDiferenciaFechas(fechaActual,(String) this.get("FECHA")) <= 15;
 
     }
 

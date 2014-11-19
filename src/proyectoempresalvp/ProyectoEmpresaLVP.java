@@ -5,7 +5,7 @@
  */
 package proyectoempresalvp;
 
-import proyectoempresalvp.datos.FacturaExtraDetalles;
+import proyectoempresalvp.datos.Tarea;
 import proyectoempresalvp.gestoras.GestoraBaseDatos;
 
 
@@ -22,7 +22,7 @@ public class ProyectoEmpresaLVP {
 
 //        
         GestoraBaseDatos.conectarBaseDatos();
-        GestoraBaseDatos.insertarDatos(new FacturaExtraDetalles(0, 1, "hola", 1));
+        System.out.println(GestoraBaseDatos.insertarDatos(new Tarea("GARAJE", "21/11/2014", 4, "PEPA")));
         GestoraBaseDatos.cerrarConexion();
 
     }

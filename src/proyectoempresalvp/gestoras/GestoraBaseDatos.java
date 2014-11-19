@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import proyectoempresalvp.datos.Dato;
+import proyectoempresalvp.datos.Tarea;
 
 /**
  *
@@ -28,10 +29,12 @@ public class GestoraBaseDatos {
         try {
 
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            GestoraBaseDatos.conexion = DriverManager.getConnection("jdbc:ucanaccess://../DataBase/BaseDeDatosLVP.accdb");
-            if (sentencia == null) {
+            
+            if(GestoraBaseDatos.conexion == null)
+                GestoraBaseDatos.conexion = DriverManager.getConnection("jdbc:ucanaccess://../DataBase/BaseDeDatosLVP.accdb");
+            
+            if (sentencia == null) 
                 sentencia = GestoraBaseDatos.conexion.createStatement();
-            }
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(GestoraBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
@@ -46,15 +49,16 @@ public class GestoraBaseDatos {
     public static void ejecutarSentenciaUpdate(String textoSentencia) {
 
         try {
-            if (sentencia == null) 
+            if (sentencia == null) {
                 sentencia = GestoraBaseDatos.conexion.createStatement();
+            }
 
             sentencia.executeUpdate(textoSentencia);
         } catch (SQLException ex) {
             Logger.getLogger(GestoraBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     /**
      * @param textoSentencia
      * @return Devuelve un ResultSet con los datos de la consulta o null si hay una excepción
@@ -63,15 +67,14 @@ public class GestoraBaseDatos {
 
         Statement sentenciaLocal;
         ResultSet dev = null;
-        try { 
-            
-            sentenciaLocal = GestoraBaseDatos.conexion.createStatement();
+        try {
 
+            sentenciaLocal = GestoraBaseDatos.conexion.createStatement();
             dev = sentenciaLocal.executeQuery(textoSentencia);
         } catch (SQLException ex) {
             Logger.getLogger(GestoraBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return dev;
     }
 
@@ -91,20 +94,36 @@ public class GestoraBaseDatos {
 
         String[] claves = d.devuelveOrdenDeColumnas();
 
+        // La tarea tiene dos primaryKey
+        if (d instanceof Tarea) {
+
+            if (!comprobarExisteTarea(d)) {
+
+                StringBuilder textoSentencia = construyeSentenciaInsert(d, claves);
+                System.out.println(textoSentencia.toString());
+                GestoraBaseDatos.ejecutarSentenciaUpdate(textoSentencia.toString());
+                return comprobarExisteTarea(d);
+            }
+        }
+        
+        // El resto de datos
         if (!comprobarExiste(d, claves[0])) {
 
-            StringBuilder textoSentencia = construyeSentencia(d, claves);
+            StringBuilder textoSentencia = construyeSentenciaInsert(d, claves);
+
+            System.out.println(textoSentencia.toString());
             GestoraBaseDatos.ejecutarSentenciaUpdate(textoSentencia.toString());
             return comprobarExiste(d, claves[0]);
         }
         return false;
     }
 
-    public static boolean comprobarExiste(Dato d, String primaryKey) {
+    public static boolean comprobarExisteTarea(Dato d) {
 
         try {
-            ResultSet rs = sentencia.executeQuery("Select " + primaryKey + " from " + d.devuelveNombreTablaDato()
-                    + " where " + primaryKey + " = " + d.get(primaryKey));
+
+            ResultSet rs = sentencia.executeQuery("Select CONCEPTO, CLIENTE from TAREAS "
+                    + "where CONCEPTO = '" + d.get("CONCEPTO") + "' AND CLIENTE = '" + d.get("CLIENTE") + "'");
 
             return rs.next();
 
@@ -115,8 +134,25 @@ public class GestoraBaseDatos {
         return false;
     }
 
-    private static StringBuilder construyeSentencia(Dato d, String[] claves) {
-        
+    public static boolean comprobarExiste(Dato d, String primaryKey) {
+
+        try {
+
+            ResultSet rs = sentencia.executeQuery("Select " + primaryKey + " from " + d.devuelveNombreTablaDato()
+                    + " where " + primaryKey + " = "
+                    + ((d.get(primaryKey) instanceof String) ? "'" + d.get(primaryKey) + "'" : d.get(primaryKey)));
+
+            return rs.next();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(GestoraBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return false;
+    }
+
+    private static StringBuilder construyeSentenciaInsert(Dato d, String[] claves) {
+
         StringBuilder textoSentencia = new StringBuilder("insert into ");
         textoSentencia.append(d.devuelveNombreTablaDato());
         textoSentencia.append("(");
