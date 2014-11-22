@@ -16,7 +16,7 @@ import java.awt.RenderingHints;
  */
 public class ScrollPaneTranslucido extends ScrollPanelRedondo{
     
-    private float tran = 0.5f;
+    private float tran = 0.9f;
 
     public ScrollPaneTranslucido() {
 

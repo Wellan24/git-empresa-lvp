@@ -516,7 +516,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas{
         jLabel36 = new javax.swing.JLabel();
         rbDescrip = new javax.swing.JRadioButton();
         rbNumEm = new javax.swing.JRadioButton();
-        jPtareas = new javax.swing.JPanel();
+        jPtareas = PanelImagen.dameNuevoPanelSinLetras();
         jPanel15 = new JPanelTranslucido();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
@@ -527,8 +527,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas{
         ctTarPeriodo = new javax.swing.JTextField();
         ctTarCliente = new javax.swing.JTextField();
         bTarGuardar = new javax.swing.JButton();
-        jScrollPane13 = new javax.swing.JScrollPane();
-        tablaTareas = new javax.swing.JTable();
+        jScrollPane13 = new ScrollPaneTranslucido();
+        tablaTareas = new Tabla();
         bTarBorrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);

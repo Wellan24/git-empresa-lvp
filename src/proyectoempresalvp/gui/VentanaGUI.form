@@ -6070,7 +6070,7 @@
             </Container>
             <Container class="javax.swing.JPanel" name="jPtareas">
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel()"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="PanelImagen.dameNuevoPanelSinLetras()"/>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jPtareas.setOpaque(false);"/>
               </AuxValues>
               <Constraints>
@@ -6223,6 +6223,7 @@
                 </Container>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane13">
                   <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new ScrollPaneTranslucido()"/>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
 
@@ -6239,6 +6240,9 @@
                           </Table>
                         </Property>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Tabla()"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
