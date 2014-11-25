@@ -23,7 +23,7 @@ import proyectoempresalvp.gestoras.ObservadorTareas;
  *
  * @author Administrador
  */
-public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas{
+public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas {
 
     /**
      * Creates new form VentanaGUI
@@ -4205,7 +4205,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas{
     }//GEN-LAST:event_ctTarFechaActionPerformed
 
     private void bTarGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTarGuardarActionPerformed
-        
+
         guardarTarea();
     }//GEN-LAST:event_bTarGuardarActionPerformed
 
@@ -4758,40 +4758,46 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas{
     private void calcularIban() {
 
         if (ctIbanCalcular.getText().length() == 20) {
-            
+
             ctIbanCalculado.setText(Gestora.calcularIbanEspaña(ctIbanCalcular.getText()));
-        }else{
-            
+        } else {
+
             JOptionPane.showMessageDialog(this, "Tiene que tener 20 caracteres");
         }
     }
 
     @Override
     public void avisar() {
-        
+
         /**
-         * 
+         *
          * Actualizar la tabla de tareas y TextArea con las de los ultimos 15
          */
         ArrayList<Dato> tareas = new ArrayList(GestoraTareas.getTareas());
         tablaTareas.setModel(new ModeloTabla(tareas));
-        
+
         taTareasComprobadas.setText(GestoraTareas.getTareasARealizar().toString());
     }
-    
-    
+
     private void guardarTarea() {
-        try {
-            
-            GestoraBaseDatos.insertarTarea(new Tarea(cttarconcepto.getText(), ctTarFecha.getText(), Integer.parseInt(ctTarPeriodo.getText()), ctTarCliente.getText()));
-        } catch (NumberFormatException numberFormatException) {
-            
-            JOptionPane.showMessageDialog(this, "Comprueba el periodo");
+
+        String fecha = ctTarFecha.getText();
+        if (Gestora.comprobarFormatoFechaCorrecto(fecha)) {
+            try {
+
+                GestoraBaseDatos.insertarTarea(new Tarea(cttarconcepto.getText(), fecha, Integer.parseInt(ctTarPeriodo.getText()), ctTarCliente.getText()));
+            } catch (NumberFormatException numberFormatException) {
+
+                JOptionPane.showMessageDialog(this, "Comprueba el periodo");
+            }
+        } else {
+
+            JOptionPane.showMessageDialog(this, "Comprueba la fecha");
         }
     }
 
     private void initTablas() {
-        
+
         // Tabla tareas
         new GestoraTareas(this).start();
     }
