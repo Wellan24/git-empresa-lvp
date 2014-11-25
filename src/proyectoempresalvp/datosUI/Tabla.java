@@ -33,10 +33,6 @@ public class Tabla extends JTable{
        
         Graphics2D g2 = (Graphics2D) g;
         
-        g2.setStroke(new BasicStroke(4f));
-        g2.setPaint(Color.BLACK);
-//        g2.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 2, 1, 1);
-        
         g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
                 RenderingHints.VALUE_INTERPOLATION_BILINEAR);
         AlphaComposite old = (AlphaComposite) g2.getComposite();

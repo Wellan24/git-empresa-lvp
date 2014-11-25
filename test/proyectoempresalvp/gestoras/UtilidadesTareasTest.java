@@ -90,7 +90,7 @@ public class UtilidadesTareasTest {
         
         String fechaUno = "19/11/2014";
         String fechaDos = "21/11/2014";
-        int expResult = 2;
+        int expResult = -2;
         int result = UtilidadesTareas.calcularDiferenciaFechas(fechaUno, fechaDos);        
         assertEquals(expResult, result);
     }

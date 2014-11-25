@@ -38,18 +38,12 @@ public class ScrollPanelRedondo extends JScrollPane{
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
 
-        Paint oldPaint = g2.getPaint();
-        RoundRectangle2D.Float r2d = new RoundRectangle2D.Float(
-                0, 0, getWidth(), getHeight() - 1, arcw, arch);
-        g2.clip(r2d);
+
         g2.setPaint(color);
         g2.fillRect(0, 0, getWidth(), getHeight());
 
         g2.setStroke(new BasicStroke(4f));
         g2.setPaint(Color.BLACK);
         g2.drawRoundRect(0, 0, getWidth() - 2, getHeight() - 2, 0, 0);
-
-        g2.setPaint(oldPaint);
-        super.paintComponent(g);
     }
 }

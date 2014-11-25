@@ -31,9 +31,7 @@ public class GestoraTareas extends Thread {
 
     @Override
     public void run() {
-
-        Calendar c = Calendar.getInstance();
-        String fecha = c.get(Calendar.DATE) + "/" + (c.get(Calendar.MONTH)+1) + "/" + c.get(Calendar.YEAR);
+        
         ResultSet tareasComprobar = GestoraBaseDatos.ejecutarSentenciaQuery("Select CONCEPTO, FECHA, PERIODO, CLIENTE from TAREAS");
         if (tareas == null) {
             tareas = new ArrayList();
@@ -50,8 +48,14 @@ public class GestoraTareas extends Thread {
                 tareaActual = new Tarea(tareasComprobar.getString(1), tareasComprobar.getString(2), tareasComprobar.getInt(3), tareasComprobar.getString(4));
                 tareas.add(tareaActual);
                 
-                if (tareaActual.comprobarTareaEnProximosQuinceDias(fecha))
-                    string.append("El día ").append(tareaActual.get("FECHA")).append(" hay ").append(tareaActual.get("CONCEPTO")).append(" para ").append(tareaActual.get("CLIENTE"));
+                int comprobar = UtilidadesTareas.comprobarTareaEnProximosQuinceDias((String)tareaActual.get("FECHA"));
+                if(comprobar == UtilidadesTareas.ESHOY){
+                    string.append("El día ").append(tareaActual.get("FECHA")).append(" hay ").append(tareaActual.get("CONCEPTO")).append(" para ").append(tareaActual.get("CLIENTE")).append("\n");
+                    tareaActual.calcularNuevaFecha();
+                }
+                else if (comprobar == UtilidadesTareas.ESENQUINCE){
+                    string.append("El día ").append(tareaActual.get("FECHA")).append(" hay ").append(tareaActual.get("CONCEPTO")).append(" para ").append(tareaActual.get("CLIENTE")).append("\n");
+                }
             }
         } catch (SQLException ex) {
             Logger.getLogger(GestoraTareas.class.getName()).log(Level.SEVERE, null, ex);

@@ -5,6 +5,7 @@
  */
 package proyectoempresalvp.gestoras;
 
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import proyectoempresalvp.datos.Dato;
 
@@ -26,6 +27,24 @@ public class ModeloTabla extends DefaultTableModel{
         filas = datos.length;    
         
         if(datos.length != 0){
+            
+            for(Dato d : datos){
+                
+                if(d != null){
+                    clases = d.devuelveClases();
+                    columnas = d.devuelveOrdenDeColumnas();
+                    break;
+                }
+            }
+        }
+    }
+    
+    public ModeloTabla(ArrayList<Dato> datos) {
+        
+        this.datos = datos.toArray(new Dato[datos.size()]);
+        filas = datos.size();    
+        
+        if(datos.size() != 0){
             
             for(Dato d : datos){
                 

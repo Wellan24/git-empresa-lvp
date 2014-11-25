@@ -22,7 +22,7 @@ public class ProyectoEmpresaLVP {
 
 //        
         GestoraBaseDatos.conectarBaseDatos();
-        System.out.println(GestoraBaseDatos.insertarDatos(new Tarea("GARAJE", "21/11/2014", 4, "PEPA")));
+        System.out.println(GestoraBaseDatos.insertarDato(new Tarea("GARAJE", "21/11/2014", 4, "PEPA")));
         GestoraBaseDatos.cerrarConexion();
 
     }

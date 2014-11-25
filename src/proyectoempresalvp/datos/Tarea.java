@@ -33,19 +33,6 @@ public class Tarea extends Dato {
         this.put("CLIENTE", cliente);
     }
 
-    /**
-     * Comprueba si la fecha tiene que realizarse en los próximos 15 días
-     *
-     * @param fechaActual
-     * @return Un boolean indicando si ha de hacerse en los próximos 15 días
-     */
-    public boolean comprobarTareaEnProximosQuinceDias(String fechaActual) {
-
-       
-        return UtilidadesTareas.calcularDiferenciaFechas(fechaActual,(String) this.get("FECHA")) <= 15;
-
-    }
-
     @Override
     public String devuelveNombreTablaDato() {
 
@@ -56,5 +43,24 @@ public class Tarea extends Dato {
     public String[] devuelveOrdenDeColumnas() {
 
         return orden;
+    }
+
+    public void calcularNuevaFecha() {
+
+        String[] fecha = ((String) this.get("FECHA")).split("/");
+        int dia = Integer.parseInt(fecha[0]);
+        int mes = Integer.parseInt(fecha[1]);
+        int año = Integer.parseInt(fecha[2]);
+
+        if (mes + (int) this.get("PERIODO") > 12) {
+
+            mes = mes + (int) this.get("PERIODO") - 12;
+            año++;
+        } else {
+            mes = mes + (int) this.get("PERIODO");
+        }
+
+        this.put("FECHA", dia + "/" + mes + "/" + año);
+
     }
 }

@@ -5,12 +5,18 @@
  */
 package proyectoempresalvp.gui;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import proyectoempresalvp.datos.Dato;
+import proyectoempresalvp.datos.Tarea;
 import proyectoempresalvp.datosUI.PanelImagen;
 import proyectoempresalvp.datosUI.JPanelTranslucido;
 import proyectoempresalvp.datosUI.ScrollPaneTranslucido;
 import proyectoempresalvp.datosUI.Tabla;
 import proyectoempresalvp.gestoras.Gestora;
+import proyectoempresalvp.gestoras.GestoraBaseDatos;
+import proyectoempresalvp.gestoras.GestoraTareas;
+import proyectoempresalvp.gestoras.ModeloTabla;
 import proyectoempresalvp.gestoras.ObservadorTareas;
 
 /**
@@ -25,6 +31,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas{
     public VentanaGUI() {
 
         initComponents();
+        GestoraBaseDatos.conectarBaseDatos();
+        initTablas();
         this.setLocationRelativeTo(null);
     }
 
@@ -530,6 +538,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas{
         jScrollPane13 = new ScrollPaneTranslucido();
         tablaTareas = new Tabla();
         bTarBorrar = new javax.swing.JButton();
+        jPanel16 = new javax.swing.JPanel();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        taTareasComprobadas = new javax.swing.JTextArea();
+        bComprobarTareas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -3909,6 +3921,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas{
         PanelPestañasPrincipal.addTab("EMPLEADOS", jPempleados);
 
         jPtareas.setOpaque(false);
+        jPtareas.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jPtareasComponentShown(evt);
+            }
+        });
 
         jPanel15.setBackground(new java.awt.Color(255, 255, 51));
 
@@ -3933,6 +3950,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas{
         });
 
         bTarGuardar.setText("Guardar");
+        bTarGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bTarGuardarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -3996,13 +4018,45 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas{
         bTarBorrar.setBackground(new java.awt.Color(255, 102, 102));
         bTarBorrar.setText("Borrar Tarea");
 
+        jPanel16.setBackground(new java.awt.Color(204, 255, 255));
+
+        taTareasComprobadas.setEditable(false);
+        taTareasComprobadas.setColumns(20);
+        taTareasComprobadas.setRows(5);
+        jScrollPane14.setViewportView(taTareasComprobadas);
+
+        bComprobarTareas.setText("Comprobar tareas");
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane14)
+                    .addComponent(bComprobarTareas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bComprobarTareas)
+                .addGap(7, 7, 7))
+        );
+
         javax.swing.GroupLayout jPtareasLayout = new javax.swing.GroupLayout(jPtareas);
         jPtareas.setLayout(jPtareasLayout);
         jPtareasLayout.setHorizontalGroup(
             jPtareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPtareasLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPtareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(38, 38, 38)
                 .addGroup(jPtareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(bTarBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -4013,11 +4067,15 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas{
             jPtareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPtareasLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addGroup(jPtareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(bTarBorrar)
+                .addGroup(jPtareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPtareasLayout.createSequentialGroup()
+                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(bTarBorrar))
+                    .addGroup(jPtareasLayout.createSequentialGroup()
+                        .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(193, Short.MAX_VALUE))
         );
 
@@ -4146,6 +4204,16 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas{
         // TODO add your handling code here:
     }//GEN-LAST:event_ctTarFechaActionPerformed
 
+    private void bTarGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTarGuardarActionPerformed
+        
+        guardarTarea();
+    }//GEN-LAST:event_bTarGuardarActionPerformed
+
+
+    private void jPtareasComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPtareasComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPtareasComponentShown
+
     /**
      * @param args the command line arguments
      */
@@ -4205,6 +4273,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas{
     private javax.swing.JButton bCancel;
     private javax.swing.JButton bCancela;
     private javax.swing.JButton bComprobarIban;
+    private javax.swing.JButton bComprobarTareas;
     private javax.swing.JButton bEstudiosActivos;
     private javax.swing.JButton bEtiqLibre;
     private javax.swing.JButton bExamFac;
@@ -4576,6 +4645,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas{
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -4621,6 +4691,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas{
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -4669,6 +4740,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas{
     private javax.swing.JComboBox rbRm;
     private javax.swing.JRadioButton rbTodos;
     private javax.swing.JRadioButton rbTods;
+    private javax.swing.JTextArea taTareasComprobadas;
     private javax.swing.JTable tablaFacExtra;
     private javax.swing.JTable tablaFacMensuales;
     private javax.swing.JTable tablaHistoricoFacturas;
@@ -4699,7 +4771,28 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas{
         
         /**
          * 
-         * Actualizar la tabla de tareas y mostrar JOptionPane con las de los ultimos 15
+         * Actualizar la tabla de tareas y TextArea con las de los ultimos 15
          */
+        ArrayList<Dato> tareas = new ArrayList(GestoraTareas.getTareas());
+        tablaTareas.setModel(new ModeloTabla(tareas));
+        
+        taTareasComprobadas.setText(GestoraTareas.getTareasARealizar().toString());
+    }
+    
+    
+    private void guardarTarea() {
+        try {
+            
+            GestoraBaseDatos.insertarTarea(new Tarea(cttarconcepto.getText(), ctTarFecha.getText(), Integer.parseInt(ctTarPeriodo.getText()), ctTarCliente.getText()));
+        } catch (NumberFormatException numberFormatException) {
+            
+            JOptionPane.showMessageDialog(this, "Comprueba el periodo");
+        }
+    }
+
+    private void initTablas() {
+        
+        // Tabla tareas
+        new GestoraTareas(this).start();
     }
 }

@@ -13,7 +13,6 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import proyectoempresalvp.datos.Dato;
-import proyectoempresalvp.datos.Tarea;
 
 /**
  *
@@ -90,21 +89,9 @@ public class GestoraBaseDatos {
         }
     }
 
-    public static boolean insertarDatos(Dato d) {
+    public static boolean insertarDato(Dato d) {
 
         String[] claves = d.devuelveOrdenDeColumnas();
-
-        // La tarea tiene dos primaryKey
-        if (d instanceof Tarea) {
-
-            if (!comprobarExisteTarea(d)) {
-
-                StringBuilder textoSentencia = construyeSentenciaInsert(d, claves);
-                System.out.println(textoSentencia.toString());
-                GestoraBaseDatos.ejecutarSentenciaUpdate(textoSentencia.toString());
-                return comprobarExisteTarea(d);
-            }
-        }
         
         // El resto de datos
         if (!comprobarExiste(d, claves[0])) {
@@ -115,6 +102,22 @@ public class GestoraBaseDatos {
             GestoraBaseDatos.ejecutarSentenciaUpdate(textoSentencia.toString());
             return comprobarExiste(d, claves[0]);
         }
+        return false;
+    }
+    
+    public static boolean insertarTarea(Dato d) {
+
+        String[] claves = d.devuelveOrdenDeColumnas();
+
+        // La tarea tiene dos primaryKey
+
+            if (!comprobarExisteTarea(d)) {
+
+                StringBuilder textoSentencia = construyeSentenciaInsert(d, claves);
+                System.out.println(textoSentencia.toString());
+                GestoraBaseDatos.ejecutarSentenciaUpdate(textoSentencia.toString());
+                return comprobarExisteTarea(d);
+            }
         return false;
     }
 
