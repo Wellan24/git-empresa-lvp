@@ -46,7 +46,7 @@ public class UtilidadesTareasTest {
     public void testComprobarFormatoFechaCorrecto() {
         
         boolean expResult = correcto;
-        boolean result = UtilidadesTareas.comprobarFormatoFechaCorrecto(fecha);
+        boolean result = Gestora.comprobarFormatoFechaCorrecto(fecha);
         System.out.println(i++ + " " + fecha + " " + correcto);
         assertEquals(expResult, result);
     }
