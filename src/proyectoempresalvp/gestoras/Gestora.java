@@ -145,7 +145,7 @@ public class Gestora {
             mes = Integer.parseInt(f[1]);
             año = Integer.parseInt(f[2]);
 
-        } catch (NumberFormatException numberFormatException) {
+        } catch (Exception numberFormatException) {
 
             return false;
         }

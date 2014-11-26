@@ -5,9 +5,6 @@
  */
 package proyectoempresalvp.datos;
 
-import proyectoempresalvp.gestoras.GestoraTareas;
-import proyectoempresalvp.gestoras.UtilidadesTareas;
-
 /**
  * @author Oscar
  * @date 10-nov-2014
@@ -15,18 +12,20 @@ import proyectoempresalvp.gestoras.UtilidadesTareas;
  */
 public class Tarea extends Dato {
 
-    private static final String[] orden = {"CONCEPTO", "FECHA", "PERIODO", "CLIENTE"};
+    private static final String[] orden = {"NTAREA","CONCEPTO", "FECHA", "PERIODO", "CLIENTE"};
 
     /**
      * Fecha en formato dd/mm/aa y periodo en meses
      *
+     * @param nTarea
      * @param concepto
      * @param fecha
      * @param periodo
      * @param cliente
      */
-    public Tarea(String concepto, String fecha, int periodo, String cliente) {
+    public Tarea(int nTarea, String concepto, String fecha, int periodo, String cliente) {
 
+        this.put("NTAREA",nTarea);
         this.put("CONCEPTO", concepto);
         this.put("FECHA", fecha);
         this.put("PERIODO", periodo);

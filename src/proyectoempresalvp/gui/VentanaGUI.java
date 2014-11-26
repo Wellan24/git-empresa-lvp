@@ -4025,7 +4025,12 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas {
         taTareasComprobadas.setRows(5);
         jScrollPane14.setViewportView(taTareasComprobadas);
 
-        bComprobarTareas.setText("Comprobar tareas");
+        bComprobarTareas.setText("Actualizar Tareas");
+        bComprobarTareas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bComprobarTareasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -4213,6 +4218,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas {
     private void jPtareasComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPtareasComponentShown
         // TODO add your handling code here:
     }//GEN-LAST:event_jPtareasComponentShown
+
+    private void bComprobarTareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComprobarTareasActionPerformed
+        
+        comprobarTareas();
+    }//GEN-LAST:event_bComprobarTareasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -4773,8 +4783,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas {
          *
          * Actualizar la tabla de tareas y TextArea con las de los ultimos 15
          */
-        ArrayList<Dato> tareas = new ArrayList(GestoraTareas.getTareas());
-        tablaTareas.setModel(new ModeloTabla(tareas));
+        actualizarTablaTareas();
 
         taTareasComprobadas.setText(GestoraTareas.getTareasARealizar().toString());
     }
@@ -4785,7 +4794,14 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas {
         if (Gestora.comprobarFormatoFechaCorrecto(fecha)) {
             try {
 
-                GestoraBaseDatos.insertarTarea(new Tarea(cttarconcepto.getText(), fecha, Integer.parseInt(ctTarPeriodo.getText()), ctTarCliente.getText()));
+                Tarea tareaActual = new Tarea(GestoraTareas.nProximaTarea++,cttarconcepto.getText(), fecha, Integer.parseInt(ctTarPeriodo.getText()), ctTarCliente.getText());
+                if(GestoraBaseDatos.insertarDato(tareaActual)){
+                    GestoraTareas.tareas.add(tareaActual);                
+                    actualizarTablaTareas();
+                }else{
+                    
+                    JOptionPane.showMessageDialog(this, "No se ha insertado correctamente (¿Igual ya existe?)");
+                }
             } catch (NumberFormatException numberFormatException) {
 
                 JOptionPane.showMessageDialog(this, "Comprueba el periodo");
@@ -4800,5 +4816,16 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas {
 
         // Tabla tareas
         new GestoraTareas(this).start();
+    }
+
+    private void comprobarTareas() {
+       
+         new GestoraTareas(this).start();
+    }
+    
+    private void actualizarTablaTareas(){
+        
+        ArrayList<Dato> tareas = new ArrayList(GestoraTareas.getTareas());
+        tablaTareas.setModel(new ModeloTabla(tareas));
     }
 }

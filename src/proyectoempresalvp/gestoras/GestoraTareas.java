@@ -8,7 +8,6 @@ package proyectoempresalvp.gestoras;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import proyectoempresalvp.datos.Tarea;
@@ -23,6 +22,7 @@ public class GestoraTareas extends Thread {
     public static ArrayList<Tarea> tareas;
     public static StringBuilder tareasARealizar;
     public static ObservadorTareas observador;
+    public static int nProximaTarea;
 
     public GestoraTareas(ObservadorTareas observador) {
 
@@ -32,7 +32,7 @@ public class GestoraTareas extends Thread {
     @Override
     public void run() {
         
-        ResultSet tareasComprobar = GestoraBaseDatos.ejecutarSentenciaQuery("Select CONCEPTO, FECHA, PERIODO, CLIENTE from TAREAS");
+        ResultSet tareasComprobar = GestoraBaseDatos.ejecutarSentenciaQuery("Select NTAREA,CONCEPTO, FECHA, PERIODO, CLIENTE from TAREAS");
         if (tareas == null) {
             tareas = new ArrayList();
         } else {
@@ -40,13 +40,16 @@ public class GestoraTareas extends Thread {
         }
 
         StringBuilder string = new StringBuilder();
+        nProximaTarea = 0;
         Tarea tareaActual;
 
         try {
             while (tareasComprobar.next()) {
 
-                tareaActual = new Tarea(tareasComprobar.getString(1), tareasComprobar.getString(2), tareasComprobar.getInt(3), tareasComprobar.getString(4));
+                tareaActual = new Tarea(tareasComprobar.getInt(1), tareasComprobar.getString(2), tareasComprobar.getString(3), tareasComprobar.getInt(4),tareasComprobar.getString(5));
                 tareas.add(tareaActual);
+                
+                nProximaTarea = ((int)tareaActual.get("NTAREA") > nProximaTarea)? (int)tareaActual.get("NTAREA"): nProximaTarea;
                 
                 int comprobar = UtilidadesTareas.comprobarTareaEnProximosQuinceDias((String)tareaActual.get("FECHA"));
                 if(comprobar == UtilidadesTareas.ESHOY){
@@ -55,6 +58,9 @@ public class GestoraTareas extends Thread {
                 }
                 else if (comprobar == UtilidadesTareas.ESENQUINCE){
                     string.append("El día ").append(tareaActual.get("FECHA")).append(" hay ").append(tareaActual.get("CONCEPTO")).append(" para ").append(tareaActual.get("CLIENTE")).append("\n");
+                }else if(comprobar == UtilidadesTareas.HAPASADO){
+                    
+                    tareaActual.calcularNuevaFecha();
                 }
             }
         } catch (SQLException ex) {
@@ -62,6 +68,7 @@ public class GestoraTareas extends Thread {
         }
 
         tareasARealizar = string;
+        nProximaTarea++;
         GestoraTareas.observador.avisar();
     }
 

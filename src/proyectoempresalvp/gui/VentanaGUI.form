@@ -6320,8 +6320,11 @@
                     </Container>
                     <Component class="javax.swing.JButton" name="bComprobarTareas">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Comprobar tareas"/>
+                        <Property name="text" type="java.lang.String" value="Actualizar Tareas"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bComprobarTareasActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
