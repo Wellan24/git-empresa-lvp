@@ -9,12 +9,8 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Paint;
 import java.awt.RenderingHints;
-import java.awt.TexturePaint;
-import java.awt.geom.RoundRectangle2D;
 import javax.swing.JScrollPane;
-import javax.swing.JViewport;
 
 /**
  *
@@ -22,7 +18,7 @@ import javax.swing.JViewport;
  */
 public class ScrollPanelRedondo extends JScrollPane{
     
-    private final Color color = new Color(0xEFFBFB);
+    private final Color color = new Color(0xd4ebfa);
     private final int arcw = 2;
     private final int arch = 2;
 

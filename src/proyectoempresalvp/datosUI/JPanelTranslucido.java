@@ -16,7 +16,7 @@ import java.awt.RenderingHints;
  */
 public class JPanelTranslucido extends JPanelRedondeado {
 
-    private float tran = 0.9f;
+    private float tran = 0.95f;
 
     public JPanelTranslucido() {
 

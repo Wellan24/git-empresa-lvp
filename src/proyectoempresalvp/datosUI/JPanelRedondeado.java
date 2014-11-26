@@ -20,7 +20,7 @@ import javax.swing.JPanel;
  */
 public class JPanelRedondeado extends JPanel {
 
-    private final Color color = new Color(0xEFFBFB);
+    private final Color color = new Color(0xd4ebfa);
     private int arcw = 20;
     private int arch = 20;
 

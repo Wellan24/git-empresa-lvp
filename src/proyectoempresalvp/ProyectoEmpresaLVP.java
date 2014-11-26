@@ -5,7 +5,6 @@
  */
 package proyectoempresalvp;
 
-import proyectoempresalvp.datos.Tarea;
 import proyectoempresalvp.gestoras.GestoraBaseDatos;
 
 

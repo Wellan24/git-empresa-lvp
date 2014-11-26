@@ -538,7 +538,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas {
         jScrollPane13 = new ScrollPaneTranslucido();
         tablaTareas = new Tabla();
         bTarBorrar = new javax.swing.JButton();
-        jPanel16 = new javax.swing.JPanel();
+        jPanel16 = new JPanelTranslucido();
         jScrollPane14 = new javax.swing.JScrollPane();
         taTareasComprobadas = new javax.swing.JTextArea();
         bComprobarTareas = new javax.swing.JButton();
@@ -4014,6 +4014,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas {
             }
         ));
         jScrollPane13.setViewportView(tablaTareas);
+        tablaTareas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);
 
         bTarBorrar.setBackground(new java.awt.Color(255, 102, 102));
         bTarBorrar.setText("Borrar Tarea");

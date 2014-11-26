@@ -6256,6 +6256,7 @@
                         </Property>
                       </Properties>
                       <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="tablaTareas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);"/>
                         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Tabla()"/>
                       </AuxValues>
                     </Component>
@@ -6275,6 +6276,9 @@
                       <Color blue="ff" green="ff" red="cc" type="rgb"/>
                     </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JPanelTranslucido()"/>
+                  </AuxValues>
 
                   <Layout>
                     <DimensionLayout dim="0">
