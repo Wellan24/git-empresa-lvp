@@ -14,19 +14,19 @@ import java.text.Collator;
 public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtraDetalles>{
 
     
-    public static String[] orden = {"NUMERO","ORDEN", "CONCEPTO", "IMPORTE"};
+    public static String[] orden = {"ID","ORDEN", "CONCEPTO", "IMPORTE"};
     /**
      *  Las claves son: ORDEN, NUMERO, CONCEPTO, IMPORTE
      * 
      * @param orden
-     * @param numero
+     * @param id
      * @param concepto
      * @param importe 
      */
-    public FacturaExtraDetalles(int orden, int numero, String concepto, float importe) {
+    public FacturaExtraDetalles(int orden, int id, String concepto, float importe) {
         
         this.put("ORDEN", orden);
-        this.put("NUMERO", numero);
+        this.put("ID", id);
         this.put("CONCEPTO", concepto);
         this.put("IMPORTE", importe);        
     }   

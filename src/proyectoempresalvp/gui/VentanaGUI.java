@@ -725,12 +725,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas {
             jPinsertarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPinsertarCliLayout.createSequentialGroup()
                 .addContainerGap(33, Short.MAX_VALUE)
-                .addGroup(jPinsertarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(jPinsertarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel11)
-                        .addComponent(ctCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(ctDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPinsertarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(ctCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ctDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGroup(jPinsertarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPinsertarCliLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
@@ -3564,7 +3563,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas {
 
         jLabel18.setText("Empleado");
 
-        jLabel19.setText("Descripción");
+        jLabel19.setText("Anagrama:");
 
         jLabel20.setText("Nombre");
 
@@ -4795,9 +4794,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas {
         if (Gestora.comprobarFormatoFechaCorrecto(fecha)) {
             try {
 
-                Tarea tareaActual = new Tarea(GestoraTareas.nProximaTarea++,cttarconcepto.getText(), fecha, Integer.parseInt(ctTarPeriodo.getText()), ctTarCliente.getText());
+                Tarea tareaActual = new Tarea(GestoraTareas.aumentaNumeroTarea(),cttarconcepto.getText(), fecha, Integer.parseInt(ctTarPeriodo.getText()), ctTarCliente.getText());
                 if(GestoraBaseDatos.insertarDato(tareaActual)){
-                    GestoraTareas.tareas.add(tareaActual);                
+                    GestoraTareas.getTareas().add(tareaActual);                
                     actualizarTablaTareas();
                 }else{
                     

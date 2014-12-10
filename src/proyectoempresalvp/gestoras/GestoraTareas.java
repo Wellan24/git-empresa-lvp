@@ -19,10 +19,10 @@ import proyectoempresalvp.datos.Tarea;
  */
 public class GestoraTareas extends Thread {
 
-    public static ArrayList<Tarea> tareas;
-    public static StringBuilder tareasARealizar;
-    public static ObservadorTareas observador;
-    public static int nProximaTarea;
+    private static ArrayList<Tarea> tareas;
+    private static StringBuilder tareasARealizar;
+    private static ObservadorTareas observador;
+    private static int nProximaTarea;
 
     public GestoraTareas(ObservadorTareas observador) {
 
@@ -32,7 +32,7 @@ public class GestoraTareas extends Thread {
     @Override
     public void run() {
         
-        ResultSet tareasComprobar = GestoraBaseDatos.ejecutarSentenciaQuery("Select NTAREA,CONCEPTO, FECHA, PERIODO, CLIENTE from TAREAS");
+        ResultSet tareasComprobar = GestoraBaseDatos.ejecutarSentenciaQuery("Select ID,CONCEPTO, FECHA, PERIODO, CLIENTE from TAREAS");
         if (tareas == null) {
             tareas = new ArrayList();
         } else {
@@ -49,7 +49,7 @@ public class GestoraTareas extends Thread {
                 tareaActual = new Tarea(tareasComprobar.getInt(1), tareasComprobar.getString(2), tareasComprobar.getString(3), tareasComprobar.getInt(4),tareasComprobar.getString(5));
                 tareas.add(tareaActual);
                 
-                nProximaTarea = ((int)tareaActual.get("NTAREA") > nProximaTarea)? (int)tareaActual.get("NTAREA"): nProximaTarea;
+                nProximaTarea = ((int)tareaActual.get("ID") > nProximaTarea)? (int)tareaActual.get("ID"): nProximaTarea;
                 
                 int comprobar = UtilidadesTareas.comprobarTareaEnProximosQuinceDias((String)tareaActual.get("FECHA"));
                 if(comprobar == UtilidadesTareas.ESHOY){
@@ -78,5 +78,10 @@ public class GestoraTareas extends Thread {
 
     public static synchronized StringBuilder getTareasARealizar() {
         return tareasARealizar;
+    }
+    
+    public static synchronized int aumentaNumeroTarea(){
+        
+        return GestoraTareas.nProximaTarea++;
     }
 }

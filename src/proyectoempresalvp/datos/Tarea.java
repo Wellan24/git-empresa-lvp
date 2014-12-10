@@ -12,20 +12,20 @@ package proyectoempresalvp.datos;
  */
 public class Tarea extends Dato {
 
-    private static final String[] orden = {"NTAREA","CONCEPTO", "FECHA", "PERIODO", "CLIENTE"};
+    private static final String[] orden = {"ID","CONCEPTO", "FECHA", "PERIODO", "CLIENTE"};
 
     /**
      * Fecha en formato dd/mm/aa y periodo en meses
      *
-     * @param nTarea
+     * @param id
      * @param concepto
      * @param fecha
      * @param periodo
      * @param cliente
      */
-    public Tarea(int nTarea, String concepto, String fecha, int periodo, String cliente) {
+    public Tarea(int id, String concepto, String fecha, int periodo, String cliente) {
 
-        this.put("NTAREA",nTarea);
+        this.put("ID",id);
         this.put("CONCEPTO", concepto);
         this.put("FECHA", fecha);
         this.put("PERIODO", periodo);
