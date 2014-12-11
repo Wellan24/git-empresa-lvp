@@ -47,8 +47,7 @@ public class GestoraDatos extends Thread{
 
     private void actualizarEmpleados() {
        
-         ResultSet empleadosComprobar = GestoraBaseDatos.ejecutarSentenciaQuery("Select NUMEMPLE, CIF, ANAGRAMA, NOMBRE, DOMICILIO, LOCALIDAD, CP, PROVINCIA"
-                 + ", TLF1, TLF2, IBAN, ALTA, NACIMIENTO, NOMINA, SS, BAJA from EMPLEADOS");
+         ResultSet empleadosComprobar = GestoraBaseDatos.ejecutarSentenciaQuery(GestoraBaseDatos.construyeSentenciaSelect(Empleado.getOrden(), Empleado.getTabla()));
         if (empleados == null) {
             empleados = new ArrayListDato();
         } else {

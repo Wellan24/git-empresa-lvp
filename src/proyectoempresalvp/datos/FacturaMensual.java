@@ -10,9 +10,10 @@ import java.util.Date;
 
 public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
 
-    public static String[] orden = {"NUMFACTURA", "FECHA", "NUMCLIENTE", "DESCRIPCION", "NUMCONTACTO", "CIF", "NOMBRE", "DOMICILIO",
+    private static String[] orden = {"NUMFACTURA", "FECHA", "NUMCLIENTE", "DESCRIPCION", "NUMCONTACTO", "CIF", "NOMBRE", "DOMICILIO",
         "LOCALIDAD", "PROVINCIA", "EUROSMES", "TANTOIVA", "REFMONEDA", "DIACOBRO", "FORMAPAGO", "PERIODO", "NUMPERIODO",
         "NUMCUENTA", "REFBANCO", "BANCOCOBRO", "NUMBREBANCO"};
+    private static final String tabla = "FACTURAMENSUAL";
 
     /**
      * las claves son: NUMFACTURA, FECHA,NUMCLIENTE, DESCRIPCION,NUMCONTACTO,
@@ -74,7 +75,7 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
     @Override
     public String devuelveNombreTablaDato() {
 
-        return "FACTURAMENSUAL";
+        return tabla;
     }
 
     @Override
@@ -132,8 +133,17 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
      * @return
      */
     @Override
-    public String devuelveClave() {
+    public String devuelveValorClave() {
 
         return "" + this.get("NUMFACTURA");
     }
+
+    public static String[] getOrden() {
+        return orden;
+    }
+
+    public static String getTabla() {
+        return tabla;
+    }
+    
 }

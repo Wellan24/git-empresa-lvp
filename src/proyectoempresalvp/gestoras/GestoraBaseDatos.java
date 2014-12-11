@@ -199,10 +199,16 @@ public class GestoraBaseDatos {
         return textoSentencia;
     }
            
-    private static String construyeSentenciaSelect(String[] claves, String cPrimaria){
+    public static String construyeSentenciaSelect(String[] claves, String nombreTabla){
         
-        StringBuilder dev = new StringBuilder();
+        StringBuilder dev = new StringBuilder("Select ");
         
+        for(String clave : claves){
+            
+            dev.append(clave).append(",");
+        }
+        
+        dev.replace(dev.length()-1, dev.length(), " from " + nombreTabla);
         return dev.toString();
     }
 }

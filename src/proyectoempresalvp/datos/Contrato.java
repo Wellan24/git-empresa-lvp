@@ -10,8 +10,9 @@ import java.util.Date;
 
 public class Contrato extends Dato implements Comparable<Contrato> {
 
-    public static String[] orden = {"NUMCONTRATO", "NUMCLIENTE", "DESCRIPCION", "INICIOCONTRATO", "FINCONTRATO", "EUROSAÑO", "EUROSMES",
+    private static final String[] orden = {"NUMCONTRATO", "NUMCLIENTE", "DESCRIPCION", "INICIOCONTRATO", "FINCONTRATO", "EUROSAÑO", "EUROSMES",
         "SITUACION", "FORMAPAGO", "DIACOBRO", "TANTOIVA"};
+    private static final String tabla = "CONTRATOS";
 
     /**
      * Las claves son: NUMCONTRATO, NUMCLIENTE, DESCRIPCION,INICIOCONTRATO,
@@ -48,7 +49,7 @@ public class Contrato extends Dato implements Comparable<Contrato> {
     @Override
     public String devuelveNombreTablaDato() {
 
-        return "CONTRATOS";
+        return tabla;
     }
 
     @Override
@@ -106,8 +107,16 @@ public class Contrato extends Dato implements Comparable<Contrato> {
      * @return
      */
     @Override
-    public String devuelveClave() {
+    public String devuelveValorClave() {
 
         return "" + this.get("NUMCONTRATO");
+    }
+
+    public static String[] getOrden() {
+        return orden;
+    }
+
+    public static String getTabla() {
+        return tabla;
     }
 }

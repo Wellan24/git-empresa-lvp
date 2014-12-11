@@ -13,6 +13,7 @@ package proyectoempresalvp.datos;
 public class Tarea extends Dato {
 
     private static final String[] orden = {"NTAREA", "CONCEPTO", "FECHA", "PERIODO", "CLIENTE"};
+    private static final String tabla = "TAREAS";
 
     /**
      * Fecha en formato dd/mm/aa y periodo en meses
@@ -32,10 +33,14 @@ public class Tarea extends Dato {
         this.put("CLIENTE", cliente);
     }
 
+    public static String[] getOrden() {
+        return orden;
+    }
+
     @Override
     public String devuelveNombreTablaDato() {
 
-        return "TAREAS";
+        return tabla;
     }
 
     @Override
@@ -69,8 +74,13 @@ public class Tarea extends Dato {
      * @return
      */
     @Override
-    public String devuelveClave() {
+    public String devuelveValorClave() {
 
         return "" + this.get("NTAREA");
     }
+
+    public static String getTabla() {
+        return tabla;
+    }    
+    
 }

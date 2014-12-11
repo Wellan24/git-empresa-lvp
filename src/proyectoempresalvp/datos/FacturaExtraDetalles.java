@@ -14,7 +14,8 @@ import java.text.Collator;
 public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtraDetalles>{
 
     
-    public static String[] orden = {"ID","NUMERO", "CONCEPTO", "IMPORTE"};
+    private static final String[] orden = {"ID","NUMERO", "CONCEPTO", "IMPORTE"};
+    private static final String tabla = "FACTURAEXTRADETALLES";
     /**
      *  Las claves son: ORDEN, NUMERO, CONCEPTO, IMPORTE
      * 
@@ -34,7 +35,7 @@ public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtr
     @Override
     public String devuelveNombreTablaDato() {
         
-        return "FACTURAEXTRADETALLES";
+        return tabla;
     }
     @Override
     public int compareTo(FacturaExtraDetalles o) {
@@ -84,9 +85,17 @@ public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtr
      * @return 
      */
     @Override
-    public String devuelveClave() {
+    public String devuelveValorClave() {
         
         return ""+this.get("NUMERO");
+    }
+
+    public static String[] getOrden() {
+        return orden;
+    }
+
+    public static String getTabla() {
+        return tabla;
     }
     
 }

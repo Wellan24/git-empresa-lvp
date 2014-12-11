@@ -12,8 +12,9 @@ import java.text.Collator;
 
 public class Cliente extends Dato  implements Comparable<Cliente>{
     
-    public static String[] orden = {"NUMEROCLIENTE", "CIF", "DESCRIPCION", "NOMBRE", "DOMICILIO","LOCALIDAD", "CP", "PROVINCIA"
-            , "PERSONACONTACTO", "TLFCLIENTE","TLFCONTACTO", "NOTAS", "ENTIDAD", "SUCURSAL", "DC", "CUENTA", "REFBANCO","IBAN", "BANCOCOBRO"};
+    public static String[] orden = {"NUMEROCLIENTE", "CIF", "DESCRIPCION", "NOMBRE", "DOMICILIO","LOCALIDAD", "CP", "PROVINCIA", "PERSONACONTACTO", "TLFCLIENTE","TLFCONTACTO", "NOTAS", 
+                                    "ENTIDAD", "SUCURSAL", "DC", "CUENTA", "REFBANCO","IBAN", "BANCOCOBRO"};
+    private static final String tabla = "CLIENTES";
     /**
      *   Las claves son: NUMEROCLIENTE, CIF, DESCRIPCION, NOMBRE, DOMICILIO,
      *          LOCALIDAD, CP, PROVINCIA, PERSONACONTACTO, TLFCLIENTE,
@@ -68,7 +69,7 @@ public class Cliente extends Dato  implements Comparable<Cliente>{
 
     @Override
     public String devuelveNombreTablaDato() {
-        return "CLIENTES";
+        return tabla;
     }
 
     @Override
@@ -119,9 +120,17 @@ public class Cliente extends Dato  implements Comparable<Cliente>{
      * @return 
      */
     @Override
-    public String devuelveClave() {
+    public String devuelveValorClave() {
         
         return ""+this.get("NUMEROCLIENTE");
+    }
+
+    public static String[] getOrden() {
+        return orden;
+    }
+
+    public static String getTabla() {
+        return tabla;
     }
     
 }
