@@ -32,7 +32,7 @@ public class GestoraTareas extends Thread {
     @Override
     public void run() {
         
-        ResultSet tareasComprobar = GestoraBaseDatos.ejecutarSentenciaQuery("Select ID,CONCEPTO, FECHA, PERIODO, CLIENTE from TAREAS");
+        ResultSet tareasComprobar = GestoraBaseDatos.ejecutarSentenciaQuery("Select NTAREA,CONCEPTO, FECHA, PERIODO, CLIENTE from TAREAS");
         if (tareas == null) {
             tareas = new ArrayList();
         } else {
