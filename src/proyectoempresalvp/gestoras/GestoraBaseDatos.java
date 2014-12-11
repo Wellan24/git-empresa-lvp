@@ -198,5 +198,11 @@ public class GestoraBaseDatos {
         textoSentencia.append(claves[0]).append(" = ").append(d.get(claves[0]));
         return textoSentencia;
     }
-            
+           
+    private static String construyeSentenciaSelect(String[] claves, String cPrimaria){
+        
+        StringBuilder dev = new StringBuilder();
+        
+        return dev.toString();
+    }
 }

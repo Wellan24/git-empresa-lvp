@@ -37,7 +37,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         initComponents();
         GestoraBaseDatos.conectarBaseDatos();
-        initTablas();
+        GestoraDatos.setObservador(this);
+        initTablas();        
         this.setLocationRelativeTo(null);
     }
 

@@ -49,7 +49,7 @@ public class GestoraTareas extends Thread {
                 tareaActual = new Tarea(tareasComprobar.getInt(1), tareasComprobar.getString(2), tareasComprobar.getString(3), tareasComprobar.getInt(4),tareasComprobar.getString(5));
                 tareas.add(tareaActual);
                 
-                nProximaTarea = ((int)tareaActual.get("ID") > nProximaTarea)? (int)tareaActual.get("ID"): nProximaTarea;
+                nProximaTarea = ((int)tareaActual.get("NTAREA") > nProximaTarea)? (int)tareaActual.get("NTAREA"): nProximaTarea;
                 
                 int comprobar = UtilidadesTareas.comprobarTareaEnProximosQuinceDias((String)tareaActual.get("FECHA"));
                 if(comprobar == UtilidadesTareas.ESHOY){

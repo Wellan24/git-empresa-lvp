@@ -64,13 +64,21 @@ public class GestoraDatos extends Thread{
                         empleadosComprobar.getString(4),empleadosComprobar.getString(5),empleadosComprobar.getString(6),empleadosComprobar.getInt(7),
                         empleadosComprobar.getString(8),empleadosComprobar.getInt(9),empleadosComprobar.getInt(10),empleadosComprobar.getInt(11),
                         empleadosComprobar.getString(12),empleadosComprobar.getString(13),empleadosComprobar.getInt(14),empleadosComprobar.getInt(15),
-                        empleadosComprobar.getString(16),empleadosComprobar.getString(17),empleadosComprobar.getString(18));
+                        empleadosComprobar.getString(16),"","");
                 empleados.add(empleadoActual);
             }
         } catch (SQLException ex) {
             Logger.getLogger(GestoraTareas.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        observador.avisar(datoActualizar);
     }
+
+    public static void setObservador(ObservadorGestoraDatos observador) {
+        GestoraDatos.observador = observador;
+    }
+    
+    
 
     public static ArrayListDato<Empleado> getEmpleados() {
         return empleados;
