@@ -72,6 +72,8 @@ public class GestoraDatos extends Thread{
         
         observador.avisar(datoActualizar);
     }
+    
+    
 
     public static void setObservador(ObservadorGestoraDatos observador) {
         GestoraDatos.observador = observador;
