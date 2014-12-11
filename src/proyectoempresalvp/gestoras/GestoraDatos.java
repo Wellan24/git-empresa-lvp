@@ -20,9 +20,9 @@ import proyectoempresalvp.datos.Empleado;
  */
 public class GestoraDatos extends Thread{
     
-    public static ArrayListDato<Empleado> empleados;
-    public static ArrayListDato<Contrato> contratos;
-    public static ArrayListDato<Cliente> clientes;
+    private static ArrayListDato<Empleado> empleados;
+    private static ArrayListDato<Contrato> contratos;
+    private static ArrayListDato<Cliente> clientes;
     
     public static final int ACTUALIZAR_TODO = 0;
     public static final int ACTUALIZAR_EMPLEADOS = 1;

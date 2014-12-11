@@ -114,5 +114,13 @@ public class FacturaExtra extends Dato  implements Comparable<FacturaExtra>{
         
         return 0;
     }
-    
+    /**
+     * La clave es NUMEROFACTURA
+     * @return 
+     */
+    @Override
+    public String devuelveClave() {
+        
+        return ""+this.get("NUMEROFACTURA");
+    }
 }

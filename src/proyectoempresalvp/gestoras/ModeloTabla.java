@@ -44,7 +44,7 @@ public class ModeloTabla extends DefaultTableModel{
         this.datos = datos.toArray(new Dato[datos.size()]);
         filas = datos.size();    
         
-        if(datos.size() != 0){
+        if(!datos.isEmpty()){
             
             for(Dato d : datos){
                 

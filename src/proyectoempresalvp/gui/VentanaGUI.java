@@ -7,7 +7,10 @@ package proyectoempresalvp.gui;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import proyectoempresalvp.datos.ArrayListDato;
 import proyectoempresalvp.datos.Dato;
+import proyectoempresalvp.datos.Empleado;
 import proyectoempresalvp.datos.Tarea;
 import proyectoempresalvp.datosUI.PanelImagen;
 import proyectoempresalvp.datosUI.JPanelTranslucido;
@@ -15,15 +18,17 @@ import proyectoempresalvp.datosUI.ScrollPaneTranslucido;
 import proyectoempresalvp.datosUI.Tabla;
 import proyectoempresalvp.gestoras.Gestora;
 import proyectoempresalvp.gestoras.GestoraBaseDatos;
+import proyectoempresalvp.gestoras.GestoraDatos;
 import proyectoempresalvp.gestoras.GestoraTareas;
 import proyectoempresalvp.gestoras.ModeloTabla;
+import proyectoempresalvp.gestoras.ObservadorGestoraDatos;
 import proyectoempresalvp.gestoras.ObservadorTareas;
 
 /**
  *
  * @author Administrador
  */
-public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas {
+public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, ObservadorGestoraDatos {
 
     /**
      * Creates new form VentanaGUI
@@ -519,7 +524,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas {
         bModif = new javax.swing.JButton();
         bVacBajas = new javax.swing.JButton();
         jScrollPane2 = new ScrollPaneTranslucido();
-        jTablaEmple = new Tabla();
+        tablaEmple = new Tabla();
         bImprimirLis = new javax.swing.JButton();
         jLabel36 = new javax.swing.JLabel();
         rbDescrip = new javax.swing.JRadioButton();
@@ -3823,7 +3828,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas {
         bVacBajas.setBackground(new java.awt.Color(255, 204, 204));
         bVacBajas.setText("Vacaciones Bajas");
 
-        jTablaEmple.setModel(new javax.swing.table.DefaultTableModel(
+        tablaEmple.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -3834,7 +3839,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTablaEmple);
+        jScrollPane2.setViewportView(tablaEmple);
 
         bImprimirLis.setBackground(new java.awt.Color(153, 255, 255));
         bImprimirLis.setText("Imprimir listado de empleados");
@@ -4711,7 +4716,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTable jTHojasBanco;
-    private javax.swing.JTable jTablaEmple;
     private javax.swing.JTable jTableClientes;
     private javax.swing.JTable jTableContratos;
     private javax.swing.JTextArea jTextArea1;
@@ -4751,6 +4755,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas {
     private javax.swing.JRadioButton rbTodos;
     private javax.swing.JRadioButton rbTods;
     private javax.swing.JTextArea taTareasComprobadas;
+    private javax.swing.JTable tablaEmple;
     private javax.swing.JTable tablaFacExtra;
     private javax.swing.JTable tablaFacMensuales;
     private javax.swing.JTable tablaHistoricoFacturas;
@@ -4816,6 +4821,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas {
 
         // Tabla tareas
         new GestoraTareas(this).start();
+        
+        // Resto Tablas
+        new GestoraDatos(GestoraDatos.ACTUALIZAR_TODO).start();
     }
 
     private void comprobarTareas() {
@@ -4827,5 +4835,18 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas {
         
         ArrayList<Dato> tareas = new ArrayList(GestoraTareas.getTareas());
         tablaTareas.setModel(new ModeloTabla(tareas));
+    }
+
+    @Override
+    public void avisar(int datoActualizado) {
+        
+        if(datoActualizado == GestoraDatos.ACTUALIZAR_EMPLEADOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO)
+            actualizarTabla(tablaEmple, GestoraDatos.getEmpleados());
+    }
+
+    private void actualizarTabla(JTable tabla, ArrayListDato<Empleado> empleados) {
+        
+        ArrayList<Dato> datos = new ArrayList(empleados);
+        tabla.setModel(new ModeloTabla(datos));
     }
 }

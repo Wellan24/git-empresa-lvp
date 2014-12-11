@@ -8,17 +8,18 @@ package proyectoempresalvp.datos;
 import java.text.Collator;
 import java.util.Date;
 
+public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
 
-public class FacturaMensual extends Dato  implements Comparable<FacturaMensual>{
+    public static String[] orden = {"NUMFACTURA", "FECHA", "NUMCLIENTE", "DESCRIPCION", "NUMCONTACTO", "CIF", "NOMBRE", "DOMICILIO",
+        "LOCALIDAD", "PROVINCIA", "EUROSMES", "TANTOIVA", "REFMONEDA", "DIACOBRO", "FORMAPAGO", "PERIODO", "NUMPERIODO",
+        "NUMCUENTA", "REFBANCO", "BANCOCOBRO", "NUMBREBANCO"};
 
-    public static String[] orden = {"NUMFACTURA", "FECHA","NUMCLIENTE", "DESCRIPCION","NUMCONTACTO", "CIF","NOMBRE", "DOMICILIO",
-        "LOCALIDAD", "PROVINCIA", "EUROSMES", "TANTOIVA","REFMONEDA","DIACOBRO", "FORMAPAGO", "PERIODO", "NUMPERIODO",
-        "NUMCUENTA","REFBANCO","BANCOCOBRO","NUMBREBANCO"};
     /**
-     *  las claves son: NUMFACTURA, FECHA,NUMCLIENTE, DESCRIPCION,NUMCONTACTO, CIF,
-     *  NOMBRE, DOMICILIO, LOCALIDAD, PROVINCIA, EUROSMES, TANTOIVA, IVA, TOTAL,
-     *  REFMONEDA,DIACOBRO, FORMAPAGO, PERIODO, NUMPERIODO,NUMCUENTA,REFBANCO,
-     *  BANCOCOBRO,NUMBREBANCO
+     * las claves son: NUMFACTURA, FECHA,NUMCLIENTE, DESCRIPCION,NUMCONTACTO,
+     * CIF, NOMBRE, DOMICILIO, LOCALIDAD, PROVINCIA, EUROSMES, TANTOIVA, IVA,
+     * TOTAL, REFMONEDA,DIACOBRO, FORMAPAGO, PERIODO,
+     * NUMPERIODO,NUMCUENTA,REFBANCO, BANCOCOBRO,NUMBREBANCO
+     *
      * @param numFactura
      * @param fecha
      * @param numCliente
@@ -39,93 +40,100 @@ public class FacturaMensual extends Dato  implements Comparable<FacturaMensual>{
      * @param numCuenta
      * @param refBanco
      * @param bancoCobro
-     * @param nombreBanco 
+     * @param nombreBanco
      */
-    public FacturaMensual(int numFactura,Date fecha,int numCliente,
-            String descripcion,int numContacto,int cif,String nombre,
-            String domicilio,String localidad,int cpProvincia,int eurosMes,
-            int tantoIva,String refMoneda,int diaCobro,
-            String formaPago,String periodo,int numPeriodo,int numCuenta,
-            int refBanco,int bancoCobro,String nombreBanco) {
-        this.put("NUMFACTURA",numFactura);
-        this.put("FECHA",fecha);
-        this.put("NUMCLIENTE",numCliente);
-        this.put("DESCRIPCION",descripcion);
-        this.put("NUMCONTACTO",numContacto);
-        this.put("CIF",cif);
-        this.put("NOMBRE",nombre);
-        this.put("DOMICILIO",domicilio);
-        this.put("LOCALIDAD",localidad);
-        this.put("PROVINCIA",cpProvincia);
-        this.put("EUROSMES",eurosMes);
-        this.put("TANTOIVA",tantoIva);
-        this.put("REFMONEDA",refMoneda);
-        this.put("DIACOBRO",diaCobro);
-        this.put("FORMAPAGO",formaPago);
-        this.put("PERIODO",periodo);
-        this.put("NUMPERIODO",numPeriodo);
-        this.put("NUMCUENTA",numCuenta);
-        this.put("REFBANCO",refBanco);
-        this.put("BANCOCOBRO",bancoCobro);
-        this.put("NOMBREBANCO",nombreBanco);
+    public FacturaMensual(int numFactura, Date fecha, int numCliente,
+            String descripcion, int numContacto, int cif, String nombre,
+            String domicilio, String localidad, int cpProvincia, int eurosMes,
+            int tantoIva, String refMoneda, int diaCobro,
+            String formaPago, String periodo, int numPeriodo, int numCuenta,
+            int refBanco, int bancoCobro, String nombreBanco) {
+        this.put("NUMFACTURA", numFactura);
+        this.put("FECHA", fecha);
+        this.put("NUMCLIENTE", numCliente);
+        this.put("DESCRIPCION", descripcion);
+        this.put("NUMCONTACTO", numContacto);
+        this.put("CIF", cif);
+        this.put("NOMBRE", nombre);
+        this.put("DOMICILIO", domicilio);
+        this.put("LOCALIDAD", localidad);
+        this.put("PROVINCIA", cpProvincia);
+        this.put("EUROSMES", eurosMes);
+        this.put("TANTOIVA", tantoIva);
+        this.put("REFMONEDA", refMoneda);
+        this.put("DIACOBRO", diaCobro);
+        this.put("FORMAPAGO", formaPago);
+        this.put("PERIODO", periodo);
+        this.put("NUMPERIODO", numPeriodo);
+        this.put("NUMCUENTA", numCuenta);
+        this.put("REFBANCO", refBanco);
+        this.put("BANCOCOBRO", bancoCobro);
+        this.put("NOMBREBANCO", nombreBanco);
     }
 
-    
-    
-    
     @Override
     public String devuelveNombreTablaDato() {
-        
+
         return "FACTURAMENSUAL";
     }
 
     @Override
     public String[] devuelveOrdenDeColumnas() {
-        
+
         return orden; //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public int compareTo(FacturaMensual o) {
-        
+
         Collator c = Collator.getInstance();
         c.setStrength(Collator.PRIMARY);
-        
+
         Object obj;
         Object objO;
-        
-        for(String clave : orden){
-            
+
+        for (String clave : orden) {
+
             obj = this.get(clave);
             objO = o.get(clave);
-            if(obj instanceof Integer){
-                
-                if((int)obj != (int)objO){
-            
-                    return (int)obj > (int)objO ? 1 : -1;            
+            if (obj instanceof Integer) {
+
+                if ((int) obj != (int) objO) {
+
+                    return (int) obj > (int) objO ? 1 : -1;
                 }
-            }else if(obj instanceof String){
-                if(c.compare((String)obj, (String)objO) != 0){
-            
-                    return c.compare((String)obj, objO);            
+            } else if (obj instanceof String) {
+                if (c.compare((String) obj, (String) objO) != 0) {
+
+                    return c.compare((String) obj, objO);
                 }
-            }else if(obj instanceof Float){
-                
-                if((float)obj != (float)objO){
-            
-                    return (float)obj > (float)objO ? 1 : -1;
+            } else if (obj instanceof Float) {
+
+                if ((float) obj != (float) objO) {
+
+                    return (float) obj > (float) objO ? 1 : -1;
                 }
-            }else if(obj instanceof Date){
-                
-                if(((Date)obj).compareTo((Date)objO) != 0){
-            
-                    return ((Date)obj).compareTo((Date)objO);
+            } else if (obj instanceof Date) {
+
+                if (((Date) obj).compareTo((Date) objO) != 0) {
+
+                    return ((Date) obj).compareTo((Date) objO);
                 }
-            }         
-            
+            }
+
         }
-        
+
         return 0;
     }
-    
+
+    /**
+     * La clave es NUMFACTURA
+     *
+     * @return
+     */
+    @Override
+    public String devuelveClave() {
+
+        return "" + this.get("NUMFACTURA");
+    }
 }

@@ -113,5 +113,15 @@ public class Cliente extends Dato  implements Comparable<Cliente>{
         
         return 0;
     }
+
+    /**
+     * La clave es NUMEROCLIENTE
+     * @return 
+     */
+    @Override
+    public String devuelveClave() {
+        
+        return ""+this.get("NUMEROCLIENTE");
+    }
     
 }
