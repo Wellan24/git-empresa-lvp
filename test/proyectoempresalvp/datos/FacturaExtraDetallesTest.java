@@ -53,7 +53,7 @@ public class FacturaExtraDetallesTest {
         
         boolean comp = (int)instance.get("ORDEN") == 10;
         comp = (comp)?(int)instance.get("NUMERO") == 20 : false;
-        comp = (comp)?"Hola".equals((String)instance.get("CONCEPTO")) : false;
+        comp = (comp)?"Hola".equals(instance.get("CONCEPTO")) : false;
         comp = (comp)?(float)instance.get("IMPORTE") == 20.0f : false;
         
         assertTrue(comp);

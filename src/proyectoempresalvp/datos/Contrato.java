@@ -80,7 +80,7 @@ public class Contrato extends Dato implements Comparable<Contrato> {
             } else if (obj instanceof String) {
                 if (c.compare((String) obj, (String) objO) != 0) {
 
-                    return c.compare((String) obj, objO);
+                    return c.compare(obj, objO);
                 }
             } else if (obj instanceof Float) {
 
