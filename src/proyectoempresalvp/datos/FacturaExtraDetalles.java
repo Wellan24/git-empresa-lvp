@@ -14,7 +14,7 @@ import java.text.Collator;
 public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtraDetalles>{
 
     
-    private static final String[] orden = {"ID","NUMERO", "CONCEPTO", "IMPORTE"};
+    private static final String[] orden = {"NUMERO","ORDEN", "CONCEPTO", "IMPORTE"};
     private static final String tabla = "FACTURAEXTRADETALLES";
     /**
      *  Las claves son: ORDEN, NUMERO, CONCEPTO, IMPORTE
