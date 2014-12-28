@@ -10,7 +10,7 @@ import java.util.Date;
 
 public class Empleado extends Dato implements Comparable<Empleado> {
 
-    private static final String[] orden = {"NUMEMPLE", "CIF", "ANAGRAMA", "NOMBRE", "DOMICILIO", "LOCALIDAD", "CP", "PROVINCIA", "TLF1", "TLF2", "IBAN", "ALTA", "NACIMIENTO", "NOMINA", "SS", "BAJA"};
+    private static final String[] orden = {"NUMEMPLE", "CIF", "ANAGRAMA", "NOMBRE", "DOMICILIO", "LOCALIDAD", "CP", "PROVINCIA", "TLF1", "TLF2", "IBAN", "ALTA", "NACIMIENTO", "NOMINA", "SS"};
     private static final String tabla = "EMPLEADOS";
 
     /**
@@ -33,14 +33,13 @@ public class Empleado extends Dato implements Comparable<Empleado> {
      * @param nacimiento
      * @param nomina
      * @param ss
-     * @param baja
      * @param centro0
      * @param horas0
      */
     public Empleado(int numemple, int cif, String anagrama, String nombre,
             String domicilio, String localidad, int cp, String provincia, int tlf1,
-            int tlf2, int iban, String alta,
-            String nacimiento, int nomina, int ss, String baja, String centro0,
+            int tlf2, String iban, String alta,
+            String nacimiento, int nomina, int ss, String centro0,
             String horas0) {
         this.put("NUMEMPLE", numemple);
         this.put("CIF", cif);
@@ -57,7 +56,6 @@ public class Empleado extends Dato implements Comparable<Empleado> {
         this.put("NACIMIENTO", nacimiento);
         this.put("NOMINA", nomina);
         this.put("SS", ss);
-        this.put("BAJA", baja);
         this.put("CENTRO0", centro0);//???
         this.put("HORAS0", horas0);//???
 

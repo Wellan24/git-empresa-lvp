@@ -19,12 +19,17 @@ public class ArrayListDato<T extends Dato> extends ArrayList<T>{
     @Override
     public boolean add(T e) {
         
-        nSiguiente = (Integer.parseInt(e.devuelveValorClave()) > nSiguiente)? Integer.parseInt(e.devuelveValorClave()): nSiguiente;
+        nSiguiente = (Integer.parseInt(e.devuelveValorClave()) > nSiguiente)? Integer.parseInt(e.devuelveValorClave())+1: nSiguiente;
         return super.add(e); 
     }   
     
-    public int devuelvYAumentaNumeroSiguiente() {
+    public int devuelveYAumentaNumeroSiguiente() {
         
         return nSiguiente++;
+    }
+    
+    public int devuelveNumeroSiguiente() {
+        
+        return nSiguiente;
     }
 }

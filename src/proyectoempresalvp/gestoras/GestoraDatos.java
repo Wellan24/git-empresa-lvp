@@ -13,6 +13,8 @@ import proyectoempresalvp.datos.ArrayListDato;
 import proyectoempresalvp.datos.Cliente;
 import proyectoempresalvp.datos.Contrato;
 import proyectoempresalvp.datos.Empleado;
+import proyectoempresalvp.datos.FacturaExtra;
+import proyectoempresalvp.datos.FacturaMensual;
 
 /**
  *
@@ -23,6 +25,8 @@ public class GestoraDatos extends Thread{
     private static ArrayListDato<Empleado> empleados;
     private static ArrayListDato<Contrato> contratos;
     private static ArrayListDato<Cliente> clientes;
+    private static ArrayListDato<FacturaExtra> facturasExtra;
+    private static ArrayListDato<FacturaMensual> facturasMensuales;
     
     public static final int ACTUALIZAR_TODO = 0;
     public static final int ACTUALIZAR_EMPLEADOS = 1;
@@ -61,9 +65,8 @@ public class GestoraDatos extends Thread{
 
                 empleadoActual = new Empleado(empleadosComprobar.getInt(1), empleadosComprobar.getInt(2), empleadosComprobar.getString(3), 
                         empleadosComprobar.getString(4),empleadosComprobar.getString(5),empleadosComprobar.getString(6),empleadosComprobar.getInt(7),
-                        empleadosComprobar.getString(8),empleadosComprobar.getInt(9),empleadosComprobar.getInt(10),empleadosComprobar.getInt(11),
-                        empleadosComprobar.getString(12),empleadosComprobar.getString(13),empleadosComprobar.getInt(14),empleadosComprobar.getInt(15),
-                        empleadosComprobar.getString(16),"","");
+                        empleadosComprobar.getString(8),empleadosComprobar.getInt(9),empleadosComprobar.getInt(10),empleadosComprobar.getString(11),
+                        empleadosComprobar.getString(12),empleadosComprobar.getString(13),empleadosComprobar.getInt(14),empleadosComprobar.getInt(15),"","");
                 empleados.add(empleadoActual);
             }
         } catch (SQLException ex) {
