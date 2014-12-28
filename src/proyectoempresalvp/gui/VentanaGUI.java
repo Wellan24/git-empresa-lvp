@@ -4887,7 +4887,13 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     ctEmpleIBAN.getText(), alta, nac, Integer.parseInt(ctEmpleNomina.getText()), 
                     Integer.parseInt(ctEmpleSS.getText()),  "23", "23");
             
-            GestoraBaseDatos.insertarDato(nuevoEmpleado);
+            if(GestoraBaseDatos.insertarDato(nuevoEmpleado)){
+                
+                GestoraDatos.getEmpleados().add(nuevoEmpleado);
+                actualizarTabla(tablaEmple, GestoraDatos.getEmpleados());
+                ctEmpleN.setText(""+GestoraDatos.getEmpleados().devuelveNumeroSiguiente());
+            }      
+            
         }
         
     }
