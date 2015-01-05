@@ -5,8 +5,6 @@
  */
 package proyectoempresalvp.datos;
 
-import java.sql.Date;
-import java.time.LocalDate;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
