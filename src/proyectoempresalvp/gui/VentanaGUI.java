@@ -4835,7 +4835,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         new GestoraTareas(this).start();
         
         // Resto Tablas
-        new GestoraDatos(GestoraDatos.ACTUALIZAR_TODO).start();
+        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_TODO);
     }
 
     private void comprobarTareas() {
@@ -4853,12 +4853,12 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     public void avisar(int datoActualizado) {
         
         if(datoActualizado == GestoraDatos.ACTUALIZAR_EMPLEADOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO){
-            actualizarTabla(tablaEmple, GestoraDatos.getEmpleados());
-            ctEmpleN.setText(""+GestoraDatos.getEmpleados().devuelveNumeroSiguiente());
+            actualizarTabla(tablaEmple, GestoraDatos.dameGestora().get("EMPLEADOS"));
+            ctEmpleN.setText(""+GestoraDatos.dameGestora().get("EMPLEADOS").devuelveNumeroSiguiente());
         }
     }
 
-    private void actualizarTabla(JTable tabla, ArrayListDato<Empleado> empleados) {
+    private void actualizarTabla(JTable tabla, ArrayListDato<Dato> empleados) {
         
         ArrayList<Dato> datos = new ArrayList(empleados);
         tabla.setModel(new ModeloTabla(datos));
@@ -4889,9 +4889,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             
             if(GestoraBaseDatos.insertarDato(nuevoEmpleado)){
                 
-                GestoraDatos.getEmpleados().add(nuevoEmpleado);
-                actualizarTabla(tablaEmple, GestoraDatos.getEmpleados());
-                ctEmpleN.setText(""+GestoraDatos.getEmpleados().devuelveNumeroSiguiente());
+                GestoraDatos.dameGestora().get("Empleados").add(nuevoEmpleado);
+                actualizarTabla(tablaEmple, GestoraDatos.dameGestora().get("Empleados"));
+                ctEmpleN.setText(""+GestoraDatos.dameGestora().get("Empleados").devuelveNumeroSiguiente());
             }      
             
         }

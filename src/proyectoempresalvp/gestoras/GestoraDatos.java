@@ -7,11 +7,13 @@ package proyectoempresalvp.gestoras;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import proyectoempresalvp.datos.ArrayListDato;
 import proyectoempresalvp.datos.Cliente;
 import proyectoempresalvp.datos.Contrato;
+import proyectoempresalvp.datos.Dato;
 import proyectoempresalvp.datos.Empleado;
 import proyectoempresalvp.datos.FacturaExtra;
 import proyectoempresalvp.datos.FacturaMensual;
@@ -20,9 +22,9 @@ import proyectoempresalvp.datos.FacturaMensual;
  *
  * @author Oscar
  */
-public class GestoraDatos extends Thread{
+public class GestoraDatos extends HashMap<String, ArrayListDato<Dato>>{
     
-    private static ArrayListDato<Empleado> empleados;
+//    private static ArrayListDato<Empleado> empleados;
     private static ArrayListDato<Contrato> contratos;
     private static ArrayListDato<Cliente> clientes;
     private static ArrayListDato<FacturaExtra> facturasExtra;
@@ -33,67 +35,31 @@ public class GestoraDatos extends Thread{
     public static final int ACTUALIZAR_CONTRATOS = 2;
     public static final int ACTUALIZAR_CLIENTES = 3;
     
-    public static ObservadorGestoraDatos observador;
-    
-    private final int datoActualizar;
+    private static GestoraDatos g;
 
-    public GestoraDatos(int datoActualizar) {
+    private GestoraDatos() {
+    }
+    
+    public static void actualizaDatos(int datoActualizar){
         
-        this.datoActualizar = datoActualizar;
+        new Thread(new HiloActualizarDatos(datoActualizar)).start();
+    }
+
+    public static GestoraDatos dameGestora(){
+        
+        if(g == null)
+            g = new GestoraDatos();
+        
+        return g;
+    }
+    
+    public static void setObservador(ObservadorGestoraDatos observador) {
+        HiloActualizarDatos.setObservador(observador);
     }
 
     @Override
-    public void run() {
-        
-        if(datoActualizar == ACTUALIZAR_TODO || datoActualizar == ACTUALIZAR_EMPLEADOS)
-            actualizarEmpleados();
-    }
-
-    private void actualizarEmpleados() {
-       
-         ResultSet empleadosComprobar = GestoraBaseDatos.ejecutarSentenciaQuery(GestoraBaseDatos.construyeSentenciaSelect(Empleado.getOrden(), Empleado.getTabla()));
-        if (empleados == null) {
-            empleados = new ArrayListDato();
-        } else {
-            empleados.clear();
-        }
-        
-        Empleado empleadoActual;
-
-        try {
-            while (empleadosComprobar.next()) {
-
-                empleadoActual = new Empleado(empleadosComprobar.getInt(1), empleadosComprobar.getInt(2), empleadosComprobar.getString(3), 
-                        empleadosComprobar.getString(4),empleadosComprobar.getString(5),empleadosComprobar.getString(6),empleadosComprobar.getInt(7),
-                        empleadosComprobar.getString(8),empleadosComprobar.getInt(9),empleadosComprobar.getInt(10),empleadosComprobar.getString(11),
-                        empleadosComprobar.getString(12),empleadosComprobar.getString(13),empleadosComprobar.getInt(14),empleadosComprobar.getInt(15),"","");
-                empleados.add(empleadoActual);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(GestoraTareas.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        observador.avisar(datoActualizar);
-    }
-    
-    
-
-    public static void setObservador(ObservadorGestoraDatos observador) {
-        GestoraDatos.observador = observador;
-    }
-    
-    
-
-    public static ArrayListDato<Empleado> getEmpleados() {
-        return empleados;
-    }
-
-    public static ArrayListDato<Contrato> getContratos() {
-        return contratos;
-    }
-
-    public static ArrayListDato<Cliente> getClientes() {
-        return clientes;
+    public ArrayListDato<Dato> get(Object key) {
+        return super.get(key); 
     }
     
 }
