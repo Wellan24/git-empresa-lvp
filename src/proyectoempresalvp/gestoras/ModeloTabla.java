@@ -20,7 +20,7 @@ public class ModeloTabla extends DefaultTableModel{
     String[] columnas = {"ID", "NOMBRE"};
     Class[] clases = {Integer.class, String.class};
     Dato datoActual;
-    int filaActual = 0;
+    int filaActual = -1;
     
     public ModeloTabla(Dato[] datos) {
         
@@ -95,7 +95,7 @@ public class ModeloTabla extends DefaultTableModel{
             
             if(filaActual != rowIndex){
                 datoActual = datos[rowIndex];
-                filaActual = rowIndex;
+                filaActual = rowIndex;    
             }
             if(datoActual != null){
                 return datoActual.get(columnas[columnIndex]);

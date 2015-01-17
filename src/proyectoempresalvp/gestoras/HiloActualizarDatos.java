@@ -32,9 +32,10 @@ public class HiloActualizarDatos implements Runnable {
     @Override
     public void run() {
 
-        if (datoActualizar == ACTUALIZAR_TODO || datoActualizar == ACTUALIZAR_EMPLEADOS) {
+        if (datoActualizar == ACTUALIZAR_TODO || datoActualizar == ACTUALIZAR_EMPLEADOS) 
             actualizarEmpleados();
-        }
+        if (datoActualizar == ACTUALIZAR_TODO || datoActualizar == ACTUALIZAR_CLIENTES) 
+            actualizarClientes();
 
         observador.avisar(datoActualizar);
     }

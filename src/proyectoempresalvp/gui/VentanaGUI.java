@@ -111,7 +111,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         bFormularioCon = new javax.swing.JButton();
         bImprime = new javax.swing.JButton();
         jScrollPane1 = new ScrollPaneTranslucido();
-        jTableClientes = new Tabla();
+        tablaClientes = new Tabla();
         jLabel16 = new javax.swing.JLabel();
         cbNombre = new javax.swing.JCheckBox();
         cbDescripcion = new javax.swing.JCheckBox();
@@ -810,7 +810,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         bImprime.setBackground(new java.awt.Color(102, 255, 102));
         bImprime.setText("Imprimir listado");
 
-        jTableClientes.setModel(new javax.swing.table.DefaultTableModel(
+        tablaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -821,7 +821,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTableClientes);
+        jScrollPane1.setViewportView(tablaClientes);
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 153, 153));
@@ -4729,7 +4729,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTable jTHojasBanco;
-    private javax.swing.JTable jTableClientes;
     private javax.swing.JTable jTableContratos;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel labelIbanComprobado;
@@ -4767,6 +4766,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JRadioButton rbTodos;
     private javax.swing.JRadioButton rbTods;
     private javax.swing.JTextArea taTareasComprobadas;
+    private javax.swing.JTable tablaClientes;
     private javax.swing.JTable tablaEmple;
     private javax.swing.JTable tablaFacExtra;
     private javax.swing.JTable tablaFacMensuales;
@@ -4855,6 +4855,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_EMPLEADOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO){
             actualizarTabla(tablaEmple, GestoraDatos.dameGestora().get("EMPLEADOS"));
             ctEmpleN.setText(""+GestoraDatos.dameGestora().get("EMPLEADOS").devuelveNumeroSiguiente());
+        }
+        if(datoActualizado == GestoraDatos.ACTUALIZAR_CLIENTES || datoActualizado == GestoraDatos.ACTUALIZAR_TODO){
+            actualizarTabla(tablaClientes, GestoraDatos.dameGestora().get("CLIENTES"));
+            ctCliente.setText(""+GestoraDatos.dameGestora().get("CLIENTES").devuelveNumeroSiguiente());
         }
     }
 

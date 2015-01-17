@@ -26,7 +26,7 @@ public class GestoraDatos extends HashMap<String, ArrayListDato<Dato>>{
     
 //    private static ArrayListDato<Empleado> empleados;
     private static ArrayListDato<Contrato> contratos;
-    private static ArrayListDato<Cliente> clientes;
+//    private static ArrayListDato<Cliente> clientes;
     private static ArrayListDato<FacturaExtra> facturasExtra;
     private static ArrayListDato<FacturaMensual> facturasMensuales;
     
