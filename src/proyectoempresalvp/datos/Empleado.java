@@ -8,6 +8,7 @@ package proyectoempresalvp.datos;
 import java.text.Collator;
 import java.util.Date;
 
+@Informacion(tabla = "EMPLEADOS",campos = {"NUMEMPLE", "CIF", "ANAGRAMA", "NOMBRE", "DOMICILIO", "LOCALIDAD", "CP", "PROVINCIA", "TLF1", "TLF2", "IBAN", "ALTA", "NACIMIENTO", "NOMINA", "SS"})
 public class Empleado extends Dato implements Comparable<Empleado> {
 
     private static final String[] orden = {"NUMEMPLE", "CIF", "ANAGRAMA", "NOMBRE", "DOMICILIO", "LOCALIDAD", "CP", "PROVINCIA", "TLF1", "TLF2", "IBAN", "ALTA", "NACIMIENTO", "NOMINA", "SS"};
