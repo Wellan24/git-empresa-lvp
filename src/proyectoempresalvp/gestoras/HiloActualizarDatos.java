@@ -38,6 +38,8 @@ public class HiloActualizarDatos implements Runnable {
             actualizarEmpleados();
         if (datoActualizar == ACTUALIZAR_TODO || datoActualizar == ACTUALIZAR_CLIENTES) 
             actualizarClientes();
+        if (datoActualizar == ACTUALIZAR_TODO|| datoActualizar == ACTUALIZAR_CONTRATOS) 
+            actualizarContratos();
 
         observador.avisar(datoActualizar);
     }

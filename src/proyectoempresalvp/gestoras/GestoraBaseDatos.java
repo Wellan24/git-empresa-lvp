@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import proyectoempresalvp.datos.Dato;
+import proyectoempresalvp.datos.Fecha;
 
 /**
  *
@@ -138,10 +139,10 @@ public class GestoraBaseDatos {
         for (String clave : claves) {
 
             Object rec = d.get(clave);
-            if (rec instanceof String) {
+            if (rec instanceof String || rec instanceof Fecha) {
 
                 textoSentencia.append("'");
-                textoSentencia.append(rec);
+                textoSentencia.append(rec.toString());
                 textoSentencia.append("'");
             } else if (rec instanceof Integer) {
 
