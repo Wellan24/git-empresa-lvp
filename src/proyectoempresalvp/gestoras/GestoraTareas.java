@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import proyectoempresalvp.datos.Fecha;
 import proyectoempresalvp.datos.Tarea;
 
 /**
@@ -47,12 +48,12 @@ public class GestoraTareas extends Thread {
         try {
             while (tareasComprobar.next()) {
 
-                tareaActual = new Tarea(tareasComprobar.getInt(1), tareasComprobar.getString(2), tareasComprobar.getString(3), tareasComprobar.getInt(4),tareasComprobar.getString(5));
+                tareaActual = new Tarea(tareasComprobar.getInt(1), tareasComprobar.getString(2), new Fecha(tareasComprobar.getString(3)), tareasComprobar.getInt(4),tareasComprobar.getString(5));
                 tareas.add(tareaActual);
                 
                 nProximaTarea = ((int)tareaActual.get("NTAREA") > nProximaTarea)? (int)tareaActual.get("NTAREA"): nProximaTarea;
                 
-                int comprobar = UtilidadesTareas.comprobarTareaEnProximosQuinceDias((String)tareaActual.get("FECHA"));
+                int comprobar = UtilidadesTareas.comprobarTareaEnProximosQuinceDias((Fecha)tareaActual.get("FECHA"));
                 if(comprobar == UtilidadesTareas.ESHOY){
                     string.append("El día ").append(tareaActual.get("FECHA")).append(" hay ").append(tareaActual.get("CONCEPTO")).append(" para ").append(tareaActual.get("CLIENTE")).append("\n");
                     tareaActual.calcularNuevaFecha();

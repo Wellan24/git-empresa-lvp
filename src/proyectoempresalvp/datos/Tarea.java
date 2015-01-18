@@ -24,7 +24,7 @@ public class Tarea extends Dato {
      * @param periodo
      * @param cliente
      */
-    public Tarea(int ntarea, String concepto, String fecha, int periodo, String cliente) {
+    public Tarea(int ntarea, String concepto, Fecha fecha, int periodo, String cliente) {
 
         this.put("NTAREA", ntarea);
         this.put("CONCEPTO", concepto);

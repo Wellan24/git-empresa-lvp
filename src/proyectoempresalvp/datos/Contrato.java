@@ -31,7 +31,7 @@ public class Contrato extends Dato implements Comparable<Contrato> {
      * @param tantoIva
      */
     public Contrato(int numContrato, int numCliente, String descripcion,
-            Date inicioContrato, Date finContrato, int eurosAño, int eurosMes,
+            Fecha inicioContrato, Fecha finContrato, int eurosAño, int eurosMes,
             String situacion, String formaPago, int diaCobro, int tantoIva) {
         this.put("NUMCONTRATO", numContrato);
         this.put("NUMCLIENTE", numCliente);

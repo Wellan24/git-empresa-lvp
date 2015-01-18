@@ -43,7 +43,7 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
      * @param bancoCobro
      * @param nombreBanco
      */
-    public FacturaMensual(int numFactura, Date fecha, int numCliente,
+    public FacturaMensual(int numFactura, Fecha fecha, int numCliente,
             String descripcion, int numContacto, int cif, String nombre,
             String domicilio, String localidad, int cpProvincia, int eurosMes,
             int tantoIva, String refMoneda, int diaCobro,

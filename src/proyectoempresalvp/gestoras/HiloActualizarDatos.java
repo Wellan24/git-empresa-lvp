@@ -11,8 +11,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import proyectoempresalvp.datos.ArrayListDato;
 import proyectoempresalvp.datos.Cliente;
+import proyectoempresalvp.datos.Contrato;
 import proyectoempresalvp.datos.Dato;
 import proyectoempresalvp.datos.Empleado;
+import proyectoempresalvp.datos.Fecha;
 import static proyectoempresalvp.gestoras.GestoraDatos.*;
 
 /**
@@ -67,6 +69,33 @@ public class HiloActualizarDatos implements Runnable {
 
         GestoraDatos.dameGestora().put("CLIENTES", clientes);
     }
+    
+    private void actualizarContratos() {
+
+        ArrayListDato<Dato> contratos = null;
+        ResultSet clientesComp = GestoraBaseDatos.ejecutarSentenciaQuery(GestoraBaseDatos.construyeSentenciaSelect(Cliente.getOrden(), Cliente.getTabla()));
+        if (contratos == null) {
+            contratos = new ArrayListDato();
+        } else {
+            contratos.clear();
+        }
+
+        Contrato contrato;
+
+        try {
+            while (clientesComp.next()) {
+
+                contrato = new Contrato(clientesComp.getInt(1), clientesComp.getInt(2), clientesComp.getString(3),
+                        new Fecha(clientesComp.getString(4)), new Fecha(clientesComp.getString(5)), clientesComp.getInt(6), clientesComp.getInt(7),
+                        clientesComp.getString(8), clientesComp.getString(9), clientesComp.getInt(10), clientesComp.getInt(11));
+                contratos.add(contrato);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(GestoraTareas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        GestoraDatos.dameGestora().put("CLIENTES", contratos);
+    }
 
     private void actualizarEmpleados() {
 
@@ -86,7 +115,7 @@ public class HiloActualizarDatos implements Runnable {
                 empleadoActual = new Empleado(empleadosComprobar.getInt(1), empleadosComprobar.getInt(2), empleadosComprobar.getString(3),
                         empleadosComprobar.getString(4), empleadosComprobar.getString(5), empleadosComprobar.getString(6), empleadosComprobar.getInt(7),
                         empleadosComprobar.getString(8), empleadosComprobar.getInt(9), empleadosComprobar.getInt(10), empleadosComprobar.getString(11),
-                        empleadosComprobar.getString(12), empleadosComprobar.getString(13), empleadosComprobar.getInt(14), empleadosComprobar.getInt(15), "", "");
+                        new Fecha(empleadosComprobar.getString(12)), new Fecha(empleadosComprobar.getString(13)), empleadosComprobar.getInt(14), empleadosComprobar.getInt(15), "", "");
                 empleados.add(empleadoActual);
             }
         } catch (SQLException ex) {

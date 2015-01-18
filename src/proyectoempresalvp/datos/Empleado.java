@@ -39,8 +39,8 @@ public class Empleado extends Dato implements Comparable<Empleado> {
      */
     public Empleado(int numemple, int cif, String anagrama, String nombre,
             String domicilio, String localidad, int cp, String provincia, int tlf1,
-            int tlf2, String iban, String alta,
-            String nacimiento, int nomina, int ss, String centro0,
+            int tlf2, String iban, Fecha alta,
+            Fecha nacimiento, int nomina, int ss, String centro0,
             String horas0) {
         this.put("NUMEMPLE", numemple);
         this.put("CIF", cif);

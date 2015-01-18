@@ -6,6 +6,7 @@
 package proyectoempresalvp.gestoras;
 
 import java.util.Calendar;
+import proyectoempresalvp.datos.Fecha;
 
 /**
  * @author Oscar
@@ -14,7 +15,7 @@ import java.util.Calendar;
  */
 public class UtilidadesTareas {
 
-    private static String fechaActual;
+    private static Fecha fechaActual;
     public static int ESENQUINCE = 0;
     public static int ESHOY = 1;
     public static int NOESENQUINCE = 2;
@@ -27,14 +28,11 @@ public class UtilidadesTareas {
      * @param fechaDos
      * @return
      */
-    public static int calcularDiferenciaFechas(String fechaUno, String fechaDos) {
+    public static int calcularDiferenciaFechas(Fecha fechaUno, Fecha fechaDos) {
 
-        String[] primera = fechaUno.split("/");
-        String[] segunda = fechaDos.split("/");
-
-        return (Integer.parseInt(primera[0]) - Integer.parseInt(segunda[0]))
-                + (Integer.parseInt(primera[1]) - Integer.parseInt(segunda[1])) * 30
-                + (Integer.parseInt(primera[2]) - Integer.parseInt(segunda[2])) * 365;
+        return (fechaUno.getDia() - fechaDos.getDia())
+                + (fechaUno.getMes() - fechaDos.getMes()) * 30
+                + (fechaUno.getAño() - fechaDos.getAño()) * 365;
     }
 
     /**
@@ -43,12 +41,12 @@ public class UtilidadesTareas {
      * @param fechaTarea
      * @return Un boolean indicando si ha de hacerse en los próximos 15 días
      */
-    public static int comprobarTareaEnProximosQuinceDias(String fechaTarea) {
+    public static int comprobarTareaEnProximosQuinceDias(Fecha fechaTarea) {
 
         if (fechaActual == null) {
 
             Calendar c = Calendar.getInstance();
-            fechaActual = c.get(Calendar.DATE) + "/" + (c.get(Calendar.MONTH) + 1) + "/" + c.get(Calendar.YEAR);
+            fechaActual = new Fecha(c.get(Calendar.DATE) + "/" + (c.get(Calendar.MONTH) + 1) + "/" + c.get(Calendar.YEAR));
         }
 
         int diferencia = UtilidadesTareas.calcularDiferenciaFechas(fechaTarea, fechaActual);
