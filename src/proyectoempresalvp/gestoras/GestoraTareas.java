@@ -54,12 +54,12 @@ public class GestoraTareas extends Thread {
                 nProximaTarea = ((int)tareaActual.get("NTAREA") > nProximaTarea)? (int)tareaActual.get("NTAREA"): nProximaTarea;
                 
                 int comprobar = UtilidadesTareas.comprobarTareaEnProximosQuinceDias((Fecha)tareaActual.get("FECHA"));
-                if(comprobar == UtilidadesTareas.ESHOY){
-                    string.append("El día ").append(tareaActual.get("FECHA")).append(" hay ").append(tareaActual.get("CONCEPTO")).append(" para ").append(tareaActual.get("CLIENTE")).append("\n");
+                if(comprobar == UtilidadesTareas.ESHOY){                    
+                    string.append("El día ").append(tareaActual.get("FECHA").toString()).append(" hay ").append(tareaActual.get("CONCEPTO")).append(" para ").append(tareaActual.get("CLIENTE")).append("\n");
                     tareaActual.calcularNuevaFecha();
                 }
                 else if (comprobar == UtilidadesTareas.ESENQUINCE){
-                    string.append("El día ").append(tareaActual.get("FECHA")).append(" hay ").append(tareaActual.get("CONCEPTO")).append(" para ").append(tareaActual.get("CLIENTE")).append("\n");
+                    string.append("El día ").append(tareaActual.get("FECHA").toString()).append(" hay ").append(tareaActual.get("CONCEPTO")).append(" para ").append(tareaActual.get("CLIENTE")).append("\n");
                 }else if(comprobar == UtilidadesTareas.HAPASADO){
                     
                     tareaActual.calcularNuevaFecha();
@@ -70,6 +70,7 @@ public class GestoraTareas extends Thread {
         }
 
         tareasARealizar = string;
+        System.out.println(string);
         nProximaTarea++;
         GestoraTareas.observador.avisar();
     }

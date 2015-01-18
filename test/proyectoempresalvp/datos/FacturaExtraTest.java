@@ -21,7 +21,7 @@ public class FacturaExtraTest {
     
     public FacturaExtraTest() {
         
-        instance = new FacturaExtra(10, 10, "", 10, Date.valueOf("2010-10-10"), 10, "", "", "", "", 10, 10, 10, "");
+        instance = new FacturaExtra(10,new Fecha("2010/10/10"), 10, "", "", "", "", 10, 10, 10, "");
     }
     
     @BeforeClass
@@ -49,7 +49,7 @@ public class FacturaExtraTest {
     @Test
     public void testDevuelveOrdenDeColumnas() {
         System.out.println("devuelveOrdenDeColumnas");
-        String[] expResult = {"NUMEROFACTURA", "DIA", "MES", "AÑO", "FECHA", "CIF", "NOMBRE", "DOMICILIO", "LOCALIDAD",
+        String[] expResult = {"NUMEROFACTURA", "FECHA", "CIF", "NOMBRE", "DOMICILIO", "LOCALIDAD",
         "PROVINCIA", "CP", "TANTOIVA", "EUROSNETO", "CLIENTE"};
         String[] result = instance.devuelveOrdenDeColumnas();
         assertArrayEquals(expResult, result);
@@ -61,7 +61,7 @@ public class FacturaExtraTest {
     @Test
     public void testCompareTo() {
         System.out.println("compareTo");
-        FacturaExtra o = new FacturaExtra(10, 10, "", 10, Date.valueOf("2010-10-10"), 10, "", "", "", "", 10, 10, 10, "");
+        FacturaExtra o = new FacturaExtra(10,new Fecha("2010/10/10"), 10, "", "", "", "", 10, 10, 10, "");
         int expResult = 0;
         int result = instance.compareTo(o);
         assertEquals(expResult, result);

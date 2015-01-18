@@ -19,7 +19,7 @@ public class ClienteTest {
     Cliente instance;
     
     public ClienteTest() {
-        instance = new Cliente(10, 10, "", "", "", "", 10, "", "", 10, 10, "", 10, 10, 10);
+        instance = new Cliente(10, 10, "", "", "", "", 10, "", "", 10, 10, "", 10, "10", 10);
     }
     
     @BeforeClass
@@ -47,8 +47,8 @@ public class ClienteTest {
     @Test
     public void testDevuelveOrdenDeColumnas() {
         System.out.println("devuelveOrdenDeColumnas");
-        String[] expResult = {"NUMEROCLIENTE", "CIF", "DESCRIPCION", "NOMBRE", "DOMICILIO","LOCALIDAD", "CP", "PROVINCIA"
-            , "PERSONACONTACTO", "TLFCLIENTE","TLFCONTACTO", "NOTAS", "ENTIDAD", "SUCURSAL", "DC", "CUENTA", "REFBANCO","IBAN", "BANCOCOBRO"};
+        String[] expResult = {"NUMEROCLIENTE", "CIF", "DESCRIPCION", "NOMBRE", "DOMICILIO","LOCALIDAD", "CP", "PROVINCIA", "PERSONACONTACTO", "TLFCLIENTE","TLFCONTACTO", "NOTAS", 
+                                    "REFBANCO","IBAN", "BANCOCOBRO"};
         String[] result = instance.devuelveOrdenDeColumnas();
         assertArrayEquals(expResult, result);
     }
@@ -59,7 +59,7 @@ public class ClienteTest {
     @Test
     public void testCompareTo() {
         System.out.println("compareTo");
-        Cliente o = new Cliente(10, 10, "", "", "", "", 10, "", "", 10, 10, "", 10, 10, 10);
+        Cliente o = new Cliente(10, 10, "", "", "", "", 10, "", "", 10, 10, "", 10, "10", 10);
         int expResult = 0;
         int result = instance.compareTo(o);
         assertEquals(expResult, result);

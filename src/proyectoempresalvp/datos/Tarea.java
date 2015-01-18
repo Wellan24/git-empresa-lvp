@@ -51,10 +51,10 @@ public class Tarea extends Dato {
 
     public void calcularNuevaFecha() {
 
-        String[] fecha = ((String) this.get("FECHA")).split("/");
-        int dia = Integer.parseInt(fecha[0]);
-        int mes = Integer.parseInt(fecha[1]);
-        int año = Integer.parseInt(fecha[2]);
+        Fecha f = (Fecha)this.get("FECHA");
+        int dia = f.getDia();
+        int mes = f.getMes();
+        int año = f.getAño();
 
         if (mes + (int) this.get("PERIODO") > 12) {
 

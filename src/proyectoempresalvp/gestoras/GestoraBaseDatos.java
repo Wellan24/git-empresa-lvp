@@ -96,7 +96,6 @@ public class GestoraBaseDatos {
 
         String[] claves = d.devuelveOrdenDeColumnas();
         
-        // El resto de datos
         if (!comprobarExiste(d, claves[0])) {
 
             StringBuilder textoSentencia = construyeSentenciaInsert(d, claves);

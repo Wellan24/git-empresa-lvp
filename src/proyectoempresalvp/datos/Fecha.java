@@ -16,6 +16,7 @@ public class Fecha {
     int año;
 
     public Fecha(String fecha) {
+        System.out.println(fecha);
         String[] f = fecha.split("/");
         this.dia = Integer.parseInt(f[0]);
         this.mes = Integer.parseInt(f[1]);
@@ -49,7 +50,7 @@ public class Fecha {
     @Override
     public String toString() {
         
-        return dia + "/" + mes + "/" + año; 
+        return ((dia < 10)?"0"+dia: dia) + "/" + ((mes < 10)?"0"+mes: mes)  + "/" + año; 
     } 
     
     

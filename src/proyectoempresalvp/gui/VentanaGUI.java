@@ -12,6 +12,7 @@ import proyectoempresalvp.datos.ArrayListDato;
 import proyectoempresalvp.datos.Cliente;
 import proyectoempresalvp.datos.Dato;
 import proyectoempresalvp.datos.Empleado;
+import proyectoempresalvp.datos.Fecha;
 import proyectoempresalvp.datos.Tarea;
 import proyectoempresalvp.datosUI.PanelImagen;
 import proyectoempresalvp.datosUI.JPanelTranslucido;
@@ -89,24 +90,24 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        ctCliente = new javax.swing.JTextField();
-        ctDescripcion = new javax.swing.JTextField();
-        ctNombre = new javax.swing.JTextField();
-        ctDomicilio = new javax.swing.JTextField();
-        ctLocalidad = new javax.swing.JTextField();
-        ctCp = new javax.swing.JTextField();
-        ctProvincia = new javax.swing.JTextField();
-        ctNif = new javax.swing.JTextField();
-        ctTlfCli = new javax.swing.JTextField();
-        ctCuenta = new javax.swing.JTextField();
-        ctContacto = new javax.swing.JTextField();
-        ctTlfContacto = new javax.swing.JTextField();
+        ctClienteNum = new javax.swing.JTextField();
+        ctClienteDescripcion = new javax.swing.JTextField();
+        ctClienteNombre = new javax.swing.JTextField();
+        ctClienteDomicilio = new javax.swing.JTextField();
+        ctClienteLocalidad = new javax.swing.JTextField();
+        ctClienteCp = new javax.swing.JTextField();
+        ctClienteProvincia = new javax.swing.JTextField();
+        ctClienteNif = new javax.swing.JTextField();
+        ctClienteTlfCli = new javax.swing.JTextField();
+        ctClienteIban = new javax.swing.JTextField();
+        ctClienteContacto = new javax.swing.JTextField();
+        ctClienteTlfContacto = new javax.swing.JTextField();
         aNotas = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        ctClienteNotas = new javax.swing.JTextArea();
         jLabel14 = new javax.swing.JLabel();
-        ctDomiciliado = new javax.swing.JTextField();
+        ctClienteDomiciliado = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        ctRefBan = new javax.swing.JTextField();
+        ctClienteRefBan = new javax.swing.JTextField();
         bNuevo = new javax.swing.JButton();
         bModificar = new javax.swing.JButton();
         bFormularioCon = new javax.swing.JButton();
@@ -648,9 +649,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         jLabel13.setText("Número de cuenta:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(4);
-        aNotas.setViewportView(jTextArea1);
+        ctClienteNotas.setColumns(20);
+        ctClienteNotas.setRows(4);
+        aNotas.setViewportView(ctClienteNotas);
 
         jLabel14.setText("Domiciliado:");
 
@@ -667,35 +668,35 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     .addGroup(jPinsertarCliLayout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addGap(18, 18, 18)
-                        .addComponent(ctDomiciliado, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ctClienteDomiciliado, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25)
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ctRefBan, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ctClienteRefBan, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPinsertarCliLayout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ctContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ctClienteContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPinsertarCliLayout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ctTlfCli, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ctClienteTlfCli, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPinsertarCliLayout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ctNif, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ctClienteNif, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPinsertarCliLayout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ctLocalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ctClienteLocalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPinsertarCliLayout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ctDomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ctClienteDomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPinsertarCliLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ctNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ctClienteNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPinsertarCliLayout.createSequentialGroup()
                         .addGroup(jPinsertarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPinsertarCliLayout.createSequentialGroup()
@@ -706,26 +707,26 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                                 .addGap(38, 38, 38)))
                         .addGroup(jPinsertarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPinsertarCliLayout.createSequentialGroup()
-                                .addComponent(ctCp, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ctClienteCp, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(38, 38, 38)
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ctProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(ctClienteProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPinsertarCliLayout.createSequentialGroup()
-                                .addComponent(ctCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ctClienteNum, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel11)
                                 .addGap(28, 28, 28)
-                                .addComponent(ctDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(ctClienteDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPinsertarCliLayout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ctTlfContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ctClienteTlfContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPinsertarCliLayout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addGap(18, 18, 18)
                         .addComponent(aNotas))
-                    .addComponent(ctCuenta))
+                    .addComponent(ctClienteIban))
                 .addGap(20, 20, 20))
         );
         jPinsertarCliLayout.setVerticalGroup(
@@ -734,8 +735,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addContainerGap(33, Short.MAX_VALUE)
                 .addGroup(jPinsertarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(ctCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ctDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ctClienteNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ctClienteDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGroup(jPinsertarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPinsertarCliLayout.createSequentialGroup()
@@ -743,55 +744,55 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                         .addComponent(jLabel2))
                     .addGroup(jPinsertarCliLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(ctNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(ctClienteNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPinsertarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(ctDomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ctClienteDomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPinsertarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(ctLocalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ctClienteLocalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPinsertarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPinsertarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ctCp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ctClienteCp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel12))
                     .addGroup(jPinsertarCliLayout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addGroup(jPinsertarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
-                            .addComponent(ctProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(ctClienteProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(jPinsertarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(ctNif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ctClienteNif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPinsertarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(ctTlfCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ctClienteTlfCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel13)
                 .addGap(6, 6, 6)
-                .addComponent(ctCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ctClienteIban, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPinsertarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ctDomiciliado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ctClienteDomiciliado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPinsertarCliLayout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addGroup(jPinsertarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel14)
                             .addGroup(jPinsertarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel15)
-                                .addComponent(ctRefBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(ctClienteRefBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(38, 38, 38)
                 .addGroup(jPinsertarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(ctContacto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ctClienteContacto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPinsertarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(ctTlfContacto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ctClienteTlfContacto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(jPinsertarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
@@ -801,6 +802,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         bNuevo.setBackground(new java.awt.Color(204, 255, 204));
         bNuevo.setText("Nuevo cliente");
+        bNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bNuevoActionPerformed(evt);
+            }
+        });
 
         bModificar.setBackground(new java.awt.Color(255, 255, 153));
         bModificar.setText("Modificar cliente");
@@ -4242,6 +4248,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         insertarEmpleado();
     }//GEN-LAST:event_bAñadirActionPerformed
 
+    private void bNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNuevoActionPerformed
+       
+        insertarCliente();
+    }//GEN-LAST:event_bNuevoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -4376,7 +4387,21 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JTextField ctCI;
     private javax.swing.JTextField ctCIF;
     private javax.swing.JTextField ctClaveAc;
-    private javax.swing.JTextField ctCliente;
+    private javax.swing.JTextField ctClienteContacto;
+    private javax.swing.JTextField ctClienteCp;
+    private javax.swing.JTextField ctClienteDescripcion;
+    private javax.swing.JTextField ctClienteDomiciliado;
+    private javax.swing.JTextField ctClienteDomicilio;
+    private javax.swing.JTextField ctClienteIban;
+    private javax.swing.JTextField ctClienteLocalidad;
+    private javax.swing.JTextField ctClienteNif;
+    private javax.swing.JTextField ctClienteNombre;
+    private javax.swing.JTextArea ctClienteNotas;
+    private javax.swing.JTextField ctClienteNum;
+    private javax.swing.JTextField ctClienteProvincia;
+    private javax.swing.JTextField ctClienteRefBan;
+    private javax.swing.JTextField ctClienteTlfCli;
+    private javax.swing.JTextField ctClienteTlfContacto;
     private javax.swing.JTextField ctCodH;
     private javax.swing.JTextField ctCodP;
     private javax.swing.JTextField ctCodPo;
@@ -4384,19 +4409,13 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JTextField ctComprobarIban;
     private javax.swing.JTextField ctConceptoRemesa;
     private javax.swing.JTextField ctConfirNueva;
-    private javax.swing.JTextField ctContacto;
     private javax.swing.JTextField ctContraseña;
-    private javax.swing.JTextField ctCp;
-    private javax.swing.JTextField ctCuenta;
     private javax.swing.JTextField ctDes;
-    private javax.swing.JTextField ctDescripcion;
     private javax.swing.JTextField ctDiaCobr1;
     private javax.swing.JTextField ctDiaCobro2;
     private javax.swing.JTextField ctDomi;
     private javax.swing.JTextField ctDomic;
     private javax.swing.JTextField ctDomicili;
-    private javax.swing.JTextField ctDomiciliado;
-    private javax.swing.JTextField ctDomicilio;
     private javax.swing.JTextField ctEmpleAlta;
     private javax.swing.JTextField ctEmpleCP;
     private javax.swing.JTextField ctEmpleDesc;
@@ -4432,7 +4451,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JTextField ctLo;
     private javax.swing.JTextField ctLoca;
     private javax.swing.JTextField ctLocali;
-    private javax.swing.JTextField ctLocalidad;
     private javax.swing.JTextField ctLugarLib;
     private javax.swing.JButton ctMoDat;
     private javax.swing.JTextField ctN;
@@ -4443,11 +4461,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JTextField ctName;
     private javax.swing.JTextField ctNcif;
     private javax.swing.JTextField ctNfac;
-    private javax.swing.JTextField ctNif;
     private javax.swing.JTextField ctNifiCif;
     private javax.swing.JTextField ctNo;
     private javax.swing.JTextField ctNomb;
-    private javax.swing.JTextField ctNombre;
     private javax.swing.JTextField ctNueva;
     private javax.swing.JTextField ctNum;
     private javax.swing.JTextField ctNumCli;
@@ -4461,17 +4477,13 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JTextField ctPerIn;
     private javax.swing.JTextField ctProvin;
     private javax.swing.JTextField ctProvinci;
-    private javax.swing.JTextField ctProvincia;
     private javax.swing.JTextField ctProxFactura;
-    private javax.swing.JTextField ctRefBan;
     private javax.swing.JTextField ctRefHojBan;
     private javax.swing.JTextField ctSitua;
     private javax.swing.JTextField ctTarCliente;
     private javax.swing.JTextField ctTarFecha;
     private javax.swing.JTextField ctTarPeriodo;
     private javax.swing.JTextField ctTelefon;
-    private javax.swing.JTextField ctTlfCli;
-    private javax.swing.JTextField ctTlfContacto;
     private javax.swing.JTextField ctTotPes;
     private javax.swing.JTextField ctTotal;
     private javax.swing.JTextField ctTotalFac;
@@ -4731,7 +4743,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTable jTHojasBanco;
     private javax.swing.JTable jTableContratos;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel labelIbanComprobado;
     private javax.swing.JRadioButton rbActivos;
     private javax.swing.JRadioButton rbB1;
@@ -4812,7 +4823,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         if (Gestora.comprobarFormatoFechaCorrecto(fecha)) {
             try {
 
-                Tarea tareaActual = new Tarea(GestoraTareas.aumentaNumeroTarea(),cttarconcepto.getText(), fecha, Integer.parseInt(ctTarPeriodo.getText()), ctTarCliente.getText());
+                Tarea tareaActual = new Tarea(GestoraTareas.aumentaNumeroTarea(),cttarconcepto.getText(), new Fecha(fecha), Integer.parseInt(ctTarPeriodo.getText()), ctTarCliente.getText());
                 if(GestoraBaseDatos.insertarDato(tareaActual)){
                     GestoraTareas.getTareas().add(tareaActual);                
                     actualizarTablaTareas();
@@ -4859,7 +4870,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         }
         if(datoActualizado == GestoraDatos.ACTUALIZAR_CLIENTES || datoActualizado == GestoraDatos.ACTUALIZAR_TODO){
             actualizarTabla(tablaClientes, GestoraDatos.dameGestora().get("CLIENTES"));
-            ctCliente.setText(""+GestoraDatos.dameGestora().get("CLIENTES").devuelveNumeroSiguiente());
+            ctClienteNum.setText(""+GestoraDatos.dameGestora().get("CLIENTES").devuelveNumeroSiguiente());
         }
         
         //Santy
@@ -4868,15 +4879,15 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             ctNumCli.setText(""+GestoraDatos.dameGestora().get("CONTRATOS").devuelveNumeroSiguiente());
         }
         
-        if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES || datoActualizado == GestoraDatos.ACTUALIZAR_TODO){
-            actualizarTabla(tablaFacMensuales, GestoraDatos.dameGestora().get("FACTURASMENSUALES"));
-            ctProxFactura.setText(""+GestoraDatos.dameGestora().get("FACTURASMENSUALES").devuelveNumeroSiguiente());
-        }
-        
-        if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASEXTRA || datoActualizado == GestoraDatos.ACTUALIZAR_TODO){
-            actualizarTabla(tablaFacExtra, GestoraDatos.dameGestora().get("FACTURASEXTRA"));
-            ctNomb.setText(""+GestoraDatos.dameGestora().get("FACTURASEXTRA").devuelveNumeroSiguiente());
-        }
+//        if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES || datoActualizado == GestoraDatos.ACTUALIZAR_TODO){
+//            actualizarTabla(tablaFacMensuales, GestoraDatos.dameGestora().get("FACTURASMENSUALES"));
+//            ctProxFactura.setText(""+GestoraDatos.dameGestora().get("FACTURASMENSUALES").devuelveNumeroSiguiente());
+//        }
+//        
+//        if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASEXTRA || datoActualizado == GestoraDatos.ACTUALIZAR_TODO){
+//            actualizarTabla(tablaFacExtra, GestoraDatos.dameGestora().get("FACTURASEXTRA"));
+//            ctNomb.setText(""+GestoraDatos.dameGestora().get("FACTURASEXTRA").devuelveNumeroSiguiente());
+//        }
     }
 
     private void actualizarTabla(JTable tabla, ArrayListDato<Dato> empleados) {
@@ -4905,7 +4916,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     ctEmpleDesc.getText(), ctEmpleNombre.getText(), ctEmpleDomicilio.getText(), 
                     ctEmpleLoc.getText(), Integer.parseInt(ctEmpleCP.getText()), ctEmpleProv.getText(), 
                     Integer.parseInt(ctEmpleTelf.getText()), Integer.parseInt(ctEmpleMovil.getText()), 
-                    ctEmpleIBAN.getText(), alta, nac, Integer.parseInt(ctEmpleNomina.getText()), 
+                    ctEmpleIBAN.getText(), new Fecha(alta), new Fecha(nac), Integer.parseInt(ctEmpleNomina.getText()), 
                     Integer.parseInt(ctEmpleSS.getText()),  "23", "23");
             
             if(GestoraBaseDatos.insertarDato(nuevoEmpleado)){
@@ -4922,38 +4933,41 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     //Santy
     private void insertarCliente(){
         
-        String IBAN = ctCuenta.getText();
+        String IBAN = ctClienteIban.getText();
         
         if(!Gestora.esValidoIBAN(IBAN)){
             
             JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
         }
-        else if(!comprobarNumero(ctCliente.getText()) || !comprobarNumero(ctNif.getText()) 
-                || !comprobarNumero(ctCp.getText()) || !comprobarNumero(ctTlfCli.getText())
-                || !comprobarNumero(ctTlfContacto.getText()) || !comprobarNumero(ctCuenta.getText()) 
-                || !comprobarNumero(ctRefBan.getText()) ||!comprobarNumero(ctDomiciliado.getText()) ){
+        else if(!comprobarNumero(ctClienteNum.getText()) || !comprobarNumero(ctClienteNif.getText()) 
+                || !comprobarNumero(ctClienteCp.getText()) || !comprobarNumero(ctClienteTlfCli.getText())
+                || !comprobarNumero(ctClienteTlfContacto.getText()) || !comprobarNumero(ctClienteRefBan.getText())
+                ||!comprobarNumero(ctClienteDomiciliado.getText()) ){
             
-            JOptionPane.showMessageDialog(this, "Comprueba que los telefonos, el NIF, el CP, la cuenta y la referencia del banco son números");
+            JOptionPane.showMessageDialog(this, "Comprueba que los telefonos, el NIF, el CP y la referencia del banco son números");
+        }else if(!Gestora.esValidoIBAN(ctClienteIban.getText())){
+            
+            JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
         }
         
-        Cliente nuevoCliente = new Cliente(Integer.parseInt(ctCliente.getText()), 
-                                           Integer.parseInt(ctNif.getText()),
-                                           ctDescripcion.getText(), ctNombre.getText(), ctDomicilio.getText(), 
-                                           ctLocalidad.getText(),
-                                          Integer.parseInt(ctCp.getText()),
-                                          ctProvincia.getText(), ctContacto.getText(), 
-                                          Integer.parseInt(ctTlfCli.getText()),
-                                          Integer.parseInt(ctTlfContacto.getText()), 
-                                          atNotas.getText(), 
-                                          Integer.parseInt(ctCuenta.getText()), 
-                                          Integer.parseInt(ctRefBan.getText()), 
-                                          Integer.parseInt(ctDomiciliado.getText()));
+        Cliente nuevoCliente = new Cliente(Integer.parseInt(ctClienteNum.getText()), 
+                                           Integer.parseInt(ctClienteNif.getText()),
+                                           ctClienteDescripcion.getText(), ctClienteNombre.getText(), ctClienteDomicilio.getText(), 
+                                           ctClienteLocalidad.getText(),
+                                          Integer.parseInt(ctClienteCp.getText()),
+                                          ctClienteProvincia.getText(), ctClienteContacto.getText(), 
+                                          Integer.parseInt(ctClienteTlfCli.getText()),
+                                          Integer.parseInt(ctClienteTlfContacto.getText()), 
+                                          ctClienteNotas.getText(), 
+                                          Integer.parseInt(ctClienteRefBan.getText()), 
+                                          ctClienteIban.getText(), 
+                                          Integer.parseInt(ctClienteDomiciliado.getText()));
         
         if(GestoraBaseDatos.insertarDato(nuevoCliente)){
                 
-                GestoraDatos.dameGestora().get("Clientes").add(nuevoCliente);
-                actualizarTabla(tablaClientes, GestoraDatos.dameGestora().get("Clientes"));
-                ctCliente.setText(""+GestoraDatos.dameGestora().get("Clientes").devuelveNumeroSiguiente());
+                GestoraDatos.dameGestora().get("CLIENTES").add(nuevoCliente);
+                actualizarTabla(tablaClientes, GestoraDatos.dameGestora().get("CLIENTES"));
+                ctClienteNum.setText(""+GestoraDatos.dameGestora().get("CLIENTES").devuelveNumeroSiguiente());
             }   
         
     }

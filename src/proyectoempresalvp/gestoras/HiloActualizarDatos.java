@@ -62,7 +62,7 @@ public class HiloActualizarDatos implements Runnable {
                 cliente = new Cliente(clientesComp.getInt(1), clientesComp.getInt(2), clientesComp.getString(3),
                         clientesComp.getString(4), clientesComp.getString(5), clientesComp.getString(6), clientesComp.getInt(7),
                         clientesComp.getString(8), clientesComp.getString(9), clientesComp.getInt(10), clientesComp.getInt(11),
-                        clientesComp.getString(12), clientesComp.getInt(13), clientesComp.getInt(14), clientesComp.getInt(15));
+                        clientesComp.getString(12), clientesComp.getInt(13), clientesComp.getString(14), clientesComp.getInt(15));
                 clientes.add(cliente);
             }
         } catch (SQLException ex) {
@@ -75,7 +75,7 @@ public class HiloActualizarDatos implements Runnable {
     private void actualizarContratos() {
 
         ArrayListDato<Dato> contratos = null;
-        ResultSet clientesComp = GestoraBaseDatos.ejecutarSentenciaQuery(GestoraBaseDatos.construyeSentenciaSelect(Cliente.getOrden(), Cliente.getTabla()));
+        ResultSet contratosComp = GestoraBaseDatos.ejecutarSentenciaQuery(GestoraBaseDatos.construyeSentenciaSelect(Contrato.getOrden(), Contrato.getTabla()));
         if (contratos == null) {
             contratos = new ArrayListDato();
         } else {
@@ -85,18 +85,18 @@ public class HiloActualizarDatos implements Runnable {
         Contrato contrato;
 
         try {
-            while (clientesComp.next()) {
+            while (contratosComp.next()) {
 
-                contrato = new Contrato(clientesComp.getInt(1), clientesComp.getInt(2), clientesComp.getString(3),
-                        new Fecha(clientesComp.getString(4)), new Fecha(clientesComp.getString(5)), clientesComp.getInt(6), clientesComp.getInt(7),
-                        clientesComp.getString(8), clientesComp.getString(9), clientesComp.getInt(10), clientesComp.getInt(11));
+                contrato = new Contrato(contratosComp.getInt(1), contratosComp.getInt(2), contratosComp.getString(3),
+                        new Fecha(contratosComp.getString(4)), new Fecha(contratosComp.getString(5)), contratosComp.getInt(6), contratosComp.getInt(7),
+                        contratosComp.getString(8), contratosComp.getString(9), contratosComp.getInt(10), contratosComp.getInt(11));
                 contratos.add(contrato);
             }
         } catch (SQLException ex) {
             Logger.getLogger(GestoraTareas.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        GestoraDatos.dameGestora().put("CLIENTES", contratos);
+        GestoraDatos.dameGestora().put("CONTRATOS", contratos);
     }
 
     private void actualizarEmpleados() {

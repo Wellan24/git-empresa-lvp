@@ -44,7 +44,7 @@ public class GestoraTareasTest implements ObservadorTareas {
         while(t.isAlive()){
             
         }
-        assertEquals("El día 21/11/2014 hay GARAJE para PEPA", tareas.toString());
+        assertEquals("El día 21/01/2015 hay GARAJE para PEPA\n", tareas.toString());
         GestoraBaseDatos.cerrarConexion();
     }
 

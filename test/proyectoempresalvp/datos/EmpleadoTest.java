@@ -15,19 +15,18 @@ import static org.junit.Assert.*;
  * @author Oscar
  */
 public class EmpleadoTest {
-    
+
     Empleado instance;
-    
+
     public EmpleadoTest() {
-        
-        instance = new Empleado(10, 10, "", "", "", "", 10, "", 10, 10, "10", "2010-10-10"
-                , "2010-10-10", 10, 10,"","");
+
+        instance = new Empleado(10, 10, "", "", "", "", 10, "", 10, 10, "10", new Fecha("2010/10/10"), new Fecha("2010/10/10"), 10, 10, "", "");
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
@@ -49,9 +48,7 @@ public class EmpleadoTest {
     @Test
     public void testDevuelveOrdenDeColumnas() {
         System.out.println("devuelveOrdenDeColumnas");
-        String[] expResult = {"NUMEMPLE", "CIF", "ANAGRAMA", "NOMBRE", "DOMICILIO", 
-            "LOCALIDAD", "CP", "PROVINCIA", "TLF1", "TLF2", "IBAN", "ALTA", 
-            "NACIMIENTO", "NOMINA", "SS", "BAJA"};
+        String[] expResult = {"NUMEMPLE", "CIF", "ANAGRAMA", "NOMBRE", "DOMICILIO", "LOCALIDAD", "CP", "PROVINCIA", "TLF1", "TLF2", "IBAN", "ALTA", "NACIMIENTO", "NOMINA", "SS"};
         String[] result = instance.devuelveOrdenDeColumnas();
         assertArrayEquals(expResult, result);
     }
@@ -62,11 +59,10 @@ public class EmpleadoTest {
     @Test
     public void testCompareTo() {
         System.out.println("compareTo");
-        Empleado o = new Empleado(10, 10, "", "", "", "", 10, "", 10, 10, "10", "2010-10-10"
-                , "2010-10-10", 10, 10,"","");
+        Empleado o = new Empleado(10, 10, "", "", "", "", 10, "", 10, 10, "10", new Fecha("2010/10/10"), new Fecha("2010/10/10"), 10, 10, "", "");
         int expResult = 0;
         int result = instance.compareTo(o);
         assertEquals(expResult, result);
     }
-    
+
 }
