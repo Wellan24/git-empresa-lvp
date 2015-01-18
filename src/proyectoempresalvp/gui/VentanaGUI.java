@@ -4860,6 +4860,22 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             actualizarTabla(tablaClientes, GestoraDatos.dameGestora().get("CLIENTES"));
             ctCliente.setText(""+GestoraDatos.dameGestora().get("CLIENTES").devuelveNumeroSiguiente());
         }
+        
+        //Santy
+        if(datoActualizado == GestoraDatos.ACTUALIZAR_CONTRATOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO){
+            actualizarTabla(jTableContratos, GestoraDatos.dameGestora().get("CONTRATOS"));
+            ctNumCli.setText(""+GestoraDatos.dameGestora().get("CONTRATOS").devuelveNumeroSiguiente());
+        }
+        
+        if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES || datoActualizado == GestoraDatos.ACTUALIZAR_TODO){
+            actualizarTabla(tablaFacMensuales, GestoraDatos.dameGestora().get("FACTURASMENSUALES"));
+            ctProxFactura.setText(""+GestoraDatos.dameGestora().get("FACTURASMENSUALES").devuelveNumeroSiguiente());
+        }
+        
+        if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASEXTRA || datoActualizado == GestoraDatos.ACTUALIZAR_TODO){
+            actualizarTabla(tablaFacExtra, GestoraDatos.dameGestora().get("FACTURASEXTRA"));
+            ctNomb.setText(""+GestoraDatos.dameGestora().get("FACTURASEXTRA").devuelveNumeroSiguiente());
+        }
     }
 
     private void actualizarTabla(JTable tabla, ArrayListDato<Dato> empleados) {
