@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import proyectoempresalvp.datos.ArrayListDato;
+import proyectoempresalvp.datos.Cliente;
 import proyectoempresalvp.datos.Dato;
 import proyectoempresalvp.datos.Empleado;
 import proyectoempresalvp.datos.Tarea;
@@ -4915,6 +4916,45 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             }      
             
         }
+        
+    }
+    
+    //Santy
+    private void insertarCliente(){
+        
+        String IBAN = ctCuenta.getText();
+        
+        if(!Gestora.esValidoIBAN(IBAN)){
+            
+            JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
+        }
+        else if(!comprobarNumero(ctCliente.getText()) || !comprobarNumero(ctNif.getText()) 
+                || !comprobarNumero(ctCp.getText()) || !comprobarNumero(ctTlfCli.getText())
+                || !comprobarNumero(ctTlfContacto.getText()) || !comprobarNumero(ctCuenta.getText()) 
+                || !comprobarNumero(ctRefBan.getText()) ||!comprobarNumero(ctDomiciliado.getText()) ){
+            
+            JOptionPane.showMessageDialog(this, "Comprueba que los telefonos, el NIF, el CP, la cuenta y la referencia del banco son números");
+        }
+        
+        Cliente nuevoCliente = new Cliente(Integer.parseInt(ctCliente.getText()), 
+                                           Integer.parseInt(ctNif.getText()),
+                                           ctDescripcion.getText(), ctNombre.getText(), ctDomicilio.getText(), 
+                                           ctLocalidad.getText(),
+                                          Integer.parseInt(ctCp.getText()),
+                                          ctProvincia.getText(), ctContacto.getText(), 
+                                          Integer.parseInt(ctTlfCli.getText()),
+                                          Integer.parseInt(ctTlfContacto.getText()), 
+                                          atNotas.getText(), 
+                                          Integer.parseInt(ctCuenta.getText()), 
+                                          Integer.parseInt(ctRefBan.getText()), 
+                                          Integer.parseInt(ctDomiciliado.getText()));
+        
+        if(GestoraBaseDatos.insertarDato(nuevoCliente)){
+                
+                GestoraDatos.dameGestora().get("Clientes").add(nuevoCliente);
+                actualizarTabla(tablaClientes, GestoraDatos.dameGestora().get("Clientes"));
+                ctCliente.setText(""+GestoraDatos.dameGestora().get("Clientes").devuelveNumeroSiguiente());
+            }   
         
     }
     
