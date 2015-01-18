@@ -5,16 +5,10 @@
  */
 package proyectoempresalvp.gestoras;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import proyectoempresalvp.datos.ArrayListDato;
-import proyectoempresalvp.datos.Cliente;
 import proyectoempresalvp.datos.Contrato;
 import proyectoempresalvp.datos.Dato;
-import proyectoempresalvp.datos.Empleado;
 import proyectoempresalvp.datos.FacturaExtra;
 import proyectoempresalvp.datos.FacturaMensual;
 
@@ -24,9 +18,7 @@ import proyectoempresalvp.datos.FacturaMensual;
  */
 public class GestoraDatos extends HashMap<String, ArrayListDato<Dato>>{
     
-//    private static ArrayListDato<Empleado> empleados;
     private static ArrayListDato<Contrato> contratos;
-//    private static ArrayListDato<Cliente> clientes;
     private static ArrayListDato<FacturaExtra> facturasExtra;
     private static ArrayListDato<FacturaMensual> facturasMensuales;
     
@@ -34,6 +26,8 @@ public class GestoraDatos extends HashMap<String, ArrayListDato<Dato>>{
     public static final int ACTUALIZAR_EMPLEADOS = 1;
     public static final int ACTUALIZAR_CONTRATOS = 2;
     public static final int ACTUALIZAR_CLIENTES = 3;
+    public static final int ACTUALIZAR_FACTURASMENSUALES = 4;
+    public static final int ACTUALIZAR_FACTURASEXTRA = 5;
     
     private static GestoraDatos g;
 
