@@ -13,6 +13,7 @@ import proyectoempresalvp.datos.Cliente;
 import proyectoempresalvp.datos.Contrato;
 import proyectoempresalvp.datos.Dato;
 import proyectoempresalvp.datos.Empleado;
+import proyectoempresalvp.datos.FacturaExtra;
 import proyectoempresalvp.datos.Fecha;
 import proyectoempresalvp.datos.Tarea;
 import proyectoempresalvp.datosUI.PanelImagen;
@@ -1342,7 +1343,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                                 .addGap(18, 18, 18)
                                 .addComponent(jPanelDatosContr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPgestionLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
                                 .addComponent(bEstudiosActivos, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(bFormuClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -1350,7 +1351,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                         .addComponent(jPanelContratos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(jScrollPane7)))
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addContainerGap(154, Short.MAX_VALUE))
         );
 
         PanelPesContratos.addTab("GESTION", jPgestion);
@@ -4973,19 +4974,26 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         
     }
     
-    //Santy
+    //Santy 
     private void insertarContrato(){
         
         String inicio = ctPerIn.getText(), fin = ctPerFin.getText();
         
-        Contrato nuevoContrato = new Contrato(Integer.parseInt(ctNo.getText()), 
-                                              Integer.parseInt(ctNumCli.getText()), 
-                                              ctDes.getText(), new Fecha(inicio), new Fecha(fin), 
-                                              Integer.parseInt(ctIAeur.getText()), 
-                                              Integer.parseInt(ctIApts.getText()), 
-                                              ctSitua.getText(), ctFormPag.getText(), 
-                                              Integer.parseInt(ctDiaCobr1.getText()), 
-                                              Integer.parseInt(ctIvaCon.getText()));
+        if(!comprobarNumero(ctNo.getText()) || !comprobarNumero(ctNumCli.getText()) 
+                || !comprobarNumero(ctIAeur.getText()) || !comprobarNumero(ctIMeur.getText())
+                || !comprobarNumero(ctDiaCobr1.getText()) || !comprobarNumero(ctIvaCon.getText())){
+            
+            JOptionPane.showMessageDialog(this, "Comprueba que has introducido en los campos numéricos números correctamente.");
+        }
+        
+        Contrato nuevoContrato = new Contrato(Integer.parseInt(ctNo.getText()), //NUMCONTRATO
+                                              Integer.parseInt(ctNumCli.getText()), //NUMCLIENTE
+                                              ctDes.getText(), new Fecha(inicio), new Fecha(fin), //DESCRIPCION,INICIO,FIN
+                                              Integer.parseInt(ctIAeur.getText()), //EUROSAÑO
+                                              Integer.parseInt(ctIMeur.getText()), //EUROSMES
+                                              ctSitua.getText(), ctFormPag.getText(), //SITUACION,FORMAPAGO
+                                              Integer.parseInt(ctDiaCobr1.getText()), //DIACOBRO
+                                              Integer.parseInt(ctIvaCon.getText()));//TANTO IVA
         
         if(GestoraBaseDatos.insertarDato(nuevoContrato)){
                 
@@ -4993,6 +5001,20 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 actualizarTabla(jTableContratos, GestoraDatos.dameGestora().get("CONTRATOS"));
                 ctNumCon.setText(""+GestoraDatos.dameGestora().get("CONTRATOS").devuelveNumeroSiguiente());
             }   
+    }
+    
+    private void insertarFacturaExtra(){
+        
+        
+        
+        FacturaExtra nuevaFacturaExtra = new FacturaExtra(Integer.parseInt(ctNumF.getText()), //NUMFACTURA
+                                                        null, //FECHA
+                                                        Integer.parseInt(ctNcif.getText()), //CIFNIF
+                                                        ctNomb.getText(), ctDomic.getText(), ctLoca.getText(), ctProvin.getText(),//NOMBRE,DOMICILIO,LOCALIDAD,PROVINCIA
+                                                        Integer.parseInt(ctCodpos.getText()), //CP
+                                                        Integer.parseInt(ctporcenIva.getText()), //TANTOIVA
+                                                        Integer.parseInt(ctTotal.getText()), //EUROSNETO
+                                                        null);//CLIENTE
     }
     
     private boolean comprobarNumero(String n){
