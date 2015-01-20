@@ -33,4 +33,42 @@ public class ArrayListDato<T extends Dato> extends ArrayList<T>{
         
         return nSiguiente;
     }
+    
+    public T devuelveValorPorClave(String clave){
+        
+        for(T d : this){
+            
+            if(d.devuelveValorClave().equals(clave)){
+                
+                return d;
+            }
+        }
+        
+        return null;
+    }
+    
+    public ArrayList<T> devuelveValoresPorClave(String clave){
+        
+        ArrayList<T> dev = new ArrayList();
+        for(T d : this){
+            
+            if(d.devuelveValorClave().equals(clave)){
+                
+                dev.add(d);
+            }
+        }
+        
+        return dev;
+    }
+    
+    public String[] devuelveTodasLasClaves(){
+        
+        String[] dev = new String[this.size()];
+        for(int i = 0; i < dev.length; i++){
+            
+            dev[i] = this.get(i).devuelveValorClave();
+        }
+        
+        return dev;
+    }
 }

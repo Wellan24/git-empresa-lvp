@@ -873,13 +873,13 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="ctNumCuent" max="32767" attributes="0"/>
+                                          <Component id="ctContratosIBAN" max="32767" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Component id="jLabel60" max="32767" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="ctNumCli" min="-2" pref="101" max="-2" attributes="0"/>
+                                                      <Component id="comboNumeroCliente" min="-2" pref="101" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Component id="jLabel62" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="jLabel63" alignment="0" max="32767" attributes="0"/>
@@ -892,7 +892,7 @@
                                               </Group>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="ctNo" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="ctNombre" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="ctDomicili" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="ctLocali" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="ctCodP" alignment="0" max="32767" attributes="0"/>
@@ -917,14 +917,14 @@
                                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel60" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ctNumCli" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel61" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="ctDes" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="comboNumeroCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel62" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ctNo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -959,7 +959,7 @@
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jLabel69" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="ctNumCuent" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ctContratosIBAN" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace pref="23" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -1013,14 +1013,12 @@
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel69">
                               <Properties>
-                                <Property name="text" type="java.lang.String" value="N&#xba; Cuenta:"/>
+                                <Property name="text" type="java.lang.String" value="IBAN"/>
                               </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="ctNumCli">
                             </Component>
                             <Component class="javax.swing.JTextField" name="ctDes">
                             </Component>
-                            <Component class="javax.swing.JTextField" name="ctNo">
+                            <Component class="javax.swing.JTextField" name="ctNombre">
                             </Component>
                             <Component class="javax.swing.JTextField" name="ctDomicili">
                             </Component>
@@ -1034,7 +1032,12 @@
                             </Component>
                             <Component class="javax.swing.JTextField" name="ctTelefon">
                             </Component>
-                            <Component class="javax.swing.JTextField" name="ctNumCuent">
+                            <Component class="javax.swing.JTextField" name="ctContratosIBAN">
+                            </Component>
+                            <Component class="javax.swing.JComboBox" name="comboNumeroCliente">
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboNumeroClienteActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -1503,6 +1506,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Nuevo Contrato"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bNuevoContrActionPerformed"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JButton" name="bFormuClientes">
                           <Properties>
