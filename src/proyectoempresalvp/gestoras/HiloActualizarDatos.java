@@ -14,6 +14,7 @@ import proyectoempresalvp.datos.Cliente;
 import proyectoempresalvp.datos.Contrato;
 import proyectoempresalvp.datos.Dato;
 import proyectoempresalvp.datos.Empleado;
+import proyectoempresalvp.datos.FacturaMensual;
 import proyectoempresalvp.datos.Fecha;
 import static proyectoempresalvp.gestoras.GestoraDatos.*;
 
@@ -40,6 +41,8 @@ public class HiloActualizarDatos implements Runnable {
             actualizarClientes();
         if (datoActualizar == ACTUALIZAR_TODO|| datoActualizar == ACTUALIZAR_CONTRATOS) 
             actualizarContratos();
+        if (datoActualizar == ACTUALIZAR_TODO|| datoActualizar == ACTUALIZAR_FACTURASMENSUALES) 
+            actualizarFacturasMes();
 
         observador.avisar(datoActualizar);
     }
@@ -125,6 +128,36 @@ public class HiloActualizarDatos implements Runnable {
         }
 
         GestoraDatos.dameGestora().put("EMPLEADOS", empleados);
+    }
+    
+    private void actualizarFacturasMes() {
+
+        ArrayListDato<Dato> facturas = null;
+        ResultSet facturasComprobar = GestoraBaseDatos.ejecutarSentenciaQuery(GestoraBaseDatos.construyeSentenciaSelect(FacturaMensual.getOrden(), FacturaMensual.getTabla()));
+        if (facturas == null) {
+            facturas = new ArrayListDato();
+        } else {
+            facturas.clear();
+        }
+
+        FacturaMensual facturaActual;
+
+        try {
+            while (facturasComprobar.next()) {
+
+                facturaActual = new FacturaMensual(facturasComprobar.getInt(1), new Fecha(facturasComprobar.getString(2)), facturasComprobar.getInt(3),
+                        facturasComprobar.getString(4), facturasComprobar.getInt(5), facturasComprobar.getInt(6), facturasComprobar.getString(7),
+                        facturasComprobar.getString(8), facturasComprobar.getString(9), facturasComprobar.getInt(10), facturasComprobar.getInt(11),
+                        facturasComprobar.getInt(12), facturasComprobar.getString(13), facturasComprobar.getInt(14), facturasComprobar.getString(15), 
+                        facturasComprobar.getString(16),facturasComprobar.getInt(17), facturasComprobar.getInt(18),facturasComprobar.getInt(19),
+                        facturasComprobar.getInt(20),facturasComprobar.getString(21));
+                facturas.add(facturaActual);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(GestoraTareas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        GestoraDatos.dameGestora().put("FACTURASMENSUALES", facturas);
     }
 
     public static void setObservador(ObservadorGestoraDatos observador) {
