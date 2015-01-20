@@ -71,4 +71,18 @@ public class ArrayListDato<T extends Dato> extends ArrayList<T>{
         
         return dev;
     }
+    
+    public ArrayList<T> devuelveValorEnFuncionCampo(String nombreCampo, Object valor){
+        
+        ArrayList<T> dev = new ArrayList();
+        for(T d : this){
+            
+            if(d.get(nombreCampo).equals(valor)){
+                
+                dev.add(d);
+            }
+        }
+        
+        return dev;
+    }
 }

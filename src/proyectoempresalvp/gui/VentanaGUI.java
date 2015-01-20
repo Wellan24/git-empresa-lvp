@@ -6,6 +6,7 @@
 package proyectoempresalvp.gui;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -41,6 +42,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     public VentanaGUI() {
 
         initComponents();
+        rellenarCombosPeriodo();
         GestoraBaseDatos.conectarBaseDatos();
         GestoraDatos.setObservador(this);
         initTablas();
@@ -198,7 +200,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jLabel40 = new javax.swing.JLabel();
         ctProxFactura = new javax.swing.JTextField();
         ctIva = new javax.swing.JTextField();
-        cbPeriodo = new javax.swing.JComboBox();
+        cbPeriodoAño = new javax.swing.JComboBox();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        cbPeriodoMes = new javax.swing.JComboBox();
         bExamFac = new javax.swing.JButton();
         jScrollPane4 = new ScrollPaneTranslucido();
         tablaFacMensuales = new Tabla();
@@ -1396,7 +1401,21 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             }
         });
 
-        cbPeriodo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbPeriodoAño.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbPeriodoAñoActionPerformed(evt);
+            }
+        });
+
+        jLabel34.setText("Año:");
+
+        jLabel35.setText("Mes:");
+
+        cbPeriodoMes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbPeriodoMesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1406,15 +1425,23 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel39)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel38)
-                            .addComponent(jLabel40))
-                        .addGap(120, 120, 120)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(ctProxFactura, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbPeriodo, javax.swing.GroupLayout.Alignment.LEADING, 0, 97, Short.MAX_VALUE)
-                            .addComponent(ctIva))))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel34)
+                            .addGap(18, 18, 18)
+                            .addComponent(cbPeriodoAño, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel35)
+                            .addGap(18, 18, 18)
+                            .addComponent(cbPeriodoMes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel38)
+                                .addComponent(jLabel40))
+                            .addGap(120, 120, 120)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(ctProxFactura, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                                .addComponent(ctIva)))))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -1424,11 +1451,15 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel38)
                     .addComponent(ctProxFactura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                .addGap(35, 35, 35)
+                .addComponent(jLabel39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel39)
-                    .addComponent(cbPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                    .addComponent(cbPeriodoAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel34)
+                    .addComponent(jLabel35)
+                    .addComponent(cbPeriodoMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel40)
                     .addComponent(ctIva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -4273,7 +4304,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }//GEN-LAST:event_bNuevoContrActionPerformed
 
     private void comboNumeroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboNumeroClienteActionPerformed
-       
+
         if(comboNumeroCliente.getSelectedItem() != null && GestoraDatos.dameGestora().get("CLIENTES") != null) {
 
             Dato d = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave(comboNumeroCliente.getSelectedItem().toString());
@@ -4288,6 +4319,22 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             ctContratosIBAN.setText(d.get("IBAN").toString());
         }
     }//GEN-LAST:event_comboNumeroClienteActionPerformed
+
+    private void cbPeriodoAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPeriodoAñoActionPerformed
+        
+        refrescarFacturasMensuales();
+    }//GEN-LAST:event_cbPeriodoAñoActionPerformed
+
+    private void cbPeriodoMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPeriodoMesActionPerformed
+        
+        refrescarFacturasMensuales();
+    }//GEN-LAST:event_cbPeriodoMesActionPerformed
+
+    private void refrescarFacturasMensuales() {
+        int numPeriodo = Gestora.numeroPeriodoPorNombre(cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString());
+        actualizarTabla(tablaFacMensuales, GestoraDatos.dameGestora().get("FACTURASMENSUALES").devuelveValorEnFuncionCampo("NUMPERIODO", numPeriodo));
+        ctProxFactura.setText("" + GestoraDatos.dameGestora().get("FACTURASMENSUALES").devuelveNumeroSiguiente());
+    }
 
     /**
      * @param args the command line arguments
@@ -4411,7 +4458,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JCheckBox cbNombre;
     private javax.swing.JCheckBox cbNumFac;
     private javax.swing.JComboBox cbPeriod;
-    private javax.swing.JComboBox cbPeriodo;
+    private javax.swing.JComboBox cbPeriodoAño;
+    private javax.swing.JComboBox cbPeriodoMes;
     private javax.swing.JComboBox cbVaño;
     private javax.swing.JComboBox cbVdia;
     private javax.swing.JComboBox cbVmes;
@@ -4643,6 +4691,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
@@ -4916,10 +4966,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             ctNumCon.setText("" + GestoraDatos.dameGestora().get("CONTRATOS").devuelveNumeroSiguiente());
         }
 
-//        if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES || datoActualizado == GestoraDatos.ACTUALIZAR_TODO){
-//            actualizarTabla(tablaFacMensuales, GestoraDatos.dameGestora().get("FACTURASMENSUALES"));
-//            ctProxFactura.setText(""+GestoraDatos.dameGestora().get("FACTURASMENSUALES").devuelveNumeroSiguiente());
-//        }
+        if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
+//            
+            refrescarFacturasMensuales();
+        }
 //        
 //        if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASEXTRA || datoActualizado == GestoraDatos.ACTUALIZAR_TODO){
 //            actualizarTabla(tablaFacExtra, GestoraDatos.dameGestora().get("FACTURASEXTRA"));
@@ -4927,7 +4977,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 //        }
     }
 
-    private void actualizarTabla(JTable tabla, ArrayListDato<Dato> empleados) {
+    private void actualizarTabla(JTable tabla, ArrayList<Dato> empleados) {
 
         ArrayList<Dato> datos = new ArrayList(empleados);
         tabla.setModel(new ModeloTabla(datos));
@@ -5051,5 +5101,22 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private boolean comprobarNumero(String n) {
 
         return n.matches("[0-9]+");
+    }
+
+    private void rellenarCombosPeriodo() {
+
+        String[] años = new String[Calendar.getInstance().get(Calendar.YEAR) - 2002];
+
+        for(int i = 0;i < años.length;i++) {
+
+            años[i] = Integer.toString(2002 + i +1);
+        }
+
+        cbPeriodoAño.setModel(new DefaultComboBoxModel(años));
+        cbAño.setModel(new DefaultComboBoxModel(años));
+
+        String[] meses = {"ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC",};
+        
+        cbPeriodoMes.setModel(new DefaultComboBoxModel(meses));
     }
 }
