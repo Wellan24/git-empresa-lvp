@@ -4273,17 +4273,20 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }//GEN-LAST:event_bNuevoContrActionPerformed
 
     private void comboNumeroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboNumeroClienteActionPerformed
-        
-        Dato d = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave(comboNumeroCliente.getSelectedItem().toString());
-        ctDes.setText(d.get("DESCRIPCION").toString());
-        ctNombre.setText(d.get("NOMBRE").toString());
-        ctLocali.setText(d.get("LOCALIDAD").toString());
-        ctDomicili.setText(d.get("DOMICILIO").toString());
-        ctCodP.setText(d.get("CP").toString());
-        ctProvinci.setText(d.get("PROVINCIA").toString());
-        ctNifiCif.setText(d.get("CIF").toString());
-        ctTelefon.setText(d.get("TLFCLIENTE").toString());
-        ctContratosIBAN.setText(d.get("IBAN").toString());
+       
+        if(comboNumeroCliente.getSelectedItem() != null && GestoraDatos.dameGestora().get("CLIENTES") != null) {
+
+            Dato d = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave(comboNumeroCliente.getSelectedItem().toString());
+            ctDes.setText(d.get("DESCRIPCION").toString());
+            ctNombre.setText(d.get("NOMBRE").toString());
+            ctLocali.setText(d.get("LOCALIDAD").toString());
+            ctDomicili.setText(d.get("DOMICILIO").toString());
+            ctCodP.setText(d.get("CP").toString());
+            ctProvinci.setText(d.get("PROVINCIA").toString());
+            ctNifiCif.setText(d.get("CIF").toString());
+            ctTelefon.setText(d.get("TLFCLIENTE").toString());
+            ctContratosIBAN.setText(d.get("IBAN").toString());
+        }
     }//GEN-LAST:event_comboNumeroClienteActionPerformed
 
     /**
@@ -4296,19 +4299,19 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+            for(javax.swing.UIManager.LookAndFeelInfo info :javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch(ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(VentanaGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        } catch(InstantiationException ex) {
             java.util.logging.Logger.getLogger(VentanaGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        } catch(IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(VentanaGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch(javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(VentanaGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -4829,7 +4832,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     private void calcularIban() {
 
-        if (ctIbanCalcular.getText().length() == 20) {
+        if(ctIbanCalcular.getText().length() == 20) {
 
             ctIbanCalculado.setText(Gestora.calcularIbanEspaña(ctIbanCalcular.getText()));
         } else {
@@ -4853,18 +4856,18 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void guardarTarea() {
 
         String fecha = ctTarFecha.getText();
-        if (Gestora.comprobarFormatoFechaCorrecto(fecha)) {
+        if(Gestora.comprobarFormatoFechaCorrecto(fecha)) {
             try {
 
                 Tarea tareaActual = new Tarea(GestoraTareas.aumentaNumeroTarea(), cttarconcepto.getText(), new Fecha(fecha), Integer.parseInt(ctTarPeriodo.getText()), ctTarCliente.getText());
-                if (GestoraBaseDatos.insertarDato(tareaActual)) {
+                if(GestoraBaseDatos.insertarDato(tareaActual)) {
                     GestoraTareas.getTareas().add(tareaActual);
                     actualizarTablaTareas();
                 } else {
 
                     JOptionPane.showMessageDialog(this, "No se ha insertado correctamente (¿Igual ya existe?)");
                 }
-            } catch (NumberFormatException numberFormatException) {
+            } catch(NumberFormatException numberFormatException) {
 
                 JOptionPane.showMessageDialog(this, "Comprueba el periodo");
             }
@@ -4897,18 +4900,18 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     @Override
     public void avisar(int datoActualizado) {
 
-        if (datoActualizado == GestoraDatos.ACTUALIZAR_EMPLEADOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
+        if(datoActualizado == GestoraDatos.ACTUALIZAR_EMPLEADOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
             actualizarTabla(tablaEmple, GestoraDatos.dameGestora().get("EMPLEADOS"));
             ctEmpleN.setText("" + GestoraDatos.dameGestora().get("EMPLEADOS").devuelveNumeroSiguiente());
         }
-        if (datoActualizado == GestoraDatos.ACTUALIZAR_CLIENTES || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
+        if(datoActualizado == GestoraDatos.ACTUALIZAR_CLIENTES || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
             actualizarTabla(tablaClientes, GestoraDatos.dameGestora().get("CLIENTES"));
             ctClienteNum.setText("" + GestoraDatos.dameGestora().get("CLIENTES").devuelveNumeroSiguiente());
             comboNumeroCliente.setModel(new DefaultComboBoxModel(GestoraDatos.dameGestora().get("CLIENTES").devuelveTodasLasClaves()));
         }
 
         //Santy
-        if (datoActualizado == GestoraDatos.ACTUALIZAR_CONTRATOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
+        if(datoActualizado == GestoraDatos.ACTUALIZAR_CONTRATOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
             actualizarTabla(jTableContratos, GestoraDatos.dameGestora().get("CONTRATOS"));
             ctNumCon.setText("" + GestoraDatos.dameGestora().get("CONTRATOS").devuelveNumeroSiguiente());
         }
@@ -4933,12 +4936,12 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void insertarEmpleado() {
 
         String alta = ctEmpleAlta.getText(), nac = ctEmpleNac.getText(), IBAN = ctEmpleIBAN.getText();
-        if (!Gestora.comprobarFormatoFechaCorrecto(alta) || !Gestora.comprobarFormatoFechaCorrecto(nac)) {
+        if(!Gestora.comprobarFormatoFechaCorrecto(alta) || !Gestora.comprobarFormatoFechaCorrecto(nac)) {
             JOptionPane.showMessageDialog(this, "Comprueba las fechas, el formato es dd/mm/aaaa");
-        } else if (!Gestora.esValidoIBAN(IBAN)) {
+        } else if(!Gestora.esValidoIBAN(IBAN)) {
 
             JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
-        } else if (!comprobarNumero(ctEmpleNomina.getText()) || !comprobarNumero(ctEmpleTelf.getText())
+        } else if(!comprobarNumero(ctEmpleNomina.getText()) || !comprobarNumero(ctEmpleTelf.getText())
                 || !comprobarNumero(ctEmpleMovil.getText()) || !comprobarNumero(ctEmpleSS.getText())
                 || !comprobarNumero(ctEmpleCP.getText())) {
 
@@ -4952,7 +4955,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     ctEmpleIBAN.getText(), new Fecha(alta), new Fecha(nac), Integer.parseInt(ctEmpleNomina.getText()),
                     Integer.parseInt(ctEmpleSS.getText()), "23", "23");
 
-            if (GestoraBaseDatos.insertarDato(nuevoEmpleado)) {
+            if(GestoraBaseDatos.insertarDato(nuevoEmpleado)) {
 
                 GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_EMPLEADOS);
             }
@@ -4966,16 +4969,16 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         String IBAN = ctClienteIban.getText();
 
-        if (!Gestora.esValidoIBAN(IBAN)) {
+        if(!Gestora.esValidoIBAN(IBAN)) {
 
             JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
-        } else if (!comprobarNumero(ctClienteNum.getText()) || !comprobarNumero(ctClienteNif.getText())
+        } else if(!comprobarNumero(ctClienteNum.getText()) || !comprobarNumero(ctClienteNif.getText())
                 || !comprobarNumero(ctClienteCp.getText()) || !comprobarNumero(ctClienteTlfCli.getText())
                 || !comprobarNumero(ctClienteTlfContacto.getText()) || !comprobarNumero(ctClienteRefBan.getText())
                 || !comprobarNumero(ctClienteDomiciliado.getText())) {
 
             JOptionPane.showMessageDialog(this, "Comprueba que los telefonos, el NIF, el CP y la referencia del banco son números");
-        } else if (!Gestora.esValidoIBAN(ctClienteIban.getText())) {
+        } else if(!Gestora.esValidoIBAN(ctClienteIban.getText())) {
 
             JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
         } else {
@@ -4993,7 +4996,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     ctClienteIban.getText(),
                     Integer.parseInt(ctClienteDomiciliado.getText()));
 
-            if (GestoraBaseDatos.insertarDato(nuevoCliente)) {
+            if(GestoraBaseDatos.insertarDato(nuevoCliente)) {
 
                 GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CLIENTES);
             }
@@ -5006,9 +5009,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         String inicio = ctPerIn.getText(), fin = ctPerFin.getText();
 
-        if (!Gestora.comprobarFormatoFechaCorrecto(inicio) || !Gestora.comprobarFormatoFechaCorrecto(fin)) {
+        if(comboNumeroCliente.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(this, "Selecciona un Cliente");
+        } else if(!Gestora.comprobarFormatoFechaCorrecto(inicio) || !Gestora.comprobarFormatoFechaCorrecto(fin)) {
             JOptionPane.showMessageDialog(this, "Comprueba las fechas, el formato es dd/mm/aaaa");
-        }else if (!comprobarNumero(comboNumeroCliente.getSelectedItem().toString())
+        } else if(!comprobarNumero(comboNumeroCliente.getSelectedItem().toString())
                 || !comprobarNumero(ctIAeur.getText()) || !comprobarNumero(ctIMeur.getText())
                 || !comprobarNumero(ctDiaCobr1.getText()) || !comprobarNumero(ctIvaCon.getText())) {
 
@@ -5024,7 +5029,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     Integer.parseInt(ctDiaCobr1.getText()), //DIACOBRO
                     Integer.parseInt(ctIvaCon.getText()));//TANTO IVA
 
-            if (GestoraBaseDatos.insertarDato(nuevoContrato)) {
+            if(GestoraBaseDatos.insertarDato(nuevoContrato)) {
 
                 GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS);
             }
