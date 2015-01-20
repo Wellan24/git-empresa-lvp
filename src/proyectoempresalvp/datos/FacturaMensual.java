@@ -10,13 +10,13 @@ import java.util.Date;
 
 public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
 
-    private static final String[] orden = {"NUMFACTURA", "FECHA", "NUMCLIENTE", "DESCRIPCION", "NUMCONTACTO", "CIF", "NOMBRE", "DOMICILIO",
+    private static final String[] orden = {"NUMFACTURA", "FECHA", "NUMCLIENTE", "DESCRIPCION", "NUMCONTRATO", "CIF", "NOMBRE", "DOMICILIO",
         "LOCALIDAD", "PROVINCIA", "EUROSMES", "TANTOIVA", "REFMONEDA", "DIACOBRO", "FORMAPAGO", "PERIODO", "NUMPERIODO",
-        "NUMCUENTA", "REFBANCO", "BANCOCOBRO", "NUMBREBANCO"};
+        "IBAN", "REFBANCO", "BANCOCOBRO", "NOMBREBANCO"};
     private static final String tabla = "FACTURAMENSUAL";
 
     /**
-     * las claves son: NUMFACTURA, FECHA,NUMCLIENTE, DESCRIPCION,NUMCONTACTO,
+     * las claves son: NUMFACTURA, FECHA,NUMCLIENTE, DESCRIPCION,NUMCONTRATO,
      * CIF, NOMBRE, DOMICILIO, LOCALIDAD, PROVINCIA, EUROSMES, TANTOIVA, IVA,
      * TOTAL, REFMONEDA,DIACOBRO, FORMAPAGO, PERIODO,
      * NUMPERIODO,NUMCUENTA,REFBANCO, BANCOCOBRO,NUMBREBANCO
@@ -25,7 +25,7 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
      * @param fecha
      * @param numCliente
      * @param descripcion
-     * @param numContacto
+     * @param numContrato
      * @param cif
      * @param nombre
      * @param domicilio
@@ -38,22 +38,22 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
      * @param formaPago
      * @param periodo
      * @param numPeriodo
-     * @param numCuenta
+     * @param IBAN
      * @param refBanco
      * @param bancoCobro
      * @param nombreBanco
      */
     public FacturaMensual(int numFactura, Fecha fecha, int numCliente,
-            String descripcion, int numContacto, int cif, String nombre,
+            String descripcion, int numContrato, int cif, String nombre,
             String domicilio, String localidad, int cpProvincia, int eurosMes,
             int tantoIva, String refMoneda, int diaCobro,
-            String formaPago, String periodo, int numPeriodo, int numCuenta,
+            String formaPago, String periodo, int numPeriodo, int IBAN,
             int refBanco, int bancoCobro, String nombreBanco) {
         this.put("NUMFACTURA", numFactura);
         this.put("FECHA", fecha);
         this.put("NUMCLIENTE", numCliente);
         this.put("DESCRIPCION", descripcion);
-        this.put("NUMCONTACTO", numContacto);
+        this.put("NUMCONTRATO", numContrato);
         this.put("CIF", cif);
         this.put("NOMBRE", nombre);
         this.put("DOMICILIO", domicilio);
@@ -66,7 +66,7 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
         this.put("FORMAPAGO", formaPago);
         this.put("PERIODO", periodo);
         this.put("NUMPERIODO", numPeriodo);
-        this.put("NUMCUENTA", numCuenta);
+        this.put("IBAN", IBAN);
         this.put("REFBANCO", refBanco);
         this.put("BANCOCOBRO", bancoCobro);
         this.put("NOMBREBANCO", nombreBanco);
