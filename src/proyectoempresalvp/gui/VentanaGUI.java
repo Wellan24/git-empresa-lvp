@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import proyectoempresalvp.datos.ArrayListDato;
 import proyectoempresalvp.datos.Cliente;
+import proyectoempresalvp.datos.Contrato;
 import proyectoempresalvp.datos.Dato;
 import proyectoempresalvp.datos.Empleado;
 import proyectoempresalvp.datos.Fecha;
@@ -1156,7 +1157,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     .addComponent(ctPerIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel76)
                     .addComponent(ctPerFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel72)
                     .addComponent(jLabel73))
@@ -1349,7 +1350,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                         .addComponent(jPanelContratos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(jScrollPane7)))
-                .addContainerGap(159, Short.MAX_VALUE))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         PanelPesContratos.addTab("GESTION", jPgestion);
@@ -4970,6 +4971,28 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 ctClienteNum.setText(""+GestoraDatos.dameGestora().get("CLIENTES").devuelveNumeroSiguiente());
             }   
         
+    }
+    
+    //Santy
+    private void insertarContrato(){
+        
+        String inicio = ctPerIn.getText(), fin = ctPerFin.getText();
+        
+        Contrato nuevoContrato = new Contrato(Integer.parseInt(ctNo.getText()), 
+                                              Integer.parseInt(ctNumCli.getText()), 
+                                              ctDes.getText(), new Fecha(inicio), new Fecha(fin), 
+                                              Integer.parseInt(ctIAeur.getText()), 
+                                              Integer.parseInt(ctIApts.getText()), 
+                                              ctSitua.getText(), ctFormPag.getText(), 
+                                              Integer.parseInt(ctDiaCobr1.getText()), 
+                                              Integer.parseInt(ctIvaCon.getText()));
+        
+        if(GestoraBaseDatos.insertarDato(nuevoContrato)){
+                
+                GestoraDatos.dameGestora().get("CONTRATOS").add(nuevoContrato);
+                actualizarTabla(jTableContratos, GestoraDatos.dameGestora().get("CONTRATOS"));
+                ctNumCon.setText(""+GestoraDatos.dameGestora().get("CONTRATOS").devuelveNumeroSiguiente());
+            }   
     }
     
     private boolean comprobarNumero(String n){
