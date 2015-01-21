@@ -70,7 +70,6 @@ public class GestoraTareas extends Thread {
         }
 
         tareasARealizar = string;
-        System.out.println(string);
         nProximaTarea++;
         GestoraTareas.observador.avisar();
     }

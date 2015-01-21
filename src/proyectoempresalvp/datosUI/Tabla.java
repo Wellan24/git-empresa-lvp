@@ -6,8 +6,6 @@
 package proyectoempresalvp.datosUI;
 
 import java.awt.AlphaComposite;
-import java.awt.BasicStroke;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -23,7 +21,7 @@ public class Tabla extends JTable{
     public Tabla() {        
         super();
         setOpaque(false);
-        setDefaultRenderer(Object.class, new TableRenderer());       
+        setDefaultRenderer(Object.class, new TableRenderer()); 
         setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
     }   
     

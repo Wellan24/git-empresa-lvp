@@ -11,6 +11,7 @@ import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
@@ -38,30 +39,40 @@ public class TableRenderer extends JLabel implements TableCellRenderer {
     public Component getTableCellRendererComponent(final JTable table,
             final Object value, final boolean isSelected, final boolean hasFocus,
             final int row, final int column) {
-
-        if (value != null) {
-            setText(value.toString());
+        if(value != null && value instanceof Boolean) {
+            JCheckBox check = new JCheckBox();
+            check.setHorizontalAlignment(JLabel.CENTER);
+            check.setSelected(((Boolean) value));
+            check.setOpaque(true);
+            check.setBackground(colorAzulClaro);
+            check.setForeground(colorNegro);
+            check.setBorder(null);
+            if(isSelected) {
+                check.setBackground(colorAzulOscuro);
+            }
+            if(hasFocus) {
+                check.setBackground(colorAzulSeleccionado);
+            }
+            return check;
         }
-            setBackground(colorAzulClaro);
-            setForeground(colorNegro);
-            setBorder(null);
-            this.isSelected = false;
-            if (isSelected) {
+        if(value != null)
+            setText(value.toString());
+        setBackground(colorAzulClaro);
+        setForeground(colorNegro);
+        setBorder(null);
+        if(isSelected) {
+            setBackground(colorAzulOscuro);
+        }
+        if(hasFocus) {
+            setBackground(colorAzulSeleccionado);
+        }
 
-                this.isSelected = true;
-                setBackground(colorAzulOscuro);
-            }
-            if (hasFocus) {
-
-                setBackground(colorAzulSeleccionado);
-            }
-
-            return this;
+        return this;
     }
 
     @Override
     protected void paintComponent(Graphics g) {
-        if (!isSelected) {
+        if(!isSelected) {
             Graphics2D g2 = (Graphics2D) g;
 
             g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION,

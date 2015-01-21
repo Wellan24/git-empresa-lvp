@@ -92,7 +92,7 @@ public class HiloActualizarDatos implements Runnable {
 
                 contrato = new Contrato(contratosComp.getInt(1), contratosComp.getInt(2), contratosComp.getString(3),
                         new Fecha(contratosComp.getString(4)), new Fecha(contratosComp.getString(5)), contratosComp.getInt(6), contratosComp.getInt(7),
-                        contratosComp.getString(8), contratosComp.getString(9), contratosComp.getInt(10), contratosComp.getInt(11));
+                        contratosComp.getString(8), contratosComp.getString(9), contratosComp.getInt(10), contratosComp.getInt(11), contratosComp.getBoolean(12));
                 contratos.add(contrato);
             }
         } catch (SQLException ex) {

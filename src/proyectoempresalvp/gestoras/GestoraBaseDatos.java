@@ -149,6 +149,9 @@ public class GestoraBaseDatos {
             } else if (rec instanceof Float) {
 
                 textoSentencia.append(rec);
+            }else{
+                
+                textoSentencia.append(rec);
             }
             textoSentencia.append(" ,");
         }

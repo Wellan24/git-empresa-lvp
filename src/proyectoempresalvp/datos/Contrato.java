@@ -11,7 +11,7 @@ import java.util.Date;
 public class Contrato extends Dato implements Comparable<Contrato> {
 
     private static final String[] orden = {"NUMCONTRATO", "NUMCLIENTE", "DESCRIPCION", "INICIOCONTRATO", "FINCONTRATO", "EUROSAÑO", "EUROSMES",
-        "SITUACION", "FORMAPAGO", "DIACOBRO", "TANTOIVA"};
+        "SITUACION", "FORMAPAGO", "DIACOBRO", "TANTOIVA", "ESTADO"};
     private static final String tabla = "CONTRATOS";
 
     /**
@@ -44,6 +44,24 @@ public class Contrato extends Dato implements Comparable<Contrato> {
         this.put("FORMAPAGO", formaPago);
         this.put("DIACOBRO", diaCobro);
         this.put("TANTOIVA", tantoIva);
+        this.put("ESTADO", false);
+    }
+    
+    public Contrato(int numContrato, int numCliente, String descripcion,
+            Fecha inicioContrato, Fecha finContrato, int eurosAño, int eurosMes,
+            String situacion, String formaPago, int diaCobro, int tantoIva, boolean estado) {
+        this.put("NUMCONTRATO", numContrato);
+        this.put("NUMCLIENTE", numCliente);
+        this.put("DESCRIPCION", descripcion);
+        this.put("INICIOCONTRATO", inicioContrato);
+        this.put("FINCONTRATO", finContrato);
+        this.put("EUROSAÑO", eurosAño);
+        this.put("EUROSMES", eurosMes);
+        this.put("SITUACION", situacion);
+        this.put("FORMAPAGO", formaPago);
+        this.put("DIACOBRO", diaCobro);
+        this.put("TANTOIVA", tantoIva);
+        this.put("ESTADO", estado);
     }
 
     @Override
