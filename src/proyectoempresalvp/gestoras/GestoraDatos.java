@@ -7,20 +7,13 @@ package proyectoempresalvp.gestoras;
 
 import java.util.HashMap;
 import proyectoempresalvp.datos.ArrayListDato;
-import proyectoempresalvp.datos.Contrato;
 import proyectoempresalvp.datos.Dato;
-import proyectoempresalvp.datos.FacturaExtra;
-import proyectoempresalvp.datos.FacturaMensual;
 
 /**
  *
  * @author Oscar
  */
 public class GestoraDatos extends HashMap<String, ArrayListDato<Dato>>{
-    
-    private static ArrayListDato<Contrato> contratos;
-    private static ArrayListDato<FacturaExtra> facturasExtra;
-    private static ArrayListDato<FacturaMensual> facturasMensuales;
     
     public static final int ACTUALIZAR_TODO = 0;
     public static final int ACTUALIZAR_EMPLEADOS = 1;

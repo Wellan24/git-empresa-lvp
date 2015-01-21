@@ -16,7 +16,7 @@ public class Fecha {
     int año;
 
     public Fecha(String fecha) {
-        System.out.println(fecha);
+        
         String[] f = fecha.split("/");
         this.dia = Integer.parseInt(f[0]);
         this.mes = Integer.parseInt(f[1]);
