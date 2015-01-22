@@ -5,12 +5,12 @@
  */
 package proyectoempresalvp.gui;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 import proyectoempresalvp.datos.Cliente;
 import proyectoempresalvp.datos.Contrato;
 import proyectoempresalvp.datos.Dato;
@@ -36,6 +36,8 @@ import proyectoempresalvp.gestoras.ObservadorTareas;
  */
 public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, ObservadorGestoraDatos {
 
+    ArrayList<String> conceptos = new ArrayList();
+
     /**
      * Creates new form VentanaGUI
      */
@@ -43,6 +45,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         initComponents();
         rellenarCombosPeriodo();
+        listaConceptos.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         GestoraBaseDatos.conectarBaseDatos();
         GestoraDatos.setObservador(this);
         initTablas();
@@ -242,8 +245,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jLabel56 = new javax.swing.JLabel();
         jPanel6 = new JPanelTranslucido();
         jLabel57 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        atConcepto = new javax.swing.JTextArea();
         bAñade = new javax.swing.JButton();
         bRepara = new javax.swing.JButton();
         bBorra = new javax.swing.JButton();
@@ -251,6 +252,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jLabel58 = new javax.swing.JLabel();
         ctImporte = new javax.swing.JTextField();
         jLabel59 = new javax.swing.JLabel();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        listaConceptos = new javax.swing.JList();
         jScrollPane6 = new ScrollPaneTranslucido();
         tablaFacExtra = new Tabla();
         bGuardar = new javax.swing.JButton();
@@ -1748,12 +1751,13 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         jLabel57.setText("Concepto:");
 
-        atConcepto.setColumns(20);
-        atConcepto.setRows(5);
-        jScrollPane5.setViewportView(atConcepto);
-
         bAñade.setBackground(new java.awt.Color(204, 255, 204));
         bAñade.setText("Añade");
+        bAñade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAñadeActionPerformed(evt);
+            }
+        });
 
         bRepara.setBackground(new java.awt.Color(255, 153, 51));
         bRepara.setText("Repara");
@@ -1775,6 +1779,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         jLabel59.setText("Euros");
 
+        listaConceptos.setFont(new java.awt.Font("Monospaced", 0, 11)); // NOI18N
+        jScrollPane15.setViewportView(listaConceptos);
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -1784,20 +1791,22 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel57)
                     .addComponent(jLabel58))
-                .addGap(29, 29, 29)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
                         .addComponent(ctImporte, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel59)))
-                .addGap(34, 34, 34)
+                        .addComponent(jLabel59))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(bCancela, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                     .addComponent(bBorra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bRepara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bAñade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1805,8 +1814,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel57)
-                        .addGap(117, 117, 117)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel57)
+                            .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel58)
                             .addComponent(ctImporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1817,8 +1828,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(bRepara)
                         .addGap(18, 18, 18)
-                        .addComponent(bBorra))
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(bBorra)))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
@@ -4295,6 +4305,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         if(car != '.') {
             ctIMeur.setText("" + (Double.parseDouble(ctIAeur.getText().isEmpty() ? "0" : ctIAeur.getText() + car) / 12));
         }
+
     }//GEN-LAST:event_ctIAeurKeyTyped
 
     private void ctIMeurKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ctIMeurKeyTyped
@@ -4307,6 +4318,20 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             ctIAeur.setText("" + (Double.parseDouble(ctIMeur.getText().isEmpty() ? "0" : ctIMeur.getText() + car) * 12));
         }
     }//GEN-LAST:event_ctIMeurKeyTyped
+
+    private void bAñadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAñadeActionPerformed
+
+        DialogoNuevaFacturaDetalles dialogo = new DialogoNuevaFacturaDetalles(this, true);
+        dialogo.setVisible(true);
+        if(dialogo.getPrecio() != null) {
+
+            conceptos.add(Gestora.completarConEspaciosBlancosIzq(dialogo.getConcepto(),43) + " | " + Gestora.stringLongitudFijaIzq(dialogo.getPrecio().toString(),"      "));
+            listaConceptos.setListData(conceptos.toArray(new String[conceptos.size()]));
+            ctImporte.setText("" + (Float.parseFloat(ctImporte.getText().isEmpty()
+                    ? "0" : ctImporte.getText())
+                    + dialogo.getPrecio()));
+        }
+    }//GEN-LAST:event_bAñadeActionPerformed
 
     private void refrescarFacturasMensuales() {
         int numPeriodo = Gestora.numeroPeriodoPorNombre(cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString());
@@ -4356,7 +4381,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JTabbedPane PanelPesOtros;
     private javax.swing.JTabbedPane PanelPestañasPrincipal;
     private javax.swing.JScrollPane aNotas;
-    private javax.swing.JTextArea atConcepto;
     private javax.swing.JTextArea atNotas;
     private javax.swing.JButton bAc;
     private javax.swing.JButton bAcep;
@@ -4791,10 +4815,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
@@ -4802,6 +4826,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JTable jTHojasBanco;
     private javax.swing.JTable jTableContratos;
     private javax.swing.JLabel labelIbanComprobado;
+    private javax.swing.JList listaConceptos;
     private javax.swing.JRadioButton rbActivos;
     private javax.swing.JRadioButton rbB1;
     private javax.swing.JRadioButton rbB2;

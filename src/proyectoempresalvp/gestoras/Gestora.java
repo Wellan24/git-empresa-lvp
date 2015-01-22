@@ -29,6 +29,44 @@ public class Gestora {
     }
 
     /**
+     * Formatea la cadena para que tenga siempre la misma, colocando el String a
+     * la derecha
+     *
+     * @param string
+     * @param longitud
+     * @return
+     */
+    public static String stringLongitudFijaDrch(String string, int longitud) {
+        return String.format("%1$" + longitud + "s", string);
+    }
+
+    /**
+     * Formatea la cadena para que, pad rellena la cadena dada Apple +
+     * "00000000" devuelve "000Apple"
+     *
+     * @param string
+     * @param pad
+     * @return
+     */
+    public static String stringLongitudFijaIzq(String string, String pad) {
+
+        return (pad + string).substring(string.length());
+    }
+
+    public static String completarConEspaciosBlancosIzq(String pString, int length) {
+        if(pString.length() > length){
+            
+            return pString.substring(0, length);
+        }
+        length = length-pString.length();
+        for(int i = 0;i < length;i++) {
+            pString = pString + " ";
+        }
+        System.out.println(pString.length());
+        return pString;
+    }
+
+    /**
      *
      * @param precio
      * @param iva
@@ -49,7 +87,7 @@ public class Gestora {
     public static BigDecimal creaBigDecimal(String texto) {
 
         BigDecimal dev;
-        if (!texto.isEmpty()) {
+        if(!texto.isEmpty()) {
 
             dev = new BigDecimal(texto);
         } else {
@@ -71,16 +109,16 @@ public class Gestora {
         // \\s+ sirve para seleccionar uno o más espacios en blanco, \\s solo para uno
         IBAN = IBAN.replaceAll("\\s+", "");
 
-        if (IBAN.length() == 24) {
+        if(IBAN.length() == 24) {
 
             String stringConvertido = IBAN.substring(4) + Character.getNumericValue(IBAN.charAt(0))
                     + Character.getNumericValue(IBAN.charAt(1)) + IBAN.substring(2, 4);
 
             long total = 0;
-            for (int i = 0; i < stringConvertido.length(); i++) {
+            for(int i = 0;i < stringConvertido.length();i++) {
                 int charValue = Character.getNumericValue(stringConvertido.charAt(i));
                 total = (charValue > 9 ? total * 100 : total * 10) + charValue;
-                if (String.valueOf(total).length() > 9) {
+                if(String.valueOf(total).length() > 9) {
                     total = (total % 97);
                 }
             }
@@ -95,25 +133,27 @@ public class Gestora {
     }
 
     /**
-     * Cuenta es un parametro en formato CCC: 4 dígitos para el banco, 4 para la sucursal, 2 dígitos de control y 10
-     * para el número de cuenta en la entidad y oficina.
+     * Cuenta es un parametro en formato CCC: 4 dígitos para el banco, 4 para la
+     * sucursal, 2 dígitos de control y 10 para el número de cuenta en la
+     * entidad y oficina.
      *
      * @param cuenta
-     * @return Un IBAN válido para españa ESXX + cuenta, donde XX son los dígitos de control.
+     * @return Un IBAN válido para españa ESXX + cuenta, donde XX son los
+     * dígitos de control.
      */
     public static String calcularIbanEspaña(String cuenta) {
 
         cuenta = cuenta.replaceAll("\\s+", "");
 
-        if (Pattern.matches("([0-9]{20})", cuenta)) {
+        if(Pattern.matches("([0-9]{20})", cuenta)) {
 
             String aux = cuenta + "142800";
 
             long total = 0;
-            for (int i = 0; i < aux.length(); i++) {
+            for(int i = 0;i < aux.length();i++) {
                 int charValue = Character.getNumericValue(aux.charAt(i));
                 total = (charValue > 9 ? total * 100 : total * 10) + charValue;
-                if (String.valueOf(total).length() > 9) {
+                if(String.valueOf(total).length() > 9) {
                     total = (total % 97);
                 }
             }
@@ -145,22 +185,22 @@ public class Gestora {
             mes = Integer.parseInt(f[1]);
             año = Integer.parseInt(f[2]);
 
-        } catch (Exception numberFormatException) {
+        } catch(Exception numberFormatException) {
 
             return false;
         }
-        if (año < 0 || mes < 1 || mes > 12 || dia < 1 || dia > 31) {
+        if(año < 0 || mes < 1 || mes > 12 || dia < 1 || dia > 31) {
             return false;
         }
 
-        switch (mes) {
+        switch(mes) {
             case 2:
 
-                if (dia > 29) {
+                if(dia > 29) {
                     return false;
                 }
 
-                if (!(((año % 4 == 0) && (año % 100 != 0)) || (año % 400 == 0)) && dia == 29) {
+                if(!(((año % 4 == 0) && (año % 100 != 0)) || (año % 400 == 0)) && dia == 29) {
                     return false;
                 }
 
@@ -169,7 +209,7 @@ public class Gestora {
             case 6:
             case 9:
             case 11:
-                if (dia > 30) {
+                if(dia > 30) {
                     return false;
                 }
 
@@ -178,7 +218,7 @@ public class Gestora {
         return true;
 
     }
-    
+
     public static int numeroPeriodoPorNombre(String nombre) {
 
         String mes = nombre.substring(0, 3);
@@ -223,7 +263,7 @@ public class Gestora {
                 mes = "12";
                 break;
         }
-        
+
         return Integer.parseInt(año + mes);
     }
 
