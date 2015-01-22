@@ -3619,6 +3619,12 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             }
         });
 
+        ctEmpleTelf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ctEmpleTelfActionPerformed(evt);
+            }
+        });
+
         ctEmpleIBAN.setText("IBAN");
 
         jLabel155.setText("Últimas vacaciones:");
@@ -4332,6 +4338,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     + dialogo.getPrecio()));
         }
     }//GEN-LAST:event_bAñadeActionPerformed
+
+    private void ctEmpleTelfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctEmpleTelfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ctEmpleTelfActionPerformed
 
     private void refrescarFacturasMensuales() {
         int numPeriodo = Gestora.numeroPeriodoPorNombre(cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString());
