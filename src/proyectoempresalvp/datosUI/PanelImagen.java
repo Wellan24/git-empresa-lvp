@@ -7,11 +7,6 @@ package proyectoempresalvp.datosUI;
 
 import java.awt.Graphics;
 import java.awt.Image;
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
