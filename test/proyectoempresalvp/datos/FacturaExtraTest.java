@@ -16,18 +16,18 @@ import static org.junit.Assert.*;
  * @author Oscar
  */
 public class FacturaExtraTest {
-    
+
     FacturaExtra instance;
-    
+
     public FacturaExtraTest() {
-        
-        instance = new FacturaExtra(10,new Fecha("2010/10/10"), 10, "", "", "", "", 10, 10, 10, "");
+
+        instance = new FacturaExtra(10, new Fecha("2010/10/10"), 10, "", "", "", "", 10, 10, "20", "");
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
@@ -50,7 +50,7 @@ public class FacturaExtraTest {
     public void testDevuelveOrdenDeColumnas() {
         System.out.println("devuelveOrdenDeColumnas");
         String[] expResult = {"NUMEROFACTURA", "FECHA", "CIF", "NOMBRE", "DOMICILIO", "LOCALIDAD",
-        "PROVINCIA", "CP", "TANTOIVA", "EUROSNETO", "CLIENTE"};
+            "PROVINCIA", "CP", "TANTOIVA", "EUROSNETO", "CLIENTE"};
         String[] result = instance.devuelveOrdenDeColumnas();
         assertArrayEquals(expResult, result);
     }
@@ -61,10 +61,10 @@ public class FacturaExtraTest {
     @Test
     public void testCompareTo() {
         System.out.println("compareTo");
-        FacturaExtra o = new FacturaExtra(10,new Fecha("2010/10/10"), 10, "", "", "", "", 10, 10, 10, "");
+        FacturaExtra o = new FacturaExtra(10, new Fecha("2010/10/10"), 10, "", "", "", "", 10, 10, "20", "");
         int expResult = 0;
         int result = instance.compareTo(o);
         assertEquals(expResult, result);
     }
-    
+
 }

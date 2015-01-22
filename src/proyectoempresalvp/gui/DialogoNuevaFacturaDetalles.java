@@ -5,27 +5,32 @@
  */
 package proyectoempresalvp.gui;
 
-import javax.swing.JOptionPane;
+import proyectoempresalvp.datos.FacturaExtraDetalles;
 
 /**
  *
  * @author Oscar
  */
 public class DialogoNuevaFacturaDetalles extends javax.swing.JDialog {
-    
-    private Float precio = null;
-    private String concepto;
+
+    private FacturaExtraDetalles f;
+    private final int factura;
+    private final int orden;
 
     /**
      * Creates new form DialogoNuevaFacturaDetalles
      *
      * @param parent
      * @param modal
+     * @param factura
+     * @param orden
      */
-    public DialogoNuevaFacturaDetalles(java.awt.Frame parent, boolean modal) {
+    public DialogoNuevaFacturaDetalles(java.awt.Frame parent, boolean modal, int factura, int orden) {
         super(parent, modal);
         initComponents();
         this.setTitle("Añadir Concepto");
+        this.factura = factura;
+        this.orden = orden;
     }
 
     /**
@@ -121,76 +126,29 @@ public class DialogoNuevaFacturaDetalles extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
+
         
-        
-            precio = Float.parseFloat(tPrecio.getText().isEmpty() ? "0" : tPrecio.getText());
-            concepto = tConcepto.getText();
-            this.dispose();
+        f = new FacturaExtraDetalles(orden, factura, tConcepto.getText(), 
+                tPrecio.getText().isEmpty() ? "0" : tPrecio.getText());
+        this.dispose();
     }//GEN-LAST:event_bAceptarActionPerformed
 
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
-        
+
         this.dispose();
     }//GEN-LAST:event_bCancelarActionPerformed
 
     private void tPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tPrecioKeyTyped
-        
+
         char car = evt.getKeyChar();
         if(((car < '0' || car > '9') && car != '.') || tPrecio.getText().contains(".") && car == '.') {
             evt.consume();
         }
     }//GEN-LAST:event_tPrecioKeyTyped
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for(javax.swing.UIManager.LookAndFeelInfo info :javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch(ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DialogoNuevaFacturaDetalles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch(InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DialogoNuevaFacturaDetalles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch(IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DialogoNuevaFacturaDetalles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch(javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DialogoNuevaFacturaDetalles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    public FacturaExtraDetalles getFactura() {
 
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                DialogoNuevaFacturaDetalles dialog = new DialogoNuevaFacturaDetalles(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
-    
-    public Float getPrecio() {
-        
-        return precio;
-    }
-    
-    public String getConcepto() {
-        
-        return concepto;
+        return f;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

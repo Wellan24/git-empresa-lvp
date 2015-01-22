@@ -24,7 +24,7 @@ public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtr
      * @param concepto
      * @param importe 
      */
-    public FacturaExtraDetalles(int orden, int numero, String concepto, float importe) {
+    public FacturaExtraDetalles(int orden, int numero, String concepto, String importe) {
         
         this.put("ORDEN", orden);
         this.put("NUMERO", numero);
@@ -87,7 +87,7 @@ public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtr
     @Override
     public String devuelveValorClave() {
         
-        return ""+this.get("NUMERO");
+        return this.get("NUMERO") + "0" + this.get("ORDEN");
     }
 
     public static String[] getOrden() {

@@ -5,8 +5,14 @@
  */
 package proyectoempresalvp.gui;
 
+import javax.swing.JOptionPane;
+import proyectoempresalvp.datos.Empleado;
+import proyectoempresalvp.datos.Fecha;
 import proyectoempresalvp.datosUI.JPanelTranslucido;
 import proyectoempresalvp.datosUI.PanelImagen;
+import proyectoempresalvp.gestoras.Gestora;
+import proyectoempresalvp.gestoras.GestoraBaseDatos;
+import proyectoempresalvp.gestoras.GestoraDatos;
 
 /**
  *
@@ -99,23 +105,6 @@ public class DialogoNuevoEmpleado extends javax.swing.JDialog {
         jLabel27.setText("Móvil");
 
         ctEmpleN.setEditable(false);
-        ctEmpleN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ctEmpleNActionPerformed(evt);
-            }
-        });
-
-        ctEmpleDesc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ctEmpleDescActionPerformed(evt);
-            }
-        });
-
-        ctEmpleTelf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ctEmpleTelfActionPerformed(evt);
-            }
-        });
 
         ctEmpleIBAN.setText("IBAN");
 
@@ -340,6 +329,11 @@ public class DialogoNuevoEmpleado extends javax.swing.JDialog {
 
         bAñadir.setBackground(new java.awt.Color(102, 255, 102));
         bAñadir.setText("Añadir");
+        bAñadir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAñadirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelNuevoEmpleadoLayout = new javax.swing.GroupLayout(panelNuevoEmpleado);
         panelNuevoEmpleado.setLayout(panelNuevoEmpleadoLayout);
@@ -384,17 +378,10 @@ public class DialogoNuevoEmpleado extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ctEmpleNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctEmpleNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ctEmpleNActionPerformed
-
-    private void ctEmpleDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctEmpleDescActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ctEmpleDescActionPerformed
-
-    private void ctEmpleTelfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctEmpleTelfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ctEmpleTelfActionPerformed
+    private void bAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAñadirActionPerformed
+        
+        insertarEmpleado();
+    }//GEN-LAST:event_bAñadirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -436,6 +423,42 @@ public class DialogoNuevoEmpleado extends javax.swing.JDialog {
                 dialog.setVisible(true);
             }
         });
+    }
+    
+    private void insertarEmpleado() {
+
+        String alta = ctEmpleAlta.getText(), nac = ctEmpleNac.getText(), IBAN = ctEmpleIBAN.getText();
+        if(!Gestora.comprobarFormatoFechaCorrecto(alta) || !Gestora.comprobarFormatoFechaCorrecto(nac)) {
+            JOptionPane.showMessageDialog(this, "Comprueba las fechas, el formato es dd/mm/aaaa");
+        } else if(!Gestora.esValidoIBAN(IBAN)) {
+
+            JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
+        } else if(!comprobarNumero(ctEmpleNomina.getText()) || !comprobarNumero(ctEmpleTelf.getText())
+                || !comprobarNumero(ctEmpleMovil.getText()) || !comprobarNumero(ctEmpleSS.getText())
+                || !comprobarNumero(ctEmpleCP.getText())) {
+
+            JOptionPane.showMessageDialog(this, "Comprueba que los telefonos, la nomina y el numero de la seguridad social son numeros");
+        } else {
+
+            Empleado nuevoEmpleado = new Empleado(Integer.parseInt(ctEmpleN.getText()), Integer.parseInt(ctEmpleNif.getText()),
+                    ctEmpleDesc.getText(), ctEmpleNombre.getText(), ctEmpleDomicilio.getText(),
+                    ctEmpleLoc.getText(), Integer.parseInt(ctEmpleCP.getText()), ctEmpleProv.getText(),
+                    Integer.parseInt(ctEmpleTelf.getText()), Integer.parseInt(ctEmpleMovil.getText()),
+                    ctEmpleIBAN.getText(), new Fecha(alta), new Fecha(nac), Integer.parseInt(ctEmpleNomina.getText()),
+                    Integer.parseInt(ctEmpleSS.getText()), "23", "23");
+
+            if(GestoraBaseDatos.insertarDato(nuevoEmpleado)) {
+
+                GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_EMPLEADOS);
+            }
+
+        }
+
+    }
+    
+    private boolean comprobarNumero(String n) {
+
+        return Gestora.comprobarNumero(n);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

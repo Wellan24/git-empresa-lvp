@@ -36,7 +36,7 @@ public class FacturaExtra extends Dato  implements Comparable<FacturaExtra>{
      */
     public FacturaExtra(int numeroFactura, Fecha fecha,int cif,String nombre,String domicilio,String localidad,
             String provincia,int cp,int tantoIva,
-            int eurosNeto,String cliente) {
+            String eurosNeto,String cliente) {
         this.put("NUMEROFACTURA",numeroFactura);
         this.put("FECHA",fecha);
         this.put("CIF",cif);

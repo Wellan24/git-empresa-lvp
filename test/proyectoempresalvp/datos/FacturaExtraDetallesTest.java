@@ -15,25 +15,25 @@ import static org.junit.Assert.*;
  * @author Oscar
  */
 public class FacturaExtraDetallesTest {
-    
+
     FacturaExtraDetalles instance;
-    
+
     public FacturaExtraDetallesTest() {
-        
-        instance = new FacturaExtraDetalles(10, 20, "Hola", 20.0f);
+
+        instance = new FacturaExtraDetalles(10, 20, "Hola", "20");
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
 
     /**
-     * Este test comprueba que el nombre de insertado de la tabla
-     * es correcto y se puede hacer copia y pega en los demás
+     * Este test comprueba que el nombre de insertado de la tabla es correcto y se puede hacer copia
+     * y pega en los demás
      */
     @Test
     public void testDevuelveNombreTablaDato() {
@@ -41,32 +41,31 @@ public class FacturaExtraDetallesTest {
         String expResult = "FACTURAEXTRADETALLES";
         String result = instance.devuelveNombreTablaDato();
         assertEquals(expResult, result);
-        
+
     }
-    
+
     /**
-     * Este test comprueba que podemos meter y recuperar todos los datos de los 
-     * HashMap correctamente y se puede hacer copia y pega en los demás
+     * Este test comprueba que podemos meter y recuperar todos los datos de los HashMap
+     * correctamente y se puede hacer copia y pega en los demás
      */
     @Test
-    public void comprobarDatos(){
-        
-        boolean comp = (int)instance.get("ORDEN") == 10;
-        comp = (comp)?(int)instance.get("NUMERO") == 20 : false;
-        comp = (comp)?"Hola".equals(instance.get("CONCEPTO")) : false;
-        comp = (comp)?(float)instance.get("IMPORTE") == 20.0f : false;
-        
+    public void comprobarDatos() {
+
+        boolean comp = (int) instance.get("ORDEN") == 10;
+        comp = (comp) ? (int) instance.get("NUMERO") == 20 : false;
+        comp = (comp) ? "Hola".equals(instance.get("CONCEPTO")) : false;
+        comp = (comp) ? (float) instance.get("IMPORTE") == 20.0f : false;
+
         assertTrue(comp);
     }
 
     /**
      * Este test comprueba que el compareTo es correcto
      */
-    
     @Test
     public void testCompareTo() {
         System.out.println("compareTo");
-        FacturaExtraDetalles o = new FacturaExtraDetalles(10, 20, "Hola", 20.0f);
+        FacturaExtraDetalles o = new FacturaExtraDetalles(10, 20, "Hola", "20");
         int expResult = 0;
         int result = instance.compareTo(o);
         assertEquals(expResult, result);
@@ -78,9 +77,9 @@ public class FacturaExtraDetallesTest {
     @Test
     public void testDevuelveOrdenDeColumnas() {
         System.out.println("devuelveOrdenDeColumnas");
-        String[] expResult = {"NUMERO","ORDEN", "CONCEPTO", "IMPORTE"};
+        String[] expResult = {"NUMERO", "ORDEN", "CONCEPTO", "IMPORTE"};
         String[] result = instance.devuelveOrdenDeColumnas();
         assertArrayEquals(expResult, result);
     }
-    
+
 }

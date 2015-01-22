@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class ArrayListDato<T extends Dato> extends ArrayList<T>{
     
-    private int nSiguiente;
+    private int nSiguiente = 0;
 
     @Override
     public boolean add(T e) {

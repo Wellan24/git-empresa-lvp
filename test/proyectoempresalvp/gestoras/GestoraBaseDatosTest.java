@@ -22,7 +22,7 @@ public class GestoraBaseDatosTest {
     
     public GestoraBaseDatosTest() {
         
-        prueba = new FacturaExtraDetalles(10, 10, "Hola", 20);
+        prueba = new FacturaExtraDetalles(10, 10, "Hola", "20");
         GestoraBaseDatos.conectarBaseDatos();
     }
     

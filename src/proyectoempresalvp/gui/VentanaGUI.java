@@ -34,9 +34,7 @@ import proyectoempresalvp.gestoras.ObservadorTareas;
  *
  * @author Administrador
  */
-public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, ObservadorGestoraDatos {
-
-    ArrayList<String> conceptos = new ArrayList();
+public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, ObservadorGestoraDatos {    
 
     /**
      * Creates new form VentanaGUI
@@ -245,13 +243,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jLabel56 = new javax.swing.JLabel();
         jPanel6 = new JPanelTranslucido();
         jLabel57 = new javax.swing.JLabel();
-        bAñade = new javax.swing.JButton();
-        bRepara = new javax.swing.JButton();
-        bBorra = new javax.swing.JButton();
-        bCancela = new javax.swing.JButton();
-        jLabel58 = new javax.swing.JLabel();
-        ctImporte = new javax.swing.JTextField();
-        jLabel59 = new javax.swing.JLabel();
         jScrollPane15 = new javax.swing.JScrollPane();
         listaConceptos = new javax.swing.JList();
         jScrollPane6 = new ScrollPaneTranslucido();
@@ -617,7 +608,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             .addGroup(jPinicioLayout.createSequentialGroup()
                 .addGap(639, 639, 639)
                 .addComponent(jPanelContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1726, Short.MAX_VALUE))
+                .addContainerGap(1731, Short.MAX_VALUE))
         );
         jPinicioLayout.setVerticalGroup(
             jPinicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -875,7 +866,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                             .addComponent(cbNif))
                         .addComponent(bImprime, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1729, Short.MAX_VALUE))
+                .addContainerGap(1734, Short.MAX_VALUE))
         );
         jPclientesLayout.setVerticalGroup(
             jPclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1299,7 +1290,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addGroup(jPgestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanelContratos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE))
-                .addContainerGap(1725, Short.MAX_VALUE))
+                .addContainerGap(1730, Short.MAX_VALUE))
         );
         jPgestionLayout.setVerticalGroup(
             jPgestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1522,7 +1513,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                             .addComponent(cbNumFac)))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel43))
-                .addContainerGap(1758, Short.MAX_VALUE))
+                .addContainerGap(1763, Short.MAX_VALUE))
         );
         jPfacMensLayout.setVerticalGroup(
             jPfacMensLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1749,35 +1740,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         jPanel6.setBackground(new java.awt.Color(204, 204, 255));
 
-        jLabel57.setText("Concepto:");
-
-        bAñade.setBackground(new java.awt.Color(204, 255, 204));
-        bAñade.setText("Añade");
-        bAñade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bAñadeActionPerformed(evt);
-            }
-        });
-
-        bRepara.setBackground(new java.awt.Color(255, 153, 51));
-        bRepara.setText("Repara");
-
-        bBorra.setBackground(new java.awt.Color(255, 153, 153));
-        bBorra.setText("Borra");
-
-        bCancela.setBackground(new java.awt.Color(153, 153, 0));
-        bCancela.setText("Cancela");
-
-        jLabel58.setForeground(new java.awt.Color(255, 153, 153));
-        jLabel58.setText("Importe");
-
-        ctImporte.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ctImporteActionPerformed(evt);
-            }
-        });
-
-        jLabel59.setText("Euros");
+        jLabel57.setText("Conceptos:");
 
         listaConceptos.setFont(new java.awt.Font("Monospaced", 0, 11)); // NOI18N
         jScrollPane15.setViewportView(listaConceptos);
@@ -1788,48 +1751,21 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel57)
-                    .addComponent(jLabel58))
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(ctImporte, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel59))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jLabel57)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(bCancela, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(bBorra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bRepara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bAñade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addComponent(jScrollPane15)
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane15)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel57)
-                            .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel58)
-                            .addComponent(ctImporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel59)
-                            .addComponent(bCancela)))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(bAñade)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(bRepara)
-                        .addGap(18, 18, 18)
-                        .addComponent(bBorra)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                        .addComponent(jLabel57)
+                        .addGap(0, 161, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         tablaFacExtra.setModel(new javax.swing.table.DefaultTableModel(
@@ -1880,7 +1816,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                         .addComponent(bGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(bImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                         .addComponent(bNuevaFac, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(bModifFac, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -2160,7 +2096,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addGroup(jPhojasBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane9)
                     .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(1794, Short.MAX_VALUE))
+                .addContainerGap(1799, Short.MAX_VALUE))
         );
         jPhojasBanLayout.setVerticalGroup(
             jPhojasBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2504,7 +2440,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     .addComponent(jPanelSelecRecibo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(41, 41, 41)
                 .addComponent(jPanelRecibo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1772, Short.MAX_VALUE))
+                .addContainerGap(1777, Short.MAX_VALUE))
         );
         jPrecibosLayout.setVerticalGroup(
             jPrecibosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2786,7 +2722,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                             .addComponent(jLabel143)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(rbN))))
-                .addContainerGap(1724, Short.MAX_VALUE))
+                .addContainerGap(1729, Short.MAX_VALUE))
         );
         jPetiquetasLayout.setVerticalGroup(
             jPetiquetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3154,7 +3090,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                         .addComponent(bActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bImprim, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1812, Short.MAX_VALUE))
+                .addContainerGap(1817, Short.MAX_VALUE))
         );
         jPhistoricoLayout.setVerticalGroup(
             jPhistoricoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3249,7 +3185,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             .addGroup(jPIbanLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1822, Short.MAX_VALUE))
+                .addContainerGap(1827, Short.MAX_VALUE))
         );
         jPIbanLayout.setVerticalGroup(
             jPIbanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3358,7 +3294,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             .addGroup(jPcontraseñaLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(jPanelContras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(2236, Short.MAX_VALUE))
+                .addContainerGap(2241, Short.MAX_VALUE))
         );
         jPcontraseñaLayout.setVerticalGroup(
             jPcontraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3471,7 +3407,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(78, 78, 78)
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1828, Short.MAX_VALUE))
+                .addContainerGap(1833, Short.MAX_VALUE))
         );
         jPipcLayout.setVerticalGroup(
             jPipcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3544,7 +3480,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             .addGroup(jPnumFacLayout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(2166, Short.MAX_VALUE))
+                .addContainerGap(2171, Short.MAX_VALUE))
         );
         jPnumFacLayout.setVerticalGroup(
             jPnumFacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3562,7 +3498,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jPcopiasSeg.setLayout(jPcopiasSegLayout);
         jPcopiasSegLayout.setHorizontalGroup(
             jPcopiasSegLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2887, Short.MAX_VALUE)
+            .addGap(0, 2892, Short.MAX_VALUE)
         );
         jPcopiasSegLayout.setVerticalGroup(
             jPcopiasSegLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3928,7 +3864,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                                 .addComponent(bVacBajas, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(41, 41, 41)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1747, Short.MAX_VALUE))
+                .addContainerGap(1752, Short.MAX_VALUE))
         );
         jPempleadosLayout.setVerticalGroup(
             jPempleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4103,7 +4039,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addGroup(jPtareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(bTarBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE))
-                .addContainerGap(1788, Short.MAX_VALUE))
+                .addContainerGap(1793, Short.MAX_VALUE))
         );
         jPtareasLayout.setVerticalGroup(
             jPtareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4163,10 +4099,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void ctIvaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctIvaaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ctIvaaActionPerformed
-
-    private void ctImporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctImporteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ctImporteActionPerformed
 
     private void bModifFacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bModifFacActionPerformed
         // TODO add your handling code here:
@@ -4263,16 +4195,17 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     private void bAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAñadirActionPerformed
 
-        insertarEmpleado();
+        new DialogoNuevoEmpleado(this, true).setVisible(true);
     }//GEN-LAST:event_bAñadirActionPerformed
 
     private void bNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNuevoActionPerformed
 
-        insertarCliente();
+        new DialogoNuevoCliente(this, true).setVisible(true);
     }//GEN-LAST:event_bNuevoActionPerformed
 
     private void bNuevoContrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNuevoContrActionPerformed
-        insertarContrato();
+
+        new DialogoNuevoContrato(this, true).setVisible(true);
     }//GEN-LAST:event_bNuevoContrActionPerformed
 
     private void comboNumeroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboNumeroClienteActionPerformed
@@ -4324,20 +4257,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             ctIAeur.setText("" + (Double.parseDouble(ctIMeur.getText().isEmpty() ? "0" : ctIMeur.getText() + car) * 12));
         }
     }//GEN-LAST:event_ctIMeurKeyTyped
-
-    private void bAñadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAñadeActionPerformed
-
-        DialogoNuevaFacturaDetalles dialogo = new DialogoNuevaFacturaDetalles(this, true);
-        dialogo.setVisible(true);
-        if(dialogo.getPrecio() != null) {
-
-            conceptos.add(Gestora.completarConEspaciosBlancosIzq(dialogo.getConcepto(),43) + " | " + Gestora.stringLongitudFijaIzq(dialogo.getPrecio().toString(),"      "));
-            listaConceptos.setListData(conceptos.toArray(new String[conceptos.size()]));
-            ctImporte.setText("" + (Float.parseFloat(ctImporte.getText().isEmpty()
-                    ? "0" : ctImporte.getText())
-                    + dialogo.getPrecio()));
-        }
-    }//GEN-LAST:event_bAñadeActionPerformed
 
     private void ctEmpleTelfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctEmpleTelfActionPerformed
         // TODO add your handling code here:
@@ -4398,14 +4317,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JButton bActualizar;
     private javax.swing.JButton bAñad;
     private javax.swing.JButton bAñadTodos;
-    private javax.swing.JButton bAñade;
     private javax.swing.JButton bAñadir;
     private javax.swing.JButton bAñadirDom;
-    private javax.swing.JButton bBorra;
     private javax.swing.JButton bCalcular;
     private javax.swing.JButton bCan;
     private javax.swing.JButton bCancel;
-    private javax.swing.JButton bCancela;
     private javax.swing.JButton bComprobarIban;
     private javax.swing.JButton bComprobarTareas;
     private javax.swing.JButton bEstudiosActivos;
@@ -4438,7 +4354,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JButton bQuita;
     private javax.swing.JButton bQuitaTodos;
     private javax.swing.JButton bReimprimeFac;
-    private javax.swing.JButton bRepara;
     private javax.swing.JButton bTarBorrar;
     private javax.swing.JButton bTarGuardar;
     private javax.swing.JButton bVacBajas;
@@ -4536,7 +4451,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JTextField ctIPC;
     private javax.swing.JTextField ctIbanCalculado;
     private javax.swing.JTextField ctIbanCalcular;
-    private javax.swing.JTextField ctImporte;
     private javax.swing.JTextField ctIv;
     private javax.swing.JTextField ctIva;
     private javax.swing.JTextField ctIva1;
@@ -4727,8 +4641,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
-    private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
@@ -4990,124 +4902,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         tabla.setModel(new ModeloTabla(datos));
     }
 
-    private void insertarEmpleado() {
-
-        String alta = ctEmpleAlta.getText(), nac = ctEmpleNac.getText(), IBAN = ctEmpleIBAN.getText();
-        if(!Gestora.comprobarFormatoFechaCorrecto(alta) || !Gestora.comprobarFormatoFechaCorrecto(nac)) {
-            JOptionPane.showMessageDialog(this, "Comprueba las fechas, el formato es dd/mm/aaaa");
-        } else if(!Gestora.esValidoIBAN(IBAN)) {
-
-            JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
-        } else if(!comprobarNumero(ctEmpleNomina.getText()) || !comprobarNumero(ctEmpleTelf.getText())
-                || !comprobarNumero(ctEmpleMovil.getText()) || !comprobarNumero(ctEmpleSS.getText())
-                || !comprobarNumero(ctEmpleCP.getText())) {
-
-            JOptionPane.showMessageDialog(this, "Comprueba que los telefonos, la nomina y el numero de la seguridad social son numeros");
-        } else {
-
-            Empleado nuevoEmpleado = new Empleado(Integer.parseInt(ctEmpleN.getText()), Integer.parseInt(ctEmpleNif.getText()),
-                    ctEmpleDesc.getText(), ctEmpleNombre.getText(), ctEmpleDomicilio.getText(),
-                    ctEmpleLoc.getText(), Integer.parseInt(ctEmpleCP.getText()), ctEmpleProv.getText(),
-                    Integer.parseInt(ctEmpleTelf.getText()), Integer.parseInt(ctEmpleMovil.getText()),
-                    ctEmpleIBAN.getText(), new Fecha(alta), new Fecha(nac), Integer.parseInt(ctEmpleNomina.getText()),
-                    Integer.parseInt(ctEmpleSS.getText()), "23", "23");
-
-            if(GestoraBaseDatos.insertarDato(nuevoEmpleado)) {
-
-                GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_EMPLEADOS);
-            }
-
-        }
-
-    }
-
-    //Santy
-    private void insertarCliente() {
-
-        String IBAN = ctClienteIban.getText();
-
-        if(!Gestora.esValidoIBAN(IBAN)) {
-
-            JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
-        } else if(!comprobarNumero(ctClienteNum.getText()) || !comprobarNumero(ctClienteNif.getText())
-                || !comprobarNumero(ctClienteCp.getText()) || !comprobarNumero(ctClienteTlfCli.getText())
-                || !comprobarNumero(ctClienteTlfContacto.getText()) || !comprobarNumero(ctClienteRefBan.getText())
-                || !comprobarNumero(ctClienteDomiciliado.getText())) {
-
-            JOptionPane.showMessageDialog(this, "Comprueba que los telefonos, el NIF, el CP y la referencia del banco son números");
-        } else if(!Gestora.esValidoIBAN(ctClienteIban.getText())) {
-
-            JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
-        } else {
-
-            Cliente nuevoCliente = new Cliente(Integer.parseInt(ctClienteNum.getText()),
-                    Integer.parseInt(ctClienteNif.getText()),
-                    ctClienteDescripcion.getText(), ctClienteNombre.getText(), ctClienteDomicilio.getText(),
-                    ctClienteLocalidad.getText(),
-                    Integer.parseInt(ctClienteCp.getText()),
-                    ctClienteProvincia.getText(), ctClienteContacto.getText(),
-                    Integer.parseInt(ctClienteTlfCli.getText()),
-                    Integer.parseInt(ctClienteTlfContacto.getText()),
-                    ctClienteNotas.getText(),
-                    Integer.parseInt(ctClienteRefBan.getText()),
-                    ctClienteIban.getText(),
-                    Integer.parseInt(ctClienteDomiciliado.getText()));
-
-            if(GestoraBaseDatos.insertarDato(nuevoCliente)) {
-
-                GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CLIENTES);
-            }
-        }
-
-    }
-
-    //Santy 
-    private void insertarContrato() {
-
-        String inicio = ctPerIn.getText(), fin = ctPerFin.getText();
-
-        if(comboNumeroCliente.getSelectedItem() == null) {
-            JOptionPane.showMessageDialog(this, "Selecciona un Cliente");
-        } else if(!Gestora.comprobarFormatoFechaCorrecto(inicio) || !Gestora.comprobarFormatoFechaCorrecto(fin)) {
-            JOptionPane.showMessageDialog(this, "Comprueba las fechas, el formato es dd/mm/aaaa");
-        } else if(!comprobarNumero(comboNumeroCliente.getSelectedItem().toString())
-                || !comprobarNumero(ctIAeur.getText()) || !comprobarNumero(ctIMeur.getText())
-                || !comprobarNumero(ctDiaCobr1.getText()) || !comprobarNumero(ctIvaCon.getText())) {
-
-            JOptionPane.showMessageDialog(this, "Comprueba que has introducido en los campos numéricos números correctamente.");
-        } else {
-
-            Contrato nuevoContrato = new Contrato(Integer.parseInt(ctNumCon.getText()), //NUMCONTRATO
-                    Integer.parseInt(comboNumeroCliente.getSelectedItem().toString()), //NUMCLIENTE
-                    ctDes.getText(), new Fecha(inicio), new Fecha(fin), //DESCRIPCION,INICIO,FIN
-                    Integer.parseInt(ctIAeur.getText()), //EUROSAÑO
-                    Integer.parseInt(ctIMeur.getText()), //EUROSMES
-                    ctSitua.getText(), ctFormPag.getText(), //SITUACION,FORMAPAGO
-                    Integer.parseInt(ctDiaCobr1.getText()), //DIACOBRO
-                    Integer.parseInt(ctIvaCon.getText()));//TANTO IVA
-
-            if(GestoraBaseDatos.insertarDato(nuevoContrato)) {
-
-                GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS);
-            }
-        }
-    }
-
-    private void insertarFacturaExtra() {
-
-        FacturaExtra nuevaFacturaExtra = new FacturaExtra(Integer.parseInt(ctNumF.getText()), //NUMFACTURA
-                null, //FECHA
-                Integer.parseInt(ctNcif.getText()), //CIFNIF
-                ctNomb.getText(), ctDomic.getText(), ctLoca.getText(), ctProvin.getText(),//NOMBRE,DOMICILIO,LOCALIDAD,PROVINCIA
-                Integer.parseInt(ctCodpos.getText()), //CP
-                Integer.parseInt(ctporcenIva.getText()), //TANTOIVA
-                Integer.parseInt(ctTotal.getText()), //EUROSNETO
-                null);//CLIENTE
-    }
-
     private boolean comprobarNumero(String n) {
 
-        return n.matches("[0-9]+");
+        return Gestora.comprobarNumero(n);
     }
 
     private void rellenarCombosPeriodo() {

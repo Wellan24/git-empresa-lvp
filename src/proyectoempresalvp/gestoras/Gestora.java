@@ -15,6 +15,10 @@ import java.util.regex.Pattern;
  */
 public class Gestora {
 
+    public static boolean comprobarNumero(String n) {
+
+        return n.matches("[0-9]+");
+    }
     /**
      *
      * @param precio

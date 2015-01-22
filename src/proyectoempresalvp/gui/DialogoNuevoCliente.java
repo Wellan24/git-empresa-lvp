@@ -5,8 +5,13 @@
  */
 package proyectoempresalvp.gui;
 
+import javax.swing.JOptionPane;
+import proyectoempresalvp.datos.Cliente;
 import proyectoempresalvp.datosUI.JPanelTranslucido;
 import proyectoempresalvp.datosUI.PanelImagen;
+import proyectoempresalvp.gestoras.Gestora;
+import proyectoempresalvp.gestoras.GestoraBaseDatos;
+import proyectoempresalvp.gestoras.GestoraDatos;
 
 /**
  *
@@ -249,6 +254,11 @@ public class DialogoNuevoCliente extends javax.swing.JDialog {
 
         bCrearCliente.setBackground(new java.awt.Color(0, 204, 204));
         bCrearCliente.setText("Crear");
+        bCrearCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCrearClienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelNuevoClienteLayout = new javax.swing.GroupLayout(panelNuevoCliente);
         panelNuevoCliente.setLayout(panelNuevoClienteLayout);
@@ -291,6 +301,11 @@ public class DialogoNuevoCliente extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearClienteActionPerformed
+
+        insertarCliente();
+    }//GEN-LAST:event_bCrearClienteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -301,19 +316,19 @@ public class DialogoNuevoCliente extends javax.swing.JDialog {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+            for(javax.swing.UIManager.LookAndFeelInfo info :javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch(ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(DialogoNuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        } catch(InstantiationException ex) {
             java.util.logging.Logger.getLogger(DialogoNuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        } catch(IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(DialogoNuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch(javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(DialogoNuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -332,6 +347,50 @@ public class DialogoNuevoCliente extends javax.swing.JDialog {
                 dialog.setVisible(true);
             }
         });
+    }
+
+    private void insertarCliente() {
+
+        String IBAN = ctClienteIban.getText();
+
+        if(!Gestora.esValidoIBAN(IBAN)) {
+
+            JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
+        } else if(!comprobarNumero(ctClienteNum.getText()) || !comprobarNumero(ctClienteNif.getText())
+                || !comprobarNumero(ctClienteCp.getText()) || !comprobarNumero(ctClienteTlfCli.getText())
+                || !comprobarNumero(ctClienteTlfContacto.getText()) || !comprobarNumero(ctClienteRefBan.getText())
+                || !comprobarNumero(ctClienteDomiciliado.getText())) {
+
+            JOptionPane.showMessageDialog(this, "Comprueba que los telefonos, el NIF, el CP y la referencia del banco son números");
+        } else if(!Gestora.esValidoIBAN(ctClienteIban.getText())) {
+
+            JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
+        } else {
+
+            Cliente nuevoCliente = new Cliente(Integer.parseInt(ctClienteNum.getText()),
+                    Integer.parseInt(ctClienteNif.getText()),
+                    ctClienteDescripcion.getText(), ctClienteNombre.getText(), ctClienteDomicilio.getText(),
+                    ctClienteLocalidad.getText(),
+                    Integer.parseInt(ctClienteCp.getText()),
+                    ctClienteProvincia.getText(), ctClienteContacto.getText(),
+                    Integer.parseInt(ctClienteTlfCli.getText()),
+                    Integer.parseInt(ctClienteTlfContacto.getText()),
+                    ctClienteNotas.getText(),
+                    Integer.parseInt(ctClienteRefBan.getText()),
+                    ctClienteIban.getText(),
+                    Integer.parseInt(ctClienteDomiciliado.getText()));
+
+            if(GestoraBaseDatos.insertarDato(nuevoCliente)) {
+
+                GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CLIENTES);
+            }
+        }
+
+    }
+
+    private boolean comprobarNumero(String n) {
+
+        return Gestora.comprobarNumero(n);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

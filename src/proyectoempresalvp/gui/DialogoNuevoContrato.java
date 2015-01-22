@@ -5,9 +5,14 @@
  */
 package proyectoempresalvp.gui;
 
+import javax.swing.JOptionPane;
+import proyectoempresalvp.datos.Contrato;
 import proyectoempresalvp.datos.Dato;
+import proyectoempresalvp.datos.Fecha;
 import proyectoempresalvp.datosUI.JPanelTranslucido;
 import proyectoempresalvp.datosUI.PanelImagen;
+import proyectoempresalvp.gestoras.Gestora;
+import proyectoempresalvp.gestoras.GestoraBaseDatos;
 import proyectoempresalvp.gestoras.GestoraDatos;
 
 /**
@@ -18,6 +23,9 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
 
     /**
      * Creates new form DialogoNuevoEmpleado
+     *
+     * @param parent
+     * @param modal
      */
     public DialogoNuevoContrato(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -206,12 +214,6 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
 
         jLabel75.setText("IVA Contrato:");
 
-        ctPerIn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ctPerInActionPerformed(evt);
-            }
-        });
-
         jLabel76.setText("A");
 
         ctIAeur.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -326,6 +328,11 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
 
         bCrear.setBackground(new java.awt.Color(51, 255, 204));
         bCrear.setText("Crear");
+        bCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCrearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelNuevoContratoLayout = new javax.swing.GroupLayout(panelNuevoContrato);
         panelNuevoContrato.setLayout(panelNuevoContratoLayout);
@@ -389,10 +396,6 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_comboNumeroClienteActionPerformed
 
-    private void ctPerInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctPerInActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ctPerInActionPerformed
-
     private void ctIAeurKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ctIAeurKeyTyped
         char car = evt.getKeyChar();
         if(((car < '0' || car > '9') && car != '.') || ctIAeur.getText().contains(".") && car == '.') {
@@ -415,6 +418,10 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_ctIMeurKeyTyped
 
+    private void bCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearActionPerformed
+        insertarContrato();
+    }//GEN-LAST:event_bCrearActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -425,19 +432,19 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+            for(javax.swing.UIManager.LookAndFeelInfo info :javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch(ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(DialogoNuevoContrato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        } catch(InstantiationException ex) {
             java.util.logging.Logger.getLogger(DialogoNuevoContrato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        } catch(IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(DialogoNuevoContrato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch(javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(DialogoNuevoContrato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -456,6 +463,42 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
                 dialog.setVisible(true);
             }
         });
+    }
+
+    private void insertarContrato() {
+
+        String inicio = ctPerIn.getText(), fin = ctPerFin.getText();
+
+        if(comboNumeroCliente.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(this, "Selecciona un Cliente");
+        } else if(!Gestora.comprobarFormatoFechaCorrecto(inicio) || !Gestora.comprobarFormatoFechaCorrecto(fin)) {
+            JOptionPane.showMessageDialog(this, "Comprueba las fechas, el formato es dd/mm/aaaa");
+        } else if(!comprobarNumero(comboNumeroCliente.getSelectedItem().toString())
+                || !comprobarNumero(ctIAeur.getText()) || !comprobarNumero(ctIMeur.getText())
+                || !comprobarNumero(ctDiaCobr1.getText()) || !comprobarNumero(ctIvaCon.getText())) {
+
+            JOptionPane.showMessageDialog(this, "Comprueba que has introducido en los campos numéricos números correctamente.");
+        } else {
+
+            Contrato nuevoContrato = new Contrato(Integer.parseInt(ctNumCon.getText()), //NUMCONTRATO
+                    Integer.parseInt(comboNumeroCliente.getSelectedItem().toString()), //NUMCLIENTE
+                    ctDes.getText(), new Fecha(inicio), new Fecha(fin), //DESCRIPCION,INICIO,FIN
+                    Integer.parseInt(ctIAeur.getText()), //EUROSAÑO
+                    Integer.parseInt(ctIMeur.getText()), //EUROSMES
+                    ctSitua.getText(), ctFormPag.getText(), //SITUACION,FORMAPAGO
+                    Integer.parseInt(ctDiaCobr1.getText()), //DIACOBRO
+                    Integer.parseInt(ctIvaCon.getText()));//TANTO IVA
+
+            if(GestoraBaseDatos.insertarDato(nuevoContrato)) {
+
+                GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS);
+            }
+        }
+    }
+
+    private boolean comprobarNumero(String n) {
+
+        return Gestora.comprobarNumero(n);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
