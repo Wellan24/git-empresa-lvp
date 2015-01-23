@@ -21,7 +21,7 @@ public class FacturaExtraTest {
 
     public FacturaExtraTest() {
 
-        instance = new FacturaExtra(10, new Fecha("2010/10/10"), 10, "", "", "", "", 10, 10, "20", "");
+        instance = new FacturaExtra(10, new Fecha("2010/10/10"), "10", "", "", "", "", 10, 10, "20", "");
     }
 
     @BeforeClass
@@ -61,7 +61,7 @@ public class FacturaExtraTest {
     @Test
     public void testCompareTo() {
         System.out.println("compareTo");
-        FacturaExtra o = new FacturaExtra(10, new Fecha("2010/10/10"), 10, "", "", "", "", 10, 10, "20", "");
+        FacturaExtra o = new FacturaExtra(10, new Fecha("2010/10/10"), "10", "", "", "", "", 10, 10, "20", "");
         int expResult = 0;
         int result = instance.compareTo(o);
         assertEquals(expResult, result);

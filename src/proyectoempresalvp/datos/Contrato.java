@@ -137,4 +137,10 @@ public class Contrato extends Dato implements Comparable<Contrato> {
     public static String getTabla() {
         return tabla;
     }
+
+    @Override
+    public String devuelveClave() {
+        
+        return "NUMCONTRATO";
+    }
 }

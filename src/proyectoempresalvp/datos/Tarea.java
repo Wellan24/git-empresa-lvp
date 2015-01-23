@@ -81,6 +81,12 @@ public class Tarea extends Dato {
 
     public static String getTabla() {
         return tabla;
-    }    
+    } 
+
+    @Override
+    public String devuelveClave() {
+        
+        return "NTAREA";
+    }   
     
 }

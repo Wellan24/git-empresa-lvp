@@ -145,5 +145,11 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
     public static String getTabla() {
         return tabla;
     }
+
+    @Override
+    public String devuelveClave() {
+        
+        return "NUMFACTURA";
+    }
     
 }

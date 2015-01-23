@@ -147,7 +147,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         ctNifiCif = new javax.swing.JTextField();
         ctTelefon = new javax.swing.JTextField();
         ctContratosIBAN = new javax.swing.JTextField();
-        comboNumeroCliente = new javax.swing.JComboBox();
+        ctNumCliente = new javax.swing.JTextField();
         jPanelDatosContr = new JPanelTranslucido();
         jLabel70 = new javax.swing.JLabel();
         jLabel71 = new javax.swing.JLabel();
@@ -156,7 +156,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jLabel74 = new javax.swing.JLabel();
         ctNumCon = new javax.swing.JTextField();
         jLabel75 = new javax.swing.JLabel();
-        ctIvaCon = new javax.swing.JTextField();
+        ctDiaCobro2 = new javax.swing.JTextField();
         ctPerIn = new javax.swing.JTextField();
         jLabel76 = new javax.swing.JLabel();
         ctPerFin = new javax.swing.JTextField();
@@ -165,7 +165,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         ctFormPag = new javax.swing.JTextField();
         jLabel81 = new javax.swing.JLabel();
         ctSitua = new javax.swing.JTextField();
-        ctDiaCobro2 = new javax.swing.JTextField();
+        ctIvaCon1 = new javax.swing.JTextField();
         ctDiaCobr1 = new javax.swing.JTextField();
         jLabel83 = new javax.swing.JLabel();
         ctRefHojBan = new javax.swing.JTextField();
@@ -932,12 +932,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         jLabel69.setText("IBAN");
 
-        comboNumeroCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboNumeroClienteActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanelDatosCliLayout = new javax.swing.GroupLayout(jPanelDatosCli);
         jPanelDatosCli.setLayout(jPanelDatosCliLayout);
         jPanelDatosCliLayout.setHorizontalGroup(
@@ -949,9 +943,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     .addGroup(jPanelDatosCliLayout.createSequentialGroup()
                         .addGroup(jPanelDatosCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelDatosCliLayout.createSequentialGroup()
-                                .addComponent(jLabel60, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel60, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(comboNumeroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(ctNumCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel62, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel63, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel64, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -971,7 +965,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                             .addComponent(ctTelefon)
                             .addGroup(jPanelDatosCliLayout.createSequentialGroup()
                                 .addComponent(jLabel61)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                                 .addComponent(ctDes, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
@@ -983,7 +977,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     .addComponent(jLabel60)
                     .addComponent(jLabel61)
                     .addComponent(ctDes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboNumeroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ctNumCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelDatosCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel62)
@@ -1091,11 +1085,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDatosContrLayout.createSequentialGroup()
                         .addComponent(ctDiaCobr1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(77, 77, 77)
-                        .addComponent(ctIvaCon, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ctDiaCobro2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDatosContrLayout.createSequentialGroup()
                             .addGap(53, 53, 53)
-                            .addComponent(ctDiaCobro2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ctIvaCon1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDatosContrLayout.createSequentialGroup()
                             .addComponent(jLabel76)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1115,7 +1109,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     .addComponent(jLabel70)
                     .addComponent(ctNumCon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel75)
-                    .addComponent(ctDiaCobro2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ctIvaCon1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel71)
@@ -1143,7 +1137,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(ctDiaCobr1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel77))
-                    .addComponent(ctIvaCon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ctDiaCobro2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel83)
@@ -1243,6 +1237,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTableContratos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableContratosMouseClicked(evt);
+            }
+        });
         jScrollPane7.setViewportView(jTableContratos);
 
         bModificarContrato.setBackground(new java.awt.Color(255, 153, 153));
@@ -4204,23 +4203,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         new DialogoNuevoContrato(this, true).setVisible(true);
     }//GEN-LAST:event_bNuevoContrActionPerformed
 
-    private void comboNumeroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboNumeroClienteActionPerformed
-
-        if(comboNumeroCliente.getSelectedItem() != null && GestoraDatos.dameGestora().get("CLIENTES") != null) {
-
-            Dato d = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave(comboNumeroCliente.getSelectedItem().toString());
-            ctDes.setText(d.get("DESCRIPCION").toString());
-            ctNombre.setText(d.get("NOMBRE").toString());
-            ctLocali.setText(d.get("LOCALIDAD").toString());
-            ctDomicili.setText(d.get("DOMICILIO").toString());
-            ctCodP.setText(d.get("CP").toString());
-            ctProvinci.setText(d.get("PROVINCIA").toString());
-            ctNifiCif.setText(d.get("CIF").toString());
-            ctTelefon.setText(d.get("TLFCLIENTE").toString());
-            ctContratosIBAN.setText(d.get("IBAN").toString());
-        }
-    }//GEN-LAST:event_comboNumeroClienteActionPerformed
-
     private void cbPeriodoAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPeriodoAñoActionPerformed
 
         refrescarFacturasMensuales();
@@ -4268,6 +4250,13 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         
         new DialogoNuevaFacturaExtra(this, true).setVisible(true);
     }//GEN-LAST:event_bNuevaFacActionPerformed
+
+    private void jTableContratosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableContratosMouseClicked
+       
+        /* rellenar con el codigo para mostrar los 
+           datos en sus campos.
+        */        
+    }//GEN-LAST:event_jTableContratosMouseClicked
 
     private void refrescarFacturasMensuales() {
         int numPeriodo = Gestora.numeroPeriodoPorNombre(cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString());
@@ -4397,7 +4386,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JComboBox cbVaño;
     private javax.swing.JComboBox cbVdia;
     private javax.swing.JComboBox cbVmes;
-    private javax.swing.JComboBox comboNumeroCliente;
     private javax.swing.JTextField ctBajas1;
     private javax.swing.JTextField ctBas;
     private javax.swing.JTextField ctBase;
@@ -4462,7 +4450,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JTextField ctIva;
     private javax.swing.JTextField ctIva1;
     private javax.swing.JTextField ctIva2;
-    private javax.swing.JTextField ctIvaCon;
+    private javax.swing.JTextField ctIvaCon1;
     private javax.swing.JTextField ctIvaa;
     private javax.swing.JTextField ctLaCantidad;
     private javax.swing.JTextField ctLo;
@@ -4483,6 +4471,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JTextField ctNombre;
     private javax.swing.JTextField ctNueva;
     private javax.swing.JTextField ctNum;
+    private javax.swing.JTextField ctNumCliente;
     private javax.swing.JTextField ctNumCon;
     private javax.swing.JTextField ctNumCuentaR;
     private javax.swing.JTextField ctNumF;
@@ -4884,13 +4873,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_CLIENTES || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
             actualizarTabla(tablaClientes, GestoraDatos.dameGestora().get("CLIENTES"));
             ctClienteNum.setText("" + GestoraDatos.dameGestora().get("CLIENTES").devuelveNumeroSiguiente());
-            comboNumeroCliente.setModel(new DefaultComboBoxModel(GestoraDatos.dameGestora().get("CLIENTES").devuelveTodasLasClaves()));
         }
 
         //Santy
         if(datoActualizado == GestoraDatos.ACTUALIZAR_CONTRATOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
             actualizarTabla(jTableContratos, GestoraDatos.dameGestora().get("CONTRATOS"));
-            ctNumCon.setText("" + GestoraDatos.dameGestora().get("CONTRATOS").devuelveNumeroSiguiente());
         }
 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {

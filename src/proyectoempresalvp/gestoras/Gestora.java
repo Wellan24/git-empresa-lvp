@@ -17,7 +17,7 @@ public class Gestora {
 
     public static boolean comprobarNumero(String n) {
 
-        return n.matches("[0-9]+");
+        return n.matches("^(\\d|-)?(\\d|,)*\\.?\\d*$");
     }
     /**
      *
@@ -66,7 +66,6 @@ public class Gestora {
         for(int i = 0;i < length;i++) {
             pString = pString + " ";
         }
-        System.out.println(pString.length());
         return pString;
     }
 

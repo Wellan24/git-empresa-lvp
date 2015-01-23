@@ -128,7 +128,7 @@ public class DialogoNuevaFacturaDetalles extends javax.swing.JDialog {
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
 
         
-        f = new FacturaExtraDetalles(orden, factura, tConcepto.getText(), 
+        f = new FacturaExtraDetalles(factura, orden, tConcepto.getText(), 
                 tPrecio.getText().isEmpty() ? "0" : tPrecio.getText());
         this.dispose();
     }//GEN-LAST:event_bAceptarActionPerformed

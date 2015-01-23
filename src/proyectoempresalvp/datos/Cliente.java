@@ -123,5 +123,11 @@ public class Cliente extends Dato  implements Comparable<Cliente>{
     public static String getTabla() {
         return tabla;
     }
+
+    @Override
+    public String devuelveClave() {
+        
+        return "NUMEROCLIENTE";
+    }
     
 }

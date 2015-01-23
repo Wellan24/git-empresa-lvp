@@ -97,5 +97,11 @@ public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtr
     public static String getTabla() {
         return tabla;
     }
+
+    @Override
+    public String devuelveClave() {
+        
+        return "NUMERO ORDEN";
+    }
     
 }

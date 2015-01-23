@@ -134,5 +134,11 @@ public class Empleado extends Dato implements Comparable<Empleado> {
 
     public static String getTabla() {
         return tabla;
-    }    
+    }  
+
+    @Override
+    public String devuelveClave() {
+        
+        return "NUMERO ORDEN";
+    }  
 }

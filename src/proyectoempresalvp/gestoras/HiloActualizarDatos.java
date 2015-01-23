@@ -185,7 +185,7 @@ public class HiloActualizarDatos implements Runnable {
         try {
             while(facturasComprobar.next()) {
 
-                facturaActual = new FacturaExtra(facturasComprobar.getInt(1), new Fecha(facturasComprobar.getString(2)), facturasComprobar.getInt(3),
+                facturaActual = new FacturaExtra(facturasComprobar.getInt(1), new Fecha(facturasComprobar.getString(2)), facturasComprobar.getString(3),
                         facturasComprobar.getString(4), facturasComprobar.getString(5), facturasComprobar.getString(6), facturasComprobar.getString(7),
                         facturasComprobar.getInt(8), facturasComprobar.getInt(9), facturasComprobar.getString(10), facturasComprobar.getString(11));
                 facturas.add(facturaActual);

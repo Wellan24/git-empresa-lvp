@@ -29,17 +29,19 @@ public class GestoraBaseDatos {
         try {
 
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            
-            if(GestoraBaseDatos.conexion == null)
-                GestoraBaseDatos.conexion = DriverManager.getConnection("jdbc:ucanaccess://../DataBase/BaseDeDatosLVP.accdb");
-            
-            if (sentencia == null) 
-                sentencia = GestoraBaseDatos.conexion.createStatement();
 
-        } catch (ClassNotFoundException ex) {
+            if(GestoraBaseDatos.conexion == null) {
+                GestoraBaseDatos.conexion = DriverManager.getConnection("jdbc:ucanaccess://../DataBase/BaseDeDatosLVP.accdb");
+            }
+
+            if(sentencia == null) {
+                sentencia = GestoraBaseDatos.conexion.createStatement();
+            }
+
+        } catch(ClassNotFoundException ex) {
             Logger.getLogger(GestoraBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
             return false;
-        } catch (SQLException ex) {
+        } catch(SQLException ex) {
             Logger.getLogger(GestoraBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -49,13 +51,13 @@ public class GestoraBaseDatos {
     public static boolean ejecutarSentenciaUpdate(String textoSentencia) {
 
         try {
-            if (sentencia == null) {
+            if(sentencia == null) {
                 sentencia = GestoraBaseDatos.conexion.createStatement();
             }
 
             int result = sentencia.executeUpdate(textoSentencia);
             return result > 0;
-        } catch (SQLException ex) {
+        } catch(SQLException ex) {
             Logger.getLogger(GestoraBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
@@ -73,7 +75,7 @@ public class GestoraBaseDatos {
 
             sentenciaLocal = GestoraBaseDatos.conexion.createStatement();
             dev = sentenciaLocal.executeQuery(textoSentencia);
-        } catch (SQLException ex) {
+        } catch(SQLException ex) {
             Logger.getLogger(GestoraBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -87,7 +89,7 @@ public class GestoraBaseDatos {
             GestoraBaseDatos.sentencia.close();
             GestoraBaseDatos.conexion.commit();
             GestoraBaseDatos.conexion.close();
-        } catch (SQLException ex) {
+        } catch(SQLException ex) {
             Logger.getLogger(GestoraBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -95,32 +97,43 @@ public class GestoraBaseDatos {
     public static boolean insertarDato(Dato d) {
 
         String[] claves = d.devuelveOrdenDeColumnas();
-        
-        if (!comprobarExiste(d, claves[0])) {
+
+        if(!comprobarExiste(d)) {
 
             StringBuilder textoSentencia = construyeSentenciaInsert(d, claves);
 
             System.out.println(textoSentencia.toString());
             GestoraBaseDatos.ejecutarSentenciaUpdate(textoSentencia.toString());
-            return comprobarExiste(d, claves[0]);
+            return comprobarExiste(d);
         }
         return false;
     }
 
-    public static boolean comprobarExiste(Dato d, String primaryKey) {
-
+    public static boolean comprobarExiste(Dato d) {
+        String primaryKey = d.devuelveClave();
         try {
+            if(!primaryKey.contains(" ")) {
 
-            ResultSet rs = sentencia.executeQuery("Select " + primaryKey + " from " + d.devuelveNombreTablaDato()
-                    + " where " + primaryKey + " = "
-                    + ((d.get(primaryKey) instanceof String) ? "'" + d.get(primaryKey) + "'" : d.get(primaryKey)));
+                ResultSet rs = sentencia.executeQuery("Select " + primaryKey + " from " + d.devuelveNombreTablaDato()
+                        + " where " + primaryKey + " = "
+                        + ((d.get(primaryKey) instanceof String) ? "'" + d.get(primaryKey) + "'" : d.get(primaryKey)));
 
-            return rs.next();
+                return rs.next();
 
-        } catch (SQLException ex) {
+            } else {
+                String[] key = primaryKey.split(" ");
+                ResultSet rs = sentencia.executeQuery("Select " + key[0] + ", " + key[1] + " from " + d.devuelveNombreTablaDato()
+                        + " where " + key[0] + " = "
+                        + ((d.get(key[0]) instanceof String) ? "'" + d.get(key[0]) + "'" : d.get(key[0]))
+                        + " AND " + key[1] + " = "
+                        + ((d.get(key[1]) instanceof String) ? "'" + d.get(key[1]) + "'" : d.get(key[1]))
+                );
+
+                return rs.next();
+            }
+        } catch(SQLException ex) {
             Logger.getLogger(GestoraBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
         }
-
         return false;
     }
 
@@ -129,28 +142,28 @@ public class GestoraBaseDatos {
         StringBuilder textoSentencia = new StringBuilder("insert into ");
         textoSentencia.append(d.devuelveNombreTablaDato());
         textoSentencia.append("(");
-        for (String clave : claves) {
+        for(String clave :claves) {
 
             textoSentencia.append(clave).append(",");
         }
         textoSentencia.replace(textoSentencia.length() - 1, textoSentencia.length(), ")");
         textoSentencia.append(" VALUES(");
-        for (String clave : claves) {
+        for(String clave :claves) {
 
             Object rec = d.get(clave);
-            if (rec instanceof String || rec instanceof Fecha) {
+            if(rec instanceof String || rec instanceof Fecha) {
 
                 textoSentencia.append("'");
                 textoSentencia.append(rec.toString());
                 textoSentencia.append("'");
-            } else if (rec instanceof Integer) {
+            } else if(rec instanceof Integer) {
 
                 textoSentencia.append(rec);
-            } else if (rec instanceof Float) {
+            } else if(rec instanceof Float) {
 
                 textoSentencia.append(rec);
-            }else{
-                
+            } else {
+
                 textoSentencia.append(rec);
             }
             textoSentencia.append(" ,");
@@ -159,59 +172,59 @@ public class GestoraBaseDatos {
 
         return textoSentencia;
     }
-    
-    public static boolean updateDato(Dato d){
-        
+
+    public static boolean updateDato(Dato d) {
+
         String[] claves = d.devuelveOrdenDeColumnas();
-        
-        if(comprobarExiste(d, claves[0])){
-            
+
+        if(comprobarExiste(d)) {
+
             return ejecutarSentenciaUpdate(construyeSentenciaUpdate(d, claves).toString());
         }
-        
+
         return false;
     }
-    
+
     private static StringBuilder construyeSentenciaUpdate(Dato d, String[] claves) {
 
         StringBuilder textoSentencia = new StringBuilder("update ");
         textoSentencia.append(d.devuelveNombreTablaDato());
         textoSentencia.append(" set ");
-        for (String clave : claves) {
-            
+        for(String clave :claves) {
+
             Object rec = d.get(clave);
             textoSentencia.append(clave).append("=");
-            
-            if (rec instanceof String) {
+
+            if(rec instanceof String) {
 
                 textoSentencia.append("'");
                 textoSentencia.append(rec);
                 textoSentencia.append("'");
-            } else if (rec instanceof Integer) {
+            } else if(rec instanceof Integer) {
 
                 textoSentencia.append(rec);
-            } else if (rec instanceof Float) {
+            } else if(rec instanceof Float) {
 
                 textoSentencia.append(rec);
             }
             textoSentencia.append(" ,");
         }
-        
+
         textoSentencia.replace(textoSentencia.length() - 2, textoSentencia.length(), " where ");
         textoSentencia.append(claves[0]).append(" = ").append(d.get(claves[0]));
         return textoSentencia;
     }
-           
-    public static String construyeSentenciaSelect(String[] claves, String nombreTabla){
-        
+
+    public static String construyeSentenciaSelect(String[] claves, String nombreTabla) {
+
         StringBuilder dev = new StringBuilder("Select ");
-        
-        for(String clave : claves){
-            
+
+        for(String clave :claves) {
+
             dev.append(clave).append(",");
         }
-        
-        dev.replace(dev.length()-1, dev.length(), " from " + nombreTabla);
+
+        dev.replace(dev.length() - 1, dev.length(), " from " + nombreTabla);
         return dev.toString();
     }
 }

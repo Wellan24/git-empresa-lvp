@@ -868,9 +868,9 @@
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jLabel60" max="32767" attributes="0"/>
+                                                      <Component id="jLabel60" pref="66" max="32767" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="comboNumeroCliente" min="-2" pref="101" max="-2" attributes="0"/>
+                                                      <Component id="ctNumCliente" min="-2" pref="101" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Component id="jLabel62" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="jLabel63" alignment="0" max="32767" attributes="0"/>
@@ -892,7 +892,7 @@
                                                   <Component id="ctTelefon" alignment="0" max="32767" attributes="0"/>
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Component id="jLabel61" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
+                                                      <EmptySpace pref="17" max="32767" attributes="0"/>
                                                       <Component id="ctDes" min="-2" pref="141" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
@@ -910,7 +910,7 @@
                                           <Component id="jLabel60" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel61" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="ctDes" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="comboNumeroCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctNumCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1025,10 +1025,7 @@
                             </Component>
                             <Component class="javax.swing.JTextField" name="ctContratosIBAN">
                             </Component>
-                            <Component class="javax.swing.JComboBox" name="comboNumeroCliente">
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboNumeroClienteActionPerformed"/>
-                              </Events>
+                            <Component class="javax.swing.JTextField" name="ctNumCliente">
                             </Component>
                           </SubComponents>
                         </Container>
@@ -1076,12 +1073,12 @@
                                           <Group type="102" alignment="1" attributes="0">
                                               <Component id="ctDiaCobr1" min="-2" pref="29" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-                                              <Component id="ctIvaCon" min="-2" pref="41" max="-2" attributes="0"/>
+                                              <Component id="ctDiaCobro2" min="-2" pref="41" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                                               <Group type="102" alignment="1" attributes="0">
                                                   <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="ctDiaCobro2" min="-2" pref="94" max="-2" attributes="0"/>
+                                                  <Component id="ctIvaCon1" min="-2" pref="94" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Component id="jLabel76" min="-2" max="-2" attributes="0"/>
@@ -1107,7 +1104,7 @@
                                           <Component id="jLabel70" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="ctNumCon" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel75" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ctDiaCobro2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctIvaCon1" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1142,7 +1139,7 @@
                                               <Component id="ctDiaCobr1" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel77" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="ctIvaCon" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctDiaCobro2" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -1187,7 +1184,7 @@
                                 <Property name="text" type="java.lang.String" value="IVA Contrato:"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="ctIvaCon">
+                            <Component class="javax.swing.JTextField" name="ctDiaCobro2">
                             </Component>
                             <Component class="javax.swing.JTextField" name="ctPerIn">
                               <Events>
@@ -1226,7 +1223,7 @@
                             </Component>
                             <Component class="javax.swing.JTextField" name="ctSitua">
                             </Component>
-                            <Component class="javax.swing.JTextField" name="ctDiaCobro2">
+                            <Component class="javax.swing.JTextField" name="ctIvaCon1">
                             </Component>
                             <Component class="javax.swing.JTextField" name="ctDiaCobr1">
                             </Component>
@@ -1408,6 +1405,9 @@
                                   </Table>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableContratosMouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Tabla()"/>
                               </AuxValues>
