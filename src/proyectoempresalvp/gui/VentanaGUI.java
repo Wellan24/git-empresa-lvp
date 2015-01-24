@@ -21,6 +21,7 @@ import proyectoempresalvp.datosUI.ScrollPaneTranslucido;
 import proyectoempresalvp.datosUI.Tabla;
 import proyectoempresalvp.gestoras.Gestora;
 import proyectoempresalvp.gestoras.GestoraBaseDatos;
+import proyectoempresalvp.gestoras.GestoraConfiguracion;
 import proyectoempresalvp.gestoras.GestoraDatos;
 import proyectoempresalvp.gestoras.GestoraTareas;
 import proyectoempresalvp.gestoras.ModeloTabla;
@@ -44,7 +45,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         GestoraBaseDatos.conectarBaseDatos();
         GestoraDatos.setObservador(this);
         initTablas();
-        ctporcenIva.setText("21");
+        GestoraConfiguracion.recuperaConfiguracion();
+        ctporcenIva.setText(GestoraConfiguracion.get("IVA").toString());
         this.setLocationRelativeTo(null);
     }
 
@@ -546,6 +548,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         bComprobarTareas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanelContraseña.setBackground(new java.awt.Color(255, 255, 204));
 
@@ -4258,6 +4265,12 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         */        
     }//GEN-LAST:event_jTableContratosMouseClicked
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+       
+        GestoraConfiguracion.guardaConfiguracion();
+        this.dispose();
+    }//GEN-LAST:event_formWindowClosing
+
     private void refrescarFacturasMensuales() {
         int numPeriodo = Gestora.numeroPeriodoPorNombre(cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString());
         actualizarTabla(tablaFacMensuales, GestoraDatos.dameGestora().get("FACTURASMENSUALES").devuelveValorEnFuncionCampo("NUMPERIODO", numPeriodo));
@@ -4868,14 +4881,12 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_EMPLEADOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
             actualizarTabla(tablaEmple, GestoraDatos.dameGestora().get("EMPLEADOS"));
-            ctEmpleN.setText("" + GestoraDatos.dameGestora().get("EMPLEADOS").devuelveNumeroSiguiente());
         }
+        
         if(datoActualizado == GestoraDatos.ACTUALIZAR_CLIENTES || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
             actualizarTabla(tablaClientes, GestoraDatos.dameGestora().get("CLIENTES"));
-            ctClienteNum.setText("" + GestoraDatos.dameGestora().get("CLIENTES").devuelveNumeroSiguiente());
-        }
-
-        //Santy
+        }        
+        
         if(datoActualizado == GestoraDatos.ACTUALIZAR_CONTRATOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
             actualizarTabla(jTableContratos, GestoraDatos.dameGestora().get("CONTRATOS"));
         }
@@ -4884,10 +4895,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
             refrescarFacturasMensuales();
         }
-
+        
         if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASEXTRA || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
             actualizarTabla(tablaFacExtra, GestoraDatos.dameGestora().get("FACTURASEXTRA"));
-            ctNomb.setText("" + GestoraDatos.dameGestora().get("FACTURASEXTRA").devuelveNumeroSiguiente());
         }
     }
 
