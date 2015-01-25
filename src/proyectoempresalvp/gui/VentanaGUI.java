@@ -39,7 +39,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
      * Creates new form VentanaGUI
      */
     public VentanaGUI() {
-        
+
         initComponents();
         rellenarCombosPeriodo();
         listaConceptos.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
@@ -4174,12 +4174,12 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }//GEN-LAST:event_rbNumEmActionPerformed
 
     private void bComprobarIbanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComprobarIbanActionPerformed
-        
+
         comprobarIban();
     }//GEN-LAST:event_bComprobarIbanActionPerformed
 
     private void bCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcularActionPerformed
-        
+
         calcularIban();
     }//GEN-LAST:event_bCalcularActionPerformed
 
@@ -4192,42 +4192,42 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }//GEN-LAST:event_ctTarFechaActionPerformed
 
     private void bTarGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTarGuardarActionPerformed
-        
+
         guardarTarea();
     }//GEN-LAST:event_bTarGuardarActionPerformed
-    
+
 
     private void jPtareasComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPtareasComponentShown
         // TODO add your handling code here:
     }//GEN-LAST:event_jPtareasComponentShown
 
     private void bComprobarTareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComprobarTareasActionPerformed
-        
+
         comprobarTareas();
     }//GEN-LAST:event_bComprobarTareasActionPerformed
 
     private void bAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAñadirActionPerformed
-        
+
         new DialogoNuevoEmpleado(this, true).setVisible(true);
     }//GEN-LAST:event_bAñadirActionPerformed
 
     private void bNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNuevoActionPerformed
-        
+
         new DialogoNuevoCliente(this, true).setVisible(true);
     }//GEN-LAST:event_bNuevoActionPerformed
 
     private void bNuevoContrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNuevoContrActionPerformed
-        
+
         new DialogoNuevoContrato(this, true).setVisible(true);
     }//GEN-LAST:event_bNuevoContrActionPerformed
 
     private void cbPeriodoAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPeriodoAñoActionPerformed
-        
+
         refrescarFacturasMensuales();
     }//GEN-LAST:event_cbPeriodoAñoActionPerformed
 
     private void cbPeriodoMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPeriodoMesActionPerformed
-        
+
         refrescarFacturasMensuales();
     }//GEN-LAST:event_cbPeriodoMesActionPerformed
 
@@ -4236,7 +4236,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         if(((car < '0' || car > '9') && car != '.') || ctContratoEurAnio.getText().contains(".") && car == '.') {
             evt.consume();
         }
-        
+
         if(car != '.') {
             ctContratoEurMes.setText("" + (Double.parseDouble(ctContratoEurAnio.getText().isEmpty() ? "0" : ctContratoEurAnio.getText() + car) / 12));
         }
@@ -4248,7 +4248,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         if(((car < '0' || car > '9') && car != '.') || ctContratoEurMes.getText().contains(".") && car == '.') {
             evt.consume();
         }
-        
+
         if(car != '.') {
             ctContratoEurAnio.setText("" + (Double.parseDouble(ctContratoEurMes.getText().isEmpty() ? "0" : ctContratoEurMes.getText() + car) * 12));
         }
@@ -4266,7 +4266,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }//GEN-LAST:event_tablaFacExtraMouseClicked
 
     private void bNuevaFacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNuevaFacActionPerformed
-        
+
         new DialogoNuevaFacturaExtra(this, true).setVisible(true);
     }//GEN-LAST:event_bNuevaFacActionPerformed
 
@@ -4274,13 +4274,12 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         int numero = (int) GestoraDatos.dameGestora().get("CONTRATOS").get(jTableContratos.getSelectedRow()).get("NUMCONTRATO");
         ctContratoNum.setText(Integer.toString(numero));
-        listaConceptos.setListData(conceptosFormateados(numero));
-        refrescarCamposContratos(numero);
-            
+        refrescarCamposContratos();
+
     }//GEN-LAST:event_jTableContratosMouseClicked
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        
+
         GestoraConfiguracion.guardaConfiguracion();
         this.dispose();
     }//GEN-LAST:event_formWindowClosing
@@ -4288,18 +4287,16 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void tablaClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaClientesMouseClicked
         int num = (int) GestoraDatos.dameGestora().get("CLIENTES").get(tablaClientes.getSelectedRow()).get("NUMEROCLIENTE");
         ctClienteNum.setText(Integer.toString(num));
-        listaConceptos.setListData(conceptosFormateados(num));
-        refrescarCamposClientes(num);
-        
+        refrescarCamposClientes();
+
     }//GEN-LAST:event_tablaClientesMouseClicked
 
     private void TablaEmpleadosMouseCliked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaEmpleadosMouseCliked
         int num = (int) GestoraDatos.dameGestora().get("EMPLEADOS").get(tablaEmple.getSelectedRow()).get("NUMEMPLE");
         ctEmpleadoNum.setText(Integer.toString(num));
-        listaConceptos.setListData(conceptosFormateados(num));
-        refrescarCamposEmpleados(num);
+        refrescarCamposEmpleados();
     }//GEN-LAST:event_TablaEmpleadosMouseCliked
-    
+
     private void refrescarFacturasMensuales() {
         int numPeriodo = Gestora.numeroPeriodoPorNombre(cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString());
         actualizarTabla(tablaFacMensuales, GestoraDatos.dameGestora().get("FACTURASMENSUALES").devuelveValorEnFuncionCampo("NUMPERIODO", numPeriodo));
@@ -4832,21 +4829,21 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 // </editor-fold>
 
     private void comprobarIban() {
-        
+
         labelIbanComprobado.setText((Gestora.esValidoIBAN(ctComprobarIban.getText()) ? "Es válido" : "No es válido"));
     }
-    
+
     private void calcularIban() {
-        
+
         if(ctIbanCalcular.getText().length() == 20) {
-            
+
             ctIbanCalculado.setText(Gestora.calcularIbanEspaña(ctIbanCalcular.getText()));
         } else {
-            
+
             JOptionPane.showMessageDialog(this, "Tiene que tener 20 caracteres");
         }
     }
-    
+
     @Override
     public void avisar() {
 
@@ -4855,34 +4852,34 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
          * Actualizar la tabla de tareas y TextArea con las de los ultimos 15
          */
         actualizarTablaTareas();
-        
+
         taTareasComprobadas.setText(GestoraTareas.getTareasARealizar().toString());
     }
-    
+
     private void guardarTarea() {
-        
+
         String fecha = ctTarFecha.getText();
         if(Gestora.comprobarFormatoFechaCorrecto(fecha)) {
             try {
-                
+
                 Tarea tareaActual = new Tarea(GestoraTareas.aumentaNumeroTarea(), cttarconcepto.getText(), new Fecha(fecha), Integer.parseInt(ctTarPeriodo.getText()), ctTarCliente.getText());
                 if(GestoraBaseDatos.insertarDato(tareaActual)) {
                     GestoraTareas.getTareas().add(tareaActual);
                     actualizarTablaTareas();
                 } else {
-                    
+
                     JOptionPane.showMessageDialog(this, "No se ha insertado correctamente (¿Igual ya existe?)");
                 }
             } catch(NumberFormatException numberFormatException) {
-                
+
                 JOptionPane.showMessageDialog(this, "Comprueba el periodo");
             }
         } else {
-            
+
             JOptionPane.showMessageDialog(this, "Comprueba la fecha");
         }
     }
-    
+
     private void initTablas() {
 
         // Tabla tareas
@@ -4891,62 +4888,62 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         // Resto Tablas
         GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_TODO);
     }
-    
+
     private void comprobarTareas() {
-        
+
         new GestoraTareas(this).start();
     }
-    
+
     private void actualizarTablaTareas() {
-        
+
         ArrayList<Dato> tareas = new ArrayList(GestoraTareas.getTareas());
         tablaTareas.setModel(new ModeloTabla(tareas));
     }
-    
+
     @Override
     public void avisar(int datoActualizado) {
-        
+
         if(datoActualizado == GestoraDatos.ACTUALIZAR_EMPLEADOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
             actualizarTabla(tablaEmple, GestoraDatos.dameGestora().get("EMPLEADOS"));
         }
-        
+
         if(datoActualizado == GestoraDatos.ACTUALIZAR_CLIENTES || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
             actualizarTabla(tablaClientes, GestoraDatos.dameGestora().get("CLIENTES"));
-        }        
-        
+        }
+
         if(datoActualizado == GestoraDatos.ACTUALIZAR_CONTRATOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
             actualizarTabla(jTableContratos, GestoraDatos.dameGestora().get("CONTRATOS"));
         }
-        
+
         if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
-            
+
             refrescarFacturasMensuales();
         }
-        
+
         if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASEXTRA || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
             actualizarTabla(tablaFacExtra, GestoraDatos.dameGestora().get("FACTURASEXTRA"));
         }
     }
-    
+
     private void actualizarTabla(JTable tabla, ArrayList<Dato> empleados) {
-        
+
         ArrayList<Dato> datos = new ArrayList(empleados);
         tabla.setModel(new ModeloTabla(datos));
     }
-    
+
     private boolean comprobarNumero(String n) {
-        
+
         return Gestora.comprobarNumero(n);
     }
-    
+
     private String[] conceptosFormateados(int nFactura) {
-        
+
         ArrayList<Dato> conceptos = GestoraDatos.dameGestora().get("FACTURASEXTRADETALLES").devuelveValorEnFuncionCampo("NUMERO", nFactura);
         String[] dev = new String[conceptos.size()];
         Float suma = 0f;
-        
+
         for(int i = 0;i < dev.length;i++) {
-            
+
             String importe = conceptos.get(i).get("IMPORTE").toString();
             dev[i] = Gestora.completarConEspaciosBlancosIzq(conceptos.get(i).get("CONCEPTO").toString(), 70)
                     + " | " + Gestora.stringLongitudFijaIzq(importe, "      ");
@@ -4959,9 +4956,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         Arrays.sort(dev);
         return dev;
     }
-    
+
     private void refrescarCamposFacturaExtra(int nFactura) {
-        
+
         Dato f = GestoraDatos.dameGestora().get("FACTURASEXTRA").devuelveValorPorClave(nFactura);
         ctNomb.setText(f.get("NOMBRE").toString());
         ctDomic.setText(f.get("DOMICILIO").toString());
@@ -4970,9 +4967,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         ctProvin.setText(f.get("PROVINCIA").toString());
         ctNcif.setText(f.get("CIF").toString());
     }
-    
-    private void refrescarCamposClientes(int nCliente) {
-        Dato c = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave(nCliente);
+
+    private void refrescarCamposClientes() {
+        
+        Dato c = GestoraDatos.dameGestora().get("CLIENTES").get(tablaClientes.getSelectedRow());
         ctClienteDescripcion.setText(c.get("DESCRIPCION").toString());
         ctClienteNombre.setText(c.get("NOMBRE").toString());
         ctClienteDomicilio.setText(c.get("DOMICILIO").toString());
@@ -4987,10 +4985,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         ctClienteTlfContacto.setText(c.get("TLFCONTACTO").toString());
         ctClienteNotas.setText(c.get("NOTAS").toString());
     }
-    
-    private void refrescarCamposContratos(int nContrato) {
-        
-        Dato con = GestoraDatos.dameGestora().get("CONTRATOS").devuelveValorPorClave(nContrato);
+
+    private void refrescarCamposContratos() {
+
+        Dato con = GestoraDatos.dameGestora().get("CONTRATOS").get(jTableContratos.getSelectedRow());
         ctContratoNumCli.setText(con.get("NUMCLIENTE").toString());
         ctContratoDescrip.setText(con.get("DESCRIPCION").toString());
         ctContratoInicio.setText(con.get("INICIOCONTRATO").toString());
@@ -5001,43 +4999,43 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         ctContratoFormPago.setText(con.get("FORMAPAGO").toString());
         ctContratoDiaCobro1.setText(con.get("DIACOBRO").toString());
         ctContratoIva.setText(con.get("TANTOIVA").toString());
-        
+
     }
-    
-    private void refrescarCamposEmpleados(int nEmple) {
-        
-        Dato emp = GestoraDatos.dameGestora().get("EMPLEADOS").devuelveValorPorClave(nEmple);
-         ctEmpleadoNif.setText(emp.get("CIF").toString());
-         ctEmpleadoAnagram.setText(emp.get("ANAGRAMA").toString());
-         ctEmpleadoNombre.setText(emp.get("NOMBRE").toString());
-         ctEmpleadoDomic.setText(emp.get("DOMICILIO").toString());
-         ctEmpleadoLoc.setText(emp.get("LOCALIDAD").toString());
-         ctEmpleadoCp.setText(emp.get("CP").toString());
-         ctEmpleadoProv.setText(emp.get("PROVINCIA").toString());
-         ctEmpleadoTlf.setText(emp.get("TLF1").toString());
-         ctEmpleadoMovil.setText(emp.get("TLF2").toString());
-         ctEmpleadoIban.setText(emp.get("IBAN").toString());
-         ctEmpleadoFechAlta.setText(emp.get("ALTA").toString());
-         ctEmpleadoNacimiento.setText(emp.get("NACIMIENTO").toString());
-         ctEmpleadoNomina.setText(emp.get("NOMINA").toString());
-         ctEmpleadoSs.setText(emp.get("SS").toString());
-        
+
+    private void refrescarCamposEmpleados() {
+
+        Dato emp = GestoraDatos.dameGestora().get("EMPLEADOS").get(tablaEmple.getSelectedRow());
+        ctEmpleadoNif.setText(emp.get("CIF").toString());
+        ctEmpleadoAnagram.setText(emp.get("ANAGRAMA").toString());
+        ctEmpleadoNombre.setText(emp.get("NOMBRE").toString());
+        ctEmpleadoDomic.setText(emp.get("DOMICILIO").toString());
+        ctEmpleadoLoc.setText(emp.get("LOCALIDAD").toString());
+        ctEmpleadoCp.setText(emp.get("CP").toString());
+        ctEmpleadoProv.setText(emp.get("PROVINCIA").toString());
+        ctEmpleadoTlf.setText(emp.get("TLF1").toString());
+        ctEmpleadoMovil.setText(emp.get("TLF2").toString());
+        ctEmpleadoIban.setText(emp.get("IBAN").toString());
+        ctEmpleadoFechAlta.setText(emp.get("ALTA").toString());
+        ctEmpleadoNacimiento.setText(emp.get("NACIMIENTO").toString());
+        ctEmpleadoNomina.setText(emp.get("NOMINA").toString());
+        ctEmpleadoSs.setText(emp.get("SS").toString());
+
     }
-    
+
     private void rellenarCombosPeriodo() {
-        
+
         String[] años = new String[Calendar.getInstance().get(Calendar.YEAR) - 2002];
-        
+
         for(int i = 0;i < años.length;i++) {
-            
+
             años[i] = Integer.toString(2002 + i + 1);
         }
-        
+
         cbPeriodoAño.setModel(new DefaultComboBoxModel(años));
         cbAño.setModel(new DefaultComboBoxModel(años));
-        
+
         String[] meses = {"ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC",};
-        
+
         cbPeriodoMes.setModel(new DefaultComboBoxModel(meses));
     }
 }
