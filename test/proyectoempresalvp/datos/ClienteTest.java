@@ -19,7 +19,7 @@ public class ClienteTest {
     Cliente instance;
     
     public ClienteTest() {
-        instance = new Cliente(10, 10, "", "", "", "", 10, "", "", 10, 10, "", 10, "10", 10);
+        instance = new Cliente(1, 10, "", "", "", "", 10, "", "", 10, 10, "", 10, "10", 10);
     }
     
     @BeforeClass

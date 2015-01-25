@@ -175,25 +175,24 @@ public class GestoraBaseDatos {
 
     public static boolean updateDato(Dato d) {
 
-        String[] claves = d.devuelveOrdenDeColumnas();
-
         if(comprobarExiste(d)) {
 
-            return ejecutarSentenciaUpdate(construyeSentenciaUpdate(d, claves).toString());
+            return ejecutarSentenciaUpdate(construyeSentenciaUpdate(d).toString());
         }
 
         return false;
     }
 
-    private static StringBuilder construyeSentenciaUpdate(Dato d, String[] claves) {
+    public static StringBuilder construyeSentenciaUpdate(Dato d) {
 
+        String[] claves = d.devuelveOrdenDeColumnas();
         StringBuilder textoSentencia = new StringBuilder("update ");
         textoSentencia.append(d.devuelveNombreTablaDato());
         textoSentencia.append(" set ");
-        for(String clave :claves) {
+        for(int i = 1; i < claves.length; i++) {
 
-            Object rec = d.get(clave);
-            textoSentencia.append(clave).append("=");
+            Object rec = d.get(claves[i]);
+            textoSentencia.append(claves[i]).append("=");
 
             if(rec instanceof String) {
 

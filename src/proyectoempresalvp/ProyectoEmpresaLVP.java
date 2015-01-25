@@ -20,7 +20,7 @@ public class ProyectoEmpresaLVP {
     public static void main(String[] args) {
 
 //        
-        GestoraBaseDatos.conectarBaseDatos();
+        GestoraBaseDatos.conectarBaseDatos();        
         GestoraBaseDatos.cerrarConexion();
 
     }
