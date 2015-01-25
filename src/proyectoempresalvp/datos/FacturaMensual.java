@@ -133,7 +133,7 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
      * @return
      */
     @Override
-    public String devuelveValorClave() {
+    public Object devuelveValorClave() {
 
         return "" + this.get("NUMFACTURA");
     }

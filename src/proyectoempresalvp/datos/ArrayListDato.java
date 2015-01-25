@@ -19,7 +19,7 @@ public class ArrayListDato<T extends Dato> extends ArrayList<T>{
     @Override
     public boolean add(T e) {
         
-        nSiguiente = (Integer.parseInt(e.devuelveValorClave()) > nSiguiente)? Integer.parseInt(e.devuelveValorClave()): nSiguiente;
+        nSiguiente = (Integer.parseInt(e.devuelveValorClave().toString()) > nSiguiente)? Integer.parseInt(e.devuelveValorClave().toString()): nSiguiente;
         nSiguiente++;
         return super.add(e); 
     }   
@@ -34,7 +34,7 @@ public class ArrayListDato<T extends Dato> extends ArrayList<T>{
         return nSiguiente;
     }
     
-    public T devuelveValorPorClave(String clave){
+    public T devuelveValorPorClave(Object clave){
         
         for(T d : this){
             
@@ -47,7 +47,7 @@ public class ArrayListDato<T extends Dato> extends ArrayList<T>{
         return null;
     }
     
-    public ArrayList<T> devuelveValoresPorClave(String clave){
+    public ArrayList<T> devuelveValoresPorClave(Object clave){
         
         ArrayList<T> dev = new ArrayList();
         for(T d : this){
@@ -66,7 +66,7 @@ public class ArrayListDato<T extends Dato> extends ArrayList<T>{
         String[] dev = new String[this.size()];
         for(int i = 0; i < dev.length; i++){
             
-            dev[i] = this.get(i).devuelveValorClave();
+            dev[i] = this.get(i).devuelveValorClave().toString();
         }
         
         return dev;

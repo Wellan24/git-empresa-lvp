@@ -74,7 +74,7 @@ public class Tarea extends Dato {
      * @return
      */
     @Override
-    public String devuelveValorClave() {
+    public Object devuelveValorClave() {
 
         return "" + this.get("NTAREA");
     }

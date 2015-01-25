@@ -16,7 +16,7 @@ public abstract class Dato extends HashMap<String, Object>{
     
     public abstract String devuelveNombreTablaDato();
     public abstract String[] devuelveOrdenDeColumnas();
-    public abstract String devuelveValorClave();
+    public abstract Object devuelveValorClave();
     public abstract String devuelveClave();
     public Class[] devuelveClases() {
         

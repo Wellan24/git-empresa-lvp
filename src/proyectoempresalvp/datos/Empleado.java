@@ -123,7 +123,7 @@ public class Empleado extends Dato implements Comparable<Empleado> {
      * @return
      */
     @Override
-    public String devuelveValorClave() {
+    public Object devuelveValorClave() {
 
         return "" + this.get("NUMEMPLE");
     }

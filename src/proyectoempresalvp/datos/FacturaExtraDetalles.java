@@ -85,7 +85,7 @@ public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtr
      * @return 
      */
     @Override
-    public String devuelveValorClave() {
+    public Object devuelveValorClave() {
         
         return this.get("NUMERO") + "0" + this.get("ORDEN");
     }

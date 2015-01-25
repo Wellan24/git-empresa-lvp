@@ -125,7 +125,7 @@ public class Contrato extends Dato implements Comparable<Contrato> {
      * @return
      */
     @Override
-    public String devuelveValorClave() {
+    public Object devuelveValorClave() {
 
         return "" + this.get("NUMCONTRATO");
     }

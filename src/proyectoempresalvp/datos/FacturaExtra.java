@@ -113,9 +113,10 @@ public class FacturaExtra extends Dato  implements Comparable<FacturaExtra>{
      * @return 
      */
     @Override
-    public String devuelveValorClave() {
+    public Object devuelveValorClave() {
+              
         
-        return ""+this.get("NUMEROFACTURA");
+        return this.get("NUMEROFACTURA");
     }
 
     public static String[] getOrden() {
