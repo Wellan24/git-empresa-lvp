@@ -54,9 +54,10 @@ public class GestoraBaseDatos {
             if(sentencia == null) {
                 sentencia = GestoraBaseDatos.conexion.createStatement();
             }
-
+System.out.println(textoSentencia);
             int result = sentencia.executeUpdate(textoSentencia);
-            return result > 0;
+            
+            return result == 1;
         } catch(SQLException ex) {
             Logger.getLogger(GestoraBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -194,15 +195,18 @@ public class GestoraBaseDatos {
             Object rec = d.get(claves[i]);
             textoSentencia.append(claves[i]).append("=");
 
-            if(rec instanceof String) {
+            if(rec instanceof String || rec instanceof Fecha) {
 
                 textoSentencia.append("'");
-                textoSentencia.append(rec);
+                textoSentencia.append(rec.toString());
                 textoSentencia.append("'");
             } else if(rec instanceof Integer) {
 
                 textoSentencia.append(rec);
             } else if(rec instanceof Float) {
+
+                textoSentencia.append(rec);
+            } else {
 
                 textoSentencia.append(rec);
             }
