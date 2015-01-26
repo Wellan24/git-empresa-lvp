@@ -22,7 +22,7 @@ import proyectoempresalvp.datos.Configuracion;
 public class GestoraConfiguracion {
 
     private static Configuracion config;
-    private static final String ruta = "../DataBase/config.xml";
+    private static final String ruta = "./DataBase/config.xml";
 
     public static void guardaConfiguracion() {
         
