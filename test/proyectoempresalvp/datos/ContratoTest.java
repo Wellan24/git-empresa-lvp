@@ -20,7 +20,7 @@ public class ContratoTest {
     Contrato instance;
     public ContratoTest() {
         
-        instance = new Contrato( 10, 10, "", new Fecha("2010/10/10"), new Fecha("2010/10/10"), 10, 10, "", "", 10, 10);
+        instance = new Contrato( 10, 10, "", new Fecha("2010/10/10"), new Fecha("2010/10/10"), "10", "10", "", "", 10, 10);
     }
     
     @BeforeClass
@@ -60,7 +60,7 @@ public class ContratoTest {
     @Test
     public void testCompareTo() {
         System.out.println("compareTo");
-        Contrato o = new Contrato( 11, 10, "", new Fecha("2010/10/10"), new Fecha("2010/10/10"), 10, 10, "", "", 10, 10);
+        Contrato o = new Contrato( 11, 10, "", new Fecha("2010/10/10"), new Fecha("2010/10/10"), "10", "10", "", "", 10, 10);
         int expResult = -1;
         int result = instance.compareTo(o);
         assertEquals(expResult, result);

@@ -613,6 +613,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         bModificar.setBackground(new java.awt.Color(255, 255, 153));
         bModificar.setText("Modificar cliente");
+        bModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bModificarActionPerformed(evt);
+            }
+        });
 
         bFormularioCon.setBackground(new java.awt.Color(204, 255, 255));
         bFormularioCon.setText("Formulario contratos");
@@ -2605,6 +2610,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         bModif.setBackground(new java.awt.Color(255, 255, 153));
         bModif.setText("Modificar Empleado");
+        bModif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bModifActionPerformed(evt);
+            }
+        });
 
         bVacBajas.setBackground(new java.awt.Color(255, 204, 204));
         bVacBajas.setText("Vacaciones Bajas");
@@ -2916,7 +2926,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }//GEN-LAST:event_rbNumContraActionPerformed
 
     private void bModificarContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bModificarContratoActionPerformed
-        // TODO add your handling code here:
+
+        modificarContrato();
     }//GEN-LAST:event_bModificarContratoActionPerformed
 
     private void ctContratoInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctContratoInicioActionPerformed
@@ -3001,7 +3012,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             evt.consume();
         }
 
-        if(car != '.') {
+        if((car >= '0' || car <= '9')) {
             ctContratoEurAnio.setText("" + (Double.parseDouble(ctContratoEurMes.getText().isEmpty() ? "0" : ctContratoEurMes.getText() + car) * 12));
         }
     }//GEN-LAST:event_ctContratoEurMesKeyTyped
@@ -3025,7 +3036,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void jTableContratosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableContratosMouseClicked
 
         int numero = (int) GestoraDatos.dameGestora().get("CONTRATOS").get(jTableContratos.getSelectedRow()).get("NUMCONTRATO");
-        ctContratoNum.setText(Integer.toString(numero));
         refrescarCamposContratos();
 
     }//GEN-LAST:event_jTableContratosMouseClicked
@@ -3038,16 +3048,24 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     private void tablaClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaClientesMouseClicked
         int num = (int) GestoraDatos.dameGestora().get("CLIENTES").get(tablaClientes.getSelectedRow()).get("NUMEROCLIENTE");
-        ctClienteNum.setText(Integer.toString(num));
         refrescarCamposClientes();
 
     }//GEN-LAST:event_tablaClientesMouseClicked
 
     private void TablaEmpleadosMouseCliked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaEmpleadosMouseCliked
         int num = (int) GestoraDatos.dameGestora().get("EMPLEADOS").get(tablaEmple.getSelectedRow()).get("NUMEMPLE");
-        ctEmpleadoNum.setText(Integer.toString(num));
         refrescarCamposEmpleados();
     }//GEN-LAST:event_TablaEmpleadosMouseCliked
+
+    private void bModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bModificarActionPerformed
+
+        modificarCliente();
+    }//GEN-LAST:event_bModificarActionPerformed
+
+    private void bModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bModifActionPerformed
+
+        modificarEmpleado();
+    }//GEN-LAST:event_bModifActionPerformed
 
     private void bCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcularActionPerformed
 
@@ -3595,8 +3613,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }
 
     private void refrescarCamposClientes() {
-        
+
         Dato c = GestoraDatos.dameGestora().get("CLIENTES").get(tablaClientes.getSelectedRow());
+        ctClienteNum.setText(c.get("NUMEROCLIENTE").toString());
         ctClienteDescripcion.setText(c.get("DESCRIPCION").toString());
         ctClienteNombre.setText(c.get("NOMBRE").toString());
         ctClienteDomicilio.setText(c.get("DOMICILIO").toString());
@@ -3615,6 +3634,19 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void refrescarCamposContratos() {
 
         Dato con = GestoraDatos.dameGestora().get("CONTRATOS").get(jTableContratos.getSelectedRow());
+
+        Dato d = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave(con.get("NUMCLIENTE"));
+        ctContratoDescrip.setText(d.get("DESCRIPCION").toString());
+        ctContratoNombre.setText(d.get("NOMBRE").toString());
+        ctContratoLoc.setText(d.get("LOCALIDAD").toString());
+        ctContratoDomic.setText(d.get("DOMICILIO").toString());
+        ctContratoCp.setText(d.get("CP").toString());
+        ctContratoProv.setText(d.get("PROVINCIA").toString());
+        ctContratoNif.setText(d.get("CIF").toString());
+        ctContratoTlf.setText(d.get("TLFCLIENTE").toString());
+        ctContratoIban.setText(d.get("IBAN").toString());
+
+        ctContratoNum.setText(con.get("NUMCONTRATO").toString());
         ctContratoNumCli.setText(con.get("NUMCLIENTE").toString());
         ctContratoDescrip.setText(con.get("DESCRIPCION").toString());
         ctContratoInicio.setText(con.get("INICIOCONTRATO").toString());
@@ -3631,6 +3663,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void refrescarCamposEmpleados() {
 
         Dato emp = GestoraDatos.dameGestora().get("EMPLEADOS").get(tablaEmple.getSelectedRow());
+        ctEmpleadoNum.setText(emp.get("NUMEMPLE").toString());
         ctEmpleadoNif.setText(emp.get("CIF").toString());
         ctEmpleadoAnagram.setText(emp.get("ANAGRAMA").toString());
         ctEmpleadoNombre.setText(emp.get("NOMBRE").toString());
@@ -3663,6 +3696,115 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         String[] meses = {"ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC",};
 
         cbPeriodoMes.setModel(new DefaultComboBoxModel(meses));
+    }
+
+    private void modificarCliente() {
+
+        if(tablaClientes.getSelectedRow() != -1) {
+
+            if(!comprobarNumero(ctClienteNum.getText()) || !comprobarNumero(ctClienteNif.getText())
+                    || !comprobarNumero(ctClienteCp.getText()) || !comprobarNumero(ctClienteTlfCli.getText())
+                    || !comprobarNumero(ctClienteTlfContacto.getText()) || !comprobarNumero(ctClienteRefBan.getText())
+                    || !comprobarNumero(ctClienteDomiciliado.getText())) {
+
+                JOptionPane.showMessageDialog(this, "Comprueba que los telefonos, el NIF, el CP y la referencia del banco son números");
+            } else if(!Gestora.esValidoIBAN(ctClienteIban.getText())) {
+
+                JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
+            } else {
+
+                Dato c = GestoraDatos.dameGestora().get("CLIENTES").get(tablaClientes.getSelectedRow());
+                c.put("DESCRIPCION", ctClienteDescripcion.getText());
+                c.put("NOMBRE", ctClienteNombre.getText());
+                c.put("DOMICILIO", ctClienteDomicilio.getText());
+                c.put("CP", Integer.parseInt(ctClienteCp.getText()));
+                c.put("PROVINCIA", ctClienteProvincia.getText());
+                c.put("CIF", ctClienteNif.getText());
+                c.put("TLFCLIENTE", Integer.parseInt(ctClienteTlfCli.getText()));
+                c.put("IBAN", ctClienteIban.getText());
+                c.put("BANCOCOBRO", Integer.parseInt(ctClienteDomiciliado.getText()));
+                c.put("REFBANCO", Integer.parseInt(ctClienteRefBan.getText()));
+                c.put("PERSONACONTACTO", ctClienteContacto.getText());
+                c.put("TLFCONTACTO", Integer.parseInt(ctClienteTlfContacto.getText()));
+                c.put("NOTAS", ctClienteNotas.getText());
+
+                if(GestoraBaseDatos.ejecutarSentenciaUpdate(GestoraBaseDatos.construyeSentenciaUpdate(c).toString())) {
+
+                    GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CLIENTES);
+                }
+            }
+        }
+    }
+
+    private void modificarContrato() {
+
+        String inicio = ctContratoInicio.getText(), fin = ctContratoFin.getText();
+        
+        if(!Gestora.comprobarFormatoFechaCorrecto(inicio) || !Gestora.comprobarFormatoFechaCorrecto(fin)) {
+            JOptionPane.showMessageDialog(this, "Comprueba las fechas, el formato es dd/mm/aaaa");
+        } else if(!comprobarNumero(ctContratoEurAnio.getText()) || !comprobarNumero(ctContratoEurMes.getText())
+                || !comprobarNumero(ctContratoDiaCobro1.getText()) || !comprobarNumero(ctContratoIva.getText())) {
+
+            JOptionPane.showMessageDialog(this, "Comprueba que has introducido en los campos numéricos números correctamente.");
+        } else {
+
+            Dato c = GestoraDatos.dameGestora().get("CONTRATOS").get(jTableContratos.getSelectedRow());
+            c.put("DESCRIPCION", ctContratoDescrip.getText());
+            c.put("INICIOCONTRATO", ctContratoInicio.getText());
+            c.put("FINCONTRATO", ctContratoFin.getText());
+            c.put("EUROSAÑO", ctContratoEurAnio.getText());
+            c.put("EUROSMES", ctContratoEurMes.getText());
+            c.put("SITUACION", ctContratoSituacion.getText());
+            c.put("FORMAPAGO", ctContratoFormPago.getText());
+            c.put("DIACOBRO", Integer.parseInt(ctContratoDiaCobro1.getText()));
+            c.put("TANTOIVA", Integer.parseInt(ctContratoIva.getText()));
+            c.put("ESTADO", true);
+
+            if(GestoraBaseDatos.ejecutarSentenciaUpdate(GestoraBaseDatos.construyeSentenciaUpdate(c).toString())) {
+
+                GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS);
+            }
+        }
+
+    }
+
+    private void modificarEmpleado() {
+
+        String alta = ctEmpleadoFechAlta.getText(), nac = ctEmpleadoNacimiento.getText(), IBAN = ctEmpleadoIban.getText();
+        if(!Gestora.comprobarFormatoFechaCorrecto(alta) || !Gestora.comprobarFormatoFechaCorrecto(nac)) {
+            JOptionPane.showMessageDialog(this, "Comprueba las fechas, el formato es dd/mm/aaaa");
+        } else if(!Gestora.esValidoIBAN(IBAN)) {
+
+            JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
+        } else if(!comprobarNumero(ctEmpleadoNomina.getText()) || !comprobarNumero(ctEmpleadoTlf.getText())
+                || !comprobarNumero(ctEmpleadoMovil.getText()) || !comprobarNumero(ctEmpleadoSs.getText())
+                || !comprobarNumero(ctEmpleadoCp.getText())) {
+
+            JOptionPane.showMessageDialog(this, "Comprueba que los telefonos, la nomina y el numero de la seguridad social son numeros");
+        } else {
+
+            Dato c = GestoraDatos.dameGestora().get("EMPLEADOS").get(tablaEmple.getSelectedRow());
+            c.put("CIF", ctEmpleadoNif.getText());
+            c.put("ANAGRAMA", ctEmpleadoAnagram.getText());
+            c.put("NOMBRE", ctEmpleadoNombre.getText());
+            c.put("DOMICILIO", ctEmpleadoDomic.getText());
+            c.put("LOCALIDAD", ctEmpleadoLoc.getText());
+            c.put("CP", Integer.parseInt(ctEmpleadoCp.getText()));
+            c.put("PROVINCIA", ctEmpleadoProv.getText());
+            c.put("TLF1", Integer.parseInt(ctEmpleadoTlf.getText()));
+            c.put("TLF2", Integer.parseInt(ctEmpleadoMovil.getText()));
+            c.put("IBAN", ctEmpleadoIban.getText());
+            c.put("ALTA", new Fecha(ctEmpleadoFechAlta.getText()));
+            c.put("NACIMIENTO", new Fecha(ctEmpleadoNacimiento.getText()));
+            c.put("NOMINA", Integer.parseInt(ctEmpleadoNomina.getText()));
+            c.put("SS", Integer.parseInt(ctEmpleadoSs.getText()));
+
+            if(GestoraBaseDatos.ejecutarSentenciaUpdate(GestoraBaseDatos.construyeSentenciaUpdate(c).toString())) {
+
+                GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_EMPLEADOS);
+            }
+
+        }
     }
     
    

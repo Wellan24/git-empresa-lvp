@@ -524,6 +524,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Modificar cliente"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bModificarActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="bFormularioCon">
                   <Properties>
@@ -3961,6 +3964,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Modificar Empleado"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bModifActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="bVacBajas">
                   <Properties>
