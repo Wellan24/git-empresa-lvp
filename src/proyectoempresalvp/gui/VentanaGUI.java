@@ -43,13 +43,17 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         initComponents();
         rellenarCombosPeriodo();
-        listaConceptos.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        
+        listaConceptos.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);        
         GestoraBaseDatos.conectarBaseDatos();
         GestoraDatos.setObservador(this);
-        initTablas();
+        
+        initTablas();        
         GestoraConfiguracion.recuperaConfiguracion();
         ctporcenIva.setText(GestoraConfiguracion.get("IVA").toString());
+        
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     /**

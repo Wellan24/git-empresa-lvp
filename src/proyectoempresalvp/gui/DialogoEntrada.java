@@ -30,6 +30,7 @@ public class DialogoEntrada extends javax.swing.JDialog {
     public DialogoEntrada(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         setLocationRelativeTo(null);
+        setResizable(false);
         initComponents();
     }
 
@@ -114,18 +115,14 @@ public class DialogoEntrada extends javax.swing.JDialog {
             .addGroup(jPanelContraseñaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanelTranslucido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanelContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelContraseñaLayout.createSequentialGroup()
+                        .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanelContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanelContraseñaLayout.createSequentialGroup()
-                                .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(49, 49, 49)
-                                .addComponent(cancelButton))
-                            .addComponent(ctContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanelContraseñaLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel86)))
+                        .addComponent(cancelButton))
+                    .addComponent(ctContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel86))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
