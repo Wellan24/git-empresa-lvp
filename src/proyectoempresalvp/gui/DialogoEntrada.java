@@ -5,7 +5,7 @@
  */
 package proyectoempresalvp.gui;
 
-import proyectoempresalvp.datosUI.JPanelTranslucido;
+import proyectoempresalvp.datosUI.PanelImagen;
 
 /**
  *
@@ -29,6 +29,7 @@ public class DialogoEntrada extends javax.swing.JDialog {
      */
     public DialogoEntrada(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        setLocationRelativeTo(null);
         initComponents();
     }
 
@@ -47,12 +48,13 @@ public class DialogoEntrada extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanelContraseña = PanelImagen.dameNuevoPanelSinLetras();
+        jLabel86 = new javax.swing.JLabel();
+        ctContraseña = new javax.swing.JPasswordField();
         okButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
-        jPanelContraseña = new JPanelTranslucido();
+        jPanelTranslucido1 = new proyectoempresalvp.datosUI.JPanelTranslucido();
         jLabel87 = new javax.swing.JLabel();
-        jLabel86 = new javax.swing.JLabel();
-        ctContraseña = new javax.swing.JTextField();
 
         setTitle("Introduce la contraseña");
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -61,6 +63,17 @@ public class DialogoEntrada extends javax.swing.JDialog {
             }
         });
 
+        jLabel86.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel86.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel86.setText("Contraseña: ");
+
+        ctContraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ctContraseñaActionPerformed(evt);
+            }
+        });
+
+        okButton.setBackground(new java.awt.Color(255, 255, 255));
         okButton.setText("Aceptar");
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,6 +81,7 @@ public class DialogoEntrada extends javax.swing.JDialog {
             }
         });
 
+        cancelButton.setBackground(new java.awt.Color(255, 255, 255));
         cancelButton.setText("Cancelar");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,73 +91,76 @@ public class DialogoEntrada extends javax.swing.JDialog {
 
         jLabel87.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoContraseña.png"))); // NOI18N
 
-        jLabel86.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
-        jLabel86.setForeground(new java.awt.Color(0, 51, 204));
-        jLabel86.setText("Contraseña: ");
-
-        ctContraseña.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ctContraseñaActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanelTranslucido1Layout = new javax.swing.GroupLayout(jPanelTranslucido1);
+        jPanelTranslucido1.setLayout(jPanelTranslucido1Layout);
+        jPanelTranslucido1Layout.setHorizontalGroup(
+            jPanelTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTranslucido1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel87)
+                .addContainerGap())
+        );
+        jPanelTranslucido1Layout.setVerticalGroup(
+            jPanelTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTranslucido1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel87, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout jPanelContraseñaLayout = new javax.swing.GroupLayout(jPanelContraseña);
         jPanelContraseña.setLayout(jPanelContraseñaLayout);
         jPanelContraseñaLayout.setHorizontalGroup(
             jPanelContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelContraseñaLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel87)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel86)
-                .addGap(18, 18, 18)
-                .addComponent(ctContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanelTranslucido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelContraseñaLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanelContraseñaLayout.createSequentialGroup()
+                                .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49)
+                                .addComponent(cancelButton))
+                            .addComponent(ctContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanelContraseñaLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel86)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
+
+        jPanelContraseñaLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cancelButton, okButton});
+
         jPanelContraseñaLayout.setVerticalGroup(
             jPanelContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelContraseñaLayout.createSequentialGroup()
-                .addGroup(jPanelContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addGroup(jPanelContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanelContraseñaLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel87, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelContraseñaLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel86)
+                        .addGap(18, 18, 18)
+                        .addComponent(ctContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanelContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel86)
-                            .addComponent(ctContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(cancelButton)
+                            .addComponent(okButton)))
+                    .addComponent(jPanelTranslucido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        getRootPane().setDefaultButton(okButton);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cancelButton)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanelContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cancelButton, okButton});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanelContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cancelButton)
-                    .addComponent(okButton))
-                .addContainerGap())
+            .addComponent(jPanelContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        getRootPane().setDefaultButton(okButton);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -179,6 +196,7 @@ public class DialogoEntrada extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel86;
     private javax.swing.JLabel jLabel87;
     private javax.swing.JPanel jPanelContraseña;
+    private proyectoempresalvp.datosUI.JPanelTranslucido jPanelTranslucido1;
     private javax.swing.JButton okButton;
     // End of variables declaration//GEN-END:variables
 
