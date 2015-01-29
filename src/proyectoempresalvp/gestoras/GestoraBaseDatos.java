@@ -31,7 +31,7 @@ public class GestoraBaseDatos {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
 
             if(GestoraBaseDatos.conexion == null) {
-                GestoraBaseDatos.conexion = DriverManager.getConnection("jdbc:ucanaccess://./DataBase/BaseDeDatosLVP.accdb");
+                GestoraBaseDatos.conexion = DriverManager.getConnection("jdbc:ucanaccess://../DataBase/BaseDeDatosLVP.accdb");
             }
 
             if(sentencia == null) {
