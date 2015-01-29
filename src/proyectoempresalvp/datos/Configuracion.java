@@ -18,6 +18,7 @@ public class Configuracion extends HashMap<String, Object> implements Serializab
     public Configuracion() {
         super(1);
         put("IVA", 21);
+        put("CONTRA", "PASS");
     }
 
     public Configuracion(int initialCapacity) {

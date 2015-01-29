@@ -5,6 +5,7 @@
  */
 package proyectoempresalvp.gui;
 
+import java.awt.Dialog;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -3107,20 +3108,25 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     break;
                 }
             }
-        } catch(ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch(InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch(IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch(javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch(ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(VentanaGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
+        //</editor-fold>
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new VentanaGUI().setVisible(true);
+            VentanaGUI ventana = new VentanaGUI();
+            DialogoEntrada d = new DialogoEntrada(ventana, true);
+            d.setVisible(true);
+            if(d.getReturnStatus() == DialogoEntrada.RET_OK){
+                ventana.setVisible(true);
+            }else{
+                ventana.dispose();
+                System.exit(0);
+            }
+            
         });
     }
 // <editor-fold defaultstate="collapsed" desc="Generated Code">
@@ -3739,7 +3745,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void modificarContrato() {
 
         String inicio = ctContratoInicio.getText(), fin = ctContratoFin.getText();
-        
+
         if(!Gestora.comprobarFormatoFechaCorrecto(inicio) || !Gestora.comprobarFormatoFechaCorrecto(fin)) {
             JOptionPane.showMessageDialog(this, "Comprueba las fechas, el formato es dd/mm/aaaa");
         } else if(!comprobarNumero(ctContratoEurAnio.getText()) || !comprobarNumero(ctContratoEurMes.getText())
@@ -3806,6 +3812,5 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         }
     }
-    
-   
+
 }
