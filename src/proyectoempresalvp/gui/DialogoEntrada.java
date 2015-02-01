@@ -33,6 +33,7 @@ public class DialogoEntrada extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         setResizable(false);
         initComponents();
+        ctContraseña.requestFocus();
     }
 
     /**
