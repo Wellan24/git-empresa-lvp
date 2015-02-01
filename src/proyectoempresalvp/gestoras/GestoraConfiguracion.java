@@ -24,11 +24,8 @@ public class GestoraConfiguracion {
     private static Configuracion config;
     private static final String ruta = "../DataBase/config.xml";
 
-    public static void guardaConfiguracion() {
+    public static void guardaConfiguracion() {        
         
-        if(config == null) {
-            config = new Configuracion();
-        }
         try(XMLEncoder out = new XMLEncoder(new FileOutputStream(ruta))) {
 
             HashMap<String,Object> hash = new HashMap(config);

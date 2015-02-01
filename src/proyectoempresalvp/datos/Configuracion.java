@@ -16,9 +16,7 @@ import java.util.Map;
 public class Configuracion extends HashMap<String, Object> implements Serializable {
 
     public Configuracion() {
-        super(1);
-        put("IVA", 21);
-        put("CONTRA", "PASS");
+        super();
     }
 
     public Configuracion(int initialCapacity) {
