@@ -5,6 +5,7 @@
  */
 package proyectoempresalvp.gui;
 
+import java.awt.event.KeyEvent;
 import proyectoempresalvp.datosUI.PanelImagen;
 
 /**
@@ -68,9 +69,9 @@ public class DialogoEntrada extends javax.swing.JDialog {
         jLabel86.setForeground(new java.awt.Color(255, 255, 255));
         jLabel86.setText("Contraseña: ");
 
-        ctContraseña.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ctContraseñaActionPerformed(evt);
+        ctContraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                ctContraseñaKeyPressed(evt);
             }
         });
 
@@ -177,9 +178,12 @@ public class DialogoEntrada extends javax.swing.JDialog {
         doClose(RET_CANCEL);
     }//GEN-LAST:event_closeDialog
 
-    private void ctContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctContraseñaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ctContraseñaActionPerformed
+    private void ctContraseñaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ctContraseñaKeyPressed
+       
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+            okButtonActionPerformed(null);
+            
+    }//GEN-LAST:event_ctContraseñaKeyPressed
 
     private void doClose(int retStatus) {
         returnStatus = retStatus;
