@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import proyectoempresalvp.datos.Dato;
+import proyectoempresalvp.datos.Empleado;
 import proyectoempresalvp.datos.Fecha;
 
 /**
@@ -228,6 +229,23 @@ System.out.println(textoSentencia);
         }
 
         dev.replace(dev.length() - 1, dev.length(), " from " + nombreTabla);
+        
+        return dev.toString();
+    }
+    
+    public static String construyeSentenciaSelect(String[] claves, String nombreTabla, String comparacion, String nombreCampo, Object valor) {        
+        
+        StringBuilder dev = new StringBuilder("Select ");
+
+        for(String clave :claves) {
+
+            dev.append(clave).append(",");
+        }
+
+        dev.replace(dev.length() - 1, dev.length(), " from ");
+        dev.append(nombreTabla).append(" where ");
+        dev.append(nombreCampo).append(comparacion).append(valor.toString());
+        
         return dev.toString();
     }
 }
