@@ -7,6 +7,7 @@ package proyectoempresalvp.gui;
 
 import java.awt.event.KeyEvent;
 import proyectoempresalvp.datosUI.PanelImagen;
+import proyectoempresalvp.gestoras.GestoraConfiguracion;
 
 /**
  *
@@ -25,6 +26,7 @@ public class DialogoEntrada extends javax.swing.JDialog {
 
     /**
      * Creates new form DialogoEntrada
+     *
      * @param parent
      * @param modal
      */
@@ -165,7 +167,11 @@ public class DialogoEntrada extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        doClose(RET_OK);
+        
+        if(GestoraConfiguracion.get("CONTRA").equals(ctContraseña.getText()))
+            doClose(RET_OK);
+        else
+            doClose(RET_CANCEL);
     }//GEN-LAST:event_okButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
@@ -180,10 +186,11 @@ public class DialogoEntrada extends javax.swing.JDialog {
     }//GEN-LAST:event_closeDialog
 
     private void ctContraseñaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ctContraseñaKeyPressed
-       
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
             okButtonActionPerformed(null);
-            
+        }
+
     }//GEN-LAST:event_ctContraseñaKeyPressed
 
     private void doClose(int retStatus) {
