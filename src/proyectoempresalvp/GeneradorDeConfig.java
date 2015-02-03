@@ -27,7 +27,12 @@ public class GeneradorDeConfig {
 
         config.put("IVA", 21);
         config.put("CONTRA", "PASS");
-
+        config.put("NUMEROCLIENTE", 0);
+        config.put("NUMEROCONTRATO", 0);
+        config.put("NUMEROEMPLEADO", 0);
+        config.put("NUMEROFACTURAEXTRA", 0);
+        config.put("NUMEROFACTURAMENSUAL", 0);
+        
         try(XMLEncoder out = new XMLEncoder(new FileOutputStream(ruta))) {
 
             HashMap<String, Object> hash = new HashMap(config);

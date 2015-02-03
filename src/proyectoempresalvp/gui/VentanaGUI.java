@@ -46,8 +46,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         
         listaConceptos.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);        
         GestoraBaseDatos.conectarBaseDatos();
-        GestoraDatos.setObservador(this);
+        GestoraDatos.setObservador(this);        
         
+        GestoraConfiguracion.recuperaConfiguracion();
         initTablas();        
         ctporcenIva.setText(GestoraConfiguracion.get("IVA").toString());
         
@@ -3196,7 +3197,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         //</editor-fold>
 
-        GestoraConfiguracion.recuperaConfiguracion();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             

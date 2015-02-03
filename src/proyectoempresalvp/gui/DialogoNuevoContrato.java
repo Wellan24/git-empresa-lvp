@@ -385,7 +385,7 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
 
         if(comboNumeroCliente.getSelectedItem() != null && GestoraDatos.dameGestora().get("CLIENTES") != null) {
 
-            Dato d = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave(comboNumeroCliente.getSelectedItem().toString());
+            Dato d = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave(comboNumeroCliente.getSelectedItem());
             ctDes.setText(d.get("DESCRIPCION").toString());
             ctNombre.setText(d.get("NOMBRE").toString());
             ctLocali.setText(d.get("LOCALIDAD").toString());

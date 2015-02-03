@@ -61,12 +61,12 @@ public class ArrayListDato<T extends Dato> extends ArrayList<T>{
         return dev;
     }
     
-    public String[] devuelveTodasLasClaves(){
+    public Object[] devuelveTodasLasClaves(){
         
-        String[] dev = new String[this.size()];
+        Object[] dev = new Object[this.size()];
         for(int i = 0; i < dev.length; i++){
             
-            dev[i] = this.get(i).devuelveValorClave().toString();
+            dev[i] = this.get(i).devuelveValorClave();
         }
         
         return dev;
