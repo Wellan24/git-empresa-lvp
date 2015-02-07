@@ -41,6 +41,7 @@ public class Cliente extends Dato  implements Comparable<Cliente>{
     String nombre,String domicilio,String localidad,int cp,
     String provincia,String personaContacto,int tlfCliente,int tlfContacto,
     String notas,int refBanco,String iban,int bancoCobro) {
+        super(15);
         this.put("NUMEROCLIENTE", numeroCliente);
         this.put("CIF",cif);
         this.put("DESCRIPCION",descripcion);

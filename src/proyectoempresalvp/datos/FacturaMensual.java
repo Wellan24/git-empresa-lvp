@@ -49,6 +49,7 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
             int tantoIva, String refMoneda, int diaCobro,
             String formaPago, String periodo, int numPeriodo, int IBAN,
             int refBanco, int bancoCobro, String nombreBanco) {
+        super(21);
         this.put("NUMFACTURA", numFactura);
         this.put("FECHA", fecha);
         this.put("NUMCLIENTE", numCliente);

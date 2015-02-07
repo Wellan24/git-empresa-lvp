@@ -13,7 +13,6 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import proyectoempresalvp.datos.Dato;
-import proyectoempresalvp.datos.Empleado;
 import proyectoempresalvp.datos.Fecha;
 
 /**

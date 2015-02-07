@@ -51,7 +51,7 @@ public class HiloActualizarDatos implements Runnable {
         }
         if(datoActualizar == ACTUALIZAR_TODO || datoActualizar == ACTUALIZAR_FACTURASEXTRA) {
             actualizarFacturasExtra();
-            actualizarFacturasExtraDetalles();
+            recuperarConDummy(new FacturaExtraDetalles());
         }
 
         observador.avisar(datoActualizar);
@@ -179,7 +179,7 @@ public class HiloActualizarDatos implements Runnable {
         } else {
             facturas.clear();
         }
-        
+
         FacturaExtra facturaActual;
 
         try {
@@ -212,7 +212,7 @@ public class HiloActualizarDatos implements Runnable {
         try {
             while(facturasComprobar.next()) {
 
-                facturaActual = new FacturaExtraDetalles(facturasComprobar.getInt(1), facturasComprobar.getInt(2), 
+                facturaActual = new FacturaExtraDetalles(facturasComprobar.getInt(1), facturasComprobar.getInt(2),
                         facturasComprobar.getString(3), facturasComprobar.getString(4));
                 facturas.add(facturaActual);
             }
@@ -225,6 +225,36 @@ public class HiloActualizarDatos implements Runnable {
 
     public static void setObservador(ObservadorGestoraDatos observador) {
         HiloActualizarDatos.observador = observador;
+    }
+
+    private void recuperarConDummy(Dato d) {
+
+        ArrayListDato<Dato> facturas = new ArrayListDato();
+        String[] claves = d.devuelveOrdenDeColumnas();
+        ResultSet facturasComprobar = GestoraBaseDatos.ejecutarSentenciaQuery(GestoraBaseDatos.construyeSentenciaSelect(claves, d.devuelveNombreTablaDato()));
+
+        try {
+            while(facturasComprobar.next()) {
+
+                for(int i = 0; i < claves.length;i++) {
+
+                    String clave = claves[i];
+                    Object obj = d.get(clave);
+                    if(obj instanceof Integer) {
+
+                        d.put(clave, facturasComprobar.getInt(i+1));
+                    } else if(obj instanceof String) {
+                        
+                        d.put(clave, facturasComprobar.getString(i+1));
+                    }
+                }
+                facturas.add((Dato) d.clone());
+            }
+        } catch(SQLException ex) {
+            Logger.getLogger(GestoraTareas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        GestoraDatos.dameGestora().put("FACTURASEXTRADETALLES", facturas);
     }
 
 }

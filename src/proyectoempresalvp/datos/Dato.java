@@ -12,8 +12,11 @@ import java.util.HashMap;
  *
  * @author Administrador
  */
-public abstract class Dato extends HashMap<String, Object>{    
-    
+public abstract class Dato extends HashMap<String, Object>{   
+
+    public Dato(int initialCapacity) {
+        super(initialCapacity);
+    }   
     public abstract String devuelveNombreTablaDato();
     public abstract String[] devuelveOrdenDeColumnas();
     public abstract Object devuelveValorClave();

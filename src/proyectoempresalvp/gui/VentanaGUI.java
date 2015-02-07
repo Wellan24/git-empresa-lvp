@@ -5,7 +5,6 @@
  */
 package proyectoempresalvp.gui;
 
-import java.awt.Dialog;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -14,7 +13,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import proyectoempresalvp.datos.Dato;
-import proyectoempresalvp.datos.FacturaExtra;
 import proyectoempresalvp.datos.Fecha;
 import proyectoempresalvp.datos.Tarea;
 import proyectoempresalvp.datosUI.PanelImagen;

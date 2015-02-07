@@ -33,6 +33,7 @@ public class Contrato extends Dato implements Comparable<Contrato> {
     public Contrato(int numContrato, int numCliente, String descripcion,
             Fecha inicioContrato, Fecha finContrato, String eurosAño, String eurosMes,
             String situacion, String formaPago, int diaCobro, int tantoIva) {
+        super(12);
         this.put("NUMCONTRATO", numContrato);
         this.put("NUMCLIENTE", numCliente);
         this.put("DESCRIPCION", descripcion);
@@ -50,6 +51,7 @@ public class Contrato extends Dato implements Comparable<Contrato> {
     public Contrato(int numContrato, int numCliente, String descripcion,
             Fecha inicioContrato, Fecha finContrato, int eurosAño, int eurosMes,
             String situacion, String formaPago, int diaCobro, int tantoIva, boolean estado) {
+        super(12);
         this.put("NUMCONTRATO", numContrato);
         this.put("NUMCLIENTE", numCliente);
         this.put("DESCRIPCION", descripcion);
