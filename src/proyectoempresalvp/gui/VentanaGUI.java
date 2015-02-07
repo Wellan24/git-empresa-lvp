@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import proyectoempresalvp.datos.Dato;
+import proyectoempresalvp.datos.FacturaExtraDetalles;
 import proyectoempresalvp.datos.Fecha;
 import proyectoempresalvp.datos.Tarea;
 import proyectoempresalvp.datosUI.PanelImagen;
@@ -3788,7 +3789,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     private String[] conceptosFormateados(int nFactura) {
 
-        ArrayList<Dato> conceptos = GestoraDatos.dameGestora().get("FACTURASEXTRADETALLES").devuelveValorEnFuncionCampo("NUMERO", nFactura);
+        ArrayList<Dato> conceptos = GestoraDatos.dameGestora().get(FacturaExtraDetalles.getTabla()).devuelveValorEnFuncionCampo("NUMERO", nFactura);
         String[] dev = new String[conceptos.size()];
         Float suma = 0f;
 

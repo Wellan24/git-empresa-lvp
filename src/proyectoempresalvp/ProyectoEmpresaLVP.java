@@ -32,7 +32,7 @@ public class ProyectoEmpresaLVP implements ObservadorGestoraDatos{
     @Override
     public void avisar(int datoActualizado) {
         
-        ArrayListDato<Dato> ds = GestoraDatos.dameGestora().get("FACTURASEXTRADETALLES");
+        ArrayListDato<Dato> ds = GestoraDatos.dameGestora().get("FACTURAEXTRADETALLES");
         
         for(Dato d: ds)
             System.out.println(d);

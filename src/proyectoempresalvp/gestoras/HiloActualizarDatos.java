@@ -254,7 +254,7 @@ public class HiloActualizarDatos implements Runnable {
             Logger.getLogger(GestoraTareas.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        GestoraDatos.dameGestora().put("FACTURASEXTRADETALLES", facturas);
+        GestoraDatos.dameGestora().put(d.devuelveNombreTablaDato(), facturas);
     }
 
 }
