@@ -30,7 +30,7 @@ public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtr
         this.put("NUMERO", numero);
         this.put("CONCEPTO", concepto);
         this.put("IMPORTE", importe);        
-            }   
+    }   
     
     public FacturaExtraDetalles() {
         super(4);
