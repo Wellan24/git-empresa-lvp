@@ -75,7 +75,7 @@ public class Empleado extends Dato implements Comparable<Empleado> {
         this.put("PROVINCIA", "");
         this.put("TLF1", 0);
         this.put("TLF2", 0);
-        this.put("IBAN", 0);
+        this.put("IBAN", "");
         this.put("ALTA", new Fecha("1/1/2015"));
         this.put("NACIMIENTO", new Fecha("1/1/2015"));
         this.put("NOMINA", 0);

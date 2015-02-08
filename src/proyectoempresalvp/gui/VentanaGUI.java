@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import proyectoempresalvp.datos.Dato;
+import proyectoempresalvp.datos.FacturaExtra;
 import proyectoempresalvp.datos.FacturaExtraDetalles;
 import proyectoempresalvp.datos.Fecha;
 import proyectoempresalvp.datos.Tarea;
@@ -3214,7 +3215,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }//GEN-LAST:event_ctEmpleadoTlfActionPerformed
 
     private void tablaFacExtraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaFacExtraMouseClicked
-        int numero = (int) GestoraDatos.dameGestora().get("FACTURASEXTRA").get(tablaFacExtra.getSelectedRow()).get("NUMEROFACTURA");
+        int numero = (int) GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).get(tablaFacExtra.getSelectedRow()).get("NUMEROFACTURA");
         ctNumF.setText(Integer.toString(numero));
         listaConceptos.setListData(conceptosFormateados(numero));
         refrescarCamposFacturaExtra(numero);
@@ -3785,7 +3786,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         }
 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASEXTRA || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
-            actualizarTabla(tablaFacExtra, GestoraDatos.dameGestora().get("FACTURASEXTRA"));
+            actualizarTabla(tablaFacExtra, GestoraDatos.dameGestora().get("FACTURAEXTRA"));
         }
     }
 
@@ -3823,7 +3824,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     private void refrescarCamposFacturaExtra(int nFactura) {
 
-        Dato f = GestoraDatos.dameGestora().get("FACTURASEXTRA").devuelveValorPorClave(nFactura);
+        Dato f = GestoraDatos.dameGestora().get("FACTURAEXTRA").devuelveValorPorClave(nFactura);
         ctNomb.setText(f.get("NOMBRE").toString());
         ctDomic.setText(f.get("DOMICILIO").toString());
         ctLoca.setText(f.get("LOCALIDAD").toString());

@@ -74,7 +74,7 @@ public class Cliente extends Dato  implements Comparable<Cliente>{
         this.put("TLFCONTACTO",0);
         this.put("NOTAS","");
         this.put("REFBANCO",0);
-        this.put("IBAN",0);
+        this.put("IBAN","");
         this.put("BANCOCOBRO",0);
     }
 

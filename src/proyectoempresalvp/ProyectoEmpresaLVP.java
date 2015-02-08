@@ -5,10 +5,21 @@
  */
 package proyectoempresalvp;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import proyectoempresalvp.datos.ArrayListDato;
+import proyectoempresalvp.datos.Cliente;
+import proyectoempresalvp.datos.Contrato;
 import proyectoempresalvp.datos.Dato;
+import proyectoempresalvp.datos.Empleado;
+import proyectoempresalvp.datos.FacturaExtra;
+import proyectoempresalvp.datos.FacturaExtraDetalles;
+import proyectoempresalvp.datos.Fecha;
 import proyectoempresalvp.gestoras.GestoraBaseDatos;
 import proyectoempresalvp.gestoras.GestoraDatos;
+import proyectoempresalvp.gestoras.GestoraTareas;
 import proyectoempresalvp.gestoras.ObservadorGestoraDatos;
 
 
@@ -36,5 +47,141 @@ public class ProyectoEmpresaLVP implements ObservadorGestoraDatos{
         
         for(Dato d: ds)
             System.out.println(d);
+    }
+
+    private void actualizarClientes() {
+
+        ArrayListDato<Dato> clientes = null;
+        ResultSet clientesComp = GestoraBaseDatos.ejecutarSentenciaQuery(GestoraBaseDatos.construyeSentenciaSelect(Cliente.getOrden(), Cliente.getTabla()));
+        if(clientes == null) {
+            clientes = new ArrayListDato();
+        } else {
+            clientes.clear();
+        }
+
+        Cliente cliente;
+
+        try {
+            while(clientesComp.next()) {
+
+                cliente = new Cliente(clientesComp.getInt(1), clientesComp.getInt(2), clientesComp.getString(3),
+                        clientesComp.getString(4), clientesComp.getString(5), clientesComp.getString(6), clientesComp.getInt(7),
+                        clientesComp.getString(8), clientesComp.getString(9), clientesComp.getInt(10), clientesComp.getInt(11),
+                        clientesComp.getString(12), clientesComp.getInt(13), clientesComp.getString(14), clientesComp.getInt(15));
+                clientes.add(cliente);
+            }
+        } catch(SQLException ex) {
+            Logger.getLogger(GestoraTareas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        GestoraDatos.dameGestora().put("CLIENTES", clientes);
+    }
+
+    private void actualizarContratos() {
+
+        ArrayListDato<Dato> contratos = null;
+        ResultSet contratosComp = GestoraBaseDatos.ejecutarSentenciaQuery(GestoraBaseDatos.construyeSentenciaSelect(Contrato.getOrden(), Contrato.getTabla()));
+        if(contratos == null) {
+            contratos = new ArrayListDato();
+        } else {
+            contratos.clear();
+        }
+
+        Contrato contrato;
+
+        try {
+            while(contratosComp.next()) {
+
+                contrato = new Contrato(contratosComp.getInt(1), contratosComp.getInt(2), contratosComp.getString(3),
+                        new Fecha(contratosComp.getString(4)), new Fecha(contratosComp.getString(5)), contratosComp.getInt(6), contratosComp.getInt(7),
+                        contratosComp.getString(8), contratosComp.getString(9), contratosComp.getInt(10), contratosComp.getInt(11), contratosComp.getBoolean(12));
+                contratos.add(contrato);
+            }
+        } catch(SQLException ex) {
+            Logger.getLogger(GestoraTareas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        GestoraDatos.dameGestora().put("CONTRATOS", contratos);
+    }
+
+    private void actualizarEmpleados() {
+
+        ArrayListDato<Dato> empleados = null;
+        ResultSet empleadosComprobar = GestoraBaseDatos.ejecutarSentenciaQuery(GestoraBaseDatos.construyeSentenciaSelect(Empleado.getOrden(), Empleado.getTabla()));
+        if(empleados == null) {
+            empleados = new ArrayListDato();
+        } else {
+            empleados.clear();
+        }
+
+        Empleado empleadoActual;
+
+        try {
+            while(empleadosComprobar.next()) {
+
+                empleadoActual = new Empleado(empleadosComprobar.getInt(1), empleadosComprobar.getInt(2), empleadosComprobar.getString(3),
+                        empleadosComprobar.getString(4), empleadosComprobar.getString(5), empleadosComprobar.getString(6), empleadosComprobar.getInt(7),
+                        empleadosComprobar.getString(8), empleadosComprobar.getInt(9), empleadosComprobar.getInt(10), empleadosComprobar.getString(11),
+                        new Fecha(empleadosComprobar.getString(12)), new Fecha(empleadosComprobar.getString(13)), empleadosComprobar.getInt(14), empleadosComprobar.getInt(15), "", "");
+                empleados.add(empleadoActual);
+            }
+        } catch(SQLException ex) {
+            Logger.getLogger(GestoraTareas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        GestoraDatos.dameGestora().put("EMPLEADOS", empleados);
+    }
+
+    private void actualizarFacturasExtra() {
+
+        ArrayListDato<Dato> facturas = null;
+        ResultSet facturasComprobar = GestoraBaseDatos.ejecutarSentenciaQuery(GestoraBaseDatos.construyeSentenciaSelect(FacturaExtra.getOrden(), FacturaExtra.getTabla()));
+        if(facturas == null) {
+            facturas = new ArrayListDato();
+        } else {
+            facturas.clear();
+        }
+
+        FacturaExtra facturaActual;
+
+        try {
+            while(facturasComprobar.next()) {
+
+                facturaActual = new FacturaExtra(facturasComprobar.getInt(1), new Fecha(facturasComprobar.getString(2)), facturasComprobar.getString(3),
+                        facturasComprobar.getString(4), facturasComprobar.getString(5), facturasComprobar.getString(6), facturasComprobar.getString(7),
+                        facturasComprobar.getInt(8), facturasComprobar.getInt(9), facturasComprobar.getString(10), facturasComprobar.getString(11));
+                facturas.add(facturaActual);
+            }
+        } catch(SQLException ex) {
+            Logger.getLogger(GestoraTareas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        GestoraDatos.dameGestora().put("FACTURASEXTRA", facturas);
+    }
+
+    private void actualizarFacturasExtraDetalles() {
+
+        ArrayListDato<Dato> facturas = null;
+        ResultSet facturasComprobar = GestoraBaseDatos.ejecutarSentenciaQuery(GestoraBaseDatos.construyeSentenciaSelect(FacturaExtraDetalles.getOrden(), FacturaExtraDetalles.getTabla()));
+        if(facturas == null) {
+            facturas = new ArrayListDato();
+        } else {
+            facturas.clear();
+        }
+
+        FacturaExtraDetalles facturaActual;
+
+        try {
+            while(facturasComprobar.next()) {
+
+                facturaActual = new FacturaExtraDetalles(facturasComprobar.getInt(1), facturasComprobar.getInt(2),
+                        facturasComprobar.getString(3), facturasComprobar.getString(4));
+                facturas.add(facturaActual);
+            }
+        } catch(SQLException ex) {
+            Logger.getLogger(GestoraTareas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        GestoraDatos.dameGestora().put("FACTURASEXTRADETALLES", facturas);
     }
 }
