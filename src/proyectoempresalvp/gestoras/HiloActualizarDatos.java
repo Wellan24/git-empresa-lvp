@@ -29,33 +29,35 @@ public class HiloActualizarDatos implements Runnable {
     private static ObservadorGestoraDatos observador;
     private final int datoActualizar;
     private int numPeriodo;
-    
+
     public HiloActualizarDatos(int datoActualizar, int numPeriodo) {
 
         this.datoActualizar = datoActualizar;
         this.numPeriodo = numPeriodo;
     }
-    
-    public HiloActualizarDatos(int datoActualizar) {
+
+    public HiloActualizarDatos(int datoActualizar) throws Exception {
+        if(datoActualizar == ACTUALIZAR_CONTRATOS)
+            throw new Exception("No se pueden actualziar contratos así");
 
         this.datoActualizar = datoActualizar;
     }
-    
+
     @Override
     public void run() {
 
-        if(datoActualizar == ACTUALIZAR_TODO || datoActualizar == ACTUALIZAR_EMPLEADOS) 
+        if(datoActualizar == ACTUALIZAR_TODO || datoActualizar == ACTUALIZAR_EMPLEADOS)
             recuperarConDummy(new Empleado());
-            
-        if(datoActualizar == ACTUALIZAR_TODO || datoActualizar == ACTUALIZAR_CLIENTES) 
+
+        if(datoActualizar == ACTUALIZAR_TODO || datoActualizar == ACTUALIZAR_CLIENTES)
             recuperarConDummy(new Cliente());
-            
-        if(datoActualizar == ACTUALIZAR_TODO || datoActualizar == ACTUALIZAR_CONTRATOS) 
+
+        if(datoActualizar == ACTUALIZAR_CONTRATOS)
             recuperarConDummy(new Contrato());
-            
-        if(datoActualizar == ACTUALIZAR_TODO || datoActualizar == ACTUALIZAR_FACTURASMENSUALES) 
+
+        if(datoActualizar == ACTUALIZAR_TODO || datoActualizar == ACTUALIZAR_FACTURASMENSUALES)
             actualizarFacturasMes();
-            
+
         if(datoActualizar == ACTUALIZAR_TODO || datoActualizar == ACTUALIZAR_FACTURASEXTRA) {
             recuperarConDummy(new FacturaExtra());
             recuperarConDummy(new FacturaExtraDetalles());
@@ -107,22 +109,22 @@ public class HiloActualizarDatos implements Runnable {
         try {
             while(facturasComprobar.next()) {
 
-                for(int i = 0; i < claves.length;i++) {
+                for(int i = 0;i < claves.length;i++) {
 
                     String clave = claves[i];
                     Object obj = d.get(clave);
                     if(obj instanceof Integer) {
 
-                        d.put(clave, facturasComprobar.getInt(i+1));
+                        d.put(clave, facturasComprobar.getInt(i + 1));
                     } else if(obj instanceof String) {
-                        
-                        d.put(clave, facturasComprobar.getString(i+1));
+
+                        d.put(clave, facturasComprobar.getString(i + 1));
                     } else if(obj instanceof Fecha) {
-                        
-                        d.put(clave, new Fecha(facturasComprobar.getString(i+1)));
+
+                        d.put(clave, new Fecha(facturasComprobar.getString(i + 1)));
                     } else if(obj instanceof Boolean) {
-                        
-                        d.put(clave, facturasComprobar.getBoolean(i+1));
+
+                        d.put(clave, facturasComprobar.getBoolean(i + 1));
                     }
                 }
                 facturas.add((Dato) d.clone());
@@ -133,7 +135,7 @@ public class HiloActualizarDatos implements Runnable {
 
         GestoraDatos.dameGestora().put(d.devuelveNombreTablaDato(), facturas);
     }
-    
+
     private void recuperarConDummy(Dato d, String comparacion, String nombreCampo, Object valor) {
 
         ArrayListDato<Dato> facturas = new ArrayListDato();
@@ -143,22 +145,22 @@ public class HiloActualizarDatos implements Runnable {
         try {
             while(facturasComprobar.next()) {
 
-                for(int i = 0; i < claves.length;i++) {
+                for(int i = 0;i < claves.length;i++) {
 
                     String clave = claves[i];
                     Object obj = d.get(clave);
                     if(obj instanceof Integer) {
 
-                        d.put(clave, facturasComprobar.getInt(i+1));
+                        d.put(clave, facturasComprobar.getInt(i + 1));
                     } else if(obj instanceof String) {
-                        
-                        d.put(clave, facturasComprobar.getString(i+1));
+
+                        d.put(clave, facturasComprobar.getString(i + 1));
                     } else if(obj instanceof Fecha) {
-                        
-                        d.put(clave, new Fecha(facturasComprobar.getString(i+1)));
+
+                        d.put(clave, new Fecha(facturasComprobar.getString(i + 1)));
                     } else if(obj instanceof Boolean) {
-                        
-                        d.put(clave, facturasComprobar.getBoolean(i+1));
+
+                        d.put(clave, facturasComprobar.getBoolean(i + 1));
                     }
                 }
                 facturas.add((Dato) d.clone());
