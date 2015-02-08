@@ -62,6 +62,28 @@ public class Empleado extends Dato implements Comparable<Empleado> {
         this.put("HORAS0", horas0);//???
 
     }
+    
+    public Empleado() {
+        super(17);
+        this.put("NUMEMPLE", 0);
+        this.put("CIF", 0);
+        this.put("ANAGRAMA", "");
+        this.put("NOMBRE", "");
+        this.put("DOMICILIO", "");
+        this.put("LOCALIDAD", "");
+        this.put("CP", 0);
+        this.put("PROVINCIA", "");
+        this.put("TLF1", 0);
+        this.put("TLF2", 0);
+        this.put("IBAN", 0);
+        this.put("ALTA", new Fecha("1/1/2015"));
+        this.put("NACIMIENTO", new Fecha("1/1/2015"));
+        this.put("NOMINA", 0);
+        this.put("SS", 0);
+        this.put("CENTRO0", "");//???
+        this.put("HORAS0", "");//???
+
+    }
 
     @Override
     public String devuelveNombreTablaDato() {

@@ -65,6 +65,22 @@ public class Contrato extends Dato implements Comparable<Contrato> {
         this.put("TANTOIVA", tantoIva);
         this.put("ESTADO", estado);
     }
+    
+     public Contrato() {
+        super(12);
+        this.put("NUMCONTRATO", 0);
+        this.put("NUMCLIENTE", 0);
+        this.put("DESCRIPCION", "");
+        this.put("INICIOCONTRATO", new Fecha("1/1/2015"));
+        this.put("FINCONTRATO", new Fecha("1/1/2015"));
+        this.put("EUROSAÑO", 0);
+        this.put("EUROSMES", 0);
+        this.put("SITUACION", "");
+        this.put("FORMAPAGO", "");
+        this.put("DIACOBRO", 0);
+        this.put("TANTOIVA", 0);
+        this.put("ESTADO", false);
+    }
 
     @Override
     public String devuelveNombreTablaDato() {

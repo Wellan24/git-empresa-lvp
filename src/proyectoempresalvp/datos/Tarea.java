@@ -32,6 +32,16 @@ public class Tarea extends Dato {
         this.put("PERIODO", periodo);
         this.put("CLIENTE", cliente);
     }
+    
+    public Tarea() {
+        super(5);
+        this.put("NTAREA", 0);
+        this.put("CONCEPTO", "");
+        this.put("FECHA", new Fecha("1/1/2015"));
+        this.put("PERIODO", 0);
+        this.put("CLIENTE", "");
+    }
+    
 
     public static String[] getOrden() {
         return orden;
