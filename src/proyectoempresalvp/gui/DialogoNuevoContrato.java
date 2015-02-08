@@ -115,6 +115,22 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
 
         jLabel69.setText("IBAN");
 
+        ctDes.setEditable(false);
+
+        ctNombre.setEditable(false);
+
+        ctDomicili.setEditable(false);
+
+        ctLocali.setEditable(false);
+
+        ctCodP.setEditable(false);
+
+        ctProvinci.setEditable(false);
+
+        ctNifiCif.setEditable(false);
+
+        ctTelefon.setEditable(false);
+
         comboNumeroCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboNumeroClienteActionPerformed(evt);
