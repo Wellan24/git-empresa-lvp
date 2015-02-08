@@ -232,7 +232,7 @@ System.out.println(textoSentencia);
         return dev.toString();
     }
     
-    public static String construyeSentenciaSelect(String[] claves, String nombreTabla, String comparacion, String nombreCampo, Object valor) {        
+    public static String construyeSentenciaSelect(String[] claves, String nombreTabla, String where) {        
         
         StringBuilder dev = new StringBuilder("Select ");
 
@@ -242,8 +242,7 @@ System.out.println(textoSentencia);
         }
 
         dev.replace(dev.length() - 1, dev.length(), " from ");
-        dev.append(nombreTabla).append(" where ");
-        dev.append(nombreCampo).append(comparacion).append(valor.toString());
+        dev.append(nombreTabla).append(where);
         
         return dev.toString();
     }

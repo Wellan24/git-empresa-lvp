@@ -6,6 +6,8 @@
 package proyectoempresalvp.gestoras;
 
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import proyectoempresalvp.datos.ArrayListDato;
 import proyectoempresalvp.datos.Dato;
 
@@ -29,7 +31,17 @@ public class GestoraDatos extends HashMap<String, ArrayListDato<Dato>>{
     
     public static void actualizaDatos(int datoActualizar){
         
-        new Thread(new HiloActualizarDatos(datoActualizar)).start();
+        try {
+            new Thread(new HiloActualizarDatos(datoActualizar)).start();
+        } catch(Exception ex) {
+            Logger.getLogger(GestoraDatos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static void actualizaDatos(int datoActualizar, int numPeriodo){
+        
+        
+            new Thread(new HiloActualizarDatos(datoActualizar, numPeriodo)).start();
     }
 
     public static GestoraDatos dameGestora(){

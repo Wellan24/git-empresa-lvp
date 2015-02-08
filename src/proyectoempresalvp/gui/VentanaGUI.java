@@ -12,9 +12,13 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import proyectoempresalvp.datos.Cliente;
+import proyectoempresalvp.datos.Contrato;
 import proyectoempresalvp.datos.Dato;
+import proyectoempresalvp.datos.Empleado;
 import proyectoempresalvp.datos.FacturaExtra;
 import proyectoempresalvp.datos.FacturaExtraDetalles;
+import proyectoempresalvp.datos.FacturaMensual;
 import proyectoempresalvp.datos.Fecha;
 import proyectoempresalvp.datos.Tarea;
 import proyectoempresalvp.datosUI.PanelImagen;
@@ -43,15 +47,15 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         initComponents();
         rellenarCombosPeriodo();
-        
-        listaConceptos.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);        
+
+        listaConceptos.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         GestoraBaseDatos.conectarBaseDatos();
-        GestoraDatos.setObservador(this);        
-        
+        GestoraDatos.setObservador(this);
+
         GestoraConfiguracion.recuperaConfiguracion();
-        initTablas();        
+        initTablas();
         ctporcenIva.setText(GestoraConfiguracion.get("IVA").toString());
-        
+
         this.setLocationRelativeTo(null);
         this.setResizable(false);
     }
@@ -3279,14 +3283,14 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }//GEN-LAST:event_rbTodsActionPerformed
 
     private void bInicioActualizarTareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInicioActualizarTareasActionPerformed
-        
+
         comprobarTareas();
     }//GEN-LAST:event_bInicioActualizarTareasActionPerformed
 
     private void refrescarFacturasMensuales() {
+
         int numPeriodo = Gestora.numeroPeriodoPorNombre(cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString());
-        actualizarTabla(tablaFacMensuales, GestoraDatos.dameGestora().get("FACTURASMENSUALES").devuelveValorEnFuncionCampo("NUMPERIODO", numPeriodo));
-        ctProxFactura.setText("" + GestoraDatos.dameGestora().get("FACTURASMENSUALES").devuelveNumeroSiguiente());
+        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASMENSUALES, numPeriodo);
     }
 
     /**
@@ -3314,17 +3318,17 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            
+
             VentanaGUI ventana = new VentanaGUI();
             DialogoEntrada d = new DialogoEntrada(ventana, true);
             d.setVisible(true);
-            if(d.getReturnStatus() == DialogoEntrada.RET_OK){
+            if(d.getReturnStatus() == DialogoEntrada.RET_OK) {
                 ventana.setVisible(true);
-            }else{
+            } else {
                 ventana.dispose();
                 System.exit(0);
             }
-            
+
         });
     }
 // <editor-fold defaultstate="collapsed" desc="Generated Code">
@@ -3769,24 +3773,25 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     public void avisar(int datoActualizado) {
 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_EMPLEADOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
-            actualizarTabla(tablaEmple, GestoraDatos.dameGestora().get("EMPLEADOS"));
+            actualizarTabla(tablaEmple, GestoraDatos.dameGestora().get(Empleado.getTabla()));
         }
 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_CLIENTES || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
-            actualizarTabla(tablaClientes, GestoraDatos.dameGestora().get("CLIENTES"));
+            actualizarTabla(tablaClientes, GestoraDatos.dameGestora().get(Cliente.getTabla()));
         }
 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_CONTRATOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
-            actualizarTabla(jTableContratos, GestoraDatos.dameGestora().get("CONTRATOS"));
+            actualizarTabla(jTableContratos, GestoraDatos.dameGestora().get(Contrato.getTabla()));
         }
 
-        if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
+        if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES) {
 
-            refrescarFacturasMensuales();
+            actualizarTabla(tablaFacMensuales, GestoraDatos.dameGestora().get(FacturaMensual.getTabla()));
+            ctProxFactura.setText("" + GestoraDatos.dameGestora().get(FacturaMensual.getTabla()).devuelveNumeroSiguiente());
         }
 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASEXTRA || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
-            actualizarTabla(tablaFacExtra, GestoraDatos.dameGestora().get("FACTURAEXTRA"));
+            actualizarTabla(tablaFacExtra, GestoraDatos.dameGestora().get(FacturaExtra.getTabla()));
         }
     }
 
