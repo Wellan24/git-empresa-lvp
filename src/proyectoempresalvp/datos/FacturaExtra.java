@@ -52,7 +52,20 @@ public class FacturaExtra extends Dato  implements Comparable<FacturaExtra>{
     }
 
     
-    
+    public FacturaExtra() {
+        super(11);
+        this.put("NUMEROFACTURA",0);
+        this.put("FECHA",new Fecha("1/1/2015"));
+        this.put("CIF",0);
+        this.put("NOMBRE","");
+        this.put("DOMICILIO","");
+        this.put("LOCALIDAD","");
+        this.put("PROVINCIA","");
+        this.put("CP",0);
+        this.put("TANTOIVA",0);
+        this.put("EUROSNETO",0);
+        this.put("CLIENTE","");
+    }
     
     
     @Override

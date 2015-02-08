@@ -72,6 +72,32 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
         this.put("BANCOCOBRO", bancoCobro);
         this.put("NOMBREBANCO", nombreBanco);
     }
+    
+    public FacturaMensual() {
+        super(21);
+        this.put("NUMFACTURA", 0);
+        this.put("FECHA", new Fecha("1/1/2015"));
+        this.put("NUMCLIENTE", 0);
+        this.put("DESCRIPCION", "");
+        this.put("NUMCONTRATO", 0);
+        this.put("CIF", 0);
+        this.put("NOMBRE", "");
+        this.put("DOMICILIO", "");
+        this.put("LOCALIDAD", "");
+        this.put("PROVINCIA", 0);
+        this.put("EUROSMES", 0);
+        this.put("TANTOIVA", 0);
+        this.put("REFMONEDA", "");
+        this.put("DIACOBRO", 0);
+        this.put("FORMAPAGO", "");
+        this.put("PERIODO", "");
+        this.put("NUMPERIODO", 0);
+        this.put("IBAN", 0);
+        this.put("REFBANCO", 0);
+        this.put("BANCOCOBRO", 0);
+        this.put("NOMBREBANCO", "");
+    }
+    
 
     @Override
     public String devuelveNombreTablaDato() {

@@ -58,6 +58,25 @@ public class Cliente extends Dato  implements Comparable<Cliente>{
         this.put("IBAN",iban);
         this.put("BANCOCOBRO",bancoCobro);
     }
+   
+   public Cliente() {
+        super(15);
+        this.put("NUMEROCLIENTE", 0);
+        this.put("CIF",0);
+        this.put("DESCRIPCION","");
+        this.put("NOMBRE","");
+        this.put("DOMICILIO","");
+        this.put("LOCALIDAD","");
+        this.put("CP",0);
+        this.put("PROVINCIA","");
+        this.put("PERSONACONTACTO","");
+        this.put("TLFCLIENTE",0);
+        this.put("TLFCONTACTO",0);
+        this.put("NOTAS","");
+        this.put("REFBANCO",0);
+        this.put("IBAN",0);
+        this.put("BANCOCOBRO",0);
+    }
 
     @Override
     public String devuelveNombreTablaDato() {
