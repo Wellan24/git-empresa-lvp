@@ -969,6 +969,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         jLabel74.setText("Forma de Pago:");
 
+        ctContratoNum.setEditable(false);
+
         jLabel75.setText("IVA Contrato:");
 
         ctContratoInicio.addActionListener(new java.awt.event.ActionListener() {
@@ -1285,11 +1287,14 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         jLabel40.setText("IVA actual (%)");
 
+        ctProxFactura.setEditable(false);
         ctProxFactura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ctProxFacturaActionPerformed(evt);
             }
         });
+
+        ctIva.setEditable(false);
 
         cbPeriodoAño.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1608,8 +1613,16 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jLabel55.setForeground(new java.awt.Color(255, 102, 102));
         jLabel55.setText("TOTAL");
 
+        ctNumF.setEditable(false);
+
+        ctBaseIm.setEditable(false);
+
+        ctporcenIva.setEditable(false);
+
+        ctTotal.setEditable(false);
         ctTotal.setBackground(new java.awt.Color(255, 204, 204));
 
+        ctIvaa.setEditable(false);
         ctIvaa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ctIvaaActionPerformed(evt);

@@ -1265,6 +1265,9 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="ctContratoNum">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel75">
                               <Properties>
@@ -1706,11 +1709,17 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="ctProxFactura">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ctProxFacturaActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="ctIva">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="cbPeriodoA&#xf1;o">
                       <Events>
@@ -2283,19 +2292,32 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="ctNumF">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="ctBaseIm">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="ctporcenIva">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="ctTotal">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="cc" green="cc" red="ff" type="rgb"/>
                         </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="ctIvaa">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ctIvaaActionPerformed"/>
                       </Events>
