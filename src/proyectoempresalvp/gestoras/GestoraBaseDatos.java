@@ -76,6 +76,7 @@ System.out.println(textoSentencia);
 
             sentenciaLocal = GestoraBaseDatos.conexion.createStatement();
             dev = sentenciaLocal.executeQuery(textoSentencia);
+            
         } catch(SQLException ex) {
             Logger.getLogger(GestoraBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
         }

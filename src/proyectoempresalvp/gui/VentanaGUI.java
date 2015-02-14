@@ -2185,6 +2185,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jLabel99.setText("AÑO:");
 
         cbAño.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbAño.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbAñoActionPerformed(evt);
+            }
+        });
 
         buttonGroupHistoricoFacturas.add(rbTods);
         rbTods.setText("Todos");
@@ -3288,6 +3293,14 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         comprobarTareas();
     }//GEN-LAST:event_bInicioActualizarTareasActionPerformed
 
+    private void cbAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAñoActionPerformed
+       
+        int numPeriodoInicial = Integer.parseInt(cbAño.getSelectedItem().toString() + "00");
+        
+        int numPeriodoFinal = Integer.parseInt(cbAño.getSelectedItem().toString() + "15");
+        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASMENSUALES_AÑO, " where NUMPERIODO >= " + numPeriodoInicial + " AND NUMPERIODO <= " + numPeriodoFinal);
+    }//GEN-LAST:event_cbAñoActionPerformed
+
     private void refrescarFacturasMensuales() {
 
         int numPeriodo = Gestora.numeroPeriodoPorNombre(cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString());
@@ -3788,7 +3801,12 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES) {
 
             actualizarTabla(tablaFacMensuales, GestoraDatos.dameGestora().get(FacturaMensual.getTabla()));
-            ctProxFactura.setText("" + GestoraDatos.dameGestora().get(FacturaMensual.getTabla()).devuelveNumeroSiguiente());
+            ctProxFactura.setText(Integer.toString(GestoraDatos.dameGestora().get(FacturaMensual.getTabla()).devuelveNumeroSiguiente()));
+        }
+        
+        if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES_AÑO) {
+
+            actualizarTabla(tablaHistoricoFacturas, GestoraDatos.dameGestora().get("FACTURASMENSUALESAÑO"));
         }
 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASEXTRA || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {

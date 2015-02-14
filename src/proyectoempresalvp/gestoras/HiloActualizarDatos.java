@@ -29,16 +29,23 @@ public class HiloActualizarDatos implements Runnable {
     private static ObservadorGestoraDatos observador;
     private final int datoActualizar;
     private int numPeriodo;
+    private String where;
 
     public HiloActualizarDatos(int datoActualizar, int numPeriodo) {
-
+        
         this.datoActualizar = datoActualizar;
         this.numPeriodo = numPeriodo;
+    }
+    
+    public HiloActualizarDatos(int datoActualizar, String where) {
+        
+        this.datoActualizar = datoActualizar;
+        this.where = where;
     }
 
     public HiloActualizarDatos(int datoActualizar) throws Exception {
 
-        if(datoActualizar == ACTUALIZAR_FACTURASMENSUALES)
+        if(datoActualizar == ACTUALIZAR_FACTURASMENSUALES || datoActualizar == ACTUALIZAR_FACTURASMENSUALES_AÑO)
             throw new Exception("No se pueden actualizar facturas mensuales así");
 
         this.datoActualizar = datoActualizar;
@@ -58,6 +65,9 @@ public class HiloActualizarDatos implements Runnable {
 
         if(datoActualizar == ACTUALIZAR_FACTURASMENSUALES)
             actualizarFacturasMes();
+        
+        if(datoActualizar == ACTUALIZAR_FACTURASMENSUALES_AÑO)
+            actualizarFacturasMesAño();
 
         if(datoActualizar == ACTUALIZAR_TODO || datoActualizar == ACTUALIZAR_FACTURASEXTRA) {
             recuperarConDummy(new FacturaExtra());
@@ -70,6 +80,11 @@ public class HiloActualizarDatos implements Runnable {
     private void actualizarFacturasMes() {
 
         recuperarConDummy(new FacturaMensual(), " where NUMPERIODO = " + numPeriodo);
+    }
+    
+    private void actualizarFacturasMesAño() {
+
+        recuperarConDummy(new FacturaMensual(), where, "FACTURASMENSUALESAÑO");
     }
 
     public static void setObservador(ObservadorGestoraDatos observador) {
@@ -146,6 +161,42 @@ public class HiloActualizarDatos implements Runnable {
         }
 
         GestoraDatos.dameGestora().put(d.devuelveNombreTablaDato(), facturas);
+    }
+    
+    private void recuperarConDummy(Dato d, String where, String key) {
+
+        ArrayListDato<Dato> facturas = new ArrayListDato();
+        String[] claves = d.devuelveOrdenDeColumnas();
+        ResultSet facturasComprobar = GestoraBaseDatos.ejecutarSentenciaQuery(GestoraBaseDatos.construyeSentenciaSelect(claves, d.devuelveNombreTablaDato(), where));
+
+        try {
+            while(facturasComprobar.next()) {
+
+                for(int i = 0;i < claves.length;i++) {
+
+                    String clave = claves[i];
+                    Object obj = d.get(clave);
+                    if(obj instanceof Integer) {
+
+                        d.put(clave, facturasComprobar.getInt(i + 1));
+                    } else if(obj instanceof String) {
+
+                        d.put(clave, facturasComprobar.getString(i + 1));
+                    } else if(obj instanceof Fecha) {
+
+                        d.put(clave, new Fecha(facturasComprobar.getString(i + 1)));
+                    } else if(obj instanceof Boolean) {
+
+                        d.put(clave, facturasComprobar.getBoolean(i + 1));
+                    }
+                }
+                facturas.add((Dato) d.clone());
+            }
+        } catch(SQLException ex) {
+            Logger.getLogger(GestoraTareas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        GestoraDatos.dameGestora().put(key, facturas);
     }
 
 }

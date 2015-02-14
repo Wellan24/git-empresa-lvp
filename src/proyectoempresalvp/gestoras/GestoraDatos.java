@@ -22,7 +22,8 @@ public class GestoraDatos extends HashMap<String, ArrayListDato<Dato>>{
     public static final int ACTUALIZAR_CONTRATOS = 2;
     public static final int ACTUALIZAR_CLIENTES = 3;
     public static final int ACTUALIZAR_FACTURASMENSUALES = 4;
-    public static final int ACTUALIZAR_FACTURASEXTRA = 5;
+    public static final int ACTUALIZAR_FACTURASMENSUALES_AÑO = 5;
+    public static final int ACTUALIZAR_FACTURASEXTRA = 6;
     
     private static GestoraDatos g;
 
@@ -42,6 +43,12 @@ public class GestoraDatos extends HashMap<String, ArrayListDato<Dato>>{
         
         
             new Thread(new HiloActualizarDatos(datoActualizar, numPeriodo)).start();
+    }
+    
+    public static void actualizaDatos(int datoActualizar, String where){
+        
+        
+            new Thread(new HiloActualizarDatos(datoActualizar, where)).start();
     }
 
     public static GestoraDatos dameGestora(){
