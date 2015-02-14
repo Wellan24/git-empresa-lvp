@@ -6,7 +6,9 @@
 package proyectoempresalvp.gui;
 
 import java.awt.event.KeyEvent;
+import org.apache.commons.codec.binary.Hex;
 import proyectoempresalvp.datosUI.PanelImagen;
+import proyectoempresalvp.gestoras.Gestora;
 import proyectoempresalvp.gestoras.GestoraConfiguracion;
 
 /**
@@ -168,7 +170,10 @@ public class DialogoEntrada extends javax.swing.JDialog {
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         
-        if(GestoraConfiguracion.get("CONTRA").equals(ctContraseña.getText()))
+        
+        String a = String.valueOf(Hex.encodeHex(Gestora.getHash(ctContraseña.getText())));
+        System.out.println(a);
+        if(GestoraConfiguracion.get("CONTRA").equals(a))
             doClose(RET_OK);
         else
             doClose(RET_CANCEL);

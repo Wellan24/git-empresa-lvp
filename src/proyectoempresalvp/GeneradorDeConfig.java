@@ -11,7 +11,9 @@ import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.commons.codec.binary.Hex;
 import proyectoempresalvp.datos.Configuracion;
+import proyectoempresalvp.gestoras.Gestora;
 import proyectoempresalvp.gestoras.GestoraConfiguracion;
 
 /**
@@ -24,14 +26,11 @@ public class GeneradorDeConfig {
 
         String ruta = "../config.xml";
         Configuracion config = new Configuracion();
-
+        
         config.put("IVA", 21);
-        config.put("CONTRA", "PASS");
-        config.put("NUMEROCLIENTE", 0);
-        config.put("NUMEROCONTRATO", 0);
-        config.put("NUMEROEMPLEADO", 0);
-        config.put("NUMEROFACTURAEXTRA", 0);
-        config.put("NUMEROFACTURAMENSUAL", 0);
+        String a = String.valueOf(Hex.encodeHex(Gestora.getHash("PASS")));
+        System.out.println(a);
+        config.put("CONTRA", a);
         
         try(XMLEncoder out = new XMLEncoder(new FileOutputStream(ruta))) {
 

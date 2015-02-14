@@ -5,8 +5,13 @@
  */
 package proyectoempresalvp.gestoras;
 
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 /**
@@ -269,5 +274,21 @@ public class Gestora {
 
         return Integer.parseInt(año + mes);
     }
+    
+    public static byte[] getHash(String password){
+        try {
+            
+            MessageDigest digest = MessageDigest.getInstance("MD5");
+            digest.reset();
+            byte[] input = digest.digest(password.getBytes("UTF-8"));
+            
+            return input;
+            
+        } catch(NoSuchAlgorithmException | UnsupportedEncodingException ex) {
+            Logger.getLogger(Gestora.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
+ }
 
 }
