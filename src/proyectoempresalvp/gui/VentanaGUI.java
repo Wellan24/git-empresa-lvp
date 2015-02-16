@@ -55,7 +55,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         GestoraConfiguracion.recuperaConfiguracion();
         initTablas();
-        ctporcenIva.setText(GestoraConfiguracion.get("IVA").toString());
+        String iva = GestoraConfiguracion.get("IVA").toString();
+        ctporcenIva.setText(iva);
+        ctConfiguracionIvaActual.setText(iva);
 
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -277,7 +279,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         ctClaveAntigua = new javax.swing.JTextField();
         ctClaveNueva = new javax.swing.JTextField();
         ctConfirmarClave = new javax.swing.JTextField();
-        bAcep = new javax.swing.JButton();
+        bAceptarContraseña = new javax.swing.JButton();
         jPanel17 = new JPanelTranslucido();
         jLabel80 = new javax.swing.JLabel();
         ctComprobarIban = new javax.swing.JTextField();
@@ -290,10 +292,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jPanel9 = new JPanelTranslucido();
         jLabel58 = new javax.swing.JLabel();
         jLabel59 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        ctConfiguracionIvaActual = new javax.swing.JTextField();
+        ctConfiguracionIvaNuevo = new javax.swing.JTextField();
         jLabel112 = new javax.swing.JLabel();
-        bCambioIva = new javax.swing.JButton();
+        bConfiguracionCambioIva = new javax.swing.JButton();
         jPipc =  new javax.swing.JPanel();
         jScrollPane12 = new ScrollPaneTranslucido();
         tablaIPC =  new Tabla();
@@ -1820,11 +1822,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         jLabel149.setText("CONFIRME NUEVA CLAVE:");
 
-        bAcep.setBackground(new java.awt.Color(153, 255, 153));
-        bAcep.setText("ACEPTAR");
-        bAcep.addActionListener(new java.awt.event.ActionListener() {
+        bAceptarContraseña.setBackground(new java.awt.Color(153, 255, 153));
+        bAceptarContraseña.setText("ACEPTAR");
+        bAceptarContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bAcepActionPerformed(evt);
+                bAceptarContraseñaActionPerformed(evt);
             }
         });
 
@@ -1837,7 +1839,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel145)
                     .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(bAcep, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bAceptarContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanelContrasLayout.createSequentialGroup()
                             .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel147)
@@ -1869,7 +1871,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     .addComponent(jLabel149)
                     .addComponent(ctConfirmarClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
-                .addComponent(bAcep, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bAceptarContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1944,7 +1946,12 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jLabel112.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel112.setText("CAMBIO DEL IVA:");
 
-        bCambioIva.setText("ACEPTAR");
+        bConfiguracionCambioIva.setText("ACEPTAR");
+        bConfiguracionCambioIva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bConfiguracionCambioIvaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -1959,9 +1966,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                             .addComponent(jLabel58))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                            .addComponent(jTextField2)))
-                    .addComponent(bCambioIva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ctConfiguracionIvaActual, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                            .addComponent(ctConfiguracionIvaNuevo)))
+                    .addComponent(bConfiguracionCambioIva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addComponent(jLabel112)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -1975,13 +1982,13 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addGap(40, 40, 40)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel58)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ctConfiguracionIvaActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel59)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ctConfiguracionIvaNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                .addComponent(bCambioIva, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bConfiguracionCambioIva, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -3274,10 +3281,19 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         comprobarIban();
     }//GEN-LAST:event_bComprobarIbanActionPerformed
 
-    private void bAcepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAcepActionPerformed
+    private void bAceptarContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarContraseñaActionPerformed
                 
         cambiarContraseña();
-    }//GEN-LAST:event_bAcepActionPerformed
+    }//GEN-LAST:event_bAceptarContraseñaActionPerformed
+
+    private void bConfiguracionCambioIvaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConfiguracionCambioIvaActionPerformed
+        
+        String iva = ctConfiguracionIvaNuevo.getText();
+        if(comprobarNumero(iva)){
+            
+            GestoraConfiguracion.put("IVA", Integer.parseInt(iva));
+        }
+    }//GEN-LAST:event_bConfiguracionCambioIvaActionPerformed
 
     private void cambiarContraseña() throws HeadlessException {
         String nueva = ctClaveNueva.getText();
@@ -3358,13 +3374,13 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JTabbedPane PanelPesContratos;
     private javax.swing.JTabbedPane PanelPestañasPrincipal;
     private javax.swing.JScrollPane aNotas;
-    private javax.swing.JButton bAcep;
+    private javax.swing.JButton bAceptarContraseña;
     private javax.swing.JButton bActualizar;
     private javax.swing.JButton bAñadir;
     private javax.swing.JButton bCalcular;
-    private javax.swing.JButton bCambioIva;
     private javax.swing.JButton bComprobarIban;
     private javax.swing.JButton bComprobarTareas;
+    private javax.swing.JButton bConfiguracionCambioIva;
     private javax.swing.JButton bEstudiosActivos;
     private javax.swing.JButton bExamFac;
     private javax.swing.JButton bFormuClientes;
@@ -3439,6 +3455,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JTextField ctCodPo;
     private javax.swing.JTextField ctCodpos;
     private javax.swing.JTextField ctComprobarIban;
+    private javax.swing.JTextField ctConfiguracionIvaActual;
+    private javax.swing.JTextField ctConfiguracionIvaNuevo;
     private javax.swing.JTextField ctConfirmarClave;
     private javax.swing.JTextField ctContratoCp;
     private javax.swing.JTextField ctContratoDescrip;
@@ -3689,8 +3707,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTable jTableContratos;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;

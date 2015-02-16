@@ -2549,7 +2549,7 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel145" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                              <Component id="bAcep" min="-2" pref="372" max="-2" attributes="0"/>
+                                              <Component id="bAceptarContraseña" min="-2" pref="372" max="-2" attributes="0"/>
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="jLabel147" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -2592,7 +2592,7 @@
                                           <Component id="ctConfirmarClave" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                      <Component id="bAcep" min="-2" pref="35" max="-2" attributes="0"/>
+                                      <Component id="bAceptarContraseña" min="-2" pref="35" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -2628,7 +2628,7 @@
                             </Component>
                             <Component class="javax.swing.JTextField" name="ctConfirmarClave">
                             </Component>
-                            <Component class="javax.swing.JButton" name="bAcep">
+                            <Component class="javax.swing.JButton" name="bAceptarContrase&#xf1;a">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="99" green="ff" red="99" type="rgb"/>
@@ -2636,7 +2636,7 @@
                                 <Property name="text" type="java.lang.String" value="ACEPTAR"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bAcepActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bAceptarContrase&#xf1;aActionPerformed"/>
                               </Events>
                             </Component>
                           </SubComponents>
@@ -2759,11 +2759,11 @@
                                               </Group>
                                               <EmptySpace pref="134" max="32767" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="jTextField1" pref="60" max="32767" attributes="0"/>
-                                                  <Component id="jTextField2" max="32767" attributes="0"/>
+                                                  <Component id="ctConfiguracionIvaActual" pref="60" max="32767" attributes="0"/>
+                                                  <Component id="ctConfiguracionIvaNuevo" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <Component id="bCambioIva" max="32767" attributes="0"/>
+                                          <Component id="bConfiguracionCambioIva" max="32767" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel112" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -2781,15 +2781,15 @@
                                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel58" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctConfiguracionIvaActual" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel59" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctConfiguracionIvaNuevo" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace pref="69" max="32767" attributes="0"/>
-                                      <Component id="bCambioIva" min="-2" pref="35" max="-2" attributes="0"/>
+                                      <Component id="bConfiguracionCambioIva" min="-2" pref="35" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -2806,9 +2806,9 @@
                                 <Property name="text" type="java.lang.String" value="IVA(%) nuevo:"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField1">
+                            <Component class="javax.swing.JTextField" name="ctConfiguracionIvaActual">
                             </Component>
-                            <Component class="javax.swing.JTextField" name="jTextField2">
+                            <Component class="javax.swing.JTextField" name="ctConfiguracionIvaNuevo">
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel112">
                               <Properties>
@@ -2818,10 +2818,13 @@
                                 <Property name="text" type="java.lang.String" value="CAMBIO DEL IVA:"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JButton" name="bCambioIva">
+                            <Component class="javax.swing.JButton" name="bConfiguracionCambioIva">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="ACEPTAR"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bConfiguracionCambioIvaActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
