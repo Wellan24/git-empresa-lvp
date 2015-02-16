@@ -20,10 +20,14 @@ import java.util.regex.Pattern;
  */
 public class Gestora {
 
+    private static final char[] DIGITS_LOWER
+            = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+
     public static boolean comprobarNumero(String n) {
 
         return n.matches("^(\\d|-)?(\\d|,)*\\.?\\d*$");
     }
+
     /**
      *
      * @param precio
@@ -38,8 +42,7 @@ public class Gestora {
     }
 
     /**
-     * Formatea la cadena para que tenga siempre la misma, colocando el String a
-     * la derecha
+     * Formatea la cadena para que tenga siempre la misma, colocando el String a la derecha
      *
      * @param string
      * @param longitud
@@ -50,8 +53,8 @@ public class Gestora {
     }
 
     /**
-     * Formatea la cadena para que, pad rellena la cadena dada Apple +
-     * "00000000" devuelve "000Apple"
+     * Formatea la cadena para que, pad rellena la cadena dada Apple + "00000000" devuelve
+     * "000Apple"
      *
      * @param string
      * @param pad
@@ -63,11 +66,11 @@ public class Gestora {
     }
 
     public static String completarConEspaciosBlancosIzq(String pString, int length) {
-        if(pString.length() > length){
-            
+        if(pString.length() > length) {
+
             return pString.substring(0, length);
         }
-        length = length-pString.length();
+        length = length - pString.length();
         for(int i = 0;i < length;i++) {
             pString = pString + " ";
         }
@@ -141,13 +144,11 @@ public class Gestora {
     }
 
     /**
-     * Cuenta es un parametro en formato CCC: 4 dígitos para el banco, 4 para la
-     * sucursal, 2 dígitos de control y 10 para el número de cuenta en la
-     * entidad y oficina.
+     * Cuenta es un parametro en formato CCC: 4 dígitos para el banco, 4 para la sucursal, 2 dígitos
+     * de control y 10 para el número de cuenta en la entidad y oficina.
      *
      * @param cuenta
-     * @return Un IBAN válido para españa ESXX + cuenta, donde XX son los
-     * dígitos de control.
+     * @return Un IBAN válido para españa ESXX + cuenta, donde XX son los dígitos de control.
      */
     public static String calcularIbanEspaña(String cuenta) {
 
@@ -274,21 +275,37 @@ public class Gestora {
 
         return Integer.parseInt(año + mes);
     }
-    
-    public static byte[] getHash(String password){
+
+    public static byte[] getHash(String password) {
         try {
-            
+
             MessageDigest digest = MessageDigest.getInstance("MD5");
             digest.reset();
             byte[] input = digest.digest(password.getBytes("UTF-8"));
-            
+
             return input;
-            
+
         } catch(NoSuchAlgorithmException | UnsupportedEncodingException ex) {
             Logger.getLogger(Gestora.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return null;
- }
+    }
+    
+    public static char[] encodeHex(byte[] data, char[] toDigits) {
+        int l = data.length;
+        char[] out = new char[l << 1];
+        // two characters form the hex value.
+        for (int i = 0, j = 0; i < l; i++) {
+            out[j++] = toDigits[(0xF0 & data[i]) >>> 4];
+            out[j++] = toDigits[0x0F & data[i]];
+        }
+        return out;
+    }
+    
+    public static String devuelveHash(String contraseña){
+        
+        return String.valueOf(encodeHex(getHash(contraseña), DIGITS_LOWER));
+    }
 
 }

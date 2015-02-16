@@ -171,7 +171,7 @@ public class DialogoEntrada extends javax.swing.JDialog {
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         
         
-        String a = String.valueOf(Hex.encodeHex(Gestora.getHash(ctContraseña.getText())));
+        String a = Gestora.devuelveHash(ctContraseña.getText());
         System.out.println(a);
         if(GestoraConfiguracion.get("CONTRA").equals(a))
             doClose(RET_OK);

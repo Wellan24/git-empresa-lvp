@@ -2558,9 +2558,9 @@
                                                   </Group>
                                                   <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="ctClaveAc" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="ctNueva" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="ctConfirNueva" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
+                                                      <Component id="ctClaveAntigua" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="ctClaveNueva" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="ctConfirmarClave" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -2579,17 +2579,17 @@
                                           <Group type="102" alignment="1" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="jLabel147" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="ctClaveAc" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="ctClaveAntigua" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="jLabel148" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="ctNueva" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctClaveNueva" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel149" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ctConfirNueva" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctConfirmarClave" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                                       <Component id="bAcep" min="-2" pref="35" max="-2" attributes="0"/>
@@ -2622,11 +2622,11 @@
                                 <Property name="text" type="java.lang.String" value="CONFIRME NUEVA CLAVE:"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="ctClaveAc">
+                            <Component class="javax.swing.JTextField" name="ctClaveAntigua">
                             </Component>
-                            <Component class="javax.swing.JTextField" name="ctNueva">
+                            <Component class="javax.swing.JTextField" name="ctClaveNueva">
                             </Component>
-                            <Component class="javax.swing.JTextField" name="ctConfirNueva">
+                            <Component class="javax.swing.JTextField" name="ctConfirmarClave">
                             </Component>
                             <Component class="javax.swing.JButton" name="bAcep">
                               <Properties>
@@ -2635,6 +2635,9 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="ACEPTAR"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bAcepActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -2654,20 +2657,20 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="ctComprobarIban1" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="ctIbanCalcular1" alignment="0" min="-2" pref="215" max="-2" attributes="0"/>
+                                          <Component id="ctComprobarIban" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="ctIbanCalcular" alignment="0" min="-2" pref="215" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Component id="ctIbanCalculado1" min="-2" pref="215" max="-2" attributes="0"/>
+                                              <Component id="ctIbanCalculado" min="-2" pref="215" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="bCalcular1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="bCalcular" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" attributes="0">
-                                              <Component id="bComprobarIban1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="bComprobarIban" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="labelIbanComprobado1" min="-2" pref="113" max="-2" attributes="0"/>
+                                              <Component id="labelIbanComprobado" min="-2" pref="91" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
@@ -2679,19 +2682,19 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="labelIbanComprobado1" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
+                                          <Component id="labelIbanComprobado" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
                                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                               <Component id="jLabel80" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="ctComprobarIban1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="bComprobarIban1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ctComprobarIban" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="bComprobarIban" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel82" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ctIbanCalcular1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ctIbanCalculado1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="bCalcular1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctIbanCalcular" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctIbanCalculado" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="bCalcular" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace pref="30" max="32767" attributes="0"/>
                                   </Group>
@@ -2704,33 +2707,36 @@
                                 <Property name="text" type="java.lang.String" value="Comprobar IBAN:"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="ctComprobarIban1">
+                            <Component class="javax.swing.JTextField" name="ctComprobarIban">
                             </Component>
-                            <Component class="javax.swing.JButton" name="bComprobarIban1">
+                            <Component class="javax.swing.JButton" name="bComprobarIban">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Comprobar"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bComprobarIban1ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bComprobarIbanActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JLabel" name="labelIbanComprobado1">
+                            <Component class="javax.swing.JLabel" name="labelIbanComprobado">
+                              <Properties>
+                                <Property name="horizontalAlignment" type="int" value="4"/>
+                              </Properties>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel82">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Calcular Iban:"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="ctIbanCalcular1">
+                            <Component class="javax.swing.JTextField" name="ctIbanCalcular">
                             </Component>
-                            <Component class="javax.swing.JTextField" name="ctIbanCalculado1">
+                            <Component class="javax.swing.JTextField" name="ctIbanCalculado">
                             </Component>
-                            <Component class="javax.swing.JButton" name="bCalcular1">
+                            <Component class="javax.swing.JButton" name="bCalcular">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Calcular"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bCalcular1ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bCalcularActionPerformed"/>
                               </Events>
                             </Component>
                           </SubComponents>
@@ -3658,164 +3664,6 @@
                           </SubComponents>
                         </Container>
                       </SubComponents>
-                    </Container>
-                    <Container class="javax.swing.JPanel" name="jPIban">
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value=" new javax.swing.JPanel()"/>
-                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jPIban.setOpaque(false);"/>
-                      </AuxValues>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                          <JTabbedPaneConstraints tabName="IBAN">
-                            <Property name="tabTitle" type="java.lang.String" value="IBAN"/>
-                          </JTabbedPaneConstraints>
-                        </Constraint>
-                      </Constraints>
-
-                      <Layout>
-                        <DimensionLayout dim="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                  <Component id="jPanel14" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="2278" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                        </DimensionLayout>
-                        <DimensionLayout dim="1">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                                  <Component id="jPanel14" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="621" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                        </DimensionLayout>
-                      </Layout>
-                      <SubComponents>
-                        <Container class="javax.swing.JPanel" name="jPanel14">
-                          <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JPanelTranslucido()"/>
-                          </AuxValues>
-
-                          <Layout>
-                            <DimensionLayout dim="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel28" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel29" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="ctComprobarIban" pref="215" max="32767" attributes="0"/>
-                                          <Component id="ctIbanCalcular" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="ctIbanCalculado" min="-2" pref="215" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="bCalcular" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Component id="bComprobarIban" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                                              <Component id="labelIbanComprobado" min="-2" pref="113" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace pref="24" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                            <DimensionLayout dim="1">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="labelIbanComprobado" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="ctComprobarIban" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="bComprobarIban" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ctIbanCalcular" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ctIbanCalculado" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="bCalcular" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace pref="30" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                          </Layout>
-                          <SubComponents>
-                            <Component class="javax.swing.JLabel" name="jLabel28">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Comprobar IBAN:"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="ctComprobarIban">
-                            </Component>
-                            <Component class="javax.swing.JButton" name="bComprobarIban">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Comprobar"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bComprobarIbanActionPerformed"/>
-                              </Events>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="labelIbanComprobado">
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel29">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Calcular Iban:"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="ctIbanCalcular">
-                            </Component>
-                            <Component class="javax.swing.JTextField" name="ctIbanCalculado">
-                            </Component>
-                            <Component class="javax.swing.JButton" name="bCalcular">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Calcular"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bCalcularActionPerformed"/>
-                              </Events>
-                            </Component>
-                          </SubComponents>
-                        </Container>
-                      </SubComponents>
-                    </Container>
-                    <Container class="javax.swing.JPanel" name="jPIva">
-                      <Properties>
-                        <Property name="opaque" type="boolean" value="false"/>
-                      </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                          <JTabbedPaneConstraints tabName="ACTUALIZAR IVA">
-                            <Property name="tabTitle" type="java.lang.String" value="ACTUALIZAR IVA"/>
-                          </JTabbedPaneConstraints>
-                        </Constraint>
-                      </Constraints>
-
-                      <Layout>
-                        <DimensionLayout dim="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <EmptySpace min="0" pref="3030" max="32767" attributes="0"/>
-                          </Group>
-                        </DimensionLayout>
-                        <DimensionLayout dim="1">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <EmptySpace min="0" pref="807" max="32767" attributes="0"/>
-                          </Group>
-                        </DimensionLayout>
-                      </Layout>
                     </Container>
                   </SubComponents>
                 </Container>
