@@ -2020,7 +2020,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addContainerGap(406, Short.MAX_VALUE))
         );
 
-        jPiva.addTab("CAMBIAR CONTRASEÑA", jPcontraseña);
+        jPiva.addTab("CONFIGURACION", jPcontraseña);
 
         jPipc.setOpaque(false);
 
