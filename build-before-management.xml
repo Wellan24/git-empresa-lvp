@@ -10,7 +10,6 @@
 <project name="ProyectoEmpresaLVP" default="default" basedir=".">
     <description>Builds, tests, and runs the project ProyectoEmpresaLVP.</description>
     <import file="nbproject/build-impl.xml"/>
-    <import file="nbproject/management-build-impl.xml"/>
     <target name="-post-jar">
         
         <echo>Adding files to jar...</echo>
@@ -30,4 +29,3 @@
     </jar>
     </target>
 </project>
-

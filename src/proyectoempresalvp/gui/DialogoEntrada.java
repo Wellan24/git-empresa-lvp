@@ -6,7 +6,6 @@
 package proyectoempresalvp.gui;
 
 import java.awt.event.KeyEvent;
-import org.apache.commons.codec.binary.Hex;
 import proyectoempresalvp.datosUI.PanelImagen;
 import proyectoempresalvp.gestoras.Gestora;
 import proyectoempresalvp.gestoras.GestoraConfiguracion;

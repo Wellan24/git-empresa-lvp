@@ -1837,20 +1837,22 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             .addGroup(jPanelContrasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel145)
-                    .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(bAceptarContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanelContrasLayout.createSequentialGroup()
-                            .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel147)
-                                .addComponent(jLabel148)
-                                .addComponent(jLabel149))
-                            .addGap(65, 65, 65)
-                            .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(ctClaveAntigua)
-                                .addComponent(ctClaveNueva)
-                                .addComponent(ctConfirmarClave, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(bAceptarContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanelContrasLayout.createSequentialGroup()
+                        .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel145)
+                            .addGroup(jPanelContrasLayout.createSequentialGroup()
+                                .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel147)
+                                    .addComponent(jLabel148)
+                                    .addComponent(jLabel149))
+                                .addGap(65, 65, 65)
+                                .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ctClaveAntigua)
+                                    .addComponent(ctClaveNueva)
+                                    .addComponent(ctConfirmarClave, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanelContrasLayout.setVerticalGroup(
             jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3282,28 +3284,32 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }//GEN-LAST:event_bComprobarIbanActionPerformed
 
     private void bAceptarContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarContraseñaActionPerformed
-                
+
         cambiarContraseña();
     }//GEN-LAST:event_bAceptarContraseñaActionPerformed
 
     private void bConfiguracionCambioIvaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConfiguracionCambioIvaActionPerformed
-        
+
         String iva = ctConfiguracionIvaNuevo.getText();
-        if(comprobarNumero(iva)){
-            
+        if(comprobarNumero(iva)) {
+
             GestoraConfiguracion.put("IVA", Integer.parseInt(iva));
+            JOptionPane.showMessageDialog(this, "Cambio correcto");
+        } else {
+
+            JOptionPane.showMessageDialog(this, "Cambio cancelado");
         }
     }//GEN-LAST:event_bConfiguracionCambioIvaActionPerformed
 
     private void cambiarContraseña() throws HeadlessException {
         String nueva = ctClaveNueva.getText();
         String antigua = Gestora.devuelveHash(ctClaveAntigua.getText());
-        
-        if(GestoraConfiguracion.get("CONTRA").toString().equals(antigua) && nueva.equals(ctConfirmarClave.getText())){
-            
+
+        if(GestoraConfiguracion.get("CONTRA").toString().equals(antigua) && nueva.equals(ctConfirmarClave.getText())) {
+
             int confirmar = JOptionPane.showConfirmDialog(this, "Confirma el cambio", "Confirmar", JOptionPane.YES_NO_OPTION);
-            switch (confirmar){
-                
+            switch(confirmar) {
+
                 case JOptionPane.YES_OPTION:
                     JOptionPane.showMessageDialog(this, "Cambio correcto");
                     GestoraConfiguracion.put("CONTRA", Gestora.devuelveHash(nueva));
@@ -3312,14 +3318,14 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     JOptionPane.showMessageDialog(this, "Cambio cancelado");
                     break;
             }
-        }else if(nueva.equals(ctConfirmarClave.getText())){
-            
+        } else if(nueva.equals(ctConfirmarClave.getText())) {
+
             JOptionPane.showMessageDialog(this, "La contraseña nueva no coincide");
-        }else if(GestoraConfiguracion.get("CONTRA").toString().equals(antigua)){
-            
+        } else if(GestoraConfiguracion.get("CONTRA").toString().equals(antigua)) {
+
             JOptionPane.showMessageDialog(this, "La contraseña antigua no es correcta");
-        }else{
-            
+        } else {
+
             JOptionPane.showMessageDialog(this, "Error desconocido");
         }
     }
@@ -3834,7 +3840,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             actualizarTabla(tablaFacMensuales, GestoraDatos.dameGestora().get(FacturaMensual.getTabla()));
             ctProxFactura.setText(Integer.toString(GestoraDatos.dameGestora().get(FacturaMensual.getTabla()).devuelveNumeroSiguiente()));
         }
-        
+
         if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES_AÑO) {
 
             actualizarTabla(tablaHistoricoFacturas, GestoraDatos.dameGestora().get("FACTURASMENSUALESAÑO"));
