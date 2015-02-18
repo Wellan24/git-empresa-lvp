@@ -13,6 +13,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
+import proyectoempresalvp.datos.Fecha;
 
 /**
  *
@@ -274,6 +275,54 @@ public class Gestora {
         }
 
         return Integer.parseInt(año + mes);
+    }
+
+    public static Fecha fechaPeriodoPorNombre(String nombre) {
+
+        String mes = nombre.substring(0, 3);
+        String año = nombre.substring(3);
+
+        switch(mes) {
+
+            case "ENE":
+                mes = "01";
+                break;
+            case "FEB":
+                mes = "02";
+                break;
+            case "MAR":
+                mes = "03";
+                break;
+            case "ABR":
+                mes = "04";
+                break;
+            case "MAY":
+                mes = "05";
+                break;
+            case "JUN":
+                mes = "06";
+                break;
+            case "JUL":
+                mes = "07";
+                break;
+            case "AGO":
+                mes = "08";
+                break;
+            case "SEP":
+                mes = "09";
+                break;
+            case "OCT":
+                mes = "10";
+                break;
+            case "NOV":
+                mes = "11";
+                break;
+            case "DIC":
+                mes = "12";
+                break;
+        }
+
+        return new Fecha("01/" + mes + "/" + año);
     }
 
     public static byte[] getHash(String password) {

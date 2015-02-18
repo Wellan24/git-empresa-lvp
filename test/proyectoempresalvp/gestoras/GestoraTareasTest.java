@@ -6,6 +6,7 @@
 package proyectoempresalvp.gestoras;
 
 
+import proyectoempresalvp.gestoras.Datos.GestoraTareas;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;

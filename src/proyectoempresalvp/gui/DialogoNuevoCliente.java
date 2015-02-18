@@ -11,7 +11,7 @@ import proyectoempresalvp.datosUI.JPanelTranslucido;
 import proyectoempresalvp.datosUI.PanelImagen;
 import proyectoempresalvp.gestoras.Gestora;
 import proyectoempresalvp.gestoras.GestoraBaseDatos;
-import proyectoempresalvp.gestoras.GestoraDatos;
+import proyectoempresalvp.gestoras.Datos.GestoraDatos;
 
 /**
  *

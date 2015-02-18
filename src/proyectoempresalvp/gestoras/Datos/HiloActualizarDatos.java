@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyectoempresalvp.gestoras;
+package proyectoempresalvp.gestoras.Datos;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,7 +18,9 @@ import proyectoempresalvp.datos.FacturaExtra;
 import proyectoempresalvp.datos.FacturaExtraDetalles;
 import proyectoempresalvp.datos.FacturaMensual;
 import proyectoempresalvp.datos.Fecha;
-import static proyectoempresalvp.gestoras.GestoraDatos.*;
+import proyectoempresalvp.gestoras.GestoraBaseDatos;
+import proyectoempresalvp.gestoras.ObservadorGestoraDatos;
+import static proyectoempresalvp.gestoras.Datos.GestoraDatos.*;
 
 /**
  *

@@ -19,8 +19,8 @@ import proyectoempresalvp.datos.FacturaExtraDetalles;
 import proyectoempresalvp.datos.FacturaMensual;
 import proyectoempresalvp.datos.Fecha;
 import proyectoempresalvp.gestoras.GestoraBaseDatos;
-import proyectoempresalvp.gestoras.GestoraDatos;
-import proyectoempresalvp.gestoras.GestoraTareas;
+import proyectoempresalvp.gestoras.Datos.GestoraDatos;
+import proyectoempresalvp.gestoras.Datos.GestoraTareas;
 import proyectoempresalvp.gestoras.ObservadorGestoraDatos;
 
 

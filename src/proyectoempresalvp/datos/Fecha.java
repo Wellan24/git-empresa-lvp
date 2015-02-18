@@ -14,7 +14,11 @@ public class Fecha {
     int dia;
     int mes;
     int año;
-
+    
+    /**
+     * Crea un objeto que representa una fecha
+     * @param fecha La fecha en formato dd/mm/aaaa
+     */
     public Fecha(String fecha) {
         
         String[] f = fecha.split("/");

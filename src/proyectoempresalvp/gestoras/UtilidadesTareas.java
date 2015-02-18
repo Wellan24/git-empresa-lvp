@@ -22,7 +22,8 @@ public class UtilidadesTareas {
     public static int HAPASADO = 3;
 
     /**
-     * Devuelve los <u>días</u> de diferencia entre dos fechas
+     * Devuelve los <u>días</u> de diferencia entre dos fechas. <br>
+     * Para un  resultado positivo, la fecha mayor debe ir primero
      *
      * @param fechaUno
      * @param fechaDos
@@ -43,11 +44,7 @@ public class UtilidadesTareas {
      */
     public static int comprobarTareaEnProximosQuinceDias(Fecha fechaTarea) {
 
-        if (fechaActual == null) {
-
-            Calendar c = Calendar.getInstance();
-            fechaActual = new Fecha(c.get(Calendar.DATE) + "/" + (c.get(Calendar.MONTH) + 1) + "/" + c.get(Calendar.YEAR));
-        }
+        calculaFechaActual();
 
         int diferencia = UtilidadesTareas.calcularDiferenciaFechas(fechaTarea, fechaActual);
 
@@ -63,4 +60,22 @@ public class UtilidadesTareas {
         return UtilidadesTareas.HAPASADO;
 
     }
+    
+    public static void calculaFechaActual(){
+        
+        if (fechaActual == null) {
+
+            Calendar c = Calendar.getInstance();
+            fechaActual = new Fecha(c.get(Calendar.DATE) + "/" + (c.get(Calendar.MONTH) + 1) + "/" + c.get(Calendar.YEAR));
+        }
+    }
+
+    public static Fecha getFechaActual() {
+        
+        if(fechaActual == null)
+            calculaFechaActual();
+        
+        return fechaActual;
+    }   
+    
 }
