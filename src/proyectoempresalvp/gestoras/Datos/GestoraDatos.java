@@ -34,22 +34,31 @@ public class GestoraDatos extends HashMap<String, ArrayListDato<Dato>>{
     public static void actualizaDatos(int datoActualizar){
         
         try {
-            new Thread(new HiloActualizarDatos(datoActualizar)).start();
+            new Thread(new HiloActualizarDatos(datoActualizar, null)).start();
         } catch(Exception ex) {
             Logger.getLogger(GestoraDatos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    public static void actualizaDatos(int datoActualizar, int numPeriodo){
+    public static void actualizaDatos(int datoActualizar, Procesador p){
         
-        
-            new Thread(new HiloActualizarDatos(datoActualizar, numPeriodo)).start();
+        try {
+            new Thread(new HiloActualizarDatos(datoActualizar, p)).start();
+        } catch(Exception ex) {
+            Logger.getLogger(GestoraDatos.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
-    public static void actualizaDatos(int datoActualizar, String where){
+    public static void actualizaDatos(int datoActualizar, Procesador p, int numPeriodo){
         
         
-            new Thread(new HiloActualizarDatos(datoActualizar, where)).start();
+            new Thread(new HiloActualizarDatos(datoActualizar, p, numPeriodo)).start();
+    }
+    
+    public static void actualizaDatos(int datoActualizar, Procesador p, String where){
+        
+        
+            new Thread(new HiloActualizarDatos(datoActualizar, p, where)).start();
     }
 
     public static GestoraDatos dameGestora(){

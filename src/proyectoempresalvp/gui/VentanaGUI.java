@@ -31,6 +31,7 @@ import proyectoempresalvp.gestoras.GestoraBaseDatos;
 import proyectoempresalvp.gestoras.GestoraConfiguracion;
 import proyectoempresalvp.gestoras.Datos.GestoraDatos;
 import proyectoempresalvp.gestoras.Datos.GestoraTareas;
+import proyectoempresalvp.gestoras.Datos.ProcesadorContratos;
 import proyectoempresalvp.gestoras.ModeloTabla;
 import proyectoempresalvp.gestoras.ObservadorGestoraDatos;
 import proyectoempresalvp.gestoras.ObservadorTareas;
@@ -486,6 +487,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jLabel79.setText("PRÓXIMOS CONTRATOS QUE ACABAN:");
 
         bInicioActualizarContratos.setText("COMPROBAR");
+        bInicioActualizarContratos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bInicioActualizarContratosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelTranslucido2Layout = new javax.swing.GroupLayout(jPanelTranslucido2);
         jPanelTranslucido2.setLayout(jPanelTranslucido2Layout);
@@ -3270,7 +3276,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         int numPeriodoInicial = Integer.parseInt(cbAño.getSelectedItem().toString() + "00");
 
         int numPeriodoFinal = Integer.parseInt(cbAño.getSelectedItem().toString() + "15");
-        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASMENSUALES_AÑO, " where NUMPERIODO >= " + numPeriodoInicial + " AND NUMPERIODO <= " + numPeriodoFinal);
+        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASMENSUALES_AÑO, null,  " where NUMPERIODO >= " + numPeriodoInicial + " AND NUMPERIODO <= " + numPeriodoFinal);
     }//GEN-LAST:event_cbAñoActionPerformed
 
     private void bCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcularActionPerformed
@@ -3300,6 +3306,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             JOptionPane.showMessageDialog(this, "Cambio cancelado");
         }
     }//GEN-LAST:event_bConfiguracionCambioIvaActionPerformed
+
+    private void bInicioActualizarContratosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInicioActualizarContratosActionPerformed
+       
+        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS, new ProcesadorContratos());
+    }//GEN-LAST:event_bInicioActualizarContratosActionPerformed
 
     private void cambiarContraseña() throws HeadlessException {
         String nueva = ctClaveNueva.getText();
@@ -3333,7 +3344,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void refrescarFacturasMensuales() {
 
         int numPeriodo = Gestora.numeroPeriodoPorNombre(cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString());
-        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASMENSUALES, numPeriodo);
+        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASMENSUALES, null, numPeriodo);
     }
 
     /**
@@ -3546,8 +3557,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JLabel jLabel108;
     private javax.swing.JLabel jLabel109;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel110;
-    private javax.swing.JLabel jLabel111;
     private javax.swing.JLabel jLabel112;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -3642,8 +3651,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel85;
-    private javax.swing.JLabel jLabel86;
-    private javax.swing.JLabel jLabel87;
     private javax.swing.JLabel jLabel88;
     private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
@@ -3659,8 +3666,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JLabel jLabel99;
     private javax.swing.JPanel jPHitoricoFacturas;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
@@ -3713,10 +3718,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTable jTableContratos;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel labelIbanComprobado;
     private javax.swing.JList listaConceptos;
     private javax.swing.JRadioButton rbActivos;
@@ -3806,7 +3807,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         new GestoraTareas(this).start();
 
         // Resto Tablas
-        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_TODO);
+        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_TODO, new ProcesadorContratos());
     }
 
     private void comprobarTareas() {
@@ -4044,7 +4045,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
             if(GestoraBaseDatos.ejecutarSentenciaUpdate(GestoraBaseDatos.construyeSentenciaUpdate(c).toString())) {
 
-                GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS);
+                GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS, new ProcesadorContratos());
             }
         }
 

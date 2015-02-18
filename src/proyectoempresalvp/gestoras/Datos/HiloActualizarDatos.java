@@ -32,25 +32,29 @@ public class HiloActualizarDatos implements Runnable {
     private final int datoActualizar;
     private int numPeriodo;
     private String where;
+    private Procesador p;
 
-    public HiloActualizarDatos(int datoActualizar, int numPeriodo) {
+    public HiloActualizarDatos(int datoActualizar, Procesador p, int numPeriodo) {
         
         this.datoActualizar = datoActualizar;
         this.numPeriodo = numPeriodo;
+        this.p = p;
     }
     
-    public HiloActualizarDatos(int datoActualizar, String where) {
+    public HiloActualizarDatos(int datoActualizar, Procesador p, String where) {
         
         this.datoActualizar = datoActualizar;
         this.where = where;
+        this.p = p;
     }
 
-    public HiloActualizarDatos(int datoActualizar) throws Exception {
+    public HiloActualizarDatos(int datoActualizar, Procesador p) throws Exception {
 
         if(datoActualizar == ACTUALIZAR_FACTURASMENSUALES || datoActualizar == ACTUALIZAR_FACTURASMENSUALES_AÑO)
             throw new Exception("No se pueden actualizar facturas mensuales así");
 
         this.datoActualizar = datoActualizar;
+        this.p = p;
     }
 
     @Override
