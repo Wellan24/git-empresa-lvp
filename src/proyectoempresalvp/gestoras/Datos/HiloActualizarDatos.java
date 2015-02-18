@@ -32,20 +32,20 @@ public class HiloActualizarDatos implements Runnable {
     private final int datoActualizar;
     private int numPeriodo;
     private String where;
-    private Procesador p;
+    private Procesador procesador;
 
     public HiloActualizarDatos(int datoActualizar, Procesador p, int numPeriodo) {
         
         this.datoActualizar = datoActualizar;
         this.numPeriodo = numPeriodo;
-        this.p = p;
+        this.procesador = p;
     }
     
     public HiloActualizarDatos(int datoActualizar, Procesador p, String where) {
         
         this.datoActualizar = datoActualizar;
         this.where = where;
-        this.p = p;
+        this.procesador = p;
     }
 
     public HiloActualizarDatos(int datoActualizar, Procesador p) throws Exception {
@@ -54,7 +54,7 @@ public class HiloActualizarDatos implements Runnable {
             throw new Exception("No se pueden actualizar facturas mensuales así");
 
         this.datoActualizar = datoActualizar;
-        this.p = p;
+        this.procesador = p;
     }
 
     @Override
@@ -80,7 +80,7 @@ public class HiloActualizarDatos implements Runnable {
             recuperarConDummy(new FacturaExtraDetalles());
         }
 
-        observador.avisar(datoActualizar);
+        observador.avisar(datoActualizar, procesador);
     }
 
     private void actualizarFacturasMes() {
@@ -124,6 +124,10 @@ public class HiloActualizarDatos implements Runnable {
                         d.put(clave, facturasComprobar.getBoolean(i + 1));
                     }
                 }
+                
+                if(procesador != null && procesador.comprobarValido(d))
+                    procesador.procesar(d);
+                
                 facturas.add((Dato) d.clone());
             }
         } catch(SQLException ex) {

@@ -21,6 +21,7 @@ import proyectoempresalvp.datos.Fecha;
 import proyectoempresalvp.gestoras.GestoraBaseDatos;
 import proyectoempresalvp.gestoras.Datos.GestoraDatos;
 import proyectoempresalvp.gestoras.Datos.GestoraTareas;
+import proyectoempresalvp.gestoras.Datos.Procesador;
 import proyectoempresalvp.gestoras.ObservadorGestoraDatos;
 
 
@@ -39,15 +40,6 @@ public class ProyectoEmpresaLVP implements ObservadorGestoraDatos{
         GestoraDatos.setObservador(new ProyectoEmpresaLVP());
         GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASEXTRA);
         GestoraBaseDatos.cerrarConexion();
-    }
-
-    @Override
-    public void avisar(int datoActualizado) {
-        
-        ArrayListDato<Dato> ds = GestoraDatos.dameGestora().get("FACTURAEXTRADETALLES");
-        
-        for(Dato d: ds)
-            System.out.println(d);
     }
 
     private void actualizarClientes() {
@@ -214,5 +206,15 @@ public class ProyectoEmpresaLVP implements ObservadorGestoraDatos{
         }
 
         GestoraDatos.dameGestora().put("FACTURASMENSUALES", facturas);
+    }
+
+    @Override
+    public void avisar(int datoActualizado, Procesador procesador) {
+        
+        
+        ArrayListDato<Dato> ds = GestoraDatos.dameGestora().get("FACTURAEXTRADETALLES");
+        
+        for(Dato d: ds)
+            System.out.println(d);
     }
 }

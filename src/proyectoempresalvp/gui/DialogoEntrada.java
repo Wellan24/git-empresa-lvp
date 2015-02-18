@@ -171,7 +171,6 @@ public class DialogoEntrada extends javax.swing.JDialog {
         
         
         String a = Gestora.devuelveHash(ctContraseña.getText());
-        System.out.println(a);
         if(GestoraConfiguracion.get("CONTRA").equals(a))
             doClose(RET_OK);
         else

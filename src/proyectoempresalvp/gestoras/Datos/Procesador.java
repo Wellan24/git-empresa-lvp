@@ -10,9 +10,12 @@ import proyectoempresalvp.datos.Dato;
 /**
  *
  * @author Oscar
+ * @param <T>
  */
-public interface Procesador {
+public interface Procesador<T extends Dato> {
     
     public void procesar(Dato d);
     public void commit();
+    public Object getProcesado();
+    public boolean comprobarValido(Dato d);
 }

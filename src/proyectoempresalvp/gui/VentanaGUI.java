@@ -31,6 +31,7 @@ import proyectoempresalvp.gestoras.GestoraBaseDatos;
 import proyectoempresalvp.gestoras.GestoraConfiguracion;
 import proyectoempresalvp.gestoras.Datos.GestoraDatos;
 import proyectoempresalvp.gestoras.Datos.GestoraTareas;
+import proyectoempresalvp.gestoras.Datos.Procesador;
 import proyectoempresalvp.gestoras.Datos.ProcesadorContratos;
 import proyectoempresalvp.gestoras.ModeloTabla;
 import proyectoempresalvp.gestoras.ObservadorGestoraDatos;
@@ -3821,37 +3822,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         tablaTareas.setModel(new ModeloTabla(tareas));
     }
 
-    @Override
-    public void avisar(int datoActualizado) {
-
-        if(datoActualizado == GestoraDatos.ACTUALIZAR_EMPLEADOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
-            actualizarTabla(tablaEmple, GestoraDatos.dameGestora().get(Empleado.getTabla()));
-        }
-
-        if(datoActualizado == GestoraDatos.ACTUALIZAR_CLIENTES || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
-            actualizarTabla(tablaClientes, GestoraDatos.dameGestora().get(Cliente.getTabla()));
-        }
-
-        if(datoActualizado == GestoraDatos.ACTUALIZAR_CONTRATOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
-            actualizarTabla(jTableContratos, GestoraDatos.dameGestora().get(Contrato.getTabla()));
-        }
-
-        if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES) {
-
-            actualizarTabla(tablaFacMensuales, GestoraDatos.dameGestora().get(FacturaMensual.getTabla()));
-            ctProxFactura.setText(Integer.toString(GestoraDatos.dameGestora().get(FacturaMensual.getTabla()).devuelveNumeroSiguiente()));
-        }
-
-        if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES_AÑO) {
-
-            actualizarTabla(tablaHistoricoFacturas, GestoraDatos.dameGestora().get("FACTURASMENSUALESAÑO"));
-        }
-
-        if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASEXTRA || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
-            actualizarTabla(tablaFacExtra, GestoraDatos.dameGestora().get(FacturaExtra.getTabla()));
-        }
-    }
-
     private void actualizarTabla(JTable tabla, ArrayList<Dato> empleados) {
 
         ArrayList<Dato> datos = new ArrayList(empleados);
@@ -4087,6 +4057,39 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_EMPLEADOS);
             }
 
+        }
+    }
+
+    @Override
+    public void avisar(int datoActualizado, Procesador procesador) {
+        
+
+        if(datoActualizado == GestoraDatos.ACTUALIZAR_EMPLEADOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
+            actualizarTabla(tablaEmple, GestoraDatos.dameGestora().get(Empleado.getTabla()));
+        }
+
+        if(datoActualizado == GestoraDatos.ACTUALIZAR_CLIENTES || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
+            actualizarTabla(tablaClientes, GestoraDatos.dameGestora().get(Cliente.getTabla()));
+        }
+
+        if(datoActualizado == GestoraDatos.ACTUALIZAR_CONTRATOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
+            actualizarTabla(jTableContratos, GestoraDatos.dameGestora().get(Contrato.getTabla()));
+            tAreaInicioContratos.setText(procesador.getProcesado().toString());
+        }
+
+        if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES) {
+
+            actualizarTabla(tablaFacMensuales, GestoraDatos.dameGestora().get(FacturaMensual.getTabla()));
+            ctProxFactura.setText(Integer.toString(GestoraDatos.dameGestora().get(FacturaMensual.getTabla()).devuelveNumeroSiguiente()));
+        }
+
+        if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES_AÑO) {
+
+            actualizarTabla(tablaHistoricoFacturas, GestoraDatos.dameGestora().get("FACTURASMENSUALESAÑO"));
+        }
+
+        if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASEXTRA || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
+            actualizarTabla(tablaFacExtra, GestoraDatos.dameGestora().get(FacturaExtra.getTabla()));
         }
     }
 
