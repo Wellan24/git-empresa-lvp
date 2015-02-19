@@ -62,8 +62,6 @@ public class HiloActualizarDatos implements Runnable {
     @Override
     public void run() {
 
-        int j = i++;
-        long tini = System.currentTimeMillis();
         if(datoActualizar == ACTUALIZAR_TODO || datoActualizar == ACTUALIZAR_EMPLEADOS)
             recuperarConDummy(new Empleado());
 
@@ -84,7 +82,6 @@ public class HiloActualizarDatos implements Runnable {
             recuperarConDummy(new FacturaExtraDetalles());
         }
 
-        System.out.println("Vuelta: " + j + " Time:  " + (System.currentTimeMillis()-tini));
         observador.avisar(datoActualizar, procesador);
     }
 
