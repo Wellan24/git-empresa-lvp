@@ -98,5 +98,11 @@ public class Tarea extends Dato {
         
         return "NTAREA";
     }   
+
+    @Override
+    public Dato copia() {
+        
+        return (Dato)this.clone();
+    }
     
 }

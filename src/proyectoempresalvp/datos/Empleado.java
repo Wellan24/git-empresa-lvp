@@ -8,16 +8,15 @@ package proyectoempresalvp.datos;
 import java.text.Collator;
 import java.util.Date;
 
-@Informacion(tabla = "EMPLEADOS",campos = {"NUMEMPLE", "CIF", "ANAGRAMA", "NOMBRE", "DOMICILIO", "LOCALIDAD", "CP", "PROVINCIA", "TLF1", "TLF2", "IBAN", "ALTA", "NACIMIENTO", "NOMINA", "SS"})
+@Informacion(tabla = "EMPLEADOS", campos = {"NUMEMPLE", "CIF", "ANAGRAMA", "NOMBRE", "DOMICILIO", "LOCALIDAD", "CP", "PROVINCIA", "TLF1", "TLF2", "IBAN", "ALTA", "NACIMIENTO", "NOMINA", "SS"})
 public class Empleado extends Dato implements Comparable<Empleado> {
 
     private static final String[] orden = {"NUMEMPLE", "CIF", "ANAGRAMA", "NOMBRE", "DOMICILIO", "LOCALIDAD", "CP", "PROVINCIA", "TLF1", "TLF2", "IBAN", "ALTA", "NACIMIENTO", "NOMINA", "SS"};
     private static final String tabla = "EMPLEADOS";
 
     /**
-     * Las claves son: NUMEMPLE, CIF, NOMRAPIDO, NOMBRE, DOMICILIO, LOCALIDAD,
-     * CP, PROVINCIA, TLF1, TLF2,ENTIDAD, SUCURSAL, DC, CUENTA, ALTA,
-     * NACIMIENTO, NOMINA, SS, BAJA, CENTRO0, HORAS0
+     * Las claves son: NUMEMPLE, CIF, NOMRAPIDO, NOMBRE, DOMICILIO, LOCALIDAD, CP, PROVINCIA, TLF1,
+     * TLF2,ENTIDAD, SUCURSAL, DC, CUENTA, ALTA, NACIMIENTO, NOMINA, SS, BAJA, CENTRO0, HORAS0
      *
      * @param numemple
      * @param cif
@@ -62,7 +61,11 @@ public class Empleado extends Dato implements Comparable<Empleado> {
         this.put("HORAS0", horas0);//???
 
     }
-    
+
+    private Empleado(Empleado c) {
+        super(c);
+    }
+
     public Empleado() {
         super(17);
         this.put("NUMEMPLE", 0);
@@ -106,30 +109,30 @@ public class Empleado extends Dato implements Comparable<Empleado> {
         Object obj;
         Object objO;
 
-        for (String clave : orden) {
+        for(String clave :orden) {
 
             obj = this.get(clave);
             objO = o.get(clave);
-            if (obj instanceof Integer) {
+            if(obj instanceof Integer) {
 
-                if ((int) obj != (int) objO) {
+                if((int) obj != (int) objO) {
 
                     return (int) obj > (int) objO ? 1 : -1;
                 }
-            } else if (obj instanceof String) {
-                if (c.compare((String) obj, (String) objO) != 0) {
+            } else if(obj instanceof String) {
+                if(c.compare((String) obj, (String) objO) != 0) {
 
                     return c.compare(obj, objO);
                 }
-            } else if (obj instanceof Float) {
+            } else if(obj instanceof Float) {
 
-                if ((float) obj != (float) objO) {
+                if((float) obj != (float) objO) {
 
                     return (float) obj > (float) objO ? 1 : -1;
                 }
-            } else if (obj instanceof Date) {
+            } else if(obj instanceof Date) {
 
-                if (((Date) obj).compareTo((Date) objO) != 0) {
+                if(((Date) obj).compareTo((Date) objO) != 0) {
 
                     return ((Date) obj).compareTo((Date) objO);
                 }
@@ -157,11 +160,18 @@ public class Empleado extends Dato implements Comparable<Empleado> {
 
     public static String getTabla() {
         return tabla;
-    }  
+    }
 
     @Override
     public String devuelveClave() {
-        
+
         return "NUMERO ORDEN";
-    }  
+    }
+
+    @Override
+    public Dato copia() {
+
+//        return (Dato) this.clone();
+        return new Empleado(this);
+    }
 }

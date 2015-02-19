@@ -71,6 +71,10 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
         this.put("REFBANCO", refBanco);
         this.put("BANCOCOBRO", bancoCobro);
         this.put("NOMBREBANCO", nombreBanco);
+    }  
+
+    private FacturaMensual(FacturaMensual c) {
+        super(c);
     }
     
     public FacturaMensual() {
@@ -177,6 +181,13 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
     public String devuelveClave() {
         
         return "NUMFACTURA";
+    }
+
+    @Override
+    public Dato copia() {
+        
+//        return (Dato)this.clone();
+        return new FacturaMensual(this);
     }
     
 }

@@ -17,10 +17,16 @@ public abstract class Dato extends HashMap<String, Object>{
     public Dato(int initialCapacity) {
         super(initialCapacity);
     }   
+
+    public Dato(Dato m) {
+        super(m);
+    }
+    
     public abstract String devuelveNombreTablaDato();
     public abstract String[] devuelveOrdenDeColumnas();
     public abstract Object devuelveValorClave();
     public abstract String devuelveClave();
+    public abstract Dato copia();
     public Class[] devuelveClases() {
         
         Class[] classes = new Class[this.size()];

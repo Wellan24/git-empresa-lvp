@@ -33,6 +33,8 @@ public class HiloActualizarDatos implements Runnable {
     private int numPeriodo;
     private String where;
     private Procesador procesador;
+    
+    public static int i = 0;
 
     public HiloActualizarDatos(int datoActualizar, Procesador p, int numPeriodo) {
         
@@ -60,6 +62,8 @@ public class HiloActualizarDatos implements Runnable {
     @Override
     public void run() {
 
+        int j = i++;
+        long tini = System.currentTimeMillis();
         if(datoActualizar == ACTUALIZAR_TODO || datoActualizar == ACTUALIZAR_EMPLEADOS)
             recuperarConDummy(new Empleado());
 
@@ -80,6 +84,7 @@ public class HiloActualizarDatos implements Runnable {
             recuperarConDummy(new FacturaExtraDetalles());
         }
 
+        System.out.println("Vuelta: " + j + " Time:  " + (System.currentTimeMillis()-tini));
         observador.avisar(datoActualizar, procesador);
     }
 
@@ -128,7 +133,7 @@ public class HiloActualizarDatos implements Runnable {
                 if(procesador != null && procesador.comprobarValido(d))
                     procesador.procesar(d);
                 
-                facturas.add((Dato) d.clone());
+                facturas.add((Dato) d.copia());
             }
         } catch(SQLException ex) {
             Logger.getLogger(GestoraTareas.class.getName()).log(Level.SEVERE, null, ex);

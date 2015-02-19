@@ -161,4 +161,10 @@ public class Contrato extends Dato implements Comparable<Contrato> {
         
         return "NUMCONTRATO";
     }
+
+    @Override
+    public Dato copia() {
+        
+        return (Dato)this.clone();
+    }
 }
