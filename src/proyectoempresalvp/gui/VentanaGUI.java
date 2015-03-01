@@ -147,7 +147,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jLabel17 = new javax.swing.JLabel();
         jPcontratos = PanelImagen.dameNuevoPanelSinLetras();
         PanelPesContratos = new javax.swing.JTabbedPane();
-        jPestudios = new javax.swing.JPanel();
         jPgestion = new javax.swing.JPanel();
         jPanelDatosCli = new JPanelTranslucido();
         jLabel60 = new javax.swing.JLabel();
@@ -207,6 +206,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         bEstudiosActivos = new javax.swing.JButton();
         bNuevoContr = new javax.swing.JButton();
         bFormuClientes = new javax.swing.JButton();
+        jPestudios = new javax.swing.JPanel();
         jPfacMens = PanelImagen.dameNuevoPanelSinLetras();
         jPanel1 = new JPanelTranslucido();
         jLabel38 = new javax.swing.JLabel();
@@ -834,21 +834,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         PanelPestañasPrincipal.addTab("CLIENTES", null, jPclientes, "");
 
-        jPestudios.setOpaque(false);
-
-        javax.swing.GroupLayout jPestudiosLayout = new javax.swing.GroupLayout(jPestudios);
-        jPestudios.setLayout(jPestudiosLayout);
-        jPestudiosLayout.setHorizontalGroup(
-            jPestudiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPestudiosLayout.setVerticalGroup(
-            jPestudiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        PanelPesContratos.addTab("ESTUDIOS ACTIVOS", jPestudios);
-
         jPgestion.setOpaque(false);
 
         jPanelDatosCli.setBackground(new java.awt.Color(102, 153, 255));
@@ -1281,6 +1266,21 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         );
 
         PanelPesContratos.addTab("GESTION", jPgestion);
+
+        jPestudios.setOpaque(false);
+
+        javax.swing.GroupLayout jPestudiosLayout = new javax.swing.GroupLayout(jPestudios);
+        jPestudios.setLayout(jPestudiosLayout);
+        jPestudiosLayout.setHorizontalGroup(
+            jPestudiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPestudiosLayout.setVerticalGroup(
+            jPestudiosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        PanelPesContratos.addTab("ESTUDIOS ACTIVOS", jPestudios);
 
         javax.swing.GroupLayout jPcontratosLayout = new javax.swing.GroupLayout(jPcontratos);
         jPcontratos.setLayout(jPcontratosLayout);
