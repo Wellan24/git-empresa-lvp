@@ -37,7 +37,7 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
         initComponents();
         this.setLocationRelativeTo(null);
         ctporcenIva.setText("21");
-        ctNumF.setText("" + GestoraDatos.dameGestora().get("FACTURASEXTRA").devuelveNumeroSiguiente());
+        ctNumF.setText("" + GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).devuelveNumeroSiguiente());
     }
 
     /**
