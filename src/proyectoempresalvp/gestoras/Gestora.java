@@ -24,6 +24,11 @@ public class Gestora {
     private static final char[] DIGITS_LOWER
             = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
+    /**
+     * Patrón para comprobar un número con decimales
+     * @param n
+     * @return true si el string es número con decimales
+     */
     public static boolean comprobarNumero(String n) {
 
         return n.matches("^(\\d|-)?(\\d|,)*\\.?\\d*$");

@@ -26,6 +26,10 @@ public abstract class Dato extends HashMap<String, Object>{
     public abstract String[] devuelveOrdenDeColumnas();
     public abstract Object devuelveValorClave();
     public abstract String devuelveClave();
+    /**
+     * Sirve para realizar copias mediante un contructor privado
+     * @return 
+     */
     public abstract Dato copia();
     public Class[] devuelveClases() {
         
