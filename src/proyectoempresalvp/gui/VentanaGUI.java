@@ -439,6 +439,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             }
         });
 
+        tAreaInicioTareas.setEditable(false);
         tAreaInicioTareas.setColumns(20);
         tAreaInicioTareas.setRows(5);
         jScrollPane5.setViewportView(tAreaInicioTareas);
@@ -480,6 +481,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
+        tAreaInicioContratos.setEditable(false);
         tAreaInicioContratos.setColumns(20);
         tAreaInicioContratos.setRows(5);
         jScrollPane9.setViewportView(tAreaInicioContratos);
