@@ -27,9 +27,9 @@ public class GeneradorDeConfig {
         Configuracion config = new Configuracion();
         
         config.put("IVA", 21);
-        String a = Gestora.devuelveHash("PASS");
-        config.put("CONTRA", a);
-        
+        String contra = Gestora.devuelveHash("PASS");
+        config.put("CONTRA", contra);
+        config.put("RUTA", "D:/Clientes");
         try(XMLEncoder out = new XMLEncoder(new FileOutputStream(ruta))) {
 
             HashMap<String, Object> hash = new HashMap(config);

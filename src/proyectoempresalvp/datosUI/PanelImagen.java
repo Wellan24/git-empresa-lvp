@@ -28,7 +28,7 @@ public class PanelImagen extends JPanel implements Cloneable {
     @Override
     public void paintComponent(Graphics g) {
 
-        g.drawImage(imagen.getImage(), 0, 0, 1205, 840, null);
+        g.drawImage(imagen.getImage(), 0, 0, 1200, 840, null);
         super.paintComponent(g);
     }
 
@@ -38,7 +38,6 @@ public class PanelImagen extends JPanel implements Cloneable {
 
             ImageIcon imagenFondo = new ImageIcon(PanelImagen.class.getResource("/images/fondoSinLetras.jpg"));
             Image imagen = imagenFondo.getImage();
-            imagen = imagen.getScaledInstance(1205, 840, 0);
             imagenSinLetras = new ImageIcon(imagen);
             
         }
@@ -54,7 +53,6 @@ public class PanelImagen extends JPanel implements Cloneable {
             
             ImageIcon imagenFondo = new ImageIcon(PanelImagen.class.getResource("/images/fondoInicio.jpg"));
             Image imagen = imagenFondo.getImage();
-            imagen = imagen.getScaledInstance(1205, 840, 0);
             imagenConLetras = new ImageIcon(imagen);
             
         }

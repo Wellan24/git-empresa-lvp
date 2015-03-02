@@ -61,6 +61,7 @@ public class DialogoEntrada extends javax.swing.JDialog {
         cancelButton = new javax.swing.JButton();
         jPanelTranslucido1 = new proyectoempresalvp.datosUI.JPanelTranslucido();
         jLabel87 = new javax.swing.JLabel();
+        labelCorrecto = new javax.swing.JLabel();
 
         setTitle("Introduce la contraseña");
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -73,6 +74,11 @@ public class DialogoEntrada extends javax.swing.JDialog {
         jLabel86.setForeground(new java.awt.Color(255, 255, 255));
         jLabel86.setText("Contraseña: ");
 
+        ctContraseña.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                ctContraseñaFocusGained(evt);
+            }
+        });
         ctContraseña.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 ctContraseñaKeyPressed(evt);
@@ -113,6 +119,9 @@ public class DialogoEntrada extends javax.swing.JDialog {
                 .addComponent(jLabel87, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        labelCorrecto.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelCorrecto.setForeground(new java.awt.Color(255, 51, 51));
+
         javax.swing.GroupLayout jPanelContraseñaLayout = new javax.swing.GroupLayout(jPanelContraseña);
         jPanelContraseña.setLayout(jPanelContraseñaLayout);
         jPanelContraseñaLayout.setHorizontalGroup(
@@ -127,7 +136,8 @@ public class DialogoEntrada extends javax.swing.JDialog {
                         .addGap(18, 18, 18)
                         .addComponent(cancelButton))
                     .addComponent(ctContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel86))
+                    .addComponent(jLabel86)
+                    .addComponent(labelCorrecto))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -141,8 +151,10 @@ public class DialogoEntrada extends javax.swing.JDialog {
                     .addGroup(jPanelContraseñaLayout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(jLabel86)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(ctContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(labelCorrecto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanelContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cancelButton)
@@ -174,7 +186,7 @@ public class DialogoEntrada extends javax.swing.JDialog {
         if(GestoraConfiguracion.get("CONTRA").equals(a))
             doClose(RET_OK);
         else
-            doClose(RET_CANCEL);
+            labelCorrecto.setText("Incorrecto");
     }//GEN-LAST:event_okButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
@@ -196,6 +208,12 @@ public class DialogoEntrada extends javax.swing.JDialog {
 
     }//GEN-LAST:event_ctContraseñaKeyPressed
 
+    private void ctContraseñaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ctContraseñaFocusGained
+        
+        if(!labelCorrecto.getText().equals(""))
+            labelCorrecto.setText("");
+    }//GEN-LAST:event_ctContraseñaFocusGained
+
     private void doClose(int retStatus) {
         returnStatus = retStatus;
         setVisible(false);
@@ -209,6 +227,7 @@ public class DialogoEntrada extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel87;
     private javax.swing.JPanel jPanelContraseña;
     private proyectoempresalvp.datosUI.JPanelTranslucido jPanelTranslucido1;
+    private javax.swing.JLabel labelCorrecto;
     private javax.swing.JButton okButton;
     // End of variables declaration//GEN-END:variables
 
