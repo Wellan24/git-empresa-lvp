@@ -2494,30 +2494,33 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jPanel17" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="jPanel17" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
                                           <Component id="jPanelContras" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="jPanelTranslucido3" alignment="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="1930" max="32767" attributes="0"/>
+                                  <EmptySpace pref="2272" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jPanelContras" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jPanel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jPanel9" max="32767" attributes="0"/>
+                                      <Component id="jPanelContras" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jPanel17" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="216" max="32767" attributes="0"/>
+                                  <Component id="jPanel17" min="-2" pref="192" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jPanelTranslucido3" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="166" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2537,58 +2540,51 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="bAceptarContraseña" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jLabel145" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel145" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="jLabel147" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel148" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel149" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                          <Component id="ctClaveAntigua" alignment="0" max="32767" attributes="0"/>
-                                                          <Component id="ctClaveNueva" alignment="0" max="32767" attributes="0"/>
-                                                          <Component id="ctConfirmarClave" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
+                                                  <Component id="jLabel148" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel149" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel147" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="ctConfirmarClave" min="-2" pref="126" max="-2" attributes="0"/>
+                                                  <Component id="ctClaveAntigua" min="-2" pref="126" max="-2" attributes="0"/>
+                                                  <Component id="ctClaveNueva" min="-2" pref="126" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
+                                          <Component id="bAceptarContraseña" alignment="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace pref="18" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                                       <Component id="jLabel145" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel147" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="ctClaveAntigua" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jLabel148" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="ctClaveNueva" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="ctClaveAntigua" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel147" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel148" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctClaveNueva" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel149" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="ctConfirmarClave" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="bAceptarContraseña" min="-2" pref="35" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="21" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2599,12 +2595,12 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="18" style="1"/>
                                 </Property>
-                                <Property name="text" type="java.lang.String" value="CAMBIO DE CONTRASE&#xd1;A DE ACCESO:"/>
+                                <Property name="text" type="java.lang.String" value="CAMBIO DE CONTRASE&#xd1;A DE ACCESO"/>
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel147">
                               <Properties>
-                                <Property name="text" type="java.lang.String" value="CLAVE DE ACCESO A LA APLICACION"/>
+                                <Property name="text" type="java.lang.String" value="CLAVE DE ACCESO A LA APLICACION:"/>
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel148">
@@ -2644,74 +2640,73 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel80" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel82" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="ctComprobarIban" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="ctIbanCalcular" alignment="0" min="-2" pref="215" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="ctIbanCalculado" min="-2" pref="215" max="-2" attributes="0"/>
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Component id="bCalcular" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="bComprobarIban" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="labelIbanComprobado" min="-2" pref="91" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                          </Group>
+                                          <Component id="jLabel80" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel28" min="-2" pref="134" max="-2" attributes="0"/>
-                                                  <Component id="jLabel29" min="-2" pref="282" max="-2" attributes="0"/>
+                                                  <Component id="labelIbanComprobado" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="ctComprobarIban" min="-2" pref="215" max="-2" attributes="0"/>
                                               </Group>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="265" max="-2" attributes="0"/>
-                                              <Component id="bSeleccionaRuta" min="-2" pref="196" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="285" max="32767" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="bComprobarIban" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel82" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
+                                              <Component id="bCalcular" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="ctIbanCalculado" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="ctIbanCalcular" alignment="1" pref="215" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Component id="jLabel28" min="-2" pref="26" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="labelIbanComprobado" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                              <Component id="jLabel80" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="ctComprobarIban" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="bComprobarIban" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jLabel82" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="ctIbanCalcular" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jLabel80" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="ctComprobarIban" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="bComprobarIban" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel82" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ctIbanCalcular" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="ctIbanCalculado" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="bCalcular" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelIbanComprobado" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                      <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                      <Component id="bSeleccionaRuta" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="119" max="32767" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="bCalcular" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2719,6 +2714,9 @@
                           <SubComponents>
                             <Component class="javax.swing.JLabel" name="jLabel80">
                               <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Tahoma" size="11" style="1"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Comprobar IBAN:"/>
                               </Properties>
                             </Component>
@@ -2732,14 +2730,12 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bComprobarIbanActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JLabel" name="labelIbanComprobado">
-                              <Properties>
-                                <Property name="horizontalAlignment" type="int" value="4"/>
-                              </Properties>
-                            </Component>
                             <Component class="javax.swing.JLabel" name="jLabel82">
                               <Properties>
-                                <Property name="text" type="java.lang.String" value="Calcular Iban:"/>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Tahoma" size="11" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Calcular IBAN:"/>
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="ctIbanCalcular">
@@ -2765,24 +2761,10 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="14" style="1"/>
                                 </Property>
-                                <Property name="text" type="java.lang.String" value="Comprobar IBAN"/>
+                                <Property name="text" type="java.lang.String" value="COMPROBAR IBAN"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel29">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Tahoma" size="14" style="1"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Nueva ubicaci&#xf3;n para los clientes:"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="bSeleccionaRuta">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Selecciona la ruta"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bSeleccionaRutaActionPerformed"/>
-                              </Events>
+                            <Component class="javax.swing.JLabel" name="labelIbanComprobado">
                             </Component>
                           </SubComponents>
                         </Container>
@@ -2795,35 +2777,36 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel59" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel58" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace pref="134" max="32767" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="ctConfiguracionIvaActual" pref="60" max="32767" attributes="0"/>
-                                                  <Component id="ctConfiguracionIvaNuevo" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
+                                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                                      <Component id="jLabel112" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace pref="83" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
                                           <Component id="bConfiguracionCambioIva" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel112" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel59" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel58" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="ctConfiguracionIvaNuevo" min="-2" pref="60" max="-2" attributes="0"/>
+                                                  <Component id="ctConfiguracionIvaActual" min="-2" pref="60" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                       <Component id="jLabel112" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel58" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="ctConfiguracionIvaActual" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2833,9 +2816,9 @@
                                           <Component id="jLabel59" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="ctConfiguracionIvaNuevo" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="69" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                       <Component id="bConfiguracionCambioIva" min="-2" pref="35" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2860,7 +2843,7 @@
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="18" style="1"/>
                                 </Property>
-                                <Property name="text" type="java.lang.String" value="CAMBIO DEL IVA:"/>
+                                <Property name="text" type="java.lang.String" value="CAMBIO DEL IVA"/>
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JButton" name="bConfiguracionCambioIva">
@@ -2870,6 +2853,73 @@
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bConfiguracionCambioIvaActionPerformed"/>
                               </Events>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                        <Container class="proyectoempresalvp.datosUI.JPanelTranslucido" name="jPanelTranslucido3">
+
+                          <Layout>
+                            <DimensionLayout dim="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                                              <Component id="jLabel81" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="ctProgramaRutaActual" max="32767" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="bSeleccionaRuta" min="-2" pref="131" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                            </DimensionLayout>
+                            <DimensionLayout dim="1">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                      <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="ctProgramaRutaActual" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="bSeleccionaRuta" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel81" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace pref="42" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                            </DimensionLayout>
+                          </Layout>
+                          <SubComponents>
+                            <Component class="javax.swing.JLabel" name="jLabel29">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Tahoma" size="14" style="1"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="UBICACI&#xd3;N DE LAS CARPETAS DE LOS CLIENTES"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="bSeleccionaRuta">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Selecciona la ruta"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bSeleccionaRutaActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JTextField" name="ctProgramaRutaActual">
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel81">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Las Carpetas est&#xe1;n en:"/>
+                              </Properties>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -3121,7 +3171,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jPHitoricoFacturas" max="32767" attributes="0"/>
-                                      <Component id="jPanel8" pref="0" max="32767" attributes="0"/>
+                                      <Component id="jPanel8" pref="396" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">

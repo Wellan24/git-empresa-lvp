@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import proyectoempresalvp.datos.Cliente;
+import proyectoempresalvp.datos.Configuracion;
 import proyectoempresalvp.datos.Contrato;
 import proyectoempresalvp.datos.Dato;
 import proyectoempresalvp.datos.Empleado;
@@ -286,14 +287,12 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jLabel80 = new javax.swing.JLabel();
         ctComprobarIban = new javax.swing.JTextField();
         bComprobarIban = new javax.swing.JButton();
-        labelIbanComprobado = new javax.swing.JLabel();
         jLabel82 = new javax.swing.JLabel();
         ctIbanCalcular = new javax.swing.JTextField();
         ctIbanCalculado = new javax.swing.JTextField();
         bCalcular = new javax.swing.JButton();
         jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        bSeleccionaRuta = new javax.swing.JButton();
+        labelIbanComprobado = new javax.swing.JLabel();
         jPanel9 = new JPanelTranslucido();
         jLabel58 = new javax.swing.JLabel();
         jLabel59 = new javax.swing.JLabel();
@@ -301,6 +300,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         ctConfiguracionIvaNuevo = new javax.swing.JTextField();
         jLabel112 = new javax.swing.JLabel();
         bConfiguracionCambioIva = new javax.swing.JButton();
+        jPanelTranslucido3 = new proyectoempresalvp.datosUI.JPanelTranslucido();
+        jLabel29 = new javax.swing.JLabel();
+        bSeleccionaRuta = new javax.swing.JButton();
+        ctProgramaRutaActual = new javax.swing.JTextField();
+        jLabel81 = new javax.swing.JLabel();
         jPipc =  new javax.swing.JPanel();
         jScrollPane12 = new ScrollPaneTranslucido();
         tablaIPC =  new Tabla();
@@ -1815,9 +1819,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jPanelContras.setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel145.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel145.setText("CAMBIO DE CONTRASEÑA DE ACCESO:");
+        jLabel145.setText("CAMBIO DE CONTRASEÑA DE ACCESO");
 
-        jLabel147.setText("CLAVE DE ACCESO A LA APLICACION");
+        jLabel147.setText("CLAVE DE ACCESO A LA APLICACION:");
 
         jLabel148.setText("NUEVA CLAVE:");
 
@@ -1836,48 +1840,45 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jPanelContrasLayout.setHorizontalGroup(
             jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelContrasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bAceptarContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(23, 23, 23)
+                .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel145)
                     .addGroup(jPanelContrasLayout.createSequentialGroup()
                         .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel145)
-                            .addGroup(jPanelContrasLayout.createSequentialGroup()
-                                .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel147)
-                                    .addComponent(jLabel148)
-                                    .addComponent(jLabel149))
-                                .addGap(65, 65, 65)
-                                .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(ctClaveAntigua)
-                                    .addComponent(ctClaveNueva)
-                                    .addComponent(ctConfirmarClave, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(jLabel148)
+                            .addComponent(jLabel149)
+                            .addComponent(jLabel147))
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ctConfirmarClave, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ctClaveAntigua, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ctClaveNueva, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(bAceptarContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanelContrasLayout.setVerticalGroup(
             jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelContrasLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(24, 24, 24)
                 .addComponent(jLabel145)
-                .addGap(43, 43, 43)
-                .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelContrasLayout.createSequentialGroup()
-                        .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel147)
-                            .addComponent(ctClaveAntigua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel148))
+                .addGap(30, 30, 30)
+                .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ctClaveAntigua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel147))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel148)
                     .addComponent(ctClaveNueva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelContrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel149)
                     .addComponent(ctConfirmarClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
                 .addComponent(bAceptarContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
+        jLabel80.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel80.setText("Comprobar IBAN:");
 
         bComprobarIban.setText("Comprobar");
@@ -1887,9 +1888,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             }
         });
 
-        labelIbanComprobado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-
-        jLabel82.setText("Calcular Iban:");
+        jLabel82.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel82.setText("Calcular IBAN:");
 
         ctIbanCalcular.setForeground(new java.awt.Color(153, 153, 153));
         ctIbanCalcular.setText("Escriba aquí el nº de cuenta");
@@ -1902,75 +1902,64 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         });
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel28.setText("Comprobar IBAN");
-
-        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel29.setText("Nueva ubicación para los clientes:");
-
-        bSeleccionaRuta.setText("Selecciona la ruta");
-        bSeleccionaRuta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bSeleccionaRutaActionPerformed(evt);
-            }
-        });
+        jLabel28.setText("COMPROBAR IBAN");
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
         jPanel17Layout.setHorizontalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel17Layout.createSequentialGroup()
+                .addGap(70, 70, 70)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel80)
                     .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addGap(161, 161, 161)
+                        .addGap(22, 22, 22)
                         .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel80)
-                            .addComponent(jLabel82))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ctComprobarIban)
-                            .addComponent(ctIbanCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel17Layout.createSequentialGroup()
-                                .addComponent(ctIbanCalculado, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(bCalcular))
-                            .addGroup(jPanel17Layout.createSequentialGroup()
-                                .addComponent(bComprobarIban)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(labelIbanComprobado, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(labelIbanComprobado)
+                            .addComponent(ctComprobarIban, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addComponent(bComprobarIban)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel82)
                     .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(166, 166, 166)
+                        .addComponent(bCalcular))
                     .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addGap(265, 265, 265)
-                        .addComponent(bSeleccionaRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(285, Short.MAX_VALUE))
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ctIbanCalculado, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ctIbanCalcular, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE))))
+                .addGap(30, 30, 30))
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel28)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel17Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelIbanComprobado, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addComponent(jLabel82)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ctIbanCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel17Layout.createSequentialGroup()
                         .addComponent(jLabel80)
-                        .addComponent(ctComprobarIban, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(bComprobarIban)))
-                .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ctComprobarIban, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bComprobarIban))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel82)
-                    .addComponent(ctIbanCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ctIbanCalculado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bCalcular))
-                .addGap(35, 35, 35)
-                .addComponent(jLabel29)
-                .addGap(26, 26, 26)
-                .addComponent(bSeleccionaRuta)
-                .addContainerGap(119, Short.MAX_VALUE))
+                    .addComponent(labelIbanComprobado))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bCalcular)
+                .addGap(121, 121, 121))
         );
 
         jLabel58.setText("IVA (%) actual:");
@@ -1978,7 +1967,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jLabel59.setText("IVA(%) nuevo:");
 
         jLabel112.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel112.setText("CAMBIO DEL IVA:");
+        jLabel112.setText("CAMBIO DEL IVA");
 
         bConfiguracionCambioIva.setText("ACEPTAR");
         bConfiguracionCambioIva.addActionListener(new java.awt.event.ActionListener() {
@@ -1992,28 +1981,29 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(70, 70, 70)
+                .addComponent(jLabel112)
+                .addContainerGap(83, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(bConfiguracionCambioIva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel59)
-                            .addComponent(jLabel58))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ctConfiguracionIvaActual, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                            .addComponent(ctConfiguracionIvaNuevo)))
-                    .addComponent(bConfiguracionCambioIva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jLabel112)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(jLabel58, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ctConfiguracionIvaNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ctConfiguracionIvaActual, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(21, 21, 21))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(20, 20, 20)
                 .addComponent(jLabel112)
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel58)
                     .addComponent(ctConfiguracionIvaActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2021,9 +2011,53 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel59)
                     .addComponent(ctConfiguracionIvaNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addGap(42, 42, 42)
                 .addComponent(bConfiguracionCambioIva, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(22, 22, 22))
+        );
+
+        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel29.setText("UBICACIÓN DE LAS CARPETAS DE LOS CLIENTES");
+
+        bSeleccionaRuta.setText("Selecciona la ruta");
+        bSeleccionaRuta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSeleccionaRutaActionPerformed(evt);
+            }
+        });
+
+        jLabel81.setText("Las Carpetas están en:");
+
+        javax.swing.GroupLayout jPanelTranslucido3Layout = new javax.swing.GroupLayout(jPanelTranslucido3);
+        jPanelTranslucido3.setLayout(jPanelTranslucido3Layout);
+        jPanelTranslucido3Layout.setHorizontalGroup(
+            jPanelTranslucido3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTranslucido3Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(jPanelTranslucido3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelTranslucido3Layout.createSequentialGroup()
+                        .addComponent(jLabel29)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanelTranslucido3Layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(jLabel81)
+                        .addGap(18, 18, 18)
+                        .addComponent(ctProgramaRutaActual)
+                        .addGap(18, 18, 18)
+                        .addComponent(bSeleccionaRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32))))
+        );
+        jPanelTranslucido3Layout.setVerticalGroup(
+            jPanelTranslucido3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTranslucido3Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel29)
+                .addGap(18, 18, 18)
+                .addGroup(jPanelTranslucido3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ctProgramaRutaActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bSeleccionaRuta)
+                    .addComponent(jLabel81))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPcontraseñaLayout = new javax.swing.GroupLayout(jPcontraseña);
@@ -2031,25 +2065,28 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jPcontraseñaLayout.setHorizontalGroup(
             jPcontraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPcontraseñaLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPcontraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPcontraseñaLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addGroup(jPcontraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPcontraseñaLayout.createSequentialGroup()
                         .addComponent(jPanelContras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1930, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanelTranslucido3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(2272, Short.MAX_VALUE))
         );
         jPcontraseñaLayout.setVerticalGroup(
             jPcontraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPcontraseñaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPcontraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelContras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addGroup(jPcontraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelContras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(216, Short.MAX_VALUE))
+                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanelTranslucido3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         jPiva.addTab("CONFIGURACION", jPcontraseña);
@@ -2484,7 +2521,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addContainerGap()
                 .addGroup(jPhistoricoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPHitoricoFacturas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 396, Short.MAX_VALUE))
                 .addGap(71, 71, 71)
                 .addGroup(jPhistoricoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.LEADING)
@@ -3317,22 +3354,21 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }//GEN-LAST:event_bInicioActualizarContratosActionPerformed
 
     private void bSeleccionaRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSeleccionaRutaActionPerformed
-      
-        
-        
+          
             JFileChooser elegir = new JFileChooser();
+            elegir.setApproveButtonText("Elegir");
+            elegir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
             int opcion = elegir.showOpenDialog(bSeleccionaRuta);
-               
-                    //Si presionamos el boton ABRIR en pathArchivo obtenemos el path del archivo
-                    if (opcion == JFileChooser.APPROVE_OPTION) {
-                        String pathArchivo = elegir.getSelectedFile().getPath(); //Obtiene path del archivo
-                        String nombre = elegir.getSelectedFile().getName(); //obtiene nombre del archivo
-                       
-                        
-                    }
-        
-        
+            
+                switch (opcion){
                     
+                    case JFileChooser.APPROVE_OPTION:
+                        GestoraConfiguracion.put("RUTA", elegir.getSelectedFile().getAbsolutePath());
+                        ctProgramaRutaActual.setText(GestoraConfiguracion.get("RUTA").toString());
+                        break;
+                    case JFileChooser.CANCEL_OPTION:
+                        JOptionPane.showMessageDialog(this, "No has elegido ruta",  "Elegir", JOptionPane.INFORMATION_MESSAGE);
+                }                       
     }//GEN-LAST:event_bSeleccionaRutaActionPerformed
 
     private void cambiarContraseña() throws HeadlessException {
@@ -3397,14 +3433,14 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         java.awt.EventQueue.invokeLater(() -> {
 
             VentanaGUI ventana = new VentanaGUI();
-            DialogoEntrada d = new DialogoEntrada(ventana, true);
-            d.setVisible(true);
-            if(d.getReturnStatus() == DialogoEntrada.RET_OK) {
+//            DialogoEntrada d = new DialogoEntrada(ventana, true);
+//            d.setVisible(true);
+//            if(d.getReturnStatus() == DialogoEntrada.RET_OK) {
                 ventana.setVisible(true);
-            } else {
-                ventana.dispose();
-                System.exit(0);
-            }
+//            } else {
+//                ventana.dispose();
+//                System.exit(0);
+//            }
 
         });
     }
@@ -3556,6 +3592,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JTextField ctNfac;
     private javax.swing.JTextField ctNomb;
     private javax.swing.JTextField ctNumF;
+    private javax.swing.JTextField ctProgramaRutaActual;
     private javax.swing.JTextField ctProvin;
     private javax.swing.JTextField ctProxFactura;
     private javax.swing.JTextField ctTarCliente;
@@ -3668,6 +3705,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel84;
@@ -3705,6 +3743,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JPanel jPanelDatosContr;
     private proyectoempresalvp.datosUI.JPanelTranslucido jPanelTranslucido1;
     private proyectoempresalvp.datosUI.JPanelTranslucido jPanelTranslucido2;
+    private proyectoempresalvp.datosUI.JPanelTranslucido jPanelTranslucido3;
     private javax.swing.JPanel jPclientes;
     private javax.swing.JPanel jPcontraseña;
     private javax.swing.JPanel jPcontratos;
