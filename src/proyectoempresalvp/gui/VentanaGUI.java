@@ -60,12 +60,17 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         
         GestoraConfiguracion.recuperaConfiguracion();
         initTablas();
-        String iva = GestoraConfiguracion.get("IVA").toString();
-        ctporcenIva.setText(iva);
-        ctConfiguracionIvaActual.setText(iva);
+        rellenarCamposConfiguracion();
 
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+    }
+
+    private void rellenarCamposConfiguracion() {
+        String iva = GestoraConfiguracion.get("IVA").toString();
+        ctporcenIva.setText(iva);
+        ctConfiguracionIvaActual.setText(iva);
+        ctProgramaRutaActual.setText(GestoraConfiguracion.get("RUTA").toString());
     }
 
     /**
