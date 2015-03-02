@@ -1911,8 +1911,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jLabel82.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel82.setText("Calcular IBAN:");
 
-        ctIbanCalcular.setForeground(new java.awt.Color(153, 153, 153));
-        ctIbanCalcular.setText("Escriba aquí el nº de cuenta");
+        ctIbanCalcular.setToolTipText("Escriba aquí el nº de cuenta");
 
         bCalcular.setText("Calcular");
         bCalcular.addActionListener(new java.awt.event.ActionListener() {
