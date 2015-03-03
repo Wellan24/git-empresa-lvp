@@ -6,9 +6,11 @@
 package proyectoempresalvp.gui;
 
 import java.awt.HeadlessException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -51,6 +53,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         initComponents();
         rellenarCombosPeriodo();
+        establecerFecha();
 
         listaConceptos.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         GestoraBaseDatos.conectarBaseDatos();
@@ -109,6 +112,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         tAreaInicioContratos = new javax.swing.JTextArea();
         jLabel79 = new javax.swing.JLabel();
         bInicioActualizarContratos = new javax.swing.JButton();
+        jPanel10 = new JPanelTranslucido();
+        labelFecha = new javax.swing.JLabel();
         jPclientes = PanelImagen.dameNuevoPanelSinLetras();
         jPinsertarCli = new JPanelTranslucido();
         jLabel1 = new javax.swing.JLabel();
@@ -516,6 +521,28 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
+        jPanel10.setBackground(new java.awt.Color(204, 204, 204));
+
+        labelFecha.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 36)); // NOI18N
+        labelFecha.setText("jLabel16");
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(95, 95, 95))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(labelFecha)
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPinicioLayout = new javax.swing.GroupLayout(jPinicio);
         jPinicio.setLayout(jPinicioLayout);
         jPinicioLayout.setHorizontalGroup(
@@ -524,7 +551,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addGap(56, 56, 56)
                 .addComponent(jPanelTranslucido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70)
-                .addComponent(jPanelTranslucido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPinicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelTranslucido2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(92, Short.MAX_VALUE))
         );
         jPinicioLayout.setVerticalGroup(
@@ -534,7 +563,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addGroup(jPinicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelTranslucido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanelTranslucido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(480, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(117, 117, 117))
         );
 
         PanelPestañasPrincipal.addTab("INICIO", jPinicio);
@@ -3432,6 +3463,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JLabel jLabel99;
     private javax.swing.JPanel jPHitoricoFacturas;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
@@ -3481,6 +3513,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTable jTableContratos;
+    private javax.swing.JLabel labelFecha;
     private javax.swing.JLabel labelIbanComprobado;
     private javax.swing.JList listaConceptos;
     private javax.swing.JRadioButton rbCliEmp;
@@ -3845,6 +3878,19 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASEXTRA || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
             actualizarTabla(tablaFacExtra, GestoraDatos.dameGestora().get(FacturaExtra.getTabla()));
         }
+    }
+    
+    
+    public void establecerFecha(){
+        
+        /*Calendar cal = Calendar.getInstance();
+        String fecha = cal.get(cal.DATE)+"/"+cal.get(cal.MONTH)+"/"+cal.get(cal.YEAR);
+        String hora = cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND); */
+        
+        Date now = new Date(System.currentTimeMillis());
+        SimpleDateFormat fecha = new SimpleDateFormat("dd-MM-yyyy");
+        
+        labelFecha.setText(fecha.format(now));
     }
 
 }
