@@ -35,6 +35,7 @@ import proyectoempresalvp.gestoras.Gestora;
 import proyectoempresalvp.gestoras.GestoraBaseDatos;
 import proyectoempresalvp.gestoras.GestoraConfiguracion;
 import proyectoempresalvp.gestoras.Datos.GestoraDatos;
+import proyectoempresalvp.gestoras.Datos.GestoraFacturas;
 import proyectoempresalvp.gestoras.Datos.GestoraTareas;
 import proyectoempresalvp.gestoras.Datos.Procesador;
 import proyectoempresalvp.gestoras.Datos.ProcesadorContratos;
@@ -2908,7 +2909,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }//GEN-LAST:event_ctProxFacturaActionPerformed
 
     private void bGenerarFacturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGenerarFacturacionActionPerformed
-        // TODO add your handling code here:
+        
+        GestoraFacturas.generarFacturas(cbPeriodoMes.getSelectedItem().toString(), cbPeriodoAño.getSelectedItem().toString());
+        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASMENSUALES, null, Gestora.numeroPeriodoPorNombre(cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString()));
     }//GEN-LAST:event_bGenerarFacturacionActionPerformed
 
     private void ctIvaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctIvaaActionPerformed

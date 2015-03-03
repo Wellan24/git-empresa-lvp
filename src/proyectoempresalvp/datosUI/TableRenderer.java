@@ -66,7 +66,9 @@ public class TableRenderer extends JLabel implements TableCellRenderer {
         if(hasFocus) {
             setBackground(colorAzulSeleccionado);
         }
-
+        if(value == null)
+            setText("");
+            
         return this;
     }
 
