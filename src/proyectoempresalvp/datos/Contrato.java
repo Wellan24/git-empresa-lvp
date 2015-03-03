@@ -10,13 +10,13 @@ import java.util.Date;
 
 public class Contrato extends Dato implements Comparable<Contrato> {
 
-    private static final String[] orden = {"NUMCONTRATO", "NUMCLIENTE", "DESCRIPCION", "INICIOCONTRATO", "FINCONTRATO", "EUROSAÑO", "EUROSMES",
-        "SITUACION", "FORMAPAGO", "DIACOBRO", "TANTOIVA", "ESTADO"};
+    private static final String[] orden = {"NUMCONTRATO", "NUMCLIENTE", "DESCRIPCION", "INICIOCONTRATO", "FINCONTRATO", "EUROSAÑO", "EUROSMES", 
+        "FORMAPAGO", "DIACOBRO", "TANTOIVA", "ESTADO"};
     private static final String tabla = "CONTRATOS";
 
     /**
      * Las claves son: NUMCONTRATO, NUMCLIENTE, DESCRIPCION,INICIOCONTRATO,
-     * FINCONTRATO, EUROSAÑO, EUROSMES, SITUACION, FORMAPAGO, DIACOBRO, TANTOIVA
+     * FINCONTRATO, EUROSAÑO, EUROSMES, FORMAPAGO, DIACOBRO, TANTOIVA, ESTADO
      *
      * @param numContrato
      * @param numCliente
@@ -25,14 +25,14 @@ public class Contrato extends Dato implements Comparable<Contrato> {
      * @param finContrato
      * @param eurosAño
      * @param eurosMes
-     * @param situacion
      * @param formaPago
      * @param diaCobro
      * @param tantoIva
+     * @param estado
      */
     public Contrato(int numContrato, int numCliente, String descripcion,
             Fecha inicioContrato, Fecha finContrato, String eurosAño, String eurosMes,
-            String situacion, String formaPago, int diaCobro, int tantoIva) {
+            String formaPago, int diaCobro, int tantoIva) {
         super(12);
         this.put("NUMCONTRATO", numContrato);
         this.put("NUMCLIENTE", numCliente);
@@ -41,7 +41,6 @@ public class Contrato extends Dato implements Comparable<Contrato> {
         this.put("FINCONTRATO", finContrato);
         this.put("EUROSAÑO", eurosAño);
         this.put("EUROSMES", eurosMes);
-        this.put("SITUACION", situacion);
         this.put("FORMAPAGO", formaPago);
         this.put("DIACOBRO", diaCobro);
         this.put("TANTOIVA", tantoIva);
@@ -50,7 +49,7 @@ public class Contrato extends Dato implements Comparable<Contrato> {
     
     public Contrato(int numContrato, int numCliente, String descripcion,
             Fecha inicioContrato, Fecha finContrato, int eurosAño, int eurosMes,
-            String situacion, String formaPago, int diaCobro, int tantoIva, boolean estado) {
+            String formaPago, int diaCobro, int tantoIva, boolean estado) {
         super(12);
         this.put("NUMCONTRATO", numContrato);
         this.put("NUMCLIENTE", numCliente);
@@ -59,7 +58,6 @@ public class Contrato extends Dato implements Comparable<Contrato> {
         this.put("FINCONTRATO", finContrato);
         this.put("EUROSAÑO", eurosAño);
         this.put("EUROSMES", eurosMes);
-        this.put("SITUACION", situacion);
         this.put("FORMAPAGO", formaPago);
         this.put("DIACOBRO", diaCobro);
         this.put("TANTOIVA", tantoIva);
@@ -75,7 +73,6 @@ public class Contrato extends Dato implements Comparable<Contrato> {
         this.put("FINCONTRATO", new Fecha("1/1/2015"));
         this.put("EUROSAÑO", 0);
         this.put("EUROSMES", 0);
-        this.put("SITUACION", "");
         this.put("FORMAPAGO", "");
         this.put("DIACOBRO", 0);
         this.put("TANTOIVA", 0);

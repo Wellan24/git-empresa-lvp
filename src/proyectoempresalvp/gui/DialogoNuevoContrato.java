@@ -81,8 +81,6 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
         ctIAeur = new javax.swing.JTextField();
         ctIMeur = new javax.swing.JTextField();
         ctFormPag = new javax.swing.JTextField();
-        jLabel81 = new javax.swing.JLabel();
-        ctSitua = new javax.swing.JTextField();
         ctDiaCobro2 = new javax.swing.JTextField();
         ctDiaCobr1 = new javax.swing.JTextField();
         jLabel83 = new javax.swing.JLabel();
@@ -248,8 +246,6 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
             }
         });
 
-        jLabel81.setText("Situación:");
-
         jLabel83.setText("Ref Hoja Banco:");
 
         jLabel77.setText("Día Cobro:");
@@ -277,27 +273,28 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
                             .addComponent(jLabel72)
                             .addComponent(jLabel74)
                             .addComponent(jLabel83)
-                            .addComponent(jLabel81, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel77))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDatosContrLayout.createSequentialGroup()
+                .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDatosContrLayout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addComponent(ctDiaCobro2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDatosContrLayout.createSequentialGroup()
+                                .addComponent(jLabel76)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ctPerFin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(ctIAeur, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ctIMeur, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ctFormPag, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelDatosContrLayout.createSequentialGroup()
                         .addComponent(ctDiaCobr1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(77, 77, 77)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ctIvaCon, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDatosContrLayout.createSequentialGroup()
-                            .addGap(53, 53, 53)
-                            .addComponent(ctDiaCobro2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDatosContrLayout.createSequentialGroup()
-                            .addComponent(jLabel76)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ctPerFin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(ctIAeur, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ctIMeur, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ctSitua, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ctFormPag, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ctRefHojBan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDatosContrLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ctRefHojBan, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanelDatosContrLayout.setVerticalGroup(
@@ -327,21 +324,16 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
                 .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel74)
                     .addComponent(ctFormPag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel81)
-                    .addComponent(ctSitua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ctDiaCobr1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel77))
+                    .addComponent(jLabel77)
+                    .addComponent(ctDiaCobr1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ctIvaCon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel83)
                     .addComponent(ctRefHojBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         bCrear.setBackground(new java.awt.Color(51, 255, 204));
@@ -356,7 +348,7 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
         panelNuevoContrato.setLayout(panelNuevoContratoLayout);
         panelNuevoContratoLayout.setHorizontalGroup(
             panelNuevoContratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNuevoContratoLayout.createSequentialGroup()
+            .addGroup(panelNuevoContratoLayout.createSequentialGroup()
                 .addContainerGap(625, Short.MAX_VALUE)
                 .addComponent(bCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
@@ -371,7 +363,7 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
         panelNuevoContratoLayout.setVerticalGroup(
             panelNuevoContratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNuevoContratoLayout.createSequentialGroup()
-                .addContainerGap(563, Short.MAX_VALUE)
+                .addContainerGap(569, Short.MAX_VALUE)
                 .addComponent(bCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(panelNuevoContratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -457,12 +449,16 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
 
             Contrato nuevoContrato = new Contrato(Integer.parseInt(ctNumCon.getText()), //NUMCONTRATO
                     Integer.parseInt(comboNumeroCliente.getSelectedItem().toString()), //NUMCLIENTE
-                    ctDes.getText(), new Fecha(inicio), new Fecha(fin), //DESCRIPCION,INICIO,FIN
-                    ctIAeur.getText(), //EUROSAÑO
-                    ctIMeur.getText(), //EUROSMES
-                    ctSitua.getText(), ctFormPag.getText(), //SITUACION,FORMAPAGO
+                    ctDes.getText(), //DESCRIPCION
+                    new Fecha(inicio), new Fecha(fin), //INICIO,FIN
+                    Integer.parseInt(ctIAeur.getText()), //EUROSAÑO
+                    Integer.parseInt(ctIMeur.getText()), //EUROSMES
+                    ctFormPag.getText(), //FORMAPAGO
                     Integer.parseInt(ctDiaCobr1.getText()), //DIACOBRO
-                    Integer.parseInt(ctIvaCon.getText()));//TANTO IVA
+                    Integer.parseInt(ctIvaCon.getText()),//TANTO IVA
+                    true);//ESTADO
+            
+            
 
             if(GestoraBaseDatos.insertarDato(nuevoContrato)) {
 
@@ -497,7 +493,6 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
     private javax.swing.JTextField ctPerIn;
     private javax.swing.JTextField ctProvinci;
     private javax.swing.JTextField ctRefHojBan;
-    private javax.swing.JTextField ctSitua;
     private javax.swing.JTextField ctTelefon;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
@@ -517,7 +512,6 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel77;
-    private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel83;
     private javax.swing.JPanel jPanelDatosCli;
     private javax.swing.JPanel jPanelDatosContr;
