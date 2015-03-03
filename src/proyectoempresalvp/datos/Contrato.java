@@ -81,6 +81,10 @@ public class Contrato extends Dato implements Comparable<Contrato> {
         this.put("TANTOIVA", 0);
         this.put("ESTADO", false);
     }
+    
+    private Contrato(Dato d) {
+        super(d);
+    }
 
     @Override
     public String devuelveNombreTablaDato() {
@@ -165,6 +169,6 @@ public class Contrato extends Dato implements Comparable<Contrato> {
     @Override
     public Dato copia() {
         
-        return (Dato)this.clone();
+        return new Contrato(this);
     }
 }

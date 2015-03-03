@@ -10,6 +10,7 @@ import proyectoempresalvp.gestoras.GestoraBaseDatos;
 import proyectoempresalvp.gestoras.Datos.GestoraDatos;
 import proyectoempresalvp.gestoras.Datos.GestoraFacturas;
 import proyectoempresalvp.gestoras.Datos.Procesador;
+import proyectoempresalvp.gestoras.GestoraConfiguracion;
 import proyectoempresalvp.gestoras.ObservadorGestoraDatos;
 
 /**
@@ -24,6 +25,7 @@ public class ProyectoEmpresaLVP implements ObservadorGestoraDatos {
     public static void main(String[] args) throws SQLException, InterruptedException {
 
         GestoraBaseDatos.conectarBaseDatos();
+        GestoraConfiguracion.recuperaConfiguracion();
         GestoraDatos.setObservador(new ProyectoEmpresaLVP());
         GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS);
     }
@@ -31,7 +33,7 @@ public class ProyectoEmpresaLVP implements ObservadorGestoraDatos {
     @Override
     public void avisar(int datoActualizado, Procesador procesador) {
 
-        GestoraFacturas.generarFacturas("AGO", "2015");
+        GestoraFacturas.generarFacturas("AGO", "2014");
         GestoraBaseDatos.cerrarConexion();
     }
 }

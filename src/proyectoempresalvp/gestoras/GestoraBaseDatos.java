@@ -99,8 +99,6 @@ public class GestoraBaseDatos {
         if(!comprobarExiste(d)) {
 
             StringBuilder textoSentencia = construyeSentenciaInsert(d, claves);
-
-            System.out.println(textoSentencia.toString());
             GestoraBaseDatos.ejecutarSentenciaUpdate(textoSentencia.toString());
             return comprobarExiste(d);
         }
