@@ -28,7 +28,6 @@ public class Contrato extends Dato implements Comparable<Contrato> {
      * @param formaPago
      * @param diaCobro
      * @param tantoIva
-     * @param estado
      */
     public Contrato(int numContrato, int numCliente, String descripcion,
             Fecha inicioContrato, Fecha finContrato, String eurosAño, String eurosMes,
