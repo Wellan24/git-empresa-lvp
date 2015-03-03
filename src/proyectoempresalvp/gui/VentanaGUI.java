@@ -415,6 +415,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         bComprobarTareas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("LIMPIEZAS VERDEJO PELAEZ");
         setPreferredSize(new java.awt.Dimension(1200, 840));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
