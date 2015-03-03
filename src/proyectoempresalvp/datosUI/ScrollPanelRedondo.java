@@ -40,6 +40,6 @@ public class ScrollPanelRedondo extends JScrollPane{
 
         g2.setStroke(new BasicStroke(4f));
         g2.setPaint(Color.BLACK);
-        g2.drawRoundRect(0, 0, getWidth() - 2, getHeight() - 2, 0, 0);
+        g2.drawRoundRect(0, 0, getWidth(), getHeight(), 0, 0);
     }
 }

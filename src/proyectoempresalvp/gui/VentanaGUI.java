@@ -6,12 +6,14 @@
 package proyectoempresalvp.gui;
 
 import java.awt.HeadlessException;
+import java.awt.Image;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -53,14 +55,16 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         initComponents();
         rellenarCombosPeriodo();
+        ImageIcon imagenFondo = new ImageIcon(PanelImagen.class.getResource("/images/logoContraseña.png"));
+        Image imagen = imagenFondo.getImage();
+        this.setIconImage(imagen);
+
         establecerFecha();
 
         listaConceptos.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         GestoraBaseDatos.conectarBaseDatos();
         GestoraDatos.setObservador(this);
 
-        
-        
         GestoraConfiguracion.recuperaConfiguracion();
         initTablas();
         rellenarCamposConfiguracion();
@@ -795,7 +799,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addComponent(jLabel17)
                 .addGap(27, 27, 27)
                 .addGroup(jPclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPinsertarCli, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPinsertarCli, javax.swing.GroupLayout.PREFERRED_SIZE, 548, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -2323,9 +2327,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     .addGroup(jPhistoricoLayout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addGroup(jPhistoricoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPhistoricoLayout.createSequentialGroup()
-                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPhistoricoLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2334,7 +2336,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                         .addComponent(bImprim, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(39, 39, 39)
                 .addGroup(jPhistoricoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 396, Short.MAX_VALUE)
                     .addComponent(jPHitoricoFacturas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(53, 53, 53))
         );
@@ -3070,7 +3072,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         int numPeriodoInicial = Integer.parseInt(cbAño.getSelectedItem().toString() + "00");
 
         int numPeriodoFinal = Integer.parseInt(cbAño.getSelectedItem().toString() + "15");
-        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASMENSUALES_AÑO, null,  " where NUMPERIODO >= " + numPeriodoInicial + " AND NUMPERIODO <= " + numPeriodoFinal);
+        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASMENSUALES_AÑO, null, " where NUMPERIODO >= " + numPeriodoInicial + " AND NUMPERIODO <= " + numPeriodoFinal);
     }//GEN-LAST:event_cbAñoActionPerformed
 
     private void bCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcularActionPerformed
@@ -3102,26 +3104,26 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }//GEN-LAST:event_bConfiguracionCambioIvaActionPerformed
 
     private void bInicioActualizarContratosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInicioActualizarContratosActionPerformed
-       
+
         GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS, new ProcesadorContratos());
     }//GEN-LAST:event_bInicioActualizarContratosActionPerformed
 
     private void bSeleccionaRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSeleccionaRutaActionPerformed
-          
-            JFileChooser elegir = new JFileChooser();
-            elegir.setApproveButtonText("Elegir");
-            elegir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-            int opcion = elegir.showOpenDialog(bSeleccionaRuta);
-            
-                switch (opcion){
-                    
-                    case JFileChooser.APPROVE_OPTION:
-                        GestoraConfiguracion.put("RUTA", elegir.getSelectedFile().getAbsolutePath());
-                        ctProgramaRutaActual.setText(GestoraConfiguracion.get("RUTA").toString());
-                        break;
-                    case JFileChooser.CANCEL_OPTION:
-                        JOptionPane.showMessageDialog(this, "No has elegido ruta",  "Elegir", JOptionPane.INFORMATION_MESSAGE);
-                }                       
+
+        JFileChooser elegir = new JFileChooser();
+        elegir.setApproveButtonText("Elegir");
+        elegir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int opcion = elegir.showOpenDialog(bSeleccionaRuta);
+
+        switch(opcion) {
+
+            case JFileChooser.APPROVE_OPTION:
+                GestoraConfiguracion.put("RUTA", elegir.getSelectedFile().getAbsolutePath());
+                ctProgramaRutaActual.setText(GestoraConfiguracion.get("RUTA").toString());
+                break;
+            case JFileChooser.CANCEL_OPTION:
+                JOptionPane.showMessageDialog(this, "No has elegido ruta", "Elegir", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_bSeleccionaRutaActionPerformed
 
     private void cambiarContraseña() throws HeadlessException {
@@ -3189,7 +3191,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 //            DialogoEntrada d = new DialogoEntrada(ventana, true);
 //            d.setVisible(true);
 //            if(d.getReturnStatus() == DialogoEntrada.RET_OK) {
-                ventana.setVisible(true);
+            ventana.setVisible(true);
 //            } else {
 //                ventana.dispose();
 //                System.exit(0);
@@ -3697,7 +3699,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         ctContratoDiaCobro1.setText(con.get("DIACOBRO").toString());
         ctContratoIva.setText(con.get("TANTOIVA").toString());
         cbContratoEstado.setSelected((boolean) con.get("ESTADO"));
-       
 
     }
 
@@ -3849,7 +3850,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     @Override
     public void avisar(int datoActualizado, Procesador procesador) {
-        
 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_EMPLEADOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
             actualizarTabla(tablaEmple, GestoraDatos.dameGestora().get(Empleado.getTabla()));
@@ -3879,17 +3879,15 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             actualizarTabla(tablaFacExtra, GestoraDatos.dameGestora().get(FacturaExtra.getTabla()));
         }
     }
-    
-    
-    public void establecerFecha(){
-        
+
+    private void establecerFecha() {
+
         /*Calendar cal = Calendar.getInstance();
-        String fecha = cal.get(cal.DATE)+"/"+cal.get(cal.MONTH)+"/"+cal.get(cal.YEAR);
-        String hora = cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND); */
-        
+         String fecha = cal.get(cal.DATE)+"/"+cal.get(cal.MONTH)+"/"+cal.get(cal.YEAR);
+         String hora = cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND); */
         Date now = new Date(System.currentTimeMillis());
         SimpleDateFormat fecha = new SimpleDateFormat("dd-MM-yyyy");
-        
+
         labelFecha.setText(fecha.format(now));
     }
 
