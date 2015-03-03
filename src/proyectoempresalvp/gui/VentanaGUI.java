@@ -55,7 +55,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         initComponents();
         rellenarCombosPeriodo();
-        ImageIcon imagenFondo = new ImageIcon(PanelImagen.class.getResource("/images/logoContraseña.png"));
+        ImageIcon imagenFondo = new ImageIcon(PanelImagen.class.getResource("/images/icono.jpg"));
         Image imagen = imagenFondo.getImage();
         this.setIconImage(imagen);
 
