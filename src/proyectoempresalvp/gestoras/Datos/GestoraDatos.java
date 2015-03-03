@@ -52,7 +52,7 @@ public class GestoraDatos extends HashMap<String, ArrayListDato<Dato>>{
     public static void actualizaDatos(int datoActualizar, Procesador p, int numPeriodo){
         
         
-            new Thread(new HiloActualizarDatos(datoActualizar, p, numPeriodo)).start();
+            new Thread(new HiloActualizarDatos(datoActualizar, p, " where NUMPERIODO = " + numPeriodo)).start();
     }
     
     public static void actualizaDatos(int datoActualizar, Procesador p, String where){

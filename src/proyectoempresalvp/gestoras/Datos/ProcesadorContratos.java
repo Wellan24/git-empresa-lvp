@@ -22,14 +22,19 @@ public class ProcesadorContratos implements Procesador<Contrato> {
     @Override
     public void procesar(Dato d) {
 
-        if((Boolean)d.get("ESTADO") != false) {
-            
+        if((Boolean) d.get("ESTADO") != false) {
+
             Fecha fechaFin = (Fecha) d.get("FINCONTRATO");
             int dif = UtilidadesTareas.calcularDiferenciaFechas(fechaFin, fechaActual);
 
             if(dif <= 60) {
 
-                resul.append("Contrato Nº: ").append(d.get("NUMCONTRATO")).append(", Cliente: ").append(d.get("DESCRIPCION")).append("\n");
+                resul.append("Contrato Nº: ").append(d.get("NUMCONTRATO")).append(", Cliente: ").append(d.get("DESCRIPCION"));
+
+                if(dif < 0)
+                    resul.append(" CADUCADO");
+
+                resul.append("\n");
             }
         }
     }

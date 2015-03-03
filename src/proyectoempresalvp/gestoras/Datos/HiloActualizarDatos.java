@@ -35,13 +35,6 @@ public class HiloActualizarDatos implements Runnable {
     private Procesador procesador;
     
     public static int i = 0;
-
-    public HiloActualizarDatos(int datoActualizar, Procesador p, int numPeriodo) {
-        
-        this.datoActualizar = datoActualizar;
-        this.numPeriodo = numPeriodo;
-        this.procesador = p;
-    }
     
     public HiloActualizarDatos(int datoActualizar, Procesador p, String where) {
         
@@ -87,7 +80,7 @@ public class HiloActualizarDatos implements Runnable {
 
     private void actualizarFacturasMes() {
 
-        recuperarConDummy(new FacturaMensual(), " where NUMPERIODO = " + numPeriodo);
+        recuperarConDummy(new FacturaMensual(), where);
     }
     
     private void actualizarFacturasMesAño() {
