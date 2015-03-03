@@ -42,7 +42,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace pref="625" max="32767" attributes="0"/>
                   <Component id="bCrear" min="-2" pref="109" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
@@ -62,7 +62,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="563" max="32767" attributes="0"/>
+                  <EmptySpace pref="569" max="32767" attributes="0"/>
                   <Component id="bCrear" min="-2" pref="58" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -321,34 +321,37 @@
                                   <Component id="jLabel72" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel74" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel83" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel81" alignment="0" min="-2" pref="67" max="-2" attributes="0"/>
                                   <Component id="jLabel77" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                      <Component id="ctDiaCobro2" min="-2" pref="94" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jLabel76" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="ctPerFin" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="ctIAeur" alignment="1" min="-2" pref="132" max="-2" attributes="0"/>
+                              <Component id="ctIMeur" alignment="1" min="-2" pref="132" max="-2" attributes="0"/>
+                              <Component id="ctFormPag" alignment="1" min="-2" pref="75" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
                               <Component id="ctDiaCobr1" min="-2" pref="29" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="ctIvaCon" min="-2" pref="41" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                  <Component id="ctDiaCobro2" min="-2" pref="94" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabel76" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="ctPerFin" min="-2" pref="100" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="ctRefHojBan" min="-2" pref="115" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="ctIAeur" alignment="1" min="-2" pref="132" max="-2" attributes="0"/>
-                          <Component id="ctIMeur" alignment="1" min="-2" pref="132" max="-2" attributes="0"/>
-                          <Component id="ctSitua" alignment="1" min="-2" pref="109" max="-2" attributes="0"/>
-                          <Component id="ctFormPag" alignment="1" min="-2" pref="75" max="-2" attributes="0"/>
-                          <Component id="ctRefHojBan" alignment="1" min="-2" pref="115" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="23" max="32767" attributes="0"/>
                   </Group>
@@ -386,25 +389,18 @@
                           <Component id="jLabel74" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="ctFormPag" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel81" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ctSitua" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel77" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ctDiaCobr1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ctIvaCon" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="ctDiaCobr1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel77" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="ctIvaCon" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel83" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ctRefHojBan" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel83" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="ctRefHojBan" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="23" max="32767" attributes="0"/>
+                      <EmptySpace pref="73" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -470,13 +466,6 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="ctFormPag">
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel81">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Situaci&#xf3;n:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="ctSitua">
             </Component>
             <Component class="javax.swing.JTextField" name="ctDiaCobro2">
             </Component>
