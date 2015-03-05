@@ -25,18 +25,16 @@ public class ProyectoEmpresaLVP implements ObservadorGestoraDatos {
      */
     public static void main(String[] args) throws SQLException, InterruptedException {
 
-//        GestoraBaseDatos.conectarBaseDatos();
-//        GestoraConfiguracion.recuperaConfiguracion();
-//        GestoraDatos.setObservador(new ProyectoEmpresaLVP());
-//        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS);
+        GestoraBaseDatos.conectarBaseDatos();
+        GestoraConfiguracion.recuperaConfiguracion();
+        GestoraDatos.setObservador(new ProyectoEmpresaLVP());
+        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CLIENTES);       
         
-        new GestoraArchivos().start();
     }
 
     @Override
     public void avisar(int datoActualizado, Procesador procesador) {
 
-        GestoraFacturas.generarFacturas("AGO", "2014");
-        GestoraBaseDatos.cerrarConexion();
+        new GestoraArchivos().start();
     }
 }
