@@ -3,6 +3,7 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<subDataset name="Table Dataset 1" uuid="a4295f11-f5fd-4afa-8655-e8f08fa6a561"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -43,10 +44,14 @@
 			<line>
 				<reportElement x="0" y="113" width="549" height="1" uuid="822be0b6-41d9-4cc8-bdea-2eb860aeab68"/>
 			</line>
+			<image>
+				<reportElement x="0" y="0" width="120" height="90" uuid="d423fc46-9508-4ff2-8700-117db97b593e"/>
+				<imageExpression><![CDATA["H:\\Proyectos NetBeans\\ProyectoEmpresa\\git-empresa-lvp\\src\\images\\imagenReport.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="106" splitType="Stretch">
+		<band height="127" splitType="Stretch">
 			<rectangle>
 				<reportElement x="0" y="12" width="200" height="20" uuid="837f4a4c-6ef1-4cec-b01c-c61ebf1ec1bd"/>
 			</rectangle>
@@ -58,7 +63,7 @@
 				<text><![CDATA[FACTURA]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement x="0" y="32" width="200" height="40" uuid="a51ccce3-1604-4578-bf90-0a40cca600d4"/>
+				<reportElement x="0" y="32" width="200" height="31" uuid="a51ccce3-1604-4578-bf90-0a40cca600d4"/>
 			</rectangle>
 			<staticText>
 				<reportElement x="0" y="32" width="56" height="15" uuid="5464800f-497e-4a24-92f4-87a5356325ae"/>
@@ -70,9 +75,32 @@
 				<textElement textAlignment="Left" verticalAlignment="Bottom"/>
 				<text><![CDATA[  Fecha:]]></text>
 			</staticText>
+			<rectangle>
+				<reportElement x="0" y="107" width="416" height="20" uuid="3dec4aa0-3b14-46b5-9166-4279bf7a3354"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="416" y="107" width="133" height="20" uuid="285904e8-c2b1-40bc-a37d-8ca69b5ff2d2"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="107" width="416" height="20" uuid="fda00b19-0167-45ca-b727-d88060a68737"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Concepto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="416" y="107" width="133" height="20" uuid="0c8ebb80-b385-4f64-9770-bcbc360d26f3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Importe]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="221" splitType="Stretch"/>
+		<band height="160" splitType="Stretch"/>
 	</detail>
+        <pageFooter>
+            <band height="40" splitType="Stretch"/>            
+        </pageFooter>
 </jasperReport>
