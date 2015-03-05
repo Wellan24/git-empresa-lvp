@@ -1,53 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="549" leftMargin="23" rightMargin="23" topMargin="24" bottomMargin="23" uuid="9a746757-5ec3-4909-a4a4-07a6c45f3952">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="545" leftMargin="25" rightMargin="25" topMargin="25" bottomMargin="25" uuid="9a746757-5ec3-4909-a4a4-07a6c45f3952">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<subDataset name="Table Dataset 1" uuid="a4295f11-f5fd-4afa-8655-e8f08fa6a561"/>
+	<parameter name="IVA" class="java.lang.String"/>
+	<parameter name="NUMEROFACTURA" class="java.lang.String"/>
+	<field name="CONCEPTO" class="java.lang.String"/>
+	<field name="IMPORTE" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<pageHeader>
 		<band height="114" splitType="Stretch">
 			<staticText>
-				<reportElement x="323" y="0" width="226" height="20" uuid="7b3c34c1-438c-42b8-88d4-fb5137259c3a"/>
+				<reportElement x="319" y="0" width="226" height="20" uuid="7b3c34c1-438c-42b8-88d4-fb5137259c3a"/>
 				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[LIMPIEZAS VERDEJO PELÁEZ, S.L.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="323" y="20" width="226" height="14" uuid="1a1449e7-65cb-48f7-845e-cd98d079cf79"/>
-				<textElement textAlignment="Center"/>
+				<reportElement x="319" y="20" width="226" height="14" uuid="1a1449e7-65cb-48f7-845e-cd98d079cf79"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[C/ Olivo, 18]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="323" y="34" width="226" height="15" uuid="9b3b0d8b-e3e5-41d2-bc11-0c6bb7a9236b"/>
-				<textElement textAlignment="Center"/>
+				<reportElement x="319" y="34" width="226" height="14" uuid="9b3b0d8b-e3e5-41d2-bc11-0c6bb7a9236b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[47140 LAGUNA DE DUERO (Valladolid)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="323" y="49" width="226" height="14" uuid="9c9afbd2-8859-4d85-a2db-dd5a75f92cce"/>
-				<textElement textAlignment="Center"/>
+				<reportElement x="319" y="49" width="226" height="14" uuid="9c9afbd2-8859-4d85-a2db-dd5a75f92cce"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[Tel.: 983 54 05 69 * Móvil: 670 75 23 83]]></text>
 			</staticText>
 			<line>
-				<reportElement x="0" y="93" width="549" height="1" uuid="822be0b6-41d9-4cc8-bdea-2eb860aeab68"/>
+				<reportElement x="0" y="93" width="545" height="1" uuid="822be0b6-41d9-4cc8-bdea-2eb860aeab68"/>
 			</line>
 			<staticText>
-				<reportElement x="0" y="94" width="549" height="19" uuid="fe8f59f2-a94a-43cf-9158-84d3a691634e"/>
+				<reportElement x="0" y="94" width="545" height="19" uuid="fe8f59f2-a94a-43cf-9158-84d3a691634e"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[SERVICIO DE LIMPIEZAS, JARDINERIA, MANTENIMIENTO Y DESATRANQUES]]></text>
 			</staticText>
 			<line>
-				<reportElement x="0" y="113" width="549" height="1" uuid="822be0b6-41d9-4cc8-bdea-2eb860aeab68"/>
+				<reportElement x="0" y="113" width="545" height="1" uuid="822be0b6-41d9-4cc8-bdea-2eb860aeab68"/>
 			</line>
 			<image>
 				<reportElement x="0" y="0" width="120" height="90" uuid="d423fc46-9508-4ff2-8700-117db97b593e"/>
 				<imageExpression><![CDATA["H:\\Proyectos NetBeans\\ProyectoEmpresa\\git-empresa-lvp\\src\\images\\imagenReport.jpg"]]></imageExpression>
 			</image>
+			<staticText>
+				<reportElement x="319" y="63" width="226" height="14" uuid="ffe6ff8a-4607-4c47-9132-befa646ab908"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[CIF: B-47540208]]></text>
+			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>
@@ -79,7 +88,7 @@
 				<reportElement x="0" y="107" width="416" height="20" uuid="3dec4aa0-3b14-46b5-9166-4279bf7a3354"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="416" y="107" width="133" height="20" uuid="285904e8-c2b1-40bc-a37d-8ca69b5ff2d2"/>
+				<reportElement x="416" y="107" width="129" height="20" uuid="285904e8-c2b1-40bc-a37d-8ca69b5ff2d2"/>
 			</rectangle>
 			<staticText>
 				<reportElement x="0" y="107" width="416" height="20" uuid="fda00b19-0167-45ca-b727-d88060a68737"/>
@@ -89,18 +98,95 @@
 				<text><![CDATA[Concepto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="416" y="107" width="133" height="20" uuid="0c8ebb80-b385-4f64-9770-bcbc360d26f3"/>
+				<reportElement x="416" y="107" width="129" height="20" uuid="0c8ebb80-b385-4f64-9770-bcbc360d26f3"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Importe]]></text>
 			</staticText>
+			<rectangle>
+				<reportElement x="464" y="61" width="0" height="20" uuid="f854adb8-6eb1-489c-9107-af44ef2080fd"/>
+			</rectangle>
+			<textField pattern="dd/MM/yyyy  ">
+				<reportElement x="56" y="47" width="144" height="14" uuid="8342bc24-ae6a-48da-9cdd-b0e95e458e1c"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="56" y="32" width="144" height="15" uuid="c2c946f5-e44a-4d3a-81e7-876dd8600d5c"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NUMEROFACTURA} + "  "]]></textFieldExpression>
+			</textField>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="160" splitType="Stretch"/>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="416" height="20" uuid="6b9d7598-e803-46c2-a1e2-6c8d59cb8f1e"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $F{CONCEPTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="0" width="129" height="20" uuid="1977654f-3315-46ee-ad3e-387ed7491e34"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $F{IMPORTE}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="1" width="0" height="20" uuid="851049cf-b71f-4e94-81cd-e0aeb73e2a0b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="1" width="0" height="20" uuid="db365295-c9f6-47f4-82f1-1b7e37182d2b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="549" y="1" width="0" height="20" uuid="98add5bb-7a6f-4106-87cf-1500d7ced14b"/>
+			</rectangle>
+		</band>
 	</detail>
-        <pageFooter>
-            <band height="40" splitType="Stretch"/>            
-        </pageFooter>
+	<pageFooter>
+		<band height="50" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="212" height="16" uuid="161f4e3d-38c5-4474-8a94-ad1d2b327bf8"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="212" height="16" uuid="896bc46e-88b1-4f8f-a5d4-b002ce9f6d24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Base Imponible]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="212" y="0" width="204" height="16" uuid="d1430f02-fb98-4978-a915-f10d3993de3f"/>
+			</rectangle>
+			<textField>
+				<reportElement x="212" y="0" width="204" height="16" uuid="2c7b11e8-e3a4-43b8-9ee5-6a8efc509926"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["IVA: " + $P{IVA} + " %"]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="416" y="0" width="129" height="16" uuid="eebdf9b0-cc47-4a06-8d8d-6abe1f1cbe3a"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="416" y="0" width="129" height="16" uuid="8cdf6193-0916-4b5d-b5ae-3857e9c9c42a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Base Imponible]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="16" width="212" height="34" uuid="dfb1518c-068f-4f94-a8ba-446ef46ea0fb"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="212" y="16" width="204" height="34" uuid="6064b78b-2692-49bd-9b37-ec9cb89b15fb"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="416" y="16" width="129" height="34" uuid="6c7e3d9f-8713-4b7e-9701-322d39bf1275"/>
+			</rectangle>
+		</band>
+	</pageFooter>
 </jasperReport>
