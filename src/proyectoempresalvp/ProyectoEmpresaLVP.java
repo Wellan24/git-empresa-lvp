@@ -12,6 +12,7 @@ import proyectoempresalvp.gestoras.Datos.GestoraFacturas;
 import proyectoempresalvp.gestoras.Datos.Procesador;
 import proyectoempresalvp.gestoras.GestoraConfiguracion;
 import proyectoempresalvp.gestoras.ObservadorGestoraDatos;
+import proyectoempresalvp.gestoras.pdf.GestoraArchivos;
 
 /**
  *
@@ -24,10 +25,12 @@ public class ProyectoEmpresaLVP implements ObservadorGestoraDatos {
      */
     public static void main(String[] args) throws SQLException, InterruptedException {
 
-        GestoraBaseDatos.conectarBaseDatos();
-        GestoraConfiguracion.recuperaConfiguracion();
-        GestoraDatos.setObservador(new ProyectoEmpresaLVP());
-        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS);
+//        GestoraBaseDatos.conectarBaseDatos();
+//        GestoraConfiguracion.recuperaConfiguracion();
+//        GestoraDatos.setObservador(new ProyectoEmpresaLVP());
+//        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS);
+        
+        new GestoraArchivos().start();
     }
 
     @Override
