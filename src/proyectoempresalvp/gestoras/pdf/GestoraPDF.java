@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyectoempresalvp.datos;
+package proyectoempresalvp.gestoras.pdf;
 
 /**
  *
  * @author Oscar
  */
-public class DocumentoPDF {
+public class GestoraPDF {
     
 }
