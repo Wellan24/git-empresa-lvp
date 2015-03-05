@@ -1,29 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD JasperReport//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
-
-<jasperReport name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
-    <background>
-        <band/>
-    </background>
-    <title>
-        <band height="79"/>
-    </title>
-    <pageHeader>
-        <band height="35"/>
-    </pageHeader>
-    <columnHeader>
-        <band height="61"/>
-    </columnHeader>
-    <detail>
-        <band height="125"/>
-    </detail>
-    <columnFooter>
-        <band height="45"/>
-    </columnFooter>
-    <pageFooter>
-        <band height="54"/>
-    </pageFooter>
-    <summary>
-        <band height="42"/>
-    </summary>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="549" leftMargin="23" rightMargin="23" topMargin="24" bottomMargin="23" uuid="9a746757-5ec3-4909-a4a4-07a6c45f3952">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="114" splitType="Stretch">
+			<staticText>
+				<reportElement x="323" y="0" width="226" height="20" uuid="7b3c34c1-438c-42b8-88d4-fb5137259c3a"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LIMPIEZAS VERDEJO PELÁEZ, S.L.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="20" width="226" height="14" uuid="1a1449e7-65cb-48f7-845e-cd98d079cf79"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[C/ Olivo, 18]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="34" width="226" height="15" uuid="9b3b0d8b-e3e5-41d2-bc11-0c6bb7a9236b"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[47140 LAGUNA DE DUERO (Valladolid)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="49" width="226" height="14" uuid="9c9afbd2-8859-4d85-a2db-dd5a75f92cce"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Tel.: 983 54 05 69 * Móvil: 670 75 23 83]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="93" width="549" height="1" uuid="822be0b6-41d9-4cc8-bdea-2eb860aeab68"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="94" width="549" height="19" uuid="fe8f59f2-a94a-43cf-9158-84d3a691634e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SERVICIO DE LIMPIEZAS, JARDINERIA, MANTENIMIENTO Y DESATRANQUES]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="113" width="549" height="1" uuid="822be0b6-41d9-4cc8-bdea-2eb860aeab68"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="106" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="12" width="200" height="20" uuid="837f4a4c-6ef1-4cec-b01c-c61ebf1ec1bd"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="12" width="200" height="20" uuid="0cd90e67-bbbd-410c-bb7e-8b635af36f5c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FACTURA]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="32" width="200" height="40" uuid="a51ccce3-1604-4578-bf90-0a40cca600d4"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="32" width="56" height="15" uuid="5464800f-497e-4a24-92f4-87a5356325ae"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom"/>
+				<text><![CDATA[  Número:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="47" width="56" height="14" uuid="fb9e03d4-2000-4989-94b6-87a219201f6c"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom"/>
+				<text><![CDATA[  Fecha:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="221" splitType="Stretch"/>
+	</detail>
 </jasperReport>
