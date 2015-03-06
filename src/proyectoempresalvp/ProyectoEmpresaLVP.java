@@ -32,15 +32,18 @@ public class ProyectoEmpresaLVP implements ObservadorGestoraDatos {
         GestoraBaseDatos.conectarBaseDatos();
         GestoraConfiguracion.recuperaConfiguracion();
         GestoraDatos.setObservador(new ProyectoEmpresaLVP());
+        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_TODO);
         int numPeriodo = Gestora.numeroPeriodoPorNombre("AGO2014");
-        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASMENSUALES, null, numPeriodo);      
-        
+        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASMENSUALES, null, numPeriodo);
+
     }
 
     @Override
     public void avisar(int datoActualizado, Procesador procesador) {
 
-        FacturaMensual factura = (FacturaMensual)GestoraDatos.dameGestora().get(FacturaMensual.getTabla()).get(0);
-        GestoraPDF.generarPDFMensual(factura);
+        if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES) {
+            FacturaMensual factura = (FacturaMensual) GestoraDatos.dameGestora().get(FacturaMensual.getTabla()).get(0);
+            GestoraPDF.generarPDFMensual(factura);
+        }
     }
 }

@@ -104,14 +104,11 @@
 				</textElement>
 				<text><![CDATA[Importe]]></text>
 			</staticText>
-			<rectangle>
-				<reportElement x="464" y="61" width="0" height="20" uuid="f854adb8-6eb1-489c-9107-af44ef2080fd"/>
-			</rectangle>
 			<textField pattern="dd/MM/yyyy" isBlankWhenNull="false">
 				<reportElement x="56" y="47" width="144" height="14" uuid="8342bc24-ae6a-48da-9cdd-b0e95e458e1c"/>
 				<textElement textAlignment="Right" verticalAlignment="Bottom">
 					<font size="11"/>
-					<paragraph rightIndent="2"/>
+					<paragraph rightIndent="5"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
@@ -119,7 +116,7 @@
 				<reportElement x="56" y="32" width="144" height="15" uuid="c2c946f5-e44a-4d3a-81e7-876dd8600d5c"/>
 				<textElement textAlignment="Right" verticalAlignment="Bottom">
 					<font size="11"/>
-					<paragraph rightIndent="2"/>
+					<paragraph rightIndent="5"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{NUMEROFACTURA}]]></textFieldExpression>
 			</textField>
