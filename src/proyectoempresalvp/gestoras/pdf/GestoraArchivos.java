@@ -38,18 +38,23 @@ public class GestoraArchivos extends Thread {
             }
         }
         
+        File f = new File(generarNombreCarpetaExtras());
+        f.mkdirs();
+        
+    }
+    
+    public static String generarNombreCarpetaExtras() {
+        
+        return GestoraConfiguracion.get("RUTA") + "/extras";
     }
     
     private void comprobarArchivo(Dato c) {
-        File f;
-        f = new File(generarNombreCarpetaCliente(c));
-        if(!f.exists()) {
-            f.mkdirs();
-        }
+        File f = new File(generarNombreCarpetaCliente(c));
+        f.mkdirs();
     }
     
     public static String generarNombreCarpetaCliente(Dato c) {
         
-        return GestoraConfiguracion.get("RUTA") + c.get("NUMEROCLIENTE").toString() + "_" + c.get("DESCRIPCION").toString().replace(" ", "_");
+        return GestoraConfiguracion.get("RUTA") + "/" + c.get("NUMEROCLIENTE") + "_" + c.get("DESCRIPCION").toString().replace(" ", "_");
     }
 }

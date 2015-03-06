@@ -4,8 +4,8 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<subDataset name="Table Dataset 1" uuid="a4295f11-f5fd-4afa-8655-e8f08fa6a561"/>
-	<parameter name="IVA" class="java.lang.String"/>
-	<parameter name="NUMEROFACTURA" class="java.lang.String"/>
+	<parameter name="TANTOIVA" class="java.lang.Integer"/>
+	<parameter name="NUMEROFACTURA" class="java.lang.Integer"/>
 	<field name="CONCEPTO" class="java.lang.String"/>
 	<field name="IMPORTE" class="java.lang.String"/>
 	<background>
@@ -107,10 +107,11 @@
 			<rectangle>
 				<reportElement x="464" y="61" width="0" height="20" uuid="f854adb8-6eb1-489c-9107-af44ef2080fd"/>
 			</rectangle>
-			<textField pattern="dd/MM/yyyy  ">
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="false">
 				<reportElement x="56" y="47" width="144" height="14" uuid="8342bc24-ae6a-48da-9cdd-b0e95e458e1c"/>
 				<textElement textAlignment="Right" verticalAlignment="Bottom">
 					<font size="11"/>
+					<paragraph rightIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
@@ -118,8 +119,9 @@
 				<reportElement x="56" y="32" width="144" height="15" uuid="c2c946f5-e44a-4d3a-81e7-876dd8600d5c"/>
 				<textElement textAlignment="Right" verticalAlignment="Bottom">
 					<font size="11"/>
+					<paragraph rightIndent="2"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{NUMEROFACTURA} + "  "]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{NUMEROFACTURA}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnHeader>
@@ -135,15 +137,6 @@
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[" " + $F{IMPORTE}]]></textFieldExpression>
 			</textField>
-			<rectangle>
-				<reportElement x="0" y="1" width="0" height="20" uuid="851049cf-b71f-4e94-81cd-e0aeb73e2a0b"/>
-			</rectangle>
-			<rectangle>
-				<reportElement x="0" y="1" width="0" height="20" uuid="db365295-c9f6-47f4-82f1-1b7e37182d2b"/>
-			</rectangle>
-			<rectangle>
-				<reportElement x="549" y="1" width="0" height="20" uuid="98add5bb-7a6f-4106-87cf-1500d7ced14b"/>
-			</rectangle>
 		</band>
 	</detail>
 	<pageFooter>
@@ -166,7 +159,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["IVA: " + $P{IVA} + " %"]]></textFieldExpression>
+				<textFieldExpression><![CDATA["IVA: " + $P{TANTOIVA}.toString() + " %"]]></textFieldExpression>
 			</textField>
 			<rectangle>
 				<reportElement x="416" y="0" width="129" height="16" uuid="eebdf9b0-cc47-4a06-8d8d-6abe1f1cbe3a"/>

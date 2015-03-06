@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.SwingConstants;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporter;
@@ -22,7 +21,8 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.util.JRLoader;
 import proyectoempresalvp.datos.Cliente;
-import proyectoempresalvp.datos.Dato;
+import proyectoempresalvp.datos.FacturaExtra;
+import proyectoempresalvp.datos.FacturaMensual;
 import proyectoempresalvp.datos.Fecha;
 import proyectoempresalvp.gestoras.Datos.GestoraDatos;
 import proyectoempresalvp.gestoras.Gestora;
@@ -32,55 +32,59 @@ import proyectoempresalvp.gestoras.Gestora;
  * @author Oscar
  */
 public class GestoraPDF implements JRDataSource {
-    
+
     private ArrayList<HashMap<String, Object>> datos;
     private int indiceParticipanteActual = -1;
-    
+
     public GestoraPDF(ArrayList<HashMap<String, Object>> datos) {
-        
+
         this.datos = datos;
     }
-    
+
     @Override
     public boolean next() throws JRException {
         
         return ++indiceParticipanteActual < datos.size();
     }
-    
+
     @Override
     public Object getFieldValue(JRField jrf) throws JRException {
-       
-        return datos.get(indiceParticipanteActual).get(jrf.getName());
-    }
-    
-    public static void generarPDFExtra(ArrayList<HashMap<String, Object>> detalles, Dato factura) {
+
         
+        System.out.println(indiceParticipanteActual);
+        System.out.println(datos.get(indiceParticipanteActual).get(jrf.getName()));
+        return datos.get(indiceParticipanteActual).get(jrf.getName()).toString();
+    }
+
+    public static void generarPDFExtra(ArrayList<HashMap<String, Object>> detalles, FacturaExtra factura) {
+
         try {
-            System.out.println(new File("src/proyectoempresalvp/gestoras/pdf/FacturaPDF.jasper").getAbsolutePath());
             JasperReport reporte = (JasperReport) JRLoader.loadObject("src/proyectoempresalvp/gestoras/pdf/FacturaPDF.jasper");
             JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, factura, new GestoraPDF(detalles));
-            
+
             JRExporter exporter = new JRPdfExporter();
             exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-            exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new java.io.File("reporte2PDF.pdf"));
+            exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new File(
+                    GestoraArchivos.generarNombreCarpetaExtras() + "/" + factura.get("NUMEROFACTURA")
+                    + "_fecha_" + factura.get("FECHA").toString().replace("/", "_")
+                    + "_cliente_" + factura.get("NOMBRE").toString().replace("[/:;- ]", "_") + ".pdf"));
             exporter.exportReport();
         } catch(JRException ex) {
             Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public static void generarPDFMensual(Dato factura) {
-        
+
+    public static void generarPDFMensual(FacturaMensual factura) {
+
         ArrayList<HashMap<String, Object>> detalles = new ArrayList();
         HashMap<String, Object> linea = new HashMap();
         linea.put("CONCEPTO", "FACTURA MENSUAL DE " + Gestora.getMes(((Fecha) factura.get("FECHA")).getMes() - 1));
-        linea.put("IMPORTE", factura.get("EUROSMES"));
+        linea.put("IMPORTE", factura.get("EUROSMES").toString());
         detalles.add(factura);
         try {
-            System.out.println(new File("src/proyectoempresalvp/gestoras/pdf/FacturaPDF.jasper").getAbsolutePath());
             JasperReport reporte = (JasperReport) JRLoader.loadObject("src/proyectoempresalvp/gestoras/pdf/FacturaPDF.jasper");
             JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, factura, new GestoraPDF(detalles));
-            
+
             JRExporter exporter = new JRPdfExporter();
             exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
             exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new File(
@@ -90,5 +94,5 @@ public class GestoraPDF implements JRDataSource {
             Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
 }
