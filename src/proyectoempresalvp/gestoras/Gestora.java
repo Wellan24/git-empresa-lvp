@@ -26,6 +26,7 @@ public class Gestora {
 
     /**
      * Patrón para comprobar un número con decimales
+     *
      * @param n
      * @return true si el string es número con decimales
      */
@@ -345,21 +346,82 @@ public class Gestora {
 
         return null;
     }
-    
+
     public static char[] encodeHex(byte[] data, char[] toDigits) {
         int l = data.length;
         char[] out = new char[l << 1];
         // two characters form the hex value.
-        for (int i = 0, j = 0; i < l; i++) {
+        for(int i = 0, j = 0;i < l;i++) {
             out[j++] = toDigits[(0xF0 & data[i]) >>> 4];
             out[j++] = toDigits[0x0F & data[i]];
         }
         return out;
     }
-    
-    public static String devuelveHash(String contraseña){
-        
+
+    public static String devuelveHash(String contraseña) {
+
         return String.valueOf(encodeHex(getHash(contraseña), DIGITS_LOWER));
+    }
+
+    public static String getMes(int mes) {
+
+        String result;
+        switch(mes) {
+            case 0: {
+                result = "Enero";
+                break;
+            }
+            case 1: {
+                result = "Febrero";
+                break;
+            }
+            case 2: {
+                result = "Marzo";
+                break;
+            }
+            case 3: {
+                result = "Abril";
+                break;
+            }
+            case 4: {
+                result = "Mayo";
+                break;
+            }
+            case 5: {
+                result = "Junio";
+                break;
+            }
+            case 6: {
+                result = "Julio";
+                break;
+            }
+            case 7: {
+                result = "Agosto";
+                break;
+            }
+            case 8: {
+                result = "Septiembre";
+                break;
+            }
+            case 9: {
+                result = "Octubre";
+                break;
+            }
+            case 10: {
+                result = "Noviembre";
+                break;
+            }
+            case 11: {
+                result = "Diciembre";
+                break;
+            }
+            default: {
+                result = "Error";
+                break;
+            }
+        }
+
+        return result;
     }
 
 }

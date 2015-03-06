@@ -20,39 +20,36 @@ import proyectoempresalvp.gestoras.GestoraConfiguracion;
  * @author Oscar
  */
 public class GestoraArchivos extends Thread {
-
-    
     
     @Override
     public void run() {
-
+        
         comprobarArchivos();
     }
-
+    
     public void comprobarArchivos() {
-
+        
         ArrayListDato<Dato> clientes = GestoraDatos.dameGestora().get(Cliente.getTabla());
-        String raiz = GestoraConfiguracion.get("RUTA").toString() + "/";
         if(clientes != null) {
-
+            
             for(Dato c :clientes) {
-
-                comprobarArchivo(c, raiz);
+                
+                comprobarArchivo(c);
             }
         }
-
+        
     }
-
-    private void comprobarArchivo(Dato c, String raiz) {
+    
+    private void comprobarArchivo(Dato c) {
         File f;
-        f = new File(raiz + c.get("NUMEROCLIENTE").toString() + "_" + c.get("DESCRIPCION").toString().replace(" ", "_"));
+        f = new File(generarNombreCarpetaCliente(c));
         if(!f.exists()) {
             f.mkdirs();
         }
     }
     
-    private void guardarPDF(){
+    public static String generarNombreCarpetaCliente(Dato c) {
         
-        
+        return GestoraConfiguracion.get("RUTA") + c.get("NUMEROCLIENTE").toString() + "_" + c.get("DESCRIPCION").toString().replace(" ", "_");
     }
 }

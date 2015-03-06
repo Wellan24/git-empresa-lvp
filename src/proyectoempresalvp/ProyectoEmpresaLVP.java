@@ -6,13 +6,17 @@
 package proyectoempresalvp;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import proyectoempresalvp.datos.Dato;
+import proyectoempresalvp.datos.FacturaExtra;
+import proyectoempresalvp.datos.FacturaExtraDetalles;
 import proyectoempresalvp.gestoras.GestoraBaseDatos;
 import proyectoempresalvp.gestoras.Datos.GestoraDatos;
-import proyectoempresalvp.gestoras.Datos.GestoraFacturas;
 import proyectoempresalvp.gestoras.Datos.Procesador;
 import proyectoempresalvp.gestoras.GestoraConfiguracion;
 import proyectoempresalvp.gestoras.ObservadorGestoraDatos;
-import proyectoempresalvp.gestoras.pdf.GestoraArchivos;
+import proyectoempresalvp.gestoras.pdf.GestoraPDF;
 
 /**
  *
@@ -28,13 +32,15 @@ public class ProyectoEmpresaLVP implements ObservadorGestoraDatos {
         GestoraBaseDatos.conectarBaseDatos();
         GestoraConfiguracion.recuperaConfiguracion();
         GestoraDatos.setObservador(new ProyectoEmpresaLVP());
-        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CLIENTES);       
+        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_TODO);       
         
     }
 
     @Override
     public void avisar(int datoActualizado, Procesador procesador) {
 
-        new GestoraArchivos().start();
+        Dato factura = GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).get(0);
+        ArrayList<Dato> extras = GestoraDatos.dameGestora().get(FacturaExtraDetalles.getTabla()).devuelveValorEnFuncionCampo("NUMERO", factura.get("NUMEROFACTURA"));
+        GestoraPDF.generarPDFExtra(new ArrayList<>(extras), factura);
     }
 }
