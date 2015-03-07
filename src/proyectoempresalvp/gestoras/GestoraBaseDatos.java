@@ -239,7 +239,7 @@ public class GestoraBaseDatos {
         }
 
         dev.replace(dev.length() - 1, dev.length(), " from ");
-        dev.append(nombreTabla).append(where);
+        dev.append(nombreTabla).append(" ").append(where);
 
         return dev.toString();
     }

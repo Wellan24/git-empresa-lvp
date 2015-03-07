@@ -224,7 +224,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         tablaFacMensuales = new Tabla();
         jPanel2 = new JPanelTranslucido();
         bGenerarFacturacion = new javax.swing.JButton();
-        bExamFac = new javax.swing.JButton();
+        bImprimirFacturas = new javax.swing.JButton();
         jPfacExtra = PanelImagen.dameNuevoPanelSinLetras();
         jPanel3 = new JPanelTranslucido();
         jLabel44 = new javax.swing.JLabel();
@@ -1272,8 +1272,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             }
         });
 
-        bExamFac.setBackground(new java.awt.Color(153, 255, 153));
-        bExamFac.setText("Examinar Facturación");
+        bImprimirFacturas.setBackground(new java.awt.Color(153, 255, 153));
+        bImprimirFacturas.setText("Imprimir Facturas");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1282,7 +1282,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(bExamFac, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bImprimirFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bGenerarFacturacion, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
@@ -1290,7 +1290,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(56, 56, 56)
-                .addComponent(bExamFac, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bImprimirFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(bGenerarFacturacion, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(93, Short.MAX_VALUE))
@@ -3176,7 +3176,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JButton bComprobarTareas;
     private javax.swing.JButton bConfiguracionCambioIva;
     private javax.swing.JButton bEstudiosActivos;
-    private javax.swing.JButton bExamFac;
     private javax.swing.JButton bFormuClientes;
     private javax.swing.JButton bFormularioCon;
     private javax.swing.JButton bGenerarFacturacion;
@@ -3186,6 +3185,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JButton bImprim;
     private javax.swing.JButton bImprime;
     private javax.swing.JButton bImprimir;
+    private javax.swing.JButton bImprimirFacturas;
     private javax.swing.JButton bImprimirLis;
     private javax.swing.JButton bInicioActualizarContratos;
     private javax.swing.JButton bInicioActualizarTareas;
@@ -3581,7 +3581,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     private String[] conceptosFormateados(int nFactura) {
 
-        ArrayList<Dato> conceptos = GestoraDatos.dameGestora().get(FacturaExtraDetalles.getTabla()).devuelveValorEnFuncionCampo("NUMERO", nFactura);
+        ArrayList<Dato> conceptos = GestoraDatos.recuperarConDummy(new FacturaExtraDetalles(), null, " where NUMERO = " + nFactura);
         String[] dev = new String[conceptos.size()];
         Float suma = 0f;
 

@@ -1559,7 +1559,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="bExamFac" min="-2" pref="339" max="-2" attributes="0"/>
+                                  <Component id="bImprimirFacturas" min="-2" pref="339" max="-2" attributes="0"/>
                                   <Component id="bGenerarFacturacion" min="-2" pref="339" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="33" max="32767" attributes="0"/>
@@ -1570,7 +1570,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                              <Component id="bExamFac" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="bImprimirFacturas" min="-2" pref="35" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="bGenerarFacturacion" min="-2" pref="31" max="-2" attributes="0"/>
                               <EmptySpace pref="93" max="32767" attributes="0"/>
@@ -1590,12 +1590,12 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bGenerarFacturacionActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="bExamFac">
+                    <Component class="javax.swing.JButton" name="bImprimirFacturas">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="99" green="ff" red="99" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Examinar Facturaci&#xf3;n"/>
+                        <Property name="text" type="java.lang.String" value="Imprimir Facturas"/>
                       </Properties>
                     </Component>
                   </SubComponents>
