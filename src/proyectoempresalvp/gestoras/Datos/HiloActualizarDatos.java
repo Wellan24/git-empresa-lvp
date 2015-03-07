@@ -33,11 +33,11 @@ public class HiloActualizarDatos implements Runnable {
     private int numPeriodo;
     private String where;
     private Procesador procesador;
-    
+
     public static int i = 0;
-    
+
     public HiloActualizarDatos(int datoActualizar, Procesador p, String where) {
-        
+
         this.datoActualizar = datoActualizar;
         this.where = where;
         this.procesador = p;
@@ -66,7 +66,7 @@ public class HiloActualizarDatos implements Runnable {
 
         if(datoActualizar == ACTUALIZAR_FACTURASMENSUALES)
             actualizarFacturasMes();
-        
+
         if(datoActualizar == ACTUALIZAR_FACTURASMENSUALES_AÑO)
             actualizarFacturasMesAño();
 
@@ -82,7 +82,7 @@ public class HiloActualizarDatos implements Runnable {
 
         recuperarConDummy(new FacturaMensual(), where);
     }
-    
+
     private void actualizarFacturasMesAño() {
 
         recuperarConDummy(new FacturaMensual(), where, "FACTURASMENSUALESAÑO");
@@ -94,114 +94,20 @@ public class HiloActualizarDatos implements Runnable {
 
     private void recuperarConDummy(Dato d) {
 
-        ArrayListDato<Dato> facturas = new ArrayListDato();
-        String[] claves = d.devuelveOrdenDeColumnas();
-        ResultSet facturasComprobar = GestoraBaseDatos.ejecutarSentenciaQuery(GestoraBaseDatos.construyeSentenciaSelect(claves, d.devuelveNombreTablaDato()));
-
-        try {
-            while(facturasComprobar.next()) {
-
-                for(int i = 0;i < claves.length;i++) {
-
-                    String clave = claves[i];
-                    Object obj = d.get(clave);
-                    if(obj instanceof Integer) {
-
-                        d.put(clave, facturasComprobar.getInt(i + 1));
-                    } else if(obj instanceof String) {
-
-                        d.put(clave, facturasComprobar.getString(i + 1));
-                    } else if(obj instanceof Fecha) {
-
-                        d.put(clave, new Fecha(facturasComprobar.getString(i + 1)));
-                    } else if(obj instanceof Boolean) {
-
-                        d.put(clave, facturasComprobar.getBoolean(i + 1));
-                    }
-                }
-                
-                if(procesador != null && procesador.comprobarValido(d))
-                    procesador.procesar(d);
-                
-                facturas.add((Dato) d.copia());
-            }
-        } catch(SQLException ex) {
-            Logger.getLogger(GestoraTareas.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        GestoraDatos.dameGestora().put(d.devuelveNombreTablaDato(), facturas);
+        ArrayListDato<Dato> datos = GestoraDatos.recuperarConDummy(d, procesador, null);
+        GestoraDatos.dameGestora().put(d.devuelveNombreTablaDato(), datos);
     }
 
     private void recuperarConDummy(Dato d, String where) {
 
-        ArrayListDato<Dato> facturas = new ArrayListDato();
-        String[] claves = d.devuelveOrdenDeColumnas();
-        ResultSet facturasComprobar = GestoraBaseDatos.ejecutarSentenciaQuery(GestoraBaseDatos.construyeSentenciaSelect(claves, d.devuelveNombreTablaDato(), where));
-
-        try {
-            while(facturasComprobar.next()) {
-
-                for(int i = 0;i < claves.length;i++) {
-
-                    String clave = claves[i];
-                    Object obj = d.get(clave);
-                    if(obj instanceof Integer) {
-
-                        d.put(clave, facturasComprobar.getInt(i + 1));
-                    } else if(obj instanceof String) {
-
-                        d.put(clave, facturasComprobar.getString(i + 1));
-                    } else if(obj instanceof Fecha) {
-
-                        d.put(clave, new Fecha(facturasComprobar.getString(i + 1)));
-                    } else if(obj instanceof Boolean) {
-
-                        d.put(clave, facturasComprobar.getBoolean(i + 1));
-                    }
-                }
-                facturas.add((Dato) d.clone());
-            }
-        } catch(SQLException ex) {
-            Logger.getLogger(GestoraTareas.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        GestoraDatos.dameGestora().put(d.devuelveNombreTablaDato(), facturas);
+        ArrayListDato<Dato> datos = GestoraDatos.recuperarConDummy(d, procesador, where);
+        GestoraDatos.dameGestora().put(d.devuelveNombreTablaDato(), datos);
     }
-    
+
     private void recuperarConDummy(Dato d, String where, String key) {
 
-        ArrayListDato<Dato> facturas = new ArrayListDato();
-        String[] claves = d.devuelveOrdenDeColumnas();
-        ResultSet facturasComprobar = GestoraBaseDatos.ejecutarSentenciaQuery(GestoraBaseDatos.construyeSentenciaSelect(claves, d.devuelveNombreTablaDato(), where));
-
-        try {
-            while(facturasComprobar.next()) {
-
-                for(int i = 0;i < claves.length;i++) {
-
-                    String clave = claves[i];
-                    Object obj = d.get(clave);
-                    if(obj instanceof Integer) {
-
-                        d.put(clave, facturasComprobar.getInt(i + 1));
-                    } else if(obj instanceof String) {
-
-                        d.put(clave, facturasComprobar.getString(i + 1));
-                    } else if(obj instanceof Fecha) {
-
-                        d.put(clave, new Fecha(facturasComprobar.getString(i + 1)));
-                    } else if(obj instanceof Boolean) {
-
-                        d.put(clave, facturasComprobar.getBoolean(i + 1));
-                    }
-                }
-                facturas.add((Dato) d.clone());
-            }
-        } catch(SQLException ex) {
-            Logger.getLogger(GestoraTareas.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        GestoraDatos.dameGestora().put(key, facturas);
+        ArrayListDato<Dato> datos = GestoraDatos.recuperarConDummy(d, procesador, where);
+        GestoraDatos.dameGestora().put(key, datos);
     }
 
 }

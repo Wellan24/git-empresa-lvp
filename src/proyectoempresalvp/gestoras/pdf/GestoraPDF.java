@@ -21,6 +21,7 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.util.JRLoader;
 import proyectoempresalvp.datos.Cliente;
+import proyectoempresalvp.datos.Dato;
 import proyectoempresalvp.datos.FacturaExtra;
 import proyectoempresalvp.datos.FacturaMensual;
 import proyectoempresalvp.datos.Fecha;
@@ -43,7 +44,7 @@ public class GestoraPDF implements JRDataSource {
 
     @Override
     public boolean next() throws JRException {
-        
+
         return ++indiceParticipanteActual < datos.size();
     }
 
@@ -61,10 +62,7 @@ public class GestoraPDF implements JRDataSource {
 
             JRExporter exporter = new JRPdfExporter();
             exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-            exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new File(
-                    GestoraArchivos.generarNombreCarpetaExtras() + "/" + factura.get("NUMEROFACTURA")
-                    + "_fecha_" + factura.get("FECHA").toString().replace("/", "_")
-                    + "_cliente_" + factura.get("NOMBRE").toString().replace("[/:;- ]", "_") + ".pdf"));
+            exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new File(generarNombreExtra(factura)));
             exporter.exportReport();
         } catch(JRException ex) {
             Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
@@ -84,18 +82,32 @@ public class GestoraPDF implements JRDataSource {
 
             JRExporter exporter = new JRPdfExporter();
             exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-            new File(GestoraArchivos.generarNombreCarpetaCliente(GestoraDatos.dameGestora()
-                            .get(Cliente.getTabla()).devuelveValorPorClave(factura.get("NUMCLIENTE"))) +
-                            "/" + ((Fecha)factura.get("FECHA")).getAño()).mkdirs();
-            exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new File(
-                    GestoraArchivos.generarNombreCarpetaCliente(GestoraDatos.dameGestora()
-                            .get(Cliente.getTabla()).devuelveValorPorClave(factura.get("NUMCLIENTE"))) +
-                            "/" + ((Fecha)factura.get("FECHA")).getAño() + "/" + factura.get("NUMEROFACTURA") +
-                             "_" + factura.get("FECHA").toString().replace("/", "_") + ".pdf"));
+
+            String nombre = generarNombreMensual(factura);
+            File f = new File(nombre);
+            f.mkdirs();            
+            
+            exporter.setParameter(JRExporterParameter.OUTPUT_FILE, f);
             exporter.exportReport();
         } catch(JRException ex) {
             Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public static String generarNombreExtra(FacturaExtra factura) {
+
+        return GestoraArchivos.generarNombreCarpetaExtras() + "/" + factura.get("NUMEROFACTURA")
+                + "_fecha_" + factura.get("FECHA").toString().replace("/", "_")
+                + "_cliente_" + factura.get("NOMBRE").toString().replace("[/:;- ]", "_") + ".pdf";
+    }
+
+    public static String generarNombreMensual(FacturaMensual factura) {
+
+        Dato c = GestoraDatos.recuperarConDummy(new Cliente(), null, " where NUMEROCLIENTE = " + factura.get("NUMCLIENTE")).get(0);
+
+        return GestoraArchivos.generarNombreCarpetaCliente(c)
+                + "/" + ((Fecha) factura.get("FECHA")).getAño() + "/" + factura.get("NUMEROFACTURA")
+                + "_" + factura.get("FECHA").toString().replace("/", "_") + ".pdf";
     }
 
 }
