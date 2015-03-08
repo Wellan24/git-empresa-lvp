@@ -45,7 +45,7 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
      */
     public FacturaMensual(int numFactura, Fecha fecha, int numCliente,
             String descripcion, int numContrato, int cif, String nombre,
-            String domicilio, String localidad, int cpProvincia, int eurosMes,
+            String domicilio, String localidad, int cpProvincia, String eurosMes,
             int tantoIva, String refMoneda, int diaCobro,
             String formaPago, String periodo, int numPeriodo, int IBAN,
             int refBanco, int bancoCobro, String nombreBanco) {
@@ -180,7 +180,7 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
     @Override
     public String devuelveClave() {
         
-        return "NUMFACTURA";
+        return "NUMEROFACTURA";
     }
 
     @Override

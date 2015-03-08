@@ -20,6 +20,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.util.JRLoader;
+import proyectoempresalvp.datos.ArrayListDato;
 import proyectoempresalvp.datos.Cliente;
 import proyectoempresalvp.datos.Dato;
 import proyectoempresalvp.datos.FacturaExtra;
@@ -98,9 +99,9 @@ public class GestoraPDF implements JRDataSource {
 
     public static String generarNombreExtra(FacturaExtra factura) {
 
-        return GestoraArchivos.generarNombreCarpetaExtras() + "/" + factura.get("NUMEROFACTURA")
-                + "_fecha_" + factura.get("FECHA").toString().replace("/", "_")
-                + "_cliente_" + factura.get("NOMBRE").toString().replace("[/:;- ]", "_") + ".pdf";
+        return GestoraArchivos.generarNombreCarpetaExtras() + "/N " + factura.get("NUMEROFACTURA")
+                + " F " + factura.get("FECHA").toString().replace("/", "_")
+                +  " C " + factura.get("NOMBRE").toString().replace("[/:;- ]", "_") + ".pdf";
     }
 
     public static String generarNombreMensual(FacturaMensual factura) {
@@ -109,7 +110,16 @@ public class GestoraPDF implements JRDataSource {
 
         return GestoraArchivos.generarNombreCarpetaCliente(c)
                 + "/" + ((Fecha) factura.get("FECHA")).getAño() + "/" + factura.get("NUMEROFACTURA")
-                + "_" + factura.get("FECHA").toString().replace("/", "_") + ".pdf";
+                + "_" + Gestora.getMes(((Fecha)factura.get("FECHA")).getMes()).toUpperCase() + ".pdf";
+    }
+    
+    public static void generarPDFFacturasMensuales(int numPeriodo){
+        
+        ArrayListDato<Dato> facturas = GestoraDatos.recuperarConDummy(new FacturaMensual(), null, " where NUMPERIODO = " + numPeriodo);
+        
+        facturas.stream().forEach((d) -> {
+            generarPDFMensual((FacturaMensual)d);
+        });
     }
 
 }

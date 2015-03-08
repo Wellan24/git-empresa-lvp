@@ -43,6 +43,7 @@ import proyectoempresalvp.gestoras.ModeloTabla;
 import proyectoempresalvp.gestoras.ObservadorGestoraDatos;
 import proyectoempresalvp.gestoras.ObservadorTareas;
 import proyectoempresalvp.gestoras.UtilidadesTareas;
+import proyectoempresalvp.gestoras.pdf.GestoraPDF;
 
 /**
  *
@@ -1275,6 +1276,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         bImprimirFacturas.setBackground(new java.awt.Color(153, 255, 153));
         bImprimirFacturas.setText("Imprimir Facturas");
+        bImprimirFacturas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bImprimirFacturasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -2871,7 +2877,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }//GEN-LAST:event_ctProxFacturaActionPerformed
 
     private void bGenerarFacturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGenerarFacturacionActionPerformed
-        
+
         GestoraFacturas.generarFacturas(cbPeriodoMes.getSelectedItem().toString(), cbPeriodoAño.getSelectedItem().toString());
         GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASMENSUALES, null, Gestora.numeroPeriodoPorNombre(cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString()));
     }//GEN-LAST:event_bGenerarFacturacionActionPerformed
@@ -3074,6 +3080,17 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     private void bSeleccionaRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSeleccionaRutaActionPerformed
 
+        cambiarRuta();
+    }//GEN-LAST:event_bSeleccionaRutaActionPerformed
+
+
+    private void bImprimirFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimirFacturasActionPerformed
+
+        GestoraPDF.generarPDFFacturasMensuales(Gestora.numeroPeriodoPorNombre(
+                cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString()));
+    }//GEN-LAST:event_bImprimirFacturasActionPerformed
+
+    private void cambiarRuta() throws HeadlessException {
         JFileChooser elegir = new JFileChooser();
         elegir.setApproveButtonText("Elegir");
         elegir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -3088,7 +3105,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             case JFileChooser.CANCEL_OPTION:
                 JOptionPane.showMessageDialog(this, "No has elegido ruta", "Elegir", JOptionPane.INFORMATION_MESSAGE);
         }
-    }//GEN-LAST:event_bSeleccionaRutaActionPerformed
+    }
 
     private void cambiarContraseña() throws HeadlessException {
         String nueva = ctClaveNueva.getText();
@@ -3819,7 +3836,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_CONTRATOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
             actualizarTabla(jTableContratos, GestoraDatos.dameGestora().get(Contrato.getTabla()));
-            tAreaInicioContratos.setText(procesador.getProcesado().toString());
+            if(procesador != null)
+                tAreaInicioContratos.setText(procesador.getProcesado().toString());
         }
 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES) {

@@ -451,8 +451,8 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
                     Integer.parseInt(comboNumeroCliente.getSelectedItem().toString()), //NUMCLIENTE
                     ctDes.getText(), //DESCRIPCION
                     new Fecha(inicio), new Fecha(fin), //INICIO,FIN
-                    Integer.parseInt(ctIAeur.getText()), //EUROSAÑO
-                    Integer.parseInt(ctIMeur.getText()), //EUROSMES
+                    ctIAeur.getText(), //EUROSAÑO
+                    ctIMeur.getText(), //EUROSMES
                     ctFormPag.getText(), //FORMAPAGO
                     Integer.parseInt(ctDiaCobr1.getText()), //DIACOBRO
                     Integer.parseInt(ctIvaCon.getText()),//TANTO IVA
