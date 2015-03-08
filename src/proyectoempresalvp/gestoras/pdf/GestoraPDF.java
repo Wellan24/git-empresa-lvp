@@ -63,9 +63,13 @@ public class GestoraPDF implements JRDataSource {
             JasperReport reporte = (JasperReport) JRLoader.loadObjectFromFile("src/proyectoempresalvp/gestoras/pdf/FacturaPDF.jasper");
             JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, factura, new GestoraPDF(detalles));
 
+            String nombre = generarNombreExtra(factura);
+            File f = new File(nombre);
+            f.getParentFile().mkdirs();
+            
             JRExporter exporter = new JRPdfExporter();
             exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-            exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new File(generarNombreExtra(factura)));
+            exporter.setParameter(JRExporterParameter.OUTPUT_FILE, f);
             exporter.exportReport();
         } catch(JRException ex) {
             Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
@@ -88,8 +92,8 @@ public class GestoraPDF implements JRDataSource {
 
             String nombre = generarNombreMensual(factura);
             File f = new File(nombre);
-            f.getParentFile().mkdirs();            
-            
+            f.getParentFile().mkdirs();
+
             exporter.setParameter(JRExporterParameter.OUTPUT_FILE, f);
             exporter.exportReport();
         } catch(JRException ex) {
@@ -99,9 +103,9 @@ public class GestoraPDF implements JRDataSource {
 
     public static String generarNombreExtra(FacturaExtra factura) {
 
-        return GestoraArchivos.generarNombreCarpetaExtras() + "/N " + factura.get("NUMEROFACTURA")
-                + " F " + factura.get("FECHA").toString().replace("/", "_")
-                +  " C " + factura.get("NOMBRE").toString().replace("[/:;- ]", "_") + ".pdf";
+        return GestoraArchivos.generarNombreCarpetaExtras() + "/" + factura.get("NOMBRE").toString()
+                .replace("[/:;- ]", "_") + "/Nº " + factura.get("NUMEROFACTURA")
+                + " Fecha - " + factura.get("FECHA").toString().replace("/", "_") + ".pdf";
     }
 
     public static String generarNombreMensual(FacturaMensual factura) {
@@ -110,15 +114,15 @@ public class GestoraPDF implements JRDataSource {
 
         return GestoraArchivos.generarNombreCarpetaCliente(c)
                 + "/" + ((Fecha) factura.get("FECHA")).getAño() + "/" + factura.get("NUMEROFACTURA")
-                + "_" + Gestora.getMes(((Fecha)factura.get("FECHA")).getMes()).toUpperCase() + ".pdf";
+                + "_" + Gestora.getMes(((Fecha) factura.get("FECHA")).getMes()).toUpperCase() + ".pdf";
     }
-    
-    public static void generarPDFFacturasMensuales(int numPeriodo){
-        
+
+    public static void generarPDFFacturasMensuales(int numPeriodo) {
+
         ArrayListDato<Dato> facturas = GestoraDatos.recuperarConDummy(new FacturaMensual(), null, " where NUMPERIODO = " + numPeriodo);
-        
+
         facturas.stream().forEach((d) -> {
-            generarPDFMensual((FacturaMensual)d);
+            generarPDFMensual((FacturaMensual) d);
         });
     }
 

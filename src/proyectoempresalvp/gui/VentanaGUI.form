@@ -1624,7 +1624,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="210" max="-2" attributes="0"/>
-                                  <Component id="bImprimir" min="-2" pref="154" max="-2" attributes="0"/>
+                                  <Component id="bImprimirFacturaExtra" min="-2" pref="154" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                   <Component id="bNuevaFac" min="-2" pref="154" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -1668,7 +1668,7 @@
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="bGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="bImprimir" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="bImprimirFacturaExtra" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="bNuevaFac" alignment="3" max="32767" attributes="0"/>
                                       <Component id="bModifFac" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -2118,13 +2118,16 @@
                     <Property name="text" type="java.lang.String" value="Guardar Factura"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="bImprimir">
+                <Component class="javax.swing.JButton" name="bImprimirFacturaExtra">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="ff" red="cc" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Imprimir Factura"/>
+                    <Property name="text" type="java.lang.String" value="Imprimir Facturas"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bImprimirFacturaExtraActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="bNuevaFac">
                   <Properties>

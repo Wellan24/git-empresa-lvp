@@ -45,7 +45,7 @@ public class GestoraArchivos extends Thread {
     
     public static String generarNombreCarpetaExtras() {
         
-        return GestoraConfiguracion.get("RUTA") + "/extras";
+        return GestoraConfiguracion.get("RUTA") + "/Extras";
     }
     
     private void comprobarArchivo(Dato c) {

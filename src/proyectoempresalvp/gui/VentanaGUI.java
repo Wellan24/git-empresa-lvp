@@ -7,11 +7,9 @@ package proyectoempresalvp.gui;
 
 import java.awt.HeadlessException;
 import java.awt.Image;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -43,6 +41,7 @@ import proyectoempresalvp.gestoras.ModeloTabla;
 import proyectoempresalvp.gestoras.ObservadorGestoraDatos;
 import proyectoempresalvp.gestoras.ObservadorTareas;
 import proyectoempresalvp.gestoras.UtilidadesTareas;
+import proyectoempresalvp.gestoras.pdf.GestoraArchivos;
 import proyectoempresalvp.gestoras.pdf.GestoraPDF;
 
 /**
@@ -69,7 +68,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         GestoraDatos.setObservador(this);
 
         GestoraConfiguracion.recuperaConfiguracion();
-        initTablas();
+        initDatos();
         rellenarCamposConfiguracion();
 
         this.setLocationRelativeTo(null);
@@ -263,7 +262,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jScrollPane6 = new ScrollPaneTranslucido();
         tablaFacExtra = new Tabla();
         bGuardar = new javax.swing.JButton();
-        bImprimir = new javax.swing.JButton();
+        bImprimirFacturaExtra = new javax.swing.JButton();
         bNuevaFac = new javax.swing.JButton();
         bModifFac = new javax.swing.JButton();
         jPprograma = PanelImagen.dameNuevoPanelSinLetras();
@@ -1569,8 +1568,13 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         bGuardar.setBackground(new java.awt.Color(204, 255, 255));
         bGuardar.setText("Guardar Factura");
 
-        bImprimir.setBackground(new java.awt.Color(204, 255, 204));
-        bImprimir.setText("Imprimir Factura");
+        bImprimirFacturaExtra.setBackground(new java.awt.Color(204, 255, 204));
+        bImprimirFacturaExtra.setText("Imprimir Facturas");
+        bImprimirFacturaExtra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bImprimirFacturaExtraActionPerformed(evt);
+            }
+        });
 
         bNuevaFac.setBackground(new java.awt.Color(255, 204, 204));
         bNuevaFac.setText("Nueva Factura");
@@ -1596,7 +1600,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addGroup(jPfacExtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPfacExtraLayout.createSequentialGroup()
                         .addGap(210, 210, 210)
-                        .addComponent(bImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bImprimirFacturaExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(42, 42, 42)
                         .addComponent(bNuevaFac, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1631,7 +1635,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPfacExtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(bGuardar)
-                            .addComponent(bImprimir)
+                            .addComponent(bImprimirFacturaExtra)
                             .addComponent(bNuevaFac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(bModifFac)))
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -3090,6 +3094,14 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString()));
     }//GEN-LAST:event_bImprimirFacturasActionPerformed
 
+    private void bImprimirFacturaExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimirFacturaExtraActionPerformed
+
+        int[] rows = tablaFacExtra.getSelectedRows();
+        for(int i :rows) {
+            GestoraPDF.generarPDFExtra((FacturaExtra) GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).get(i));
+        }
+    }//GEN-LAST:event_bImprimirFacturaExtraActionPerformed
+
     private void cambiarRuta() throws HeadlessException {
         JFileChooser elegir = new JFileChooser();
         elegir.setApproveButtonText("Elegir");
@@ -3202,7 +3214,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JButton bImpriLisVis;
     private javax.swing.JButton bImprim;
     private javax.swing.JButton bImprime;
-    private javax.swing.JButton bImprimir;
+    private javax.swing.JButton bImprimirFacturaExtra;
     private javax.swing.JButton bImprimirFacturas;
     private javax.swing.JButton bImprimirLis;
     private javax.swing.JButton bInicioActualizarContratos;
@@ -3566,7 +3578,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         }
     }
 
-    private void initTablas() {
+    private void initDatos() {
 
         // Tabla tareas
         new GestoraTareas(this).start();
@@ -3832,6 +3844,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_CLIENTES || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
             actualizarTabla(tablaClientes, GestoraDatos.dameGestora().get(Cliente.getTabla()));
+            new GestoraArchivos().start();
         }
 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_CONTRATOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {

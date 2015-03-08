@@ -34,6 +34,7 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
         comboNumeroCliente.setModel(new DefaultComboBoxModel(GestoraDatos.dameGestora().get("CLIENTES").devuelveTodasLasClaves()));
         ctNumCon.setText("" + GestoraDatos.dameGestora().get("CONTRATOS").devuelveNumeroSiguiente());
+        refrescarCliente();
     }
 
     /**
@@ -391,8 +392,12 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
 
     private void comboNumeroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboNumeroClienteActionPerformed
 
-        if(comboNumeroCliente.getSelectedItem() != null && GestoraDatos.dameGestora().get("CLIENTES") != null) {
+        refrescarCliente();
+    }//GEN-LAST:event_comboNumeroClienteActionPerformed
 
+    private void refrescarCliente() {
+        if(comboNumeroCliente.getSelectedItem() != null && GestoraDatos.dameGestora().get("CLIENTES") != null) {
+            
             Dato d = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave(comboNumeroCliente.getSelectedItem());
             ctDes.setText(d.get("DESCRIPCION").toString());
             ctNombre.setText(d.get("NOMBRE").toString());
@@ -404,7 +409,7 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
             ctTelefon.setText(d.get("TLFCLIENTE").toString());
             ctContratosIBAN.setText(d.get("IBAN").toString());
         }
-    }//GEN-LAST:event_comboNumeroClienteActionPerformed
+    }
 
     private void ctIAeurKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ctIAeurKeyTyped
         char car = evt.getKeyChar();
