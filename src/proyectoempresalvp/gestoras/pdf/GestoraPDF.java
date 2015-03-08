@@ -5,7 +5,9 @@
  */
 package proyectoempresalvp.gestoras.pdf;
 
+import java.awt.Desktop;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
@@ -66,12 +68,14 @@ public class GestoraPDF implements JRDataSource {
             String nombre = generarNombreExtra(factura);
             File f = new File(nombre);
             f.getParentFile().mkdirs();
-            
+
             JRExporter exporter = new JRPdfExporter();
             exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
             exporter.setParameter(JRExporterParameter.OUTPUT_FILE, f);
             exporter.exportReport();
-        } catch(JRException ex) {
+
+            Desktop.getDesktop().open(f);
+        } catch(JRException | IOException ex) {
             Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -96,7 +100,9 @@ public class GestoraPDF implements JRDataSource {
 
             exporter.setParameter(JRExporterParameter.OUTPUT_FILE, f);
             exporter.exportReport();
-        } catch(JRException ex) {
+
+            Desktop.getDesktop().open(f);
+        } catch(JRException | IOException ex) {
             Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
