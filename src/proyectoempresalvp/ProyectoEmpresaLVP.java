@@ -6,14 +6,11 @@
 package proyectoempresalvp;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import proyectoempresalvp.datos.Dato;
-import proyectoempresalvp.datos.FacturaExtraDetalles;
+import proyectoempresalvp.datos.FacturaExtra;
 import proyectoempresalvp.datos.FacturaMensual;
 import proyectoempresalvp.gestoras.GestoraBaseDatos;
 import proyectoempresalvp.gestoras.Datos.GestoraDatos;
 import proyectoempresalvp.gestoras.Datos.Procesador;
-import proyectoempresalvp.gestoras.Gestora;
 import proyectoempresalvp.gestoras.GestoraConfiguracion;
 import proyectoempresalvp.gestoras.ObservadorGestoraDatos;
 import proyectoempresalvp.gestoras.pdf.GestoraPDF;
@@ -33,17 +30,17 @@ public class ProyectoEmpresaLVP implements ObservadorGestoraDatos {
         GestoraConfiguracion.recuperaConfiguracion();
         GestoraDatos.setObservador(new ProyectoEmpresaLVP());
         GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_TODO);
-        int numPeriodo = Gestora.numeroPeriodoPorNombre("AGO2014");
-        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASMENSUALES, null, numPeriodo);
+//        int numPeriodo = Gestora.numeroPeriodoPorNombre("ENE2015");
+//        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASMENSUALES, null, numPeriodo);
 
     }
 
     @Override
     public void avisar(int datoActualizado, Procesador procesador) {
 
-        if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES) {
-            FacturaMensual factura = (FacturaMensual) GestoraDatos.dameGestora().get(FacturaMensual.getTabla()).get(0);
-            GestoraPDF.generarPDFMensual(factura);
-        }
+//        if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES) {
+            FacturaExtra factura = (FacturaExtra) GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).get(0);
+            GestoraPDF.generarPDFExtra(factura);
+//        }
     }
 }

@@ -42,6 +42,7 @@ import proyectoempresalvp.gestoras.Datos.ProcesadorContratos;
 import proyectoempresalvp.gestoras.ModeloTabla;
 import proyectoempresalvp.gestoras.ObservadorGestoraDatos;
 import proyectoempresalvp.gestoras.ObservadorTareas;
+import proyectoempresalvp.gestoras.UtilidadesTareas;
 
 /**
  *
@@ -3839,13 +3840,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     private void establecerFecha() {
 
-        /*Calendar cal = Calendar.getInstance();
-         String fecha = cal.get(cal.DATE)+"/"+cal.get(cal.MONTH)+"/"+cal.get(cal.YEAR);
-         String hora = cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND); */
-        Date now = new Date(System.currentTimeMillis());
-        SimpleDateFormat fecha = new SimpleDateFormat("dd-MM-yyyy");
-
-        labelFecha.setText(fecha.format(now));
+        labelFecha.setText(UtilidadesTareas.getFechaActual().toString());
     }
 
 }

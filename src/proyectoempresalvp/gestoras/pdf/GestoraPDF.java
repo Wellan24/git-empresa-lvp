@@ -23,6 +23,7 @@ import net.sf.jasperreports.engine.util.JRLoader;
 import proyectoempresalvp.datos.Cliente;
 import proyectoempresalvp.datos.Dato;
 import proyectoempresalvp.datos.FacturaExtra;
+import proyectoempresalvp.datos.FacturaExtraDetalles;
 import proyectoempresalvp.datos.FacturaMensual;
 import proyectoempresalvp.datos.Fecha;
 import proyectoempresalvp.gestoras.Datos.GestoraDatos;
@@ -54,8 +55,9 @@ public class GestoraPDF implements JRDataSource {
         return datos.get(indiceParticipanteActual).get(jrf.getName()).toString().toUpperCase();
     }
 
-    public static void generarPDFExtra(ArrayList<HashMap<String, Object>> detalles, FacturaExtra factura) {
+    public static void generarPDFExtra(FacturaExtra factura) {
 
+        ArrayList<HashMap<String, Object>> detalles = new ArrayList(GestoraDatos.recuperarConDummy(new FacturaExtraDetalles(), null, " where NUMERO = " + factura.get("NUMEROFACTURA")));
         try {
             JasperReport reporte = (JasperReport) JRLoader.loadObjectFromFile("src/proyectoempresalvp/gestoras/pdf/FacturaPDF.jasper");
             JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, factura, new GestoraPDF(detalles));
@@ -85,7 +87,7 @@ public class GestoraPDF implements JRDataSource {
 
             String nombre = generarNombreMensual(factura);
             File f = new File(nombre);
-            f.mkdirs();            
+            f.getParentFile().mkdirs();            
             
             exporter.setParameter(JRExporterParameter.OUTPUT_FILE, f);
             exporter.exportReport();

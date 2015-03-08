@@ -127,12 +127,12 @@
 			<textField>
 				<reportElement x="0" y="0" width="416" height="20" uuid="6b9d7598-e803-46c2-a1e2-6c8d59cb8f1e"/>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[" " + $F{CONCEPTO}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[" " + $F{CONCEPTO}.toUpperCase()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="416" y="0" width="129" height="20" uuid="1977654f-3315-46ee-ad3e-387ed7491e34"/>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[" " + $F{IMPORTE}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[" " + $F{IMPORTE}.toUpperCase()]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
