@@ -5,42 +5,51 @@
  */
 package proyectoempresalvp.datos;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  *
  * @author Administrador
  */
-public abstract class Dato extends HashMap<String, Object>{   
+public abstract class Dato extends HashMap<String, Object> {
+
+    Class[] classes;
 
     public Dato(int initialCapacity) {
         super(initialCapacity);
-    }   
+    }
 
     public Dato(Dato m) {
         super(m);
     }
-    
+
     public abstract String devuelveNombreTablaDato();
+
     public abstract String[] devuelveOrdenDeColumnas();
+
     public abstract Object devuelveValorClave();
+
     public abstract String devuelveClave();
+
     /**
      * Sirve para realizar copias mediante un contructor privado
-     * @return 
+     *
+     * @return
      */
     public abstract Dato copia();
+
     public Class[] devuelveClases() {
-        
-        Class[] classes = new Class[this.size()];
-        ArrayList<Object> objetos = new ArrayList(this.values());
-        
-        for(int i = 0; i < classes.length; i++){            
-            
-                classes[i] = objetos.getClass();            
+
+        if(classes == null) {
+            String[] col = devuelveOrdenDeColumnas();
+            classes = new Class[col.length];
+
+            for(int i = 0;i < classes.length;i++) {
+
+                classes[i] = get(col[i]).getClass();
+            }
         }
-        return classes;        
-    }   
-    
+        return classes;
+    }
+
 }

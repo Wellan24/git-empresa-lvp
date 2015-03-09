@@ -9,7 +9,7 @@ package proyectoempresalvp.datos;
  *
  * @author Oscar
  */
-public class Fecha {
+public class Fecha implements Comparable<Fecha>{
     
     int dia;
     int mes;
@@ -56,6 +56,19 @@ public class Fecha {
         
         return ((dia < 10)?"0"+dia: dia) + "/" + ((mes < 10)?"0"+mes: mes)  + "/" + año; 
     } 
+
+    @Override
+    public int compareTo(Fecha o) {
+        
+        if(año != o.año)
+            return año > o.año ? 1 : -1;
+        if(mes != o.mes)
+            return mes > o.mes ? 1 : -1;
+        if(dia != o.dia)
+            return dia > o.dia ? 1 : -1;
+        
+        return 0;
+    }
     
     
 }
