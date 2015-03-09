@@ -12,9 +12,7 @@ import java.util.HashMap;
  * @author Administrador
  */
 public abstract class Dato extends HashMap<String, Object> {
-
-    Class[] classes;
-
+    
     public Dato(int initialCapacity) {
         super(initialCapacity);
     }
@@ -40,14 +38,12 @@ public abstract class Dato extends HashMap<String, Object> {
 
     public Class[] devuelveClases() {
 
-        if(classes == null) {
-            String[] col = devuelveOrdenDeColumnas();
-            classes = new Class[col.length];
+        String[] col = devuelveOrdenDeColumnas();
+        Class[] classes = new Class[col.length];
 
-            for(int i = 0;i < classes.length;i++) {
-
-                classes[i] = get(col[i]).getClass();
-            }
+        for(int i = 0;i < classes.length;i++) {
+            
+            classes[i] = get(col[i]).getClass();
         }
         return classes;
     }
