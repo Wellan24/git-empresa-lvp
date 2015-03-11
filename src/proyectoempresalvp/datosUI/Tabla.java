@@ -11,7 +11,6 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.JTable;
 import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -22,9 +21,9 @@ public class Tabla extends JTable {
     public Tabla() {
         super();
         setOpaque(false);
-        setDefaultRenderer(Object.class, new TableRenderer());
+        setDefaultRenderer(Object.class, new TableRenderer());   
         setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-//        setAutoCreateRowSorter(true);
+        setAutoCreateRowSorter(true);
     }
 
     @Override
@@ -45,7 +44,6 @@ public class Tabla extends JTable {
     @Override
     public void setModel(TableModel dataModel) {
         super.setModel(dataModel); 
-        setRowSorter(new TableRowSorter(dataModel));
     }
 
 }

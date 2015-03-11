@@ -19,8 +19,8 @@ import javax.swing.JScrollPane;
 public class ScrollPanelRedondo extends JScrollPane{
     
     private final Color color = new Color(0xd4ebfa);
-    private final int arcw = 2;
-    private final int arch = 2;
+    private final int arcw = 4;
+    private final int arch = 4;
 
     public ScrollPanelRedondo() {
         super();
