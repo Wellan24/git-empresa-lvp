@@ -55,7 +55,7 @@ public class GestoraPDF implements JRDataSource {
     @Override
     public Object getFieldValue(JRField jrf) throws JRException {
 
-        return datos.get(indiceParticipanteActual).get(jrf.getName()).toString().toUpperCase();
+        return datos.get(indiceParticipanteActual).get(jrf.getName()).toString();
     }
 
     public static void generarPDFExtra(FacturaExtra factura) {

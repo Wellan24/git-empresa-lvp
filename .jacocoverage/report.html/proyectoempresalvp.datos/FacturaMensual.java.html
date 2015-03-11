@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>FacturaMensual.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ProyectoEmpresaLVP&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">proyectoempresalvp.datos</a> &gt; <span class="el_source">FacturaMensual.java</span></div><h1>FacturaMensual.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyectoempresalvp.datos;
+
+import java.text.Collator;
+import java.util.Date;
+
+public class FacturaMensual extends Dato implements Comparable&lt;FacturaMensual&gt; {
+
+<span class="nc" id="L13">    private static final String[] orden = {&quot;NUMEROFACTURA&quot;, &quot;FECHA&quot;, &quot;NUMCLIENTE&quot;, &quot;DESCRIPCION&quot;, &quot;NUMCONTRATO&quot;, &quot;CIF&quot;, &quot;NOMBRE&quot;, &quot;DOMICILIO&quot;,</span>
+        &quot;LOCALIDAD&quot;, &quot;PROVINCIA&quot;, &quot;EUROSMES&quot;, &quot;TANTOIVA&quot;, &quot;REFMONEDA&quot;, &quot;DIACOBRO&quot;, &quot;FORMAPAGO&quot;, &quot;PERIODO&quot;, &quot;NUMPERIODO&quot;,
+        &quot;IBAN&quot;, &quot;REFBANCO&quot;, &quot;BANCOCOBRO&quot;, &quot;NOMBREBANCO&quot;};
+    private static final String tabla = &quot;FACTURAMENSUAL&quot;;
+
+    /**
+     * las claves son: NUMFACTURA, FECHA,NUMCLIENTE, DESCRIPCION,NUMCONTRATO,
+     * CIF, NOMBRE, DOMICILIO, LOCALIDAD, PROVINCIA, EUROSMES, TANTOIVA, IVA,
+     * TOTAL, REFMONEDA,DIACOBRO, FORMAPAGO, PERIODO,
+     * NUMPERIODO,NUMCUENTA,REFBANCO, BANCOCOBRO,NUMBREBANCO
+     *
+     * @param numFactura
+     * @param fecha
+     * @param numCliente
+     * @param descripcion
+     * @param numContrato
+     * @param cif
+     * @param nombre
+     * @param domicilio
+     * @param localidad
+     * @param cpProvincia
+     * @param eurosMes
+     * @param tantoIva
+     * @param refMoneda
+     * @param diaCobro
+     * @param formaPago
+     * @param periodo
+     * @param numPeriodo
+     * @param IBAN
+     * @param refBanco
+     * @param bancoCobro
+     * @param nombreBanco
+     */
+    public FacturaMensual(int numFactura, Fecha fecha, int numCliente,
+            String descripcion, int numContrato, int cif, String nombre,
+            String domicilio, String localidad, int cpProvincia, String eurosMes,
+            int tantoIva, String refMoneda, int diaCobro,
+            String formaPago, String periodo, int numPeriodo, int IBAN,
+            int refBanco, int bancoCobro, String nombreBanco) {
+<span class="nc" id="L52">        super(21);</span>
+<span class="nc" id="L53">        this.put(&quot;NUMEROFACTURA&quot;, numFactura);</span>
+<span class="nc" id="L54">        this.put(&quot;FECHA&quot;, fecha);</span>
+<span class="nc" id="L55">        this.put(&quot;NUMCLIENTE&quot;, numCliente);</span>
+<span class="nc" id="L56">        this.put(&quot;DESCRIPCION&quot;, descripcion);</span>
+<span class="nc" id="L57">        this.put(&quot;NUMCONTRATO&quot;, numContrato);</span>
+<span class="nc" id="L58">        this.put(&quot;CIF&quot;, cif);</span>
+<span class="nc" id="L59">        this.put(&quot;NOMBRE&quot;, nombre);</span>
+<span class="nc" id="L60">        this.put(&quot;DOMICILIO&quot;, domicilio);</span>
+<span class="nc" id="L61">        this.put(&quot;LOCALIDAD&quot;, localidad);</span>
+<span class="nc" id="L62">        this.put(&quot;PROVINCIA&quot;, cpProvincia);</span>
+<span class="nc" id="L63">        this.put(&quot;EUROSMES&quot;, eurosMes);</span>
+<span class="nc" id="L64">        this.put(&quot;TANTOIVA&quot;, tantoIva);</span>
+<span class="nc" id="L65">        this.put(&quot;REFMONEDA&quot;, refMoneda);</span>
+<span class="nc" id="L66">        this.put(&quot;DIACOBRO&quot;, diaCobro);</span>
+<span class="nc" id="L67">        this.put(&quot;FORMAPAGO&quot;, formaPago);</span>
+<span class="nc" id="L68">        this.put(&quot;PERIODO&quot;, periodo);</span>
+<span class="nc" id="L69">        this.put(&quot;NUMPERIODO&quot;, numPeriodo);</span>
+<span class="nc" id="L70">        this.put(&quot;IBAN&quot;, IBAN);</span>
+<span class="nc" id="L71">        this.put(&quot;REFBANCO&quot;, refBanco);</span>
+<span class="nc" id="L72">        this.put(&quot;BANCOCOBRO&quot;, bancoCobro);</span>
+<span class="nc" id="L73">        this.put(&quot;NOMBREBANCO&quot;, nombreBanco);</span>
+<span class="nc" id="L74">    }  </span>
+
+    private FacturaMensual(FacturaMensual c) {
+<span class="nc" id="L77">        super(c);</span>
+<span class="nc" id="L78">    }</span>
+    
+    public FacturaMensual() {
+<span class="nc" id="L81">        super(21);</span>
+<span class="nc" id="L82">        this.put(&quot;NUMEROFACTURA&quot;, 0);</span>
+<span class="nc" id="L83">        this.put(&quot;FECHA&quot;, new Fecha(&quot;1/1/2015&quot;));</span>
+<span class="nc" id="L84">        this.put(&quot;NUMCLIENTE&quot;, 0);</span>
+<span class="nc" id="L85">        this.put(&quot;DESCRIPCION&quot;, &quot;&quot;);</span>
+<span class="nc" id="L86">        this.put(&quot;NUMCONTRATO&quot;, 0);</span>
+<span class="nc" id="L87">        this.put(&quot;CIF&quot;, 0);</span>
+<span class="nc" id="L88">        this.put(&quot;NOMBRE&quot;, &quot;&quot;);</span>
+<span class="nc" id="L89">        this.put(&quot;DOMICILIO&quot;, &quot;&quot;);</span>
+<span class="nc" id="L90">        this.put(&quot;LOCALIDAD&quot;, &quot;&quot;);</span>
+<span class="nc" id="L91">        this.put(&quot;PROVINCIA&quot;, 0);</span>
+<span class="nc" id="L92">        this.put(&quot;EUROSMES&quot;, 0);</span>
+<span class="nc" id="L93">        this.put(&quot;TANTOIVA&quot;, 0);</span>
+<span class="nc" id="L94">        this.put(&quot;REFMONEDA&quot;, &quot;&quot;);</span>
+<span class="nc" id="L95">        this.put(&quot;DIACOBRO&quot;, 0);</span>
+<span class="nc" id="L96">        this.put(&quot;FORMAPAGO&quot;, &quot;&quot;);</span>
+<span class="nc" id="L97">        this.put(&quot;PERIODO&quot;, &quot;&quot;);</span>
+<span class="nc" id="L98">        this.put(&quot;NUMPERIODO&quot;, 0);</span>
+<span class="nc" id="L99">        this.put(&quot;IBAN&quot;, 0);</span>
+<span class="nc" id="L100">        this.put(&quot;REFBANCO&quot;, 0);</span>
+<span class="nc" id="L101">        this.put(&quot;BANCOCOBRO&quot;, 0);</span>
+<span class="nc" id="L102">        this.put(&quot;NOMBREBANCO&quot;, &quot;&quot;);</span>
+<span class="nc" id="L103">    }</span>
+    
+
+    @Override
+    public String devuelveNombreTablaDato() {
+
+<span class="nc" id="L109">        return tabla;</span>
+    }
+
+    @Override
+    public String[] devuelveOrdenDeColumnas() {
+
+<span class="nc" id="L115">        return orden; //To change body of generated methods, choose Tools | Templates.</span>
+    }
+
+    @Override
+    public int compareTo(FacturaMensual o) {
+
+<span class="nc" id="L121">        Collator c = Collator.getInstance();</span>
+<span class="nc" id="L122">        c.setStrength(Collator.PRIMARY);</span>
+
+        Object obj;
+        Object objO;
+
+<span class="nc bnc" id="L127" title="All 2 branches missed.">        for (String clave : orden) {</span>
+
+<span class="nc" id="L129">            obj = this.get(clave);</span>
+<span class="nc" id="L130">            objO = o.get(clave);</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed.">            if (obj instanceof Integer) {</span>
+
+<span class="nc bnc" id="L133" title="All 2 branches missed.">                if ((int) obj != (int) objO) {</span>
+
+<span class="nc bnc" id="L135" title="All 2 branches missed.">                    return (int) obj &gt; (int) objO ? 1 : -1;</span>
+                }
+<span class="nc bnc" id="L137" title="All 2 branches missed.">            } else if (obj instanceof String) {</span>
+<span class="nc bnc" id="L138" title="All 2 branches missed.">                if (c.compare((String) obj, (String) objO) != 0) {</span>
+
+<span class="nc" id="L140">                    return c.compare(obj, objO);</span>
+                }
+<span class="nc bnc" id="L142" title="All 2 branches missed.">            } else if (obj instanceof Float) {</span>
+
+<span class="nc bnc" id="L144" title="All 2 branches missed.">                if ((float) obj != (float) objO) {</span>
+
+<span class="nc bnc" id="L146" title="All 2 branches missed.">                    return (float) obj &gt; (float) objO ? 1 : -1;</span>
+                }
+<span class="nc bnc" id="L148" title="All 2 branches missed.">            } else if (obj instanceof Date) {</span>
+
+<span class="nc bnc" id="L150" title="All 2 branches missed.">                if (((Date) obj).compareTo((Date) objO) != 0) {</span>
+
+<span class="nc" id="L152">                    return ((Date) obj).compareTo((Date) objO);</span>
+                }
+            }
+
+        }
+
+<span class="nc" id="L158">        return 0;</span>
+    }
+
+    /**
+     * La clave es NUMFACTURA
+     *
+     * @return
+     */
+    @Override
+    public Object devuelveValorClave() {
+
+<span class="nc" id="L169">        return this.get(&quot;NUMEROFACTURA&quot;);</span>
+    }
+
+    public static String[] getOrden() {
+<span class="nc" id="L173">        return orden;</span>
+    }
+
+    public static String getTabla() {
+<span class="nc" id="L177">        return tabla;</span>
+    }
+
+    @Override
+    public String devuelveClave() {
+        
+<span class="nc" id="L183">        return &quot;NUMEROFACTURA&quot;;</span>
+    }
+
+    @Override
+    public Dato copia() {
+        
+//        return (Dato)this.clone();
+<span class="nc" id="L190">        return new FacturaMensual(this);</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

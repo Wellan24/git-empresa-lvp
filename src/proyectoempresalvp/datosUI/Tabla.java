@@ -22,8 +22,10 @@ public class Tabla extends JTable {
         super();
         setOpaque(false);
         setDefaultRenderer(Object.class, new TableRenderer());   
+        setDefaultRenderer(Boolean.class, new TableRenderer());
         setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         setAutoCreateRowSorter(true);
+        
     }
 
     @Override

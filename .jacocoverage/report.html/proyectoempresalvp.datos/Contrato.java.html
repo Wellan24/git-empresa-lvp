@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Contrato.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ProyectoEmpresaLVP&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">proyectoempresalvp.datos</a> &gt; <span class="el_source">Contrato.java</span></div><h1>Contrato.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyectoempresalvp.datos;
+
+import java.text.Collator;
+import java.util.Date;
+
+public class Contrato extends Dato implements Comparable&lt;Contrato&gt; {
+
+<span class="fc" id="L13">    private static final String[] orden = {&quot;NUMCONTRATO&quot;, &quot;NUMCLIENTE&quot;, &quot;DESCRIPCION&quot;, &quot;INICIOCONTRATO&quot;, &quot;FINCONTRATO&quot;, &quot;EUROSAÑO&quot;, &quot;EUROSMES&quot;, </span>
+        &quot;FORMAPAGO&quot;, &quot;DIACOBRO&quot;, &quot;TANTOIVA&quot;, &quot;ESTADO&quot;};
+    private static final String tabla = &quot;CONTRATOS&quot;;
+
+    /**
+     * Las claves son: NUMCONTRATO, NUMCLIENTE, DESCRIPCION,INICIOCONTRATO,
+     * FINCONTRATO, EUROSAÑO, EUROSMES, FORMAPAGO, DIACOBRO, TANTOIVA, ESTADO
+     *
+     * @param numContrato
+     * @param numCliente
+     * @param descripcion
+     * @param inicioContrato
+     * @param finContrato
+     * @param eurosAño
+     * @param eurosMes
+     * @param formaPago
+     * @param diaCobro
+     * @param tantoIva
+     */
+    public Contrato(int numContrato, int numCliente, String descripcion,
+            Fecha inicioContrato, Fecha finContrato, String eurosAño, String eurosMes,
+            String formaPago, int diaCobro, int tantoIva) {
+<span class="nc" id="L35">        super(12);</span>
+<span class="nc" id="L36">        this.put(&quot;NUMCONTRATO&quot;, numContrato);</span>
+<span class="nc" id="L37">        this.put(&quot;NUMCLIENTE&quot;, numCliente);</span>
+<span class="nc" id="L38">        this.put(&quot;DESCRIPCION&quot;, descripcion);</span>
+<span class="nc" id="L39">        this.put(&quot;INICIOCONTRATO&quot;, inicioContrato);</span>
+<span class="nc" id="L40">        this.put(&quot;FINCONTRATO&quot;, finContrato);</span>
+<span class="nc" id="L41">        this.put(&quot;EUROSAÑO&quot;, eurosAño);</span>
+<span class="nc" id="L42">        this.put(&quot;EUROSMES&quot;, eurosMes);</span>
+<span class="nc" id="L43">        this.put(&quot;FORMAPAGO&quot;, formaPago);</span>
+<span class="nc" id="L44">        this.put(&quot;DIACOBRO&quot;, diaCobro);</span>
+<span class="nc" id="L45">        this.put(&quot;TANTOIVA&quot;, tantoIva);</span>
+<span class="nc" id="L46">        this.put(&quot;ESTADO&quot;, false);</span>
+<span class="nc" id="L47">    }</span>
+    
+    public Contrato(int numContrato, int numCliente, String descripcion,
+            Fecha inicioContrato, Fecha finContrato, String eurosAño, String eurosMes,
+            String formaPago, int diaCobro, int tantoIva, boolean estado) {
+<span class="nc" id="L52">        super(12);</span>
+<span class="nc" id="L53">        this.put(&quot;NUMCONTRATO&quot;, numContrato);</span>
+<span class="nc" id="L54">        this.put(&quot;NUMCLIENTE&quot;, numCliente);</span>
+<span class="nc" id="L55">        this.put(&quot;DESCRIPCION&quot;, descripcion);</span>
+<span class="nc" id="L56">        this.put(&quot;INICIOCONTRATO&quot;, inicioContrato);</span>
+<span class="nc" id="L57">        this.put(&quot;FINCONTRATO&quot;, finContrato);</span>
+<span class="nc" id="L58">        this.put(&quot;EUROSAÑO&quot;, eurosAño);</span>
+<span class="nc" id="L59">        this.put(&quot;EUROSMES&quot;, eurosMes);</span>
+<span class="nc" id="L60">        this.put(&quot;FORMAPAGO&quot;, formaPago);</span>
+<span class="nc" id="L61">        this.put(&quot;DIACOBRO&quot;, diaCobro);</span>
+<span class="nc" id="L62">        this.put(&quot;TANTOIVA&quot;, tantoIva);</span>
+<span class="nc" id="L63">        this.put(&quot;ESTADO&quot;, estado);</span>
+<span class="nc" id="L64">    }</span>
+    
+     public Contrato() {
+<span class="fc" id="L67">        super(12);</span>
+<span class="fc" id="L68">        this.put(&quot;NUMCONTRATO&quot;, 0);</span>
+<span class="fc" id="L69">        this.put(&quot;NUMCLIENTE&quot;, 0);</span>
+<span class="fc" id="L70">        this.put(&quot;DESCRIPCION&quot;, &quot;&quot;);</span>
+<span class="fc" id="L71">        this.put(&quot;INICIOCONTRATO&quot;, new Fecha(&quot;1/1/2015&quot;));</span>
+<span class="fc" id="L72">        this.put(&quot;FINCONTRATO&quot;, new Fecha(&quot;1/1/2015&quot;));</span>
+<span class="fc" id="L73">        this.put(&quot;EUROSAÑO&quot;, &quot;&quot;);</span>
+<span class="fc" id="L74">        this.put(&quot;EUROSMES&quot;, &quot;&quot;);</span>
+<span class="fc" id="L75">        this.put(&quot;FORMAPAGO&quot;, &quot;&quot;);</span>
+<span class="fc" id="L76">        this.put(&quot;DIACOBRO&quot;, 0);</span>
+<span class="fc" id="L77">        this.put(&quot;TANTOIVA&quot;, 0);</span>
+<span class="fc" id="L78">        this.put(&quot;ESTADO&quot;, false);</span>
+<span class="fc" id="L79">    }</span>
+    
+    private Contrato(Dato d) {
+<span class="fc" id="L82">        super(d);</span>
+<span class="fc" id="L83">    }</span>
+
+    @Override
+    public String devuelveNombreTablaDato() {
+
+<span class="fc" id="L88">        return tabla;</span>
+    }
+
+    @Override
+    public String[] devuelveOrdenDeColumnas() {
+
+<span class="fc" id="L94">        return orden;</span>
+    }
+
+    @Override
+    public int compareTo(Contrato o) {
+
+<span class="nc" id="L100">        Collator c = Collator.getInstance();</span>
+<span class="nc" id="L101">        c.setStrength(Collator.PRIMARY);</span>
+
+        Object obj;
+        Object objO;
+
+<span class="nc bnc" id="L106" title="All 2 branches missed.">        for (String clave : orden) {</span>
+
+<span class="nc" id="L108">            obj = this.get(clave);</span>
+<span class="nc" id="L109">            objO = o.get(clave);</span>
+<span class="nc bnc" id="L110" title="All 2 branches missed.">            if (obj instanceof Integer) {</span>
+
+<span class="nc bnc" id="L112" title="All 2 branches missed.">                if ((int) obj != (int) objO) {</span>
+
+<span class="nc bnc" id="L114" title="All 2 branches missed.">                    return (int) obj &gt; (int) objO ? 1 : -1;</span>
+                }
+<span class="nc bnc" id="L116" title="All 2 branches missed.">            } else if (obj instanceof String) {</span>
+<span class="nc bnc" id="L117" title="All 2 branches missed.">                if (c.compare((String) obj, (String) objO) != 0) {</span>
+
+<span class="nc" id="L119">                    return c.compare(obj, objO);</span>
+                }
+<span class="nc bnc" id="L121" title="All 2 branches missed.">            } else if (obj instanceof Float) {</span>
+
+<span class="nc bnc" id="L123" title="All 2 branches missed.">                if ((float) obj != (float) objO) {</span>
+
+<span class="nc bnc" id="L125" title="All 2 branches missed.">                    return (float) obj &gt; (float) objO ? 1 : -1;</span>
+                }
+<span class="nc bnc" id="L127" title="All 2 branches missed.">            } else if (obj instanceof Date) {</span>
+
+<span class="nc bnc" id="L129" title="All 2 branches missed.">                if (((Date) obj).compareTo((Date) objO) != 0) {</span>
+
+<span class="nc" id="L131">                    return ((Date) obj).compareTo((Date) objO);</span>
+                }
+            }
+
+        }
+
+<span class="nc" id="L137">        return 0;</span>
+    }
+
+    /**
+     * La clave es NUMCONTRATO
+     *
+     * @return
+     */
+    @Override
+    public Object devuelveValorClave() {
+
+<span class="fc" id="L148">        return &quot;&quot; + this.get(&quot;NUMCONTRATO&quot;);</span>
+    }
+
+    public static String[] getOrden() {
+<span class="nc" id="L152">        return orden;</span>
+    }
+
+    public static String getTabla() {
+<span class="fc" id="L156">        return tabla;</span>
+    }
+
+    @Override
+    public String devuelveClave() {
+        
+<span class="nc" id="L162">        return &quot;NUMCONTRATO&quot;;</span>
+    }
+
+    @Override
+    public Dato copia() {
+        
+<span class="fc" id="L168">        return new Contrato(this);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>GestoraDatos.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ProyectoEmpresaLVP&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">proyectoempresalvp.gestoras.Datos</a> &gt; <span class="el_source">GestoraDatos.java</span></div><h1>GestoraDatos.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyectoempresalvp.gestoras.Datos;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import proyectoempresalvp.datos.ArrayListDato;
+import proyectoempresalvp.datos.Dato;
+import proyectoempresalvp.datos.Fecha;
+import proyectoempresalvp.gestoras.GestoraBaseDatos;
+import proyectoempresalvp.gestoras.ObservadorGestoraDatos;
+
+/**
+ *
+ * @author Oscar
+ */
+public class GestoraDatos extends HashMap&lt;String, ArrayListDato&lt;Dato&gt;&gt;{
+    
+    public static final int ACTUALIZAR_TODO = 0;
+    public static final int ACTUALIZAR_EMPLEADOS = 1;
+    public static final int ACTUALIZAR_CONTRATOS = 2;
+    public static final int ACTUALIZAR_CLIENTES = 3;
+    public static final int ACTUALIZAR_FACTURASMENSUALES = 4;
+    public static final int ACTUALIZAR_FACTURASMENSUALES_AÑO = 5;
+    public static final int ACTUALIZAR_FACTURASEXTRA = 6;
+    
+    private static GestoraDatos g;
+
+<span class="fc" id="L35">    private GestoraDatos() {</span>
+<span class="fc" id="L36">    }</span>
+    
+    public static void actualizaDatos(int datoActualizar){
+        
+        try {
+<span class="nc" id="L41">            new Thread(new HiloActualizarDatos(datoActualizar, null)).start();</span>
+<span class="nc" id="L42">        } catch(Exception ex) {</span>
+<span class="nc" id="L43">            Logger.getLogger(GestoraDatos.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L44">        }</span>
+<span class="nc" id="L45">    }</span>
+    
+    public static void actualizaDatos(int datoActualizar, Procesador p){
+        
+        try {
+<span class="fc" id="L50">            new Thread(new HiloActualizarDatos(datoActualizar, p)).start();</span>
+<span class="nc" id="L51">        } catch(Exception ex) {</span>
+<span class="nc" id="L52">            Logger.getLogger(GestoraDatos.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="fc" id="L53">        }</span>
+<span class="fc" id="L54">    }</span>
+    
+    public static void actualizaDatos(int datoActualizar, Procesador p, int numPeriodo){
+        
+        
+<span class="nc" id="L59">            new Thread(new HiloActualizarDatos(datoActualizar, p, &quot; where NUMPERIODO = &quot; + numPeriodo)).start();</span>
+<span class="nc" id="L60">    }</span>
+    
+    public static void actualizaDatos(int datoActualizar, Procesador p, String where){
+        
+        
+<span class="nc" id="L65">            new Thread(new HiloActualizarDatos(datoActualizar, p, where)).start();</span>
+<span class="nc" id="L66">    }</span>
+
+    public static GestoraDatos dameGestora(){
+        
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        if(g == null)</span>
+<span class="fc" id="L71">            g = new GestoraDatos();</span>
+        
+<span class="fc" id="L73">        return g;</span>
+    }
+    
+    public static void setObservador(ObservadorGestoraDatos observador) {
+<span class="fc" id="L77">        HiloActualizarDatos.setObservador(observador);</span>
+<span class="fc" id="L78">    }</span>
+
+    @Override
+    public ArrayListDato&lt;Dato&gt; get(Object key) {
+<span class="fc" id="L82">        return super.get(key); </span>
+    }
+    
+    public static ArrayListDato&lt;Dato&gt; recuperarConDummy(Dato d, Procesador procesador, String where) {
+
+<span class="fc" id="L87">        ArrayListDato&lt;Dato&gt; datos = new ArrayListDato();</span>
+<span class="fc" id="L88">        String[] claves = d.devuelveOrdenDeColumnas();</span>
+        
+        String select;
+<span class="pc bpc" id="L91" title="1 of 2 branches missed.">        if(where != null)</span>
+<span class="nc" id="L92">            select = GestoraBaseDatos.construyeSentenciaSelect(claves, d.devuelveNombreTablaDato(), where);</span>
+        else
+<span class="fc" id="L94">            select = GestoraBaseDatos.construyeSentenciaSelect(claves, d.devuelveNombreTablaDato());</span>
+        
+<span class="fc" id="L96">        ResultSet datosSelect = GestoraBaseDatos.ejecutarSentenciaQuery(select);</span>
+
+        try {
+<span class="fc bfc" id="L99" title="All 2 branches covered.">            while(datosSelect.next()) {</span>
+
+<span class="fc bfc" id="L101" title="All 2 branches covered.">                for(int i = 0;i &lt; claves.length;i++) {</span>
+
+<span class="fc" id="L103">                    String clave = claves[i];</span>
+<span class="fc" id="L104">                    Object obj = d.get(clave);</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">                    if(obj instanceof Integer) {</span>
+
+<span class="fc" id="L107">                        d.put(clave, datosSelect.getInt(i + 1));</span>
+<span class="fc bfc" id="L108" title="All 2 branches covered.">                    } else if(obj instanceof String) {</span>
+
+<span class="fc" id="L110">                        d.put(clave, datosSelect.getString(i + 1));</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">                    } else if(obj instanceof Fecha) {</span>
+
+<span class="fc" id="L113">                        d.put(clave, new Fecha(datosSelect.getString(i + 1)));</span>
+<span class="pc bpc" id="L114" title="1 of 2 branches missed.">                    } else if(obj instanceof Boolean) {</span>
+
+<span class="fc" id="L116">                        d.put(clave, datosSelect.getBoolean(i + 1));</span>
+                    }
+                }
+                
+<span class="pc bpc" id="L120" title="1 of 4 branches missed.">                if(procesador != null &amp;&amp; procesador.comprobarValido(d))</span>
+<span class="fc" id="L121">                    procesador.procesar(d);</span>
+                
+<span class="fc" id="L123">                datos.add((Dato) d.copia());</span>
+            }
+<span class="nc" id="L125">        } catch(SQLException ex) {</span>
+<span class="nc" id="L126">            Logger.getLogger(GestoraTareas.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="fc" id="L127">        }</span>
+
+<span class="fc" id="L129">        return datos;</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

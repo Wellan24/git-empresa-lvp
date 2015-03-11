@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Cliente.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ProyectoEmpresaLVP&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">proyectoempresalvp.datos</a> &gt; <span class="el_source">Cliente.java</span></div><h1>Cliente.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyectoempresalvp.datos;
+
+import java.text.Collator;
+
+public class Cliente extends Dato implements Comparable&lt;Cliente&gt; {
+
+<span class="fc" id="L12">    public static String[] orden = {&quot;NUMEROCLIENTE&quot;, &quot;CIF&quot;, &quot;DESCRIPCION&quot;, &quot;NOMBRE&quot;, &quot;DOMICILIO&quot;, &quot;LOCALIDAD&quot;, &quot;CP&quot;, &quot;PROVINCIA&quot;, &quot;PERSONACONTACTO&quot;, &quot;TLFCLIENTE&quot;, &quot;TLFCONTACTO&quot;, &quot;NOTAS&quot;,</span>
+        &quot;REFBANCO&quot;, &quot;IBAN&quot;, &quot;BANCOCOBRO&quot;};
+    private static final String tabla = &quot;CLIENTES&quot;;
+
+    /**
+     * Las claves son: NUMEROCLIENTE, CIF, DESCRIPCION, NOMBRE, DOMICILIO, LOCALIDAD, CP, PROVINCIA,
+     * PERSONACONTACTO, TLFCLIENTE, TLFCONTACTO, NOTAS, ENTIDAD, SUCURSAL, DC, CUENTA, REFBANCO,
+     * IBAN, BANCOCOBRO
+     *
+     * @param numeroCliente
+     * @param cif
+     * @param descripcion
+     * @param nombre
+     * @param domicilio
+     * @param localidad
+     * @param cp
+     * @param provincia
+     * @param personaContacto
+     * @param tlfCliente
+     * @param tlfContacto
+     * @param notas
+     * @param refBanco
+     * @param iban
+     * @param bancoCobro
+     */
+    public Cliente(int numeroCliente, int cif, String descripcion,
+            String nombre, String domicilio, String localidad, int cp,
+            String provincia, String personaContacto, int tlfCliente, int tlfContacto,
+            String notas, int refBanco, String iban, int bancoCobro) {
+<span class="nc" id="L41">        super(15);</span>
+<span class="nc" id="L42">        this.put(&quot;NUMEROCLIENTE&quot;, numeroCliente);</span>
+<span class="nc" id="L43">        this.put(&quot;CIF&quot;, cif);</span>
+<span class="nc" id="L44">        this.put(&quot;DESCRIPCION&quot;, descripcion);</span>
+<span class="nc" id="L45">        this.put(&quot;NOMBRE&quot;, nombre);</span>
+<span class="nc" id="L46">        this.put(&quot;DOMICILIO&quot;, domicilio);</span>
+<span class="nc" id="L47">        this.put(&quot;LOCALIDAD&quot;, localidad);</span>
+<span class="nc" id="L48">        this.put(&quot;CP&quot;, cp);</span>
+<span class="nc" id="L49">        this.put(&quot;PROVINCIA&quot;, provincia);</span>
+<span class="nc" id="L50">        this.put(&quot;PERSONACONTACTO&quot;, personaContacto);</span>
+<span class="nc" id="L51">        this.put(&quot;TLFCLIENTE&quot;, tlfCliente);</span>
+<span class="nc" id="L52">        this.put(&quot;TLFCONTACTO&quot;, tlfContacto);</span>
+<span class="nc" id="L53">        this.put(&quot;NOTAS&quot;, notas);</span>
+<span class="nc" id="L54">        this.put(&quot;REFBANCO&quot;, refBanco);</span>
+<span class="nc" id="L55">        this.put(&quot;IBAN&quot;, iban);</span>
+<span class="nc" id="L56">        this.put(&quot;BANCOCOBRO&quot;, bancoCobro);</span>
+<span class="nc" id="L57">    }</span>
+
+    public Cliente() {
+<span class="fc" id="L60">        super(15);</span>
+<span class="fc" id="L61">        this.put(&quot;NUMEROCLIENTE&quot;, 0);</span>
+<span class="fc" id="L62">        this.put(&quot;CIF&quot;, 0);</span>
+<span class="fc" id="L63">        this.put(&quot;DESCRIPCION&quot;, &quot;&quot;);</span>
+<span class="fc" id="L64">        this.put(&quot;NOMBRE&quot;, &quot;&quot;);</span>
+<span class="fc" id="L65">        this.put(&quot;DOMICILIO&quot;, &quot;&quot;);</span>
+<span class="fc" id="L66">        this.put(&quot;LOCALIDAD&quot;, &quot;&quot;);</span>
+<span class="fc" id="L67">        this.put(&quot;CP&quot;, 0);</span>
+<span class="fc" id="L68">        this.put(&quot;PROVINCIA&quot;, &quot;&quot;);</span>
+<span class="fc" id="L69">        this.put(&quot;PERSONACONTACTO&quot;, &quot;&quot;);</span>
+<span class="fc" id="L70">        this.put(&quot;TLFCLIENTE&quot;, 0);</span>
+<span class="fc" id="L71">        this.put(&quot;TLFCONTACTO&quot;, 0);</span>
+<span class="fc" id="L72">        this.put(&quot;NOTAS&quot;, &quot;&quot;);</span>
+<span class="fc" id="L73">        this.put(&quot;REFBANCO&quot;, 0);</span>
+<span class="fc" id="L74">        this.put(&quot;IBAN&quot;, &quot;&quot;);</span>
+<span class="fc" id="L75">        this.put(&quot;BANCOCOBRO&quot;, 0);</span>
+<span class="fc" id="L76">    }</span>
+
+    private Cliente(Cliente c) {
+<span class="fc" id="L79">        super(c);</span>
+<span class="fc" id="L80">    }</span>
+
+    @Override
+    public String devuelveNombreTablaDato() {
+<span class="fc" id="L84">        return tabla;</span>
+    }
+
+    @Override
+    public String[] devuelveOrdenDeColumnas() {
+
+<span class="fc" id="L90">        return orden;</span>
+    }
+
+    @Override
+    public int compareTo(Cliente o) {
+
+<span class="nc" id="L96">        Collator c = Collator.getInstance();</span>
+<span class="nc" id="L97">        c.setStrength(Collator.PRIMARY);</span>
+
+        Object obj;
+        Object objO;
+
+<span class="nc bnc" id="L102" title="All 2 branches missed.">        for(String clave :orden) {</span>
+
+<span class="nc" id="L104">            obj = this.get(clave);</span>
+<span class="nc" id="L105">            objO = o.get(clave);</span>
+<span class="nc bnc" id="L106" title="All 2 branches missed.">            if(obj instanceof Integer) {</span>
+
+<span class="nc bnc" id="L108" title="All 2 branches missed.">                if((int) obj != (int) objO) {</span>
+
+<span class="nc bnc" id="L110" title="All 2 branches missed.">                    return (int) obj &gt; (int) objO ? 1 : -1;</span>
+                }
+<span class="nc bnc" id="L112" title="All 2 branches missed.">            } else if(obj instanceof String) {</span>
+<span class="nc bnc" id="L113" title="All 2 branches missed.">                if(c.compare((String) obj, (String) objO) != 0) {</span>
+
+<span class="nc" id="L115">                    return c.compare(obj, objO);</span>
+                }
+<span class="nc bnc" id="L117" title="All 2 branches missed.">            } else if(obj instanceof Float) {</span>
+
+<span class="nc bnc" id="L119" title="All 2 branches missed.">                if((float) obj != (float) objO) {</span>
+
+<span class="nc bnc" id="L121" title="All 2 branches missed.">                    return (float) obj &gt; (float) objO ? 1 : -1;</span>
+                }
+            }
+
+        }
+
+<span class="nc" id="L127">        return 0;</span>
+    }
+
+    /**
+     * La clave es NUMEROCLIENTE
+     *
+     * @return
+     */
+    @Override
+    public Object devuelveValorClave() {
+
+<span class="fc" id="L138">        return this.get(&quot;NUMEROCLIENTE&quot;);</span>
+    }
+
+    public static String[] getOrden() {
+<span class="nc" id="L142">        return orden;</span>
+    }
+
+    public static String getTabla() {
+<span class="fc" id="L146">        return tabla;</span>
+    }
+
+    @Override
+    public String devuelveClave() {
+
+<span class="nc" id="L152">        return &quot;NUMEROCLIENTE&quot;;</span>
+    }
+
+    @Override
+    public Dato copia() {
+
+<span class="fc" id="L158">        return new Cliente(this);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

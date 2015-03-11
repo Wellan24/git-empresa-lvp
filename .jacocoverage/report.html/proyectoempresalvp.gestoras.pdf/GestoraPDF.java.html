@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>GestoraPDF.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ProyectoEmpresaLVP&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">proyectoempresalvp.gestoras.pdf</a> &gt; <span class="el_source">GestoraPDF.java</span></div><h1>GestoraPDF.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyectoempresalvp.gestoras.pdf;
+
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRExporter;
+import net.sf.jasperreports.engine.JRExporterParameter;
+import net.sf.jasperreports.engine.JRField;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
+import net.sf.jasperreports.engine.util.JRLoader;
+import proyectoempresalvp.datos.ArrayListDato;
+import proyectoempresalvp.datos.Cliente;
+import proyectoempresalvp.datos.Dato;
+import proyectoempresalvp.datos.FacturaExtra;
+import proyectoempresalvp.datos.FacturaExtraDetalles;
+import proyectoempresalvp.datos.FacturaMensual;
+import proyectoempresalvp.datos.Fecha;
+import proyectoempresalvp.gestoras.Datos.GestoraDatos;
+import proyectoempresalvp.gestoras.Gestora;
+
+/**
+ *
+ * @author Oscar
+ */
+public class GestoraPDF implements JRDataSource {
+
+    private ArrayList&lt;HashMap&lt;String, Object&gt;&gt; datos;
+<span class="nc" id="L42">    private int indiceParticipanteActual = -1;</span>
+
+<span class="nc" id="L44">    public GestoraPDF(ArrayList&lt;HashMap&lt;String, Object&gt;&gt; datos) {</span>
+
+<span class="nc" id="L46">        this.datos = datos;</span>
+<span class="nc" id="L47">    }</span>
+
+    @Override
+    public boolean next() throws JRException {
+
+<span class="nc bnc" id="L52" title="All 2 branches missed.">        return ++indiceParticipanteActual &lt; datos.size();</span>
+    }
+
+    @Override
+    public Object getFieldValue(JRField jrf) throws JRException {
+
+<span class="nc" id="L58">        return datos.get(indiceParticipanteActual).get(jrf.getName()).toString().toUpperCase();</span>
+    }
+
+    public static void generarPDFExtra(FacturaExtra factura) {
+
+<span class="nc" id="L63">        ArrayList&lt;HashMap&lt;String, Object&gt;&gt; detalles = new ArrayList(GestoraDatos.recuperarConDummy(new FacturaExtraDetalles(), null, &quot; where NUMERO = &quot; + factura.get(&quot;NUMEROFACTURA&quot;)));</span>
+        try {
+<span class="nc" id="L65">            JasperReport reporte = (JasperReport) JRLoader.loadObjectFromFile(&quot;src/proyectoempresalvp/gestoras/pdf/FacturaPDF.jasper&quot;);</span>
+<span class="nc" id="L66">            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, factura, new GestoraPDF(detalles));</span>
+
+<span class="nc" id="L68">            String nombre = generarNombreExtra(factura);</span>
+<span class="nc" id="L69">            File f = new File(nombre);</span>
+<span class="nc" id="L70">            f.getParentFile().mkdirs();</span>
+
+<span class="nc" id="L72">            JRExporter exporter = new JRPdfExporter();</span>
+<span class="nc" id="L73">            exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);</span>
+<span class="nc" id="L74">            exporter.setParameter(JRExporterParameter.OUTPUT_FILE, f);</span>
+<span class="nc" id="L75">            exporter.exportReport();</span>
+
+<span class="nc" id="L77">            Desktop.getDesktop().open(f);</span>
+<span class="nc" id="L78">        } catch(JRException | IOException ex) {</span>
+<span class="nc" id="L79">            Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L80">        }</span>
+<span class="nc" id="L81">    }</span>
+
+    public static void generarPDFMensual(FacturaMensual factura) {
+
+<span class="nc" id="L85">        ArrayList&lt;HashMap&lt;String, Object&gt;&gt; detalles = new ArrayList();</span>
+<span class="nc" id="L86">        HashMap&lt;String, Object&gt; linea = new HashMap();</span>
+<span class="nc" id="L87">        linea.put(&quot;CONCEPTO&quot;, &quot;FACTURA MENSUAL DE &quot; + Gestora.getMes(((Fecha) factura.get(&quot;FECHA&quot;)).getMes() - 1));</span>
+<span class="nc" id="L88">        linea.put(&quot;IMPORTE&quot;, factura.get(&quot;EUROSMES&quot;).toString());</span>
+<span class="nc" id="L89">        detalles.add(linea);</span>
+        try {
+<span class="nc" id="L91">            JasperReport reporte = (JasperReport) JRLoader.loadObjectFromFile(&quot;src/proyectoempresalvp/gestoras/pdf/FacturaPDF.jasper&quot;);</span>
+<span class="nc" id="L92">            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, factura, new GestoraPDF(detalles));</span>
+
+<span class="nc" id="L94">            JRExporter exporter = new JRPdfExporter();</span>
+<span class="nc" id="L95">            exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);</span>
+
+<span class="nc" id="L97">            String nombre = generarNombreMensual(factura);</span>
+<span class="nc" id="L98">            File f = new File(nombre);</span>
+<span class="nc" id="L99">            f.getParentFile().mkdirs();</span>
+
+<span class="nc" id="L101">            exporter.setParameter(JRExporterParameter.OUTPUT_FILE, f);</span>
+<span class="nc" id="L102">            exporter.exportReport();</span>
+
+<span class="nc" id="L104">            Desktop.getDesktop().open(f);</span>
+<span class="nc" id="L105">        } catch(JRException | IOException ex) {</span>
+<span class="nc" id="L106">            Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L107">        }</span>
+<span class="nc" id="L108">    }</span>
+
+    public static String generarNombreExtra(FacturaExtra factura) {
+
+<span class="nc" id="L112">        return GestoraArchivos.generarNombreCarpetaExtras() + &quot;/&quot; + factura.get(&quot;NOMBRE&quot;).toString()</span>
+<span class="nc" id="L113">                .replace(&quot;[/:;- ]&quot;, &quot;_&quot;) + &quot;/Nº &quot; + factura.get(&quot;NUMEROFACTURA&quot;)</span>
+<span class="nc" id="L114">                + &quot; Fecha - &quot; + factura.get(&quot;FECHA&quot;).toString().replace(&quot;/&quot;, &quot;_&quot;) + &quot;.pdf&quot;;</span>
+    }
+
+    public static String generarNombreMensual(FacturaMensual factura) {
+
+<span class="nc" id="L119">        Dato c = GestoraDatos.recuperarConDummy(new Cliente(), null, &quot; where NUMEROCLIENTE = &quot; + factura.get(&quot;NUMCLIENTE&quot;)).get(0);</span>
+
+<span class="nc" id="L121">        return GestoraArchivos.generarNombreCarpetaCliente(c)</span>
+<span class="nc" id="L122">                + &quot;/&quot; + ((Fecha) factura.get(&quot;FECHA&quot;)).getAño() + &quot;/&quot; + factura.get(&quot;NUMEROFACTURA&quot;)</span>
+<span class="nc" id="L123">                + &quot;_&quot; + Gestora.getMes(((Fecha) factura.get(&quot;FECHA&quot;)).getMes()).toUpperCase() + &quot;.pdf&quot;;</span>
+    }
+
+    public static void generarPDFFacturasMensuales(int numPeriodo) {
+
+<span class="nc" id="L128">        ArrayListDato&lt;Dato&gt; facturas = GestoraDatos.recuperarConDummy(new FacturaMensual(), null, &quot; where NUMPERIODO = &quot; + numPeriodo);</span>
+
+<span class="nc" id="L130">        facturas.stream().forEach((d) -&gt; {</span>
+<span class="nc" id="L131">            generarPDFMensual((FacturaMensual) d);</span>
+<span class="nc" id="L132">        });</span>
+<span class="nc" id="L133">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

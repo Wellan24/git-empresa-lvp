@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PanelImagen.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ProyectoEmpresaLVP&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">proyectoempresalvp.datosUI</a> &gt; <span class="el_source">PanelImagen.java</span></div><h1>PanelImagen.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyectoempresalvp.datosUI;
+
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+
+/**
+ *
+ * @author Oscar
+ */
+public class PanelImagen extends JPanel implements Cloneable {
+
+    private static ImageIcon imagenSinLetras;
+    private static ImageIcon imagenConLetras;
+    private final ImageIcon imagen;
+
+<span class="fc" id="L23">    public PanelImagen(ImageIcon imagen) {</span>
+        
+<span class="fc" id="L25">        this.imagen = imagen;</span>
+<span class="fc" id="L26">    }</span>
+
+    @Override
+    public void paintComponent(Graphics g) {
+
+<span class="fc" id="L31">        g.drawImage(imagen.getImage(), 0, 0, 1200, 840, null);</span>
+<span class="fc" id="L32">        super.paintComponent(g);</span>
+<span class="fc" id="L33">    }</span>
+
+    public static PanelImagen dameNuevoPanelSinLetras() {
+
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        if (imagenSinLetras == null) {</span>
+
+<span class="fc" id="L39">            ImageIcon imagenFondo = new ImageIcon(PanelImagen.class.getResource(&quot;/images/fondoSinLetras.jpg&quot;));</span>
+<span class="fc" id="L40">            Image imagen = imagenFondo.getImage();</span>
+<span class="fc" id="L41">            imagenSinLetras = new ImageIcon(imagen);</span>
+            
+        }
+<span class="fc" id="L44">        PanelImagen dev = new PanelImagen(imagenSinLetras);</span>
+<span class="fc" id="L45">        dev.setOpaque(false);</span>
+
+<span class="fc" id="L47">        return dev;</span>
+    }
+    
+    public static PanelImagen dameNuevoPanelConLetras() {
+
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        if (imagenConLetras == null) {</span>
+            
+<span class="fc" id="L54">            ImageIcon imagenFondo = new ImageIcon(PanelImagen.class.getResource(&quot;/images/fondoInicio.jpg&quot;));</span>
+<span class="fc" id="L55">            Image imagen = imagenFondo.getImage();</span>
+<span class="fc" id="L56">            imagenConLetras = new ImageIcon(imagen);</span>
+            
+        }
+<span class="fc" id="L59">        PanelImagen dev = new PanelImagen(imagenConLetras);</span>
+<span class="fc" id="L60">        dev.setOpaque(false);</span>
+
+<span class="fc" id="L62">        return dev;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

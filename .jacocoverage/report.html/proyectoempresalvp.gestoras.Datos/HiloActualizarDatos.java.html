@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>HiloActualizarDatos.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ProyectoEmpresaLVP&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">proyectoempresalvp.gestoras.Datos</a> &gt; <span class="el_source">HiloActualizarDatos.java</span></div><h1>HiloActualizarDatos.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyectoempresalvp.gestoras.Datos;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import proyectoempresalvp.datos.ArrayListDato;
+import proyectoempresalvp.datos.Cliente;
+import proyectoempresalvp.datos.Contrato;
+import proyectoempresalvp.datos.Dato;
+import proyectoempresalvp.datos.Empleado;
+import proyectoempresalvp.datos.FacturaExtra;
+import proyectoempresalvp.datos.FacturaExtraDetalles;
+import proyectoempresalvp.datos.FacturaMensual;
+import proyectoempresalvp.datos.Fecha;
+import proyectoempresalvp.gestoras.GestoraBaseDatos;
+import proyectoempresalvp.gestoras.ObservadorGestoraDatos;
+import static proyectoempresalvp.gestoras.Datos.GestoraDatos.*;
+
+/**
+ *
+ * @author Oscar
+ */
+public class HiloActualizarDatos implements Runnable {
+
+    private static ObservadorGestoraDatos observador;
+    private final int datoActualizar;
+    private int numPeriodo;
+    private String where;
+    private Procesador procesador;
+
+<span class="fc" id="L37">    public static int i = 0;</span>
+
+<span class="nc" id="L39">    public HiloActualizarDatos(int datoActualizar, Procesador p, String where) {</span>
+
+<span class="nc" id="L41">        this.datoActualizar = datoActualizar;</span>
+<span class="nc" id="L42">        this.where = where;</span>
+<span class="nc" id="L43">        this.procesador = p;</span>
+<span class="nc" id="L44">    }</span>
+
+<span class="fc" id="L46">    public HiloActualizarDatos(int datoActualizar, Procesador p) throws Exception {</span>
+
+<span class="pc bpc" id="L48" title="2 of 4 branches missed.">        if(datoActualizar == ACTUALIZAR_FACTURASMENSUALES || datoActualizar == ACTUALIZAR_FACTURASMENSUALES_AÑO)</span>
+<span class="nc" id="L49">            throw new Exception(&quot;No se pueden actualizar facturas mensuales así&quot;);</span>
+
+<span class="fc" id="L51">        this.datoActualizar = datoActualizar;</span>
+<span class="fc" id="L52">        this.procesador = p;</span>
+<span class="fc" id="L53">    }</span>
+
+    @Override
+    public void run() {
+
+<span class="pc bpc" id="L58" title="3 of 4 branches missed.">        if(datoActualizar == ACTUALIZAR_TODO || datoActualizar == ACTUALIZAR_EMPLEADOS)</span>
+<span class="fc" id="L59">            recuperarConDummy(new Empleado());</span>
+
+<span class="pc bpc" id="L61" title="3 of 4 branches missed.">        if(datoActualizar == ACTUALIZAR_TODO || datoActualizar == ACTUALIZAR_CLIENTES)</span>
+<span class="fc" id="L62">            recuperarConDummy(new Cliente());</span>
+
+<span class="pc bpc" id="L64" title="3 of 4 branches missed.">        if(datoActualizar == ACTUALIZAR_TODO || datoActualizar == ACTUALIZAR_CONTRATOS)</span>
+<span class="fc" id="L65">            recuperarConDummy(new Contrato());</span>
+
+<span class="pc bpc" id="L67" title="1 of 2 branches missed.">        if(datoActualizar == ACTUALIZAR_FACTURASMENSUALES)</span>
+<span class="nc" id="L68">            actualizarFacturasMes();</span>
+
+<span class="pc bpc" id="L70" title="1 of 2 branches missed.">        if(datoActualizar == ACTUALIZAR_FACTURASMENSUALES_AÑO)</span>
+<span class="nc" id="L71">            actualizarFacturasMesAño();</span>
+
+<span class="pc bpc" id="L73" title="3 of 4 branches missed.">        if(datoActualizar == ACTUALIZAR_TODO || datoActualizar == ACTUALIZAR_FACTURASEXTRA) {</span>
+<span class="fc" id="L74">            recuperarConDummy(new FacturaExtra());</span>
+<span class="fc" id="L75">            recuperarConDummy(new FacturaExtraDetalles());</span>
+        }
+
+<span class="fc" id="L78">        observador.avisar(datoActualizar, procesador);</span>
+<span class="fc" id="L79">    }</span>
+
+    private void actualizarFacturasMes() {
+
+<span class="nc" id="L83">        recuperarConDummy(new FacturaMensual(), where);</span>
+<span class="nc" id="L84">    }</span>
+
+    private void actualizarFacturasMesAño() {
+
+<span class="nc" id="L88">        recuperarConDummy(new FacturaMensual(), where, &quot;FACTURASMENSUALESAÑO&quot;);</span>
+<span class="nc" id="L89">    }</span>
+
+    public static void setObservador(ObservadorGestoraDatos observador) {
+<span class="fc" id="L92">        HiloActualizarDatos.observador = observador;</span>
+<span class="fc" id="L93">    }</span>
+
+    private void recuperarConDummy(Dato d) {
+
+<span class="fc" id="L97">        ArrayListDato&lt;Dato&gt; datos = GestoraDatos.recuperarConDummy(d, procesador, null);</span>
+<span class="fc" id="L98">        GestoraDatos.dameGestora().put(d.devuelveNombreTablaDato(), datos);</span>
+<span class="fc" id="L99">    }</span>
+
+    private void recuperarConDummy(Dato d, String where) {
+
+<span class="nc" id="L103">        ArrayListDato&lt;Dato&gt; datos = GestoraDatos.recuperarConDummy(d, procesador, where);</span>
+<span class="nc" id="L104">        GestoraDatos.dameGestora().put(d.devuelveNombreTablaDato(), datos);</span>
+<span class="nc" id="L105">    }</span>
+
+    private void recuperarConDummy(Dato d, String where, String key) {
+
+<span class="nc" id="L109">        ArrayListDato&lt;Dato&gt; datos = GestoraDatos.recuperarConDummy(d, procesador, where);</span>
+<span class="nc" id="L110">        GestoraDatos.dameGestora().put(key, datos);</span>
+<span class="nc" id="L111">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

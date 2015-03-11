@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ArrayListDato.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ProyectoEmpresaLVP&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">proyectoempresalvp.datos</a> &gt; <span class="el_source">ArrayListDato.java</span></div><h1>ArrayListDato.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyectoempresalvp.datos;
+
+import java.util.ArrayList;
+
+/**
+ *
+ * @author Oscar
+ * @param &lt;T&gt;
+ */
+<span class="fc" id="L15">public class ArrayListDato&lt;T extends Dato&gt; extends ArrayList&lt;T&gt;{</span>
+    
+<span class="fc" id="L17">    private int nSiguiente = 0;</span>
+
+    @Override
+    public boolean add(T e) {
+        
+<span class="fc bfc" id="L22" title="All 2 branches covered.">        nSiguiente = (Integer.parseInt(e.devuelveValorClave().toString()) &gt; nSiguiente)? Integer.parseInt(e.devuelveValorClave().toString()): nSiguiente;</span>
+<span class="fc" id="L23">        nSiguiente++;</span>
+<span class="fc" id="L24">        return super.add(e); </span>
+    }   
+    
+    public int devuelveYAumentaNumeroSiguiente() {
+        
+<span class="nc" id="L29">        return nSiguiente++;</span>
+    }
+    
+    public int devuelveNumeroSiguiente() {
+        
+<span class="nc" id="L34">        return nSiguiente;</span>
+    }
+    
+    public T devuelveValorPorClave(Object clave){
+        
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        for(T d : this){</span>
+            
+<span class="nc bnc" id="L41" title="All 2 branches missed.">            if(d.devuelveValorClave().equals(clave)){</span>
+                
+<span class="nc" id="L43">                return d;</span>
+            }
+<span class="nc" id="L45">        }</span>
+        
+<span class="nc" id="L47">        return null;</span>
+    }
+    
+    public ArrayList&lt;T&gt; devuelveValoresPorClave(Object clave){
+        
+<span class="nc" id="L52">        ArrayList&lt;T&gt; dev = new ArrayList();</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">        for(T d : this){</span>
+            
+<span class="nc bnc" id="L55" title="All 2 branches missed.">            if(d.devuelveValorClave().equals(clave)){</span>
+                
+<span class="nc" id="L57">                dev.add(d);</span>
+            }
+<span class="nc" id="L59">        }</span>
+        
+<span class="nc" id="L61">        return dev;</span>
+    }
+    
+    public Object[] devuelveTodasLasClaves(){
+        
+<span class="nc" id="L66">        Object[] dev = new Object[this.size()];</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">        for(int i = 0; i &lt; dev.length; i++){</span>
+            
+<span class="nc" id="L69">            dev[i] = this.get(i).devuelveValorClave();</span>
+        }
+        
+<span class="nc" id="L72">        return dev;</span>
+    }
+    
+    public ArrayList&lt;T&gt; devuelveValorEnFuncionCampo(String nombreCampo, Object valor){
+        
+<span class="nc" id="L77">        ArrayList&lt;T&gt; dev = new ArrayList();</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">        for(T d : this){</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">            if(d.get(nombreCampo).equals(valor)){                </span>
+                
+<span class="nc" id="L81">                dev.add(d);</span>
+            }
+<span class="nc" id="L83">        }</span>
+        
+<span class="nc" id="L85">        return dev;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

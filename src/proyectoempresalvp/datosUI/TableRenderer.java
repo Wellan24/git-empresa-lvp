@@ -15,6 +15,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
+import proyectoempresalvp.gestoras.Gestora;
 
 /**
  *
@@ -39,6 +40,9 @@ public class TableRenderer extends JLabel implements TableCellRenderer {
     public Component getTableCellRendererComponent(final JTable table,
             final Object value, final boolean isSelected, final boolean hasFocus,
             final int row, final int column) {
+
+        setHorizontalAlignment(JLabel.LEFT);
+
         if(value != null && value instanceof Boolean) {
             JCheckBox check = new JCheckBox();
             check.setHorizontalAlignment(JLabel.CENTER);
@@ -68,7 +72,9 @@ public class TableRenderer extends JLabel implements TableCellRenderer {
         }
         if(value == null)
             setText("");
-            
+        else if(Gestora.comprobarNumero(value.toString()))
+            setHorizontalAlignment(JLabel.RIGHT);
+
         return this;
     }
 

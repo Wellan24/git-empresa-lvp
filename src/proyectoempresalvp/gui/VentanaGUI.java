@@ -2386,7 +2386,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             }
         });
 
-        ctEmpleadoIban.setText("IBAN");
+        ctEmpleadoIban.setToolTipText("IBAN");
 
         jLabel155.setText("Últimas vacaciones:");
 

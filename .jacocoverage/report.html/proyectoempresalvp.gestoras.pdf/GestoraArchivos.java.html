@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>GestoraArchivos.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ProyectoEmpresaLVP&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">proyectoempresalvp.gestoras.pdf</a> &gt; <span class="el_source">GestoraArchivos.java</span></div><h1>GestoraArchivos.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyectoempresalvp.gestoras.pdf;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import proyectoempresalvp.datos.ArrayListDato;
+import proyectoempresalvp.datos.Cliente;
+import proyectoempresalvp.datos.Dato;
+import proyectoempresalvp.gestoras.Datos.GestoraDatos;
+import proyectoempresalvp.gestoras.GestoraConfiguracion;
+
+/**
+ *
+ * @author Oscar
+ */
+<span class="fc" id="L22">public class GestoraArchivos extends Thread {</span>
+    
+    @Override
+    public void run() {
+        
+<span class="fc" id="L27">        comprobarArchivos();</span>
+<span class="fc" id="L28">    }</span>
+    
+    public void comprobarArchivos() {
+        
+<span class="fc" id="L32">        ArrayListDato&lt;Dato&gt; clientes = GestoraDatos.dameGestora().get(Cliente.getTabla());</span>
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">        if(clientes != null) {</span>
+            
+<span class="fc bfc" id="L35" title="All 2 branches covered.">            for(Dato c :clientes) {</span>
+                
+<span class="fc" id="L37">                comprobarArchivo(c);</span>
+<span class="fc" id="L38">            }</span>
+        }
+        
+<span class="fc" id="L41">        File f = new File(generarNombreCarpetaExtras());</span>
+<span class="fc" id="L42">        f.mkdirs();</span>
+        
+<span class="fc" id="L44">    }</span>
+    
+    public static String generarNombreCarpetaExtras() {
+        
+<span class="fc" id="L48">        return GestoraConfiguracion.get(&quot;RUTA&quot;) + &quot;/Extras&quot;;</span>
+    }
+    
+    private void comprobarArchivo(Dato c) {
+<span class="fc" id="L52">        File f = new File(generarNombreCarpetaCliente(c));</span>
+<span class="fc" id="L53">        f.mkdirs();</span>
+<span class="fc" id="L54">    }</span>
+    
+    public static String generarNombreCarpetaCliente(Dato c) {
+        
+<span class="fc" id="L58">        return GestoraConfiguracion.get(&quot;RUTA&quot;) + &quot;/&quot; + c.get(&quot;NUMEROCLIENTE&quot;) + &quot;_&quot; + c.get(&quot;DESCRIPCION&quot;).toString().replace(&quot; &quot;, &quot;_&quot;);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

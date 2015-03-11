@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TableRenderer.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ProyectoEmpresaLVP&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">proyectoempresalvp.datosUI</a> &gt; <span class="el_source">TableRenderer.java</span></div><h1>TableRenderer.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyectoempresalvp.datosUI;
+
+import java.awt.AlphaComposite;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.table.TableCellRenderer;
+
+/**
+ *
+ * @author Oscar
+ */
+public class TableRenderer extends JLabel implements TableCellRenderer {
+
+<span class="fc" id="L25">    private static final Color colorNegro = new Color(0x000000);</span>
+<span class="fc" id="L26">    private static final Color colorAzulClaro = new Color(231, 247, 252);</span>
+<span class="fc" id="L27">    private static final Color colorAzulOscuro = new Color(0x74b8f1);</span>
+<span class="fc" id="L28">    private static final Color colorAzulSeleccionado = new Color(0xa4d2f9);</span>
+
+    boolean isSelected;
+
+<span class="fc" id="L32">    public TableRenderer() {</span>
+
+<span class="fc" id="L34">        setOpaque(true);</span>
+<span class="fc" id="L35">        isSelected = false;</span>
+<span class="fc" id="L36">    }</span>
+
+    @Override
+    public Component getTableCellRendererComponent(final JTable table,
+            final Object value, final boolean isSelected, final boolean hasFocus,
+            final int row, final int column) {
+<span class="pc bpc" id="L42" title="1 of 4 branches missed.">        if(value != null &amp;&amp; value instanceof Boolean) {</span>
+<span class="nc" id="L43">            JCheckBox check = new JCheckBox();</span>
+<span class="nc" id="L44">            check.setHorizontalAlignment(JLabel.CENTER);</span>
+<span class="nc" id="L45">            check.setSelected(((Boolean) value));</span>
+<span class="nc" id="L46">            check.setOpaque(true);</span>
+<span class="nc" id="L47">            check.setBackground(colorAzulClaro);</span>
+<span class="nc" id="L48">            check.setForeground(colorNegro);</span>
+<span class="nc" id="L49">            check.setBorder(null);</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">            if(isSelected) {</span>
+<span class="nc" id="L51">                check.setBackground(colorAzulOscuro);</span>
+            }
+<span class="nc bnc" id="L53" title="All 2 branches missed.">            if(hasFocus) {</span>
+<span class="nc" id="L54">                check.setBackground(colorAzulSeleccionado);</span>
+            }
+<span class="nc" id="L56">            return check;</span>
+        }
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        if(value != null)</span>
+<span class="fc" id="L59">            setText(value.toString());</span>
+<span class="fc" id="L60">        setBackground(colorAzulClaro);</span>
+<span class="fc" id="L61">        setForeground(colorNegro);</span>
+<span class="fc" id="L62">        setBorder(null);</span>
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">        if(isSelected) {</span>
+<span class="nc" id="L64">            setBackground(colorAzulOscuro);</span>
+        }
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">        if(hasFocus) {</span>
+<span class="nc" id="L67">            setBackground(colorAzulSeleccionado);</span>
+        }
+<span class="fc bfc" id="L69" title="All 2 branches covered.">        if(value == null)</span>
+<span class="fc" id="L70">            setText(&quot;&quot;);</span>
+            
+<span class="fc" id="L72">        return this;</span>
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+<span class="pc bpc" id="L77" title="1 of 2 branches missed.">        if(!isSelected) {</span>
+<span class="fc" id="L78">            Graphics2D g2 = (Graphics2D) g;</span>
+
+<span class="fc" id="L80">            g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION,</span>
+                    RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+<span class="fc" id="L82">            AlphaComposite old = (AlphaComposite) g2.getComposite();</span>
+<span class="fc" id="L83">            g2.setComposite(AlphaComposite.SrcOver.derive(0.8f));</span>
+<span class="fc" id="L84">            super.paintComponent(g);</span>
+
+<span class="fc" id="L86">            g2.setComposite(old);</span>
+<span class="fc" id="L87">        } else {</span>
+<span class="nc" id="L88">            super.paintComponent(g);</span>
+        }
+<span class="fc" id="L90">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

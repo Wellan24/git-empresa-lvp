@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Banco.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ProyectoEmpresaLVP&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">proyectoempresalvp.datos</a> &gt; <span class="el_source">Banco.java</span></div><h1>Banco.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyectoempresalvp.datos;
+
+/**
+ *
+ * @author Oscar
+ */
+public class Banco extends Dato{
+    
+<span class="nc" id="L14">    private static final String[] orden = {&quot;NUMERO&quot;, &quot;NOMBRE&quot;};</span>
+    private static final String tabla = &quot;BANCOS&quot;;
+
+    public Banco(int numero, String nombre) {
+<span class="nc" id="L18">        super(2);</span>
+<span class="nc" id="L19">        put(&quot;NUMERO&quot;, numero);</span>
+<span class="nc" id="L20">        put(&quot;NOMBRE&quot;, nombre);</span>
+<span class="nc" id="L21">    }</span>
+    
+    private Banco(Dato d) {
+<span class="nc" id="L24">        super(d);</span>
+<span class="nc" id="L25">    }</span>
+
+    @Override
+    public String devuelveNombreTablaDato() {
+
+<span class="nc" id="L30">        return tabla;</span>
+    }
+
+    @Override
+    public String[] devuelveOrdenDeColumnas() {
+
+<span class="nc" id="L36">        return orden;</span>
+    }
+
+    @Override
+    public Object devuelveValorClave() {
+
+<span class="nc" id="L42">        return this.get(&quot;NUMERO&quot;);</span>
+    }
+
+    @Override
+    public String devuelveClave() {
+        
+<span class="nc" id="L48">        return &quot;NUMERO&quot;;</span>
+    }
+
+    @Override
+    public Dato copia() {
+        
+<span class="nc" id="L54">        return new Banco(this);</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

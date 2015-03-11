@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ModeloTabla.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ProyectoEmpresaLVP&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">proyectoempresalvp.gestoras</a> &gt; <span class="el_source">ModeloTabla.java</span></div><h1>ModeloTabla.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyectoempresalvp.gestoras;
+
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import proyectoempresalvp.datos.Dato;
+
+/**
+ *
+ * @author Oscar
+ */
+public class ModeloTabla extends DefaultTableModel{
+
+    int filas;
+    Dato[] datos;
+<span class="pc" id="L20">    String[] columnas = {&quot;ID&quot;, &quot;NOMBRE&quot;};</span>
+<span class="pc" id="L21">    Class[] clases = {Integer.class, String.class};</span>
+    Dato datoActual;
+<span class="pc" id="L23">    int filaActual = -1;</span>
+    
+<span class="nc" id="L25">    public ModeloTabla(Dato[] datos) {</span>
+        
+<span class="nc" id="L27">        this.datos = datos;</span>
+<span class="nc" id="L28">        filas = datos.length;    </span>
+        
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        if(datos.length != 0){</span>
+            
+<span class="nc bnc" id="L32" title="All 2 branches missed.">            for(Dato d : datos){</span>
+                
+<span class="nc bnc" id="L34" title="All 2 branches missed.">                if(d != null){</span>
+<span class="nc" id="L35">                    clases = d.devuelveClases();</span>
+<span class="nc" id="L36">                    columnas = d.devuelveOrdenDeColumnas();</span>
+<span class="nc" id="L37">                    break;</span>
+                }
+            }
+        }
+<span class="nc" id="L41">    }</span>
+    
+<span class="fc" id="L43">    public ModeloTabla(ArrayList&lt;Dato&gt; datos) {</span>
+        
+<span class="fc" id="L45">        this.datos = datos.toArray(new Dato[datos.size()]);</span>
+<span class="fc" id="L46">        filas = datos.size();    </span>
+        
+<span class="pc bpc" id="L48" title="1 of 2 branches missed.">        if(!datos.isEmpty()){</span>
+            
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">            for(Dato d : datos){</span>
+                
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">                if(d != null){</span>
+<span class="fc" id="L53">                    clases = d.devuelveClases();</span>
+<span class="fc" id="L54">                    columnas = d.devuelveOrdenDeColumnas();</span>
+<span class="fc" id="L55">                    break;</span>
+                }
+<span class="nc" id="L57">            }</span>
+        }
+<span class="fc" id="L59">    }</span>
+    
+   @Override
+    public int getRowCount() {
+        
+<span class="fc" id="L64">        return filas;</span>
+    }
+
+    @Override
+    public int getColumnCount() {
+        
+<span class="fc" id="L70">        return columnas.length;</span>
+    }
+
+    @Override
+    public String getColumnName(int columnIndex) {        
+        
+<span class="fc" id="L76">        return columnas[columnIndex];</span>
+    }
+
+    @Override
+    public Class&lt;?&gt; getColumnClass(int columnIndex) {
+        
+<span class="fc" id="L82">        return clases[columnIndex];</span>
+    }
+
+    @Override
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
+        
+<span class="nc" id="L88">        return false;</span>
+    }
+
+    @Override
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        
+<span class="pc bpc" id="L94" title="1 of 2 branches missed.">        if(datos.length &gt; 0){</span>
+            
+<span class="fc bfc" id="L96" title="All 2 branches covered.">            if(filaActual != rowIndex){</span>
+<span class="fc" id="L97">                datoActual = datos[rowIndex];</span>
+<span class="fc" id="L98">                filaActual = rowIndex;    </span>
+            }
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">            if(datoActual != null){</span>
+<span class="fc" id="L101">                return datoActual.get(columnas[columnIndex]);</span>
+            }
+        }
+        
+<span class="nc" id="L105">        return null;        </span>
+    }
+    
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

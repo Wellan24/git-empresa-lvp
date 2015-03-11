@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Gestora.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ProyectoEmpresaLVP&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">proyectoempresalvp.gestoras</a> &gt; <span class="el_source">Gestora.java</span></div><h1>Gestora.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyectoempresalvp.gestoras;
+
+import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.regex.Pattern;
+import proyectoempresalvp.datos.Fecha;
+
+/**
+ *
+ * @author Oscar
+ */
+<span class="nc" id="L22">public class Gestora {</span>
+
+<span class="nc" id="L24">    private static final char[] DIGITS_LOWER</span>
+            = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+
+    /**
+     * Patrón para comprobar un número con decimales
+     *
+     * @param n
+     * @return true si el string es número con decimales
+     */
+    public static boolean comprobarNumero(String n) {
+
+<span class="nc" id="L35">        return n.matches(&quot;^(\\d|-)?(\\d|,)*\\.?\\d*$&quot;);</span>
+    }
+
+    /**
+     *
+     * @param precio
+     * @param iva
+     * @return Un BigDecimal redondeado a 2 decimales
+     */
+    public static BigDecimal calculaPrecioConIva(BigDecimal precio, String iva) {
+
+<span class="nc" id="L46">        precio = precio.multiply(new BigDecimal(&quot;1.&quot; + iva));</span>
+<span class="nc" id="L47">        precio.setScale(2, RoundingMode.HALF_EVEN);</span>
+<span class="nc" id="L48">        return precio;</span>
+    }
+
+    /**
+     * Formatea la cadena para que tenga siempre la misma, colocando el String a la derecha
+     *
+     * @param string
+     * @param longitud
+     * @return
+     */
+    public static String stringLongitudFijaDrch(String string, int longitud) {
+<span class="nc" id="L59">        return String.format(&quot;%1$&quot; + longitud + &quot;s&quot;, string);</span>
+    }
+
+    /**
+     * Formatea la cadena para que, pad rellena la cadena dada Apple + &quot;00000000&quot; devuelve
+     * &quot;000Apple&quot;
+     *
+     * @param string
+     * @param pad
+     * @return
+     */
+    public static String stringLongitudFijaIzq(String string, String pad) {
+
+<span class="nc" id="L72">        return (pad + string).substring(string.length());</span>
+    }
+
+    public static String completarConEspaciosBlancosIzq(String pString, int length) {
+<span class="nc bnc" id="L76" title="All 2 branches missed.">        if(pString.length() &gt; length) {</span>
+
+<span class="nc" id="L78">            return pString.substring(0, length);</span>
+        }
+<span class="nc" id="L80">        length = length - pString.length();</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">        for(int i = 0;i &lt; length;i++) {</span>
+<span class="nc" id="L82">            pString = pString + &quot; &quot;;</span>
+        }
+<span class="nc" id="L84">        return pString;</span>
+    }
+
+    /**
+     *
+     * @param precio
+     * @param iva
+     * @return Un BigDecimal redondeado a 2 decimales
+     */
+    public static BigDecimal calculaIva(BigDecimal precio, String iva) {
+
+<span class="nc" id="L95">        precio = precio.multiply(new BigDecimal(&quot;0.&quot; + iva));</span>
+<span class="nc" id="L96">        precio.setScale(2, RoundingMode.HALF_EVEN);</span>
+<span class="nc" id="L97">        return precio;</span>
+    }
+
+    /**
+     *
+     * @param texto
+     * @return Un BigDecimal redondeado a 2 decimales
+     */
+    public static BigDecimal creaBigDecimal(String texto) {
+
+        BigDecimal dev;
+<span class="nc bnc" id="L108" title="All 2 branches missed.">        if(!texto.isEmpty()) {</span>
+
+<span class="nc" id="L110">            dev = new BigDecimal(texto);</span>
+        } else {
+
+<span class="nc" id="L113">            dev = new BigDecimal(&quot;0&quot;);</span>
+        }
+
+<span class="nc" id="L116">        dev.setScale(2, RoundingMode.HALF_EVEN);</span>
+<span class="nc" id="L117">        return dev;</span>
+    }
+
+    /**
+     *
+     * @param IBAN
+     * @return true si es válido y si no lo es false
+     */
+    public static boolean esValidoIBAN(String IBAN) {
+
+        // \\s+ sirve para seleccionar uno o más espacios en blanco, \\s solo para uno
+<span class="nc" id="L128">        IBAN = IBAN.replaceAll(&quot;\\s+&quot;, &quot;&quot;);</span>
+
+<span class="nc bnc" id="L130" title="All 2 branches missed.">        if(IBAN.length() == 24) {</span>
+
+<span class="nc" id="L132">            String stringConvertido = IBAN.substring(4) + Character.getNumericValue(IBAN.charAt(0))</span>
+<span class="nc" id="L133">                    + Character.getNumericValue(IBAN.charAt(1)) + IBAN.substring(2, 4);</span>
+
+<span class="nc" id="L135">            long total = 0;</span>
+<span class="nc bnc" id="L136" title="All 2 branches missed.">            for(int i = 0;i &lt; stringConvertido.length();i++) {</span>
+<span class="nc" id="L137">                int charValue = Character.getNumericValue(stringConvertido.charAt(i));</span>
+<span class="nc bnc" id="L138" title="All 2 branches missed.">                total = (charValue &gt; 9 ? total * 100 : total * 10) + charValue;</span>
+<span class="nc bnc" id="L139" title="All 2 branches missed.">                if(String.valueOf(total).length() &gt; 9) {</span>
+<span class="nc" id="L140">                    total = (total % 97);</span>
+                }
+            }
+
+<span class="nc" id="L144">            long digitosControl = total % 97;</span>
+
+<span class="nc bnc" id="L146" title="All 2 branches missed.">            return (digitosControl == 1);</span>
+        } else {
+
+<span class="nc" id="L149">            return false;</span>
+        }
+    }
+
+    /**
+     * Cuenta es un parametro en formato CCC: 4 dígitos para el banco, 4 para la sucursal, 2 dígitos
+     * de control y 10 para el número de cuenta en la entidad y oficina.
+     *
+     * @param cuenta
+     * @return Un IBAN válido para españa ESXX + cuenta, donde XX son los dígitos de control.
+     */
+    public static String calcularIbanEspaña(String cuenta) {
+
+<span class="nc" id="L162">        cuenta = cuenta.replaceAll(&quot;\\s+&quot;, &quot;&quot;);</span>
+
+<span class="nc bnc" id="L164" title="All 2 branches missed.">        if(Pattern.matches(&quot;([0-9]{20})&quot;, cuenta)) {</span>
+
+<span class="nc" id="L166">            String aux = cuenta + &quot;142800&quot;;</span>
+
+<span class="nc" id="L168">            long total = 0;</span>
+<span class="nc bnc" id="L169" title="All 2 branches missed.">            for(int i = 0;i &lt; aux.length();i++) {</span>
+<span class="nc" id="L170">                int charValue = Character.getNumericValue(aux.charAt(i));</span>
+<span class="nc bnc" id="L171" title="All 2 branches missed.">                total = (charValue &gt; 9 ? total * 100 : total * 10) + charValue;</span>
+<span class="nc bnc" id="L172" title="All 2 branches missed.">                if(String.valueOf(total).length() &gt; 9) {</span>
+<span class="nc" id="L173">                    total = (total % 97);</span>
+                }
+            }
+
+<span class="nc" id="L177">            int digitosControl = 98 - (int) (total % 97);</span>
+<span class="nc" id="L178">            return &quot;ES&quot; + digitosControl + cuenta;</span>
+
+        } else {
+
+<span class="nc" id="L182">            return null;</span>
+        }
+    }
+
+    /**
+     * El formato es dd/mm/aaaa
+     *
+     * @param fecha
+     * @return true si la fecha es correcta, si no false
+     */
+    public static boolean comprobarFormatoFechaCorrecto(String fecha) {
+
+<span class="nc" id="L194">        String[] f = fecha.split(&quot;/&quot;);</span>
+
+        int año;
+        int mes;
+        int dia;
+        try {
+<span class="nc" id="L200">            dia = Integer.parseInt(f[0]);</span>
+<span class="nc" id="L201">            mes = Integer.parseInt(f[1]);</span>
+<span class="nc" id="L202">            año = Integer.parseInt(f[2]);</span>
+
+<span class="nc" id="L204">        } catch(Exception numberFormatException) {</span>
+
+<span class="nc" id="L206">            return false;</span>
+<span class="nc" id="L207">        }</span>
+<span class="nc bnc" id="L208" title="All 10 branches missed.">        if(año &lt; 0 || mes &lt; 1 || mes &gt; 12 || dia &lt; 1 || dia &gt; 31) {</span>
+<span class="nc" id="L209">            return false;</span>
+        }
+
+<span class="nc bnc" id="L212" title="All 3 branches missed.">        switch(mes) {</span>
+            case 2:
+
+<span class="nc bnc" id="L215" title="All 2 branches missed.">                if(dia &gt; 29) {</span>
+<span class="nc" id="L216">                    return false;</span>
+                }
+
+<span class="nc bnc" id="L219" title="All 8 branches missed.">                if(!(((año % 4 == 0) &amp;&amp; (año % 100 != 0)) || (año % 400 == 0)) &amp;&amp; dia == 29) {</span>
+<span class="nc" id="L220">                    return false;</span>
+                }
+
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+<span class="nc bnc" id="L228" title="All 2 branches missed.">                if(dia &gt; 30) {</span>
+<span class="nc" id="L229">                    return false;</span>
+                }
+
+                break;
+        }
+<span class="nc" id="L234">        return true;</span>
+
+    }
+
+    public static int numeroPeriodoPorNombre(String nombre) {
+
+<span class="nc" id="L240">        String mes = nombre.substring(0, 3);</span>
+<span class="nc" id="L241">        String año = nombre.substring(3);</span>
+
+<span class="nc bnc" id="L243" title="All 50 branches missed.">        switch(mes) {</span>
+
+            case &quot;ENE&quot;:
+<span class="nc" id="L246">                mes = &quot;01&quot;;</span>
+<span class="nc" id="L247">                break;</span>
+            case &quot;FEB&quot;:
+<span class="nc" id="L249">                mes = &quot;02&quot;;</span>
+<span class="nc" id="L250">                break;</span>
+            case &quot;MAR&quot;:
+<span class="nc" id="L252">                mes = &quot;03&quot;;</span>
+<span class="nc" id="L253">                break;</span>
+            case &quot;ABR&quot;:
+<span class="nc" id="L255">                mes = &quot;04&quot;;</span>
+<span class="nc" id="L256">                break;</span>
+            case &quot;MAY&quot;:
+<span class="nc" id="L258">                mes = &quot;05&quot;;</span>
+<span class="nc" id="L259">                break;</span>
+            case &quot;JUN&quot;:
+<span class="nc" id="L261">                mes = &quot;06&quot;;</span>
+<span class="nc" id="L262">                break;</span>
+            case &quot;JUL&quot;:
+<span class="nc" id="L264">                mes = &quot;07&quot;;</span>
+<span class="nc" id="L265">                break;</span>
+            case &quot;AGO&quot;:
+<span class="nc" id="L267">                mes = &quot;08&quot;;</span>
+<span class="nc" id="L268">                break;</span>
+            case &quot;SEP&quot;:
+<span class="nc" id="L270">                mes = &quot;09&quot;;</span>
+<span class="nc" id="L271">                break;</span>
+            case &quot;OCT&quot;:
+<span class="nc" id="L273">                mes = &quot;10&quot;;</span>
+<span class="nc" id="L274">                break;</span>
+            case &quot;NOV&quot;:
+<span class="nc" id="L276">                mes = &quot;11&quot;;</span>
+<span class="nc" id="L277">                break;</span>
+            case &quot;DIC&quot;:
+<span class="nc" id="L279">                mes = &quot;12&quot;;</span>
+                break;
+        }
+
+<span class="nc" id="L283">        return Integer.parseInt(año + mes);</span>
+    }
+
+    public static Fecha fechaPeriodoPorNombre(String nombre) {
+
+<span class="nc" id="L288">        String mes = nombre.substring(0, 3);</span>
+<span class="nc" id="L289">        String año = nombre.substring(3);</span>
+
+<span class="nc bnc" id="L291" title="All 50 branches missed.">        switch(mes) {</span>
+
+            case &quot;ENE&quot;:
+<span class="nc" id="L294">                mes = &quot;01&quot;;</span>
+<span class="nc" id="L295">                break;</span>
+            case &quot;FEB&quot;:
+<span class="nc" id="L297">                mes = &quot;02&quot;;</span>
+<span class="nc" id="L298">                break;</span>
+            case &quot;MAR&quot;:
+<span class="nc" id="L300">                mes = &quot;03&quot;;</span>
+<span class="nc" id="L301">                break;</span>
+            case &quot;ABR&quot;:
+<span class="nc" id="L303">                mes = &quot;04&quot;;</span>
+<span class="nc" id="L304">                break;</span>
+            case &quot;MAY&quot;:
+<span class="nc" id="L306">                mes = &quot;05&quot;;</span>
+<span class="nc" id="L307">                break;</span>
+            case &quot;JUN&quot;:
+<span class="nc" id="L309">                mes = &quot;06&quot;;</span>
+<span class="nc" id="L310">                break;</span>
+            case &quot;JUL&quot;:
+<span class="nc" id="L312">                mes = &quot;07&quot;;</span>
+<span class="nc" id="L313">                break;</span>
+            case &quot;AGO&quot;:
+<span class="nc" id="L315">                mes = &quot;08&quot;;</span>
+<span class="nc" id="L316">                break;</span>
+            case &quot;SEP&quot;:
+<span class="nc" id="L318">                mes = &quot;09&quot;;</span>
+<span class="nc" id="L319">                break;</span>
+            case &quot;OCT&quot;:
+<span class="nc" id="L321">                mes = &quot;10&quot;;</span>
+<span class="nc" id="L322">                break;</span>
+            case &quot;NOV&quot;:
+<span class="nc" id="L324">                mes = &quot;11&quot;;</span>
+<span class="nc" id="L325">                break;</span>
+            case &quot;DIC&quot;:
+<span class="nc" id="L327">                mes = &quot;12&quot;;</span>
+                break;
+        }
+
+<span class="nc" id="L331">        return new Fecha(&quot;01/&quot; + mes + &quot;/&quot; + año);</span>
+    }
+
+    public static byte[] getHash(String password) {
+        try {
+
+<span class="nc" id="L337">            MessageDigest digest = MessageDigest.getInstance(&quot;MD5&quot;);</span>
+<span class="nc" id="L338">            digest.reset();</span>
+<span class="nc" id="L339">            byte[] input = digest.digest(password.getBytes(&quot;UTF-8&quot;));</span>
+
+<span class="nc" id="L341">            return input;</span>
+
+<span class="nc" id="L343">        } catch(NoSuchAlgorithmException | UnsupportedEncodingException ex) {</span>
+<span class="nc" id="L344">            Logger.getLogger(Gestora.class.getName()).log(Level.SEVERE, null, ex);</span>
+        }
+
+<span class="nc" id="L347">        return null;</span>
+    }
+
+    public static char[] encodeHex(byte[] data, char[] toDigits) {
+<span class="nc" id="L351">        int l = data.length;</span>
+<span class="nc" id="L352">        char[] out = new char[l &lt;&lt; 1];</span>
+        // two characters form the hex value.
+<span class="nc bnc" id="L354" title="All 2 branches missed.">        for(int i = 0, j = 0;i &lt; l;i++) {</span>
+<span class="nc" id="L355">            out[j++] = toDigits[(0xF0 &amp; data[i]) &gt;&gt;&gt; 4];</span>
+<span class="nc" id="L356">            out[j++] = toDigits[0x0F &amp; data[i]];</span>
+        }
+<span class="nc" id="L358">        return out;</span>
+    }
+
+    public static String devuelveHash(String contraseña) {
+
+<span class="nc" id="L363">        return String.valueOf(encodeHex(getHash(contraseña), DIGITS_LOWER));</span>
+    }
+
+    public static String getMes(int mes) {
+
+        String result;
+<span class="nc bnc" id="L369" title="All 13 branches missed.">        switch(mes) {</span>
+            case 0: {
+<span class="nc" id="L371">                result = &quot;Enero&quot;;</span>
+<span class="nc" id="L372">                break;</span>
+            }
+            case 1: {
+<span class="nc" id="L375">                result = &quot;Febrero&quot;;</span>
+<span class="nc" id="L376">                break;</span>
+            }
+            case 2: {
+<span class="nc" id="L379">                result = &quot;Marzo&quot;;</span>
+<span class="nc" id="L380">                break;</span>
+            }
+            case 3: {
+<span class="nc" id="L383">                result = &quot;Abril&quot;;</span>
+<span class="nc" id="L384">                break;</span>
+            }
+            case 4: {
+<span class="nc" id="L387">                result = &quot;Mayo&quot;;</span>
+<span class="nc" id="L388">                break;</span>
+            }
+            case 5: {
+<span class="nc" id="L391">                result = &quot;Junio&quot;;</span>
+<span class="nc" id="L392">                break;</span>
+            }
+            case 6: {
+<span class="nc" id="L395">                result = &quot;Julio&quot;;</span>
+<span class="nc" id="L396">                break;</span>
+            }
+            case 7: {
+<span class="nc" id="L399">                result = &quot;Agosto&quot;;</span>
+<span class="nc" id="L400">                break;</span>
+            }
+            case 8: {
+<span class="nc" id="L403">                result = &quot;Septiembre&quot;;</span>
+<span class="nc" id="L404">                break;</span>
+            }
+            case 9: {
+<span class="nc" id="L407">                result = &quot;Octubre&quot;;</span>
+<span class="nc" id="L408">                break;</span>
+            }
+            case 10: {
+<span class="nc" id="L411">                result = &quot;Noviembre&quot;;</span>
+<span class="nc" id="L412">                break;</span>
+            }
+            case 11: {
+<span class="nc" id="L415">                result = &quot;Diciembre&quot;;</span>
+<span class="nc" id="L416">                break;</span>
+            }
+            default: {
+<span class="nc" id="L419">                result = &quot;Error&quot;;</span>
+                break;
+            }
+        }
+
+<span class="nc" id="L424">        return result;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

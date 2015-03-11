@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>GestoraTareas.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ProyectoEmpresaLVP&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">proyectoempresalvp.gestoras.Datos</a> &gt; <span class="el_source">GestoraTareas.java</span></div><h1>GestoraTareas.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyectoempresalvp.gestoras.Datos;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import proyectoempresalvp.datos.Fecha;
+import proyectoempresalvp.datos.Tarea;
+import proyectoempresalvp.gestoras.GestoraBaseDatos;
+import proyectoempresalvp.gestoras.ObservadorTareas;
+import proyectoempresalvp.gestoras.UtilidadesTareas;
+
+/**
+ * @author Oscar
+ * @date 11-nov-2014
+ * @time 21:22:39
+ */
+public class GestoraTareas extends Thread {
+
+    private static ArrayList&lt;Tarea&gt; tareas;
+    private static StringBuilder tareasARealizar;
+    private static ObservadorTareas observador;
+    private static int nProximaTarea;
+
+<span class="fc" id="L31">    public GestoraTareas(ObservadorTareas observador) {</span>
+
+<span class="fc" id="L33">        GestoraTareas.observador = observador;</span>
+<span class="fc" id="L34">    }</span>
+
+    @Override
+    public void run() {
+        
+        // &quot;Select NTAREA,CONCEPTO, FECHA, PERIODO, CLIENTE from TAREAS&quot;
+<span class="fc" id="L40">        ResultSet tareasComprobar = GestoraBaseDatos.ejecutarSentenciaQuery(GestoraBaseDatos.construyeSentenciaSelect(Tarea.getOrden(), Tarea.getTabla()));</span>
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">        if (tareas == null) {</span>
+<span class="fc" id="L42">            tareas = new ArrayList();</span>
+        } else {
+<span class="nc" id="L44">            tareas.clear();</span>
+        }
+
+<span class="fc" id="L47">        StringBuilder string = new StringBuilder();</span>
+<span class="fc" id="L48">        nProximaTarea = 0;</span>
+        Tarea tareaActual;
+
+        try {
+<span class="fc bfc" id="L52" title="All 2 branches covered.">            while (tareasComprobar.next()) {</span>
+
+<span class="fc" id="L54">                tareaActual = new Tarea(tareasComprobar.getInt(1), tareasComprobar.getString(2), new Fecha(tareasComprobar.getString(3)), tareasComprobar.getInt(4),tareasComprobar.getString(5));</span>
+<span class="fc" id="L55">                tareas.add(tareaActual);</span>
+                
+<span class="fc bfc" id="L57" title="All 2 branches covered.">                nProximaTarea = ((int)tareaActual.get(&quot;NTAREA&quot;) &gt; nProximaTarea)? (int)tareaActual.get(&quot;NTAREA&quot;): nProximaTarea;</span>
+                
+<span class="fc" id="L59">                int comprobar = UtilidadesTareas.comprobarTareaEnProximosQuinceDias((Fecha)tareaActual.get(&quot;FECHA&quot;));</span>
+<span class="pc bpc" id="L60" title="1 of 2 branches missed.">                if(comprobar == UtilidadesTareas.ESHOY){                    </span>
+<span class="nc" id="L61">                    string.append(&quot;El día &quot;).append(tareaActual.get(&quot;FECHA&quot;).toString()).append(&quot; hay &quot;).append(tareaActual.get(&quot;CONCEPTO&quot;)).append(&quot; para &quot;).append(tareaActual.get(&quot;CLIENTE&quot;)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L62">                    tareaActual.calcularNuevaFecha();</span>
+                }
+<span class="pc bpc" id="L64" title="1 of 2 branches missed.">                else if (comprobar == UtilidadesTareas.ESENQUINCE){</span>
+<span class="nc" id="L65">                    string.append(&quot;El día &quot;).append(tareaActual.get(&quot;FECHA&quot;).toString()).append(&quot; hay &quot;).append(tareaActual.get(&quot;CONCEPTO&quot;)).append(&quot; para &quot;).append(tareaActual.get(&quot;CLIENTE&quot;)).append(&quot;\n&quot;);</span>
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">                }else if(comprobar == UtilidadesTareas.HAPASADO){</span>
+                    
+<span class="fc" id="L68">                    tareaActual.calcularNuevaFecha();</span>
+                }
+<span class="fc" id="L70">            }</span>
+<span class="nc" id="L71">        } catch (SQLException ex) {</span>
+<span class="nc" id="L72">            Logger.getLogger(GestoraTareas.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="fc" id="L73">        }</span>
+
+<span class="fc" id="L75">        tareasARealizar = string;</span>
+<span class="fc" id="L76">        nProximaTarea++;</span>
+<span class="fc" id="L77">        GestoraTareas.observador.avisar();</span>
+<span class="fc" id="L78">    }</span>
+
+    public static synchronized ArrayList&lt;Tarea&gt; getTareas() {
+<span class="fc" id="L81">        return tareas;</span>
+    }
+
+    public static synchronized StringBuilder getTareasARealizar() {
+<span class="fc" id="L85">        return tareasARealizar;</span>
+    }
+    
+    public static synchronized int aumentaNumeroTarea(){
+        
+<span class="nc" id="L90">        return GestoraTareas.nProximaTarea++;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

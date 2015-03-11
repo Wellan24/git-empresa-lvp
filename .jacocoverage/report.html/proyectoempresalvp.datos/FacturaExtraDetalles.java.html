@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>FacturaExtraDetalles.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ProyectoEmpresaLVP&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">proyectoempresalvp.datos</a> &gt; <span class="el_source">FacturaExtraDetalles.java</span></div><h1>FacturaExtraDetalles.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package proyectoempresalvp.datos;
+
+import java.text.Collator;
+
+/**
+ *
+ * @author Administrador
+ */
+public class FacturaExtraDetalles extends Dato implements Comparable&lt;FacturaExtraDetalles&gt;{
+
+    
+<span class="fc" id="L17">    private static final String[] orden = {&quot;NUMERO&quot;,&quot;ORDEN&quot;, &quot;CONCEPTO&quot;, &quot;IMPORTE&quot;};</span>
+    private static final String tabla = &quot;FACTURAEXTRADETALLES&quot;;
+    /**
+     *  Las claves son: ORDEN, NUMERO, CONCEPTO, IMPORTE
+     * 
+     * @param orden
+     * @param numero
+     * @param concepto
+     * @param importe 
+     */
+    public FacturaExtraDetalles(int numero, int orden, String concepto, String importe) {
+<span class="nc" id="L28">        super(4);</span>
+<span class="nc" id="L29">        this.put(&quot;ORDEN&quot;, orden);</span>
+<span class="nc" id="L30">        this.put(&quot;NUMERO&quot;, numero);</span>
+<span class="nc" id="L31">        this.put(&quot;CONCEPTO&quot;, concepto);</span>
+<span class="nc" id="L32">        this.put(&quot;IMPORTE&quot;, importe);        </span>
+<span class="nc" id="L33">    }   </span>
+
+    private FacturaExtraDetalles(FacturaExtraDetalles c) {
+<span class="fc" id="L36">        super(c);</span>
+<span class="fc" id="L37">    }</span>
+    
+    public FacturaExtraDetalles() {
+<span class="fc" id="L40">        super(4);</span>
+<span class="fc" id="L41">        this.put(&quot;ORDEN&quot;, 0);</span>
+<span class="fc" id="L42">        this.put(&quot;NUMERO&quot;, 0);</span>
+<span class="fc" id="L43">        this.put(&quot;CONCEPTO&quot;, &quot;&quot;);</span>
+<span class="fc" id="L44">        this.put(&quot;IMPORTE&quot;, &quot;&quot;);        </span>
+<span class="fc" id="L45">    } </span>
+    
+    @Override
+    public String devuelveNombreTablaDato() {
+        
+<span class="fc" id="L50">        return tabla;</span>
+    }
+    @Override
+    public int compareTo(FacturaExtraDetalles o) {
+        
+<span class="nc" id="L55">        Collator c = Collator.getInstance();</span>
+<span class="nc" id="L56">        c.setStrength(Collator.PRIMARY);</span>
+        
+        Object obj;
+        Object objO;
+        
+<span class="nc bnc" id="L61" title="All 2 branches missed.">        for(String clave : orden){</span>
+            
+<span class="nc" id="L63">            obj = this.get(clave);</span>
+<span class="nc" id="L64">            objO = o.get(clave);</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">            if(obj instanceof Integer){</span>
+                
+<span class="nc bnc" id="L67" title="All 2 branches missed.">                if((int)obj != (int)objO){</span>
+            
+<span class="nc bnc" id="L69" title="All 2 branches missed.">                    return (int)obj &gt; (int)objO ? 1 : -1;            </span>
+                }
+<span class="nc bnc" id="L71" title="All 2 branches missed.">            }else if(obj instanceof String){</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">                if(c.compare((String)obj, (String)objO) != 0){</span>
+            
+<span class="nc" id="L74">                    return c.compare(obj, objO);            </span>
+                }
+<span class="nc bnc" id="L76" title="All 2 branches missed.">            }else if(obj instanceof Float){</span>
+                
+<span class="nc bnc" id="L78" title="All 2 branches missed.">                if((float)obj != (float)objO){</span>
+            
+<span class="nc bnc" id="L80" title="All 2 branches missed.">                    return (float)obj &gt; (float)objO ? 1 : -1;</span>
+                }
+            }         
+            
+        }
+        
+<span class="nc" id="L86">        return 0;</span>
+    }
+
+    @Override
+    public String[] devuelveOrdenDeColumnas() {
+        
+<span class="fc" id="L92">        return orden;</span>
+    }
+    
+    /**
+     * La clave es NUMERO
+     * @return 
+     */
+    @Override
+    public Object devuelveValorClave() {
+        
+<span class="fc" id="L102">        return this.get(&quot;NUMERO&quot;) + &quot;0&quot; + this.get(&quot;ORDEN&quot;);</span>
+    }
+
+    public static String[] getOrden() {
+<span class="nc" id="L106">        return orden;</span>
+    }
+
+    public static String getTabla() {
+<span class="nc" id="L110">        return tabla;</span>
+    }
+
+    @Override
+    public String devuelveClave() {
+        
+<span class="nc" id="L116">        return &quot;NUMERO ORDEN&quot;;</span>
+    }
+
+    @Override
+    public Dato copia() {
+        
+//        return (Dato)this.clone();
+<span class="fc" id="L123">        return new FacturaExtraDetalles(this);</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>
