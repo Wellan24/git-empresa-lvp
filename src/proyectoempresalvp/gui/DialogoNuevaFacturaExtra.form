@@ -510,11 +510,10 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="rbCliOcas" alignment="0" max="32767" attributes="0"/>
-                          <Component id="rbCliEmp" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel44" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="ctFecha" alignment="0" max="32767" attributes="0"/>
+                          <Component id="ctFecha" alignment="0" pref="107" max="32767" attributes="0"/>
+                          <Component id="comboNumeroCliente" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="23" max="32767" attributes="0"/>
                   </Group>
@@ -526,14 +525,12 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel44" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="rbCliEmp" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="rbCliOcas" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="comboNumeroCliente" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="ctFecha" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="45" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -541,17 +538,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel44">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Seleccione:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="rbCliEmp">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cliente Empresa"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="rbCliOcas">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cliente Ocasional"/>
+                <Property name="text" type="java.lang.String" value="Seleccione un cliente:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
@@ -560,6 +547,11 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="ctFecha">
+            </Component>
+            <Component class="javax.swing.JComboBox" name="comboNumeroCliente">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboNumeroClienteActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

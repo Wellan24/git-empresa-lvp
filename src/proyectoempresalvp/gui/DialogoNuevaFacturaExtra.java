@@ -6,8 +6,12 @@
 package proyectoempresalvp.gui;
 
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import proyectoempresalvp.datos.ArrayListDato;
+import proyectoempresalvp.datos.Cliente;
+import proyectoempresalvp.datos.Dato;
 import proyectoempresalvp.datos.FacturaExtra;
 import proyectoempresalvp.datos.FacturaExtraDetalles;
 import proyectoempresalvp.datos.Fecha;
@@ -22,7 +26,7 @@ import proyectoempresalvp.gestoras.Datos.GestoraDatos;
  * @author Oscar
  */
 public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
-    
+
     ArrayList<FacturaExtraDetalles> conceptos = new ArrayList();
 //  CAMBIAR EL IVA POR LA CONFIGURACION!!!!!!!!!!!!!!!!!!!!!!
 
@@ -38,6 +42,9 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
         ctporcenIva.setText("21");
         ctNumF.setText("" + GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).devuelveNumeroSiguiente());
+
+        comboNumeroCliente.setModel(new DefaultComboBoxModel(GestoraDatos.dameGestora().get("CLIENTES").devuelveTodasLasClaves()));
+        comboNumeroCliente.addItem("NINGUNO");
     }
 
     /**
@@ -85,10 +92,9 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
         ctNcif = new javax.swing.JTextField();
         jPanel3 = new JPanelTranslucido();
         jLabel44 = new javax.swing.JLabel();
-        rbCliEmp = new javax.swing.JRadioButton();
-        rbCliOcas = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         ctFecha = new javax.swing.JTextField();
+        comboNumeroCliente = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -314,13 +320,15 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 255));
 
-        jLabel44.setText("Seleccione:");
-
-        rbCliEmp.setText("Cliente Empresa");
-
-        rbCliOcas.setText("Cliente Ocasional");
+        jLabel44.setText("Seleccione un cliente:");
 
         jLabel1.setText("Fecha:");
+
+        comboNumeroCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboNumeroClienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -329,11 +337,10 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(rbCliOcas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rbCliEmp)
                     .addComponent(jLabel44)
                     .addComponent(jLabel1)
-                    .addComponent(ctFecha))
+                    .addComponent(ctFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                    .addComponent(comboNumeroCliente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -342,14 +349,12 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jLabel44)
                 .addGap(18, 18, 18)
-                .addComponent(rbCliEmp)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rbCliOcas)
-                .addGap(18, 18, 18)
+                .addComponent(comboNumeroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(ctFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
@@ -413,12 +418,12 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bAñadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAñadeActionPerformed
-        
+
         DialogoNuevaFacturaDetalles dialogo = new DialogoNuevaFacturaDetalles((JFrame) this.getParent(), true,
                 Integer.parseInt(ctNumF.getText()), conceptos.size());
         dialogo.setVisible(true);
         if(dialogo.getFactura() != null) {
-            
+
             conceptos.add(dialogo.getFactura());
             listaConceptos.setListData(conceptosFormateados());
             ctBaseIm.setText("" + (Float.parseFloat(ctBaseIm.getText().isEmpty()
@@ -440,29 +445,34 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
             this.dispose();
         }
     }//GEN-LAST:event_bAceptarActionPerformed
-    
+
+    private void comboNumeroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboNumeroClienteActionPerformed
+        
+        refrescarCliente();
+    }//GEN-LAST:event_comboNumeroClienteActionPerformed
+
     private String[] conceptosFormateados() {
-        
+
         String[] dev = new String[conceptos.size()];
-        
+
         for(int i = 0;i < dev.length;i++) {
-            
+
             dev[i] = Gestora.completarConEspaciosBlancosIzq(conceptos.get(i).get("CONCEPTO").toString(), 50)
                     + " | " + Gestora.stringLongitudFijaIzq(conceptos.get(i).get("IMPORTE").toString(), "      ");
         }
-        
+
         return dev;
     }
-    
+
     private boolean insertarFacturaExtra() {
         String fecha = ctFecha.getText();
-        
+
         if(!Gestora.comprobarFormatoFechaCorrecto(fecha)) {
             JOptionPane.showMessageDialog(this, "Comprueba las fechas, el formato es dd/mm/aaaa");
         } else if(!comprobarNumero(ctCodpos.getText())
                 || !comprobarNumero(ctporcenIva.getText())
                 || !comprobarNumero(ctNumF.getText())) {
-            
+
             JOptionPane.showMessageDialog(this, "Comprueba que has introducido en los campos numéricos números correctamente.");
         } else {
             FacturaExtra nuevaFacturaExtra = new FacturaExtra(Integer.parseInt(ctNumF.getText()), //NUMFACTURA
@@ -472,7 +482,7 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
                     Integer.parseInt(ctCodpos.getText()), //CP
                     Integer.parseInt(ctporcenIva.getText()), //TANTOIVA
                     ctTotal.getText(), //EUROSNETO
-                    (rbCliEmp.isSelected() ? "SI" : "NO"));//CLIENTE
+                    "");//CLIENTE
 
             if(GestoraBaseDatos.insertarDato(nuevaFacturaExtra)) {
                 conceptos.stream().forEach((f) -> {
@@ -480,16 +490,35 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
                 });
                 GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASEXTRA);
                 return true;
-            }else{
-                
+            } else {
+
                 JOptionPane.showMessageDialog(this, "Ya existe");
             }
         }
         return false;
     }
-    
+
+    private void refrescarCliente() {
+
+        if(!"NINGUNO".equals(comboNumeroCliente.getSelectedItem())) {
+
+            ArrayListDato<Dato> clientes = GestoraDatos.recuperarConDummy(new Cliente(),
+                    null, " where NUMEROCLIENTE = " + comboNumeroCliente.getSelectedItem());
+            Dato d = clientes.get(0);
+            ctNomb.setText(d.get("NOMBRE").toString());
+            ctLoca.setText(d.get("LOCALIDAD").toString());
+            ctDomic.setText(d.get("DOMICILIO").toString());
+            ctCodpos.setText(d.get("CP").toString());
+            ctProvin.setText(d.get("PROVINCIA").toString());
+            ctNcif.setText(d.get("CIF").toString());
+        }else{
+            
+            ctNomb.setText("NINGUNO");
+        }
+    }
+
     private boolean comprobarNumero(String n) {
-        
+
         return Gestora.comprobarNumero(n);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -498,6 +527,7 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
     private javax.swing.JButton bBorra;
     private javax.swing.JButton bCancelar;
     private javax.swing.JButton bEditar;
+    private javax.swing.JComboBox comboNumeroCliente;
     private javax.swing.JTextField ctBaseIm;
     private javax.swing.JTextField ctCodpos;
     private javax.swing.JTextField ctDomic;
@@ -532,7 +562,5 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JList listaConceptos;
     private javax.swing.JPanel panelFondo;
-    private javax.swing.JRadioButton rbCliEmp;
-    private javax.swing.JRadioButton rbCliOcas;
     // End of variables declaration//GEN-END:variables
 }
