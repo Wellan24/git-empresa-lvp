@@ -1307,9 +1307,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jPfacMensLayout.setHorizontalGroup(
             jPfacMensLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPfacMensLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(27, 27, 27)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addGroup(jPfacMensLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1318,14 +1318,16 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jPfacMensLayout.setVerticalGroup(
             jPfacMensLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPfacMensLayout.createSequentialGroup()
-                .addGap(62, 62, 62)
                 .addGroup(jPfacMensLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPfacMensLayout.createSequentialGroup()
+                        .addGap(62, 62, 62)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(112, Short.MAX_VALUE))
+                    .addGroup(jPfacMensLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
         PanelPestañasPrincipal.addTab("FACTURACION MENSUAL", jPfacMens);
@@ -2881,8 +2883,14 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     private void bGenerarFacturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGenerarFacturacionActionPerformed
 
-        GestoraFacturas.generarFacturas(cbPeriodoMes.getSelectedItem().toString(), cbPeriodoAño.getSelectedItem().toString());
-        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASMENSUALES, null, Gestora.numeroPeriodoPorNombre(cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString()));
+        int si = JOptionPane.YES_OPTION;
+        if(tablaFacMensuales.getModel().getRowCount() != 0)
+            si = JOptionPane.showConfirmDialog(this, "Ya existen facturas ¿Desea borrarlas y volverlas a generar?", "Confirmar", JOptionPane.YES_NO_OPTION);
+
+        if(si == JOptionPane.YES_OPTION) {
+            GestoraFacturas.generarFacturas(cbPeriodoMes.getSelectedItem().toString(), cbPeriodoAño.getSelectedItem().toString());
+            GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASMENSUALES, null, Gestora.numeroPeriodoPorNombre(cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString()));
+        }
     }//GEN-LAST:event_bGenerarFacturacionActionPerformed
 
     private void ctIvaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctIvaaActionPerformed
@@ -3586,6 +3594,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         // Resto Tablas
         GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_TODO, new ProcesadorContratos());
+
+        ctProxFactura.setText(Integer.toString(GestoraFacturas.numeroUltimaFactura() + 1));
     }
 
     private void comprobarTareas() {
@@ -3857,7 +3867,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES) {
 
             actualizarTabla(tablaFacMensuales, GestoraDatos.dameGestora().get(FacturaMensual.getTabla()));
-            ctProxFactura.setText(Integer.toString(GestoraDatos.dameGestora().get(FacturaMensual.getTabla()).devuelveNumeroSiguiente()));
+            ctProxFactura.setText(Integer.toString(GestoraFacturas.numeroUltimaFactura() + 1));
         }
 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES_AÑO) {

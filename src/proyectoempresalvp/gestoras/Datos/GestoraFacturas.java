@@ -31,17 +31,7 @@ public class GestoraFacturas {
         ArrayListDato<Dato> contratos = GestoraDatos.dameGestora().get(Contrato.getTabla());
 
         GestoraBaseDatos.ejecutarSentenciaUpdate("Delete from FACTURAMENSUAL where NUMPERIODO = " + numperiodo);
-        ResultSet num = GestoraBaseDatos.ejecutarSentenciaQuery("Select max(NUMEROFACTURA) from FACTURAMENSUAL");
-
-        int proximaFactura = 0;
-        try {
-            num.next();
-            proximaFactura = num.getInt(1);
-            System.out.println(proximaFactura);
-
-        } catch(SQLException ex) {
-            Logger.getLogger(GestoraFacturas.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        int proximaFactura = numeroUltimaFactura();
 
         FacturaMensual facturaActual;
         if(proximaFactura != -1) {
@@ -56,5 +46,19 @@ public class GestoraFacturas {
             }
         }
 
+    }
+
+    public static int numeroUltimaFactura() {
+        ResultSet num = GestoraBaseDatos.ejecutarSentenciaQuery("Select max(NUMEROFACTURA) from FACTURAMENSUAL");
+        int proximaFactura = 0;
+        try {
+            num.next();
+            proximaFactura = num.getInt(1);
+            System.out.println(proximaFactura);
+            
+        } catch(SQLException ex) {
+            Logger.getLogger(GestoraFacturas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return proximaFactura;
     }
 }
