@@ -3107,9 +3107,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void bImprimirFacturaExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimirFacturaExtraActionPerformed
 
         int[] rows = tablaFacExtra.getSelectedRows();
-        for(int i :rows) {
-            GestoraPDF.generarPDFExtra((FacturaExtra) GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).get(i));
-        }
+        GestoraPDF.generarPDFExtras(rows);
     }//GEN-LAST:event_bImprimirFacturaExtraActionPerformed
 
     private void cambiarRuta() throws HeadlessException {
