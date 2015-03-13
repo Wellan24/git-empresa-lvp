@@ -15,7 +15,7 @@ import java.util.Date;
 public class FacturaExtra extends Dato implements Comparable<FacturaExtra> {
 
     private static final String[] orden = {"NUMEROFACTURA", "FECHA", "CIF", "NOMBRE", "DOMICILIO", "LOCALIDAD",
-        "PROVINCIA", "CP", "TANTOIVA", "EUROSNETO", "CLIENTE"};
+        "PROVINCIA", "CP", "TANTOIVA", "EUROSNETO", "NUMEROCLIENTE"};
     private static final String tabla = "FACTURAEXTRA";
 
     /**
@@ -36,7 +36,7 @@ public class FacturaExtra extends Dato implements Comparable<FacturaExtra> {
      */
     public FacturaExtra(int numeroFactura, Fecha fecha, String cif, String nombre, String domicilio, String localidad,
             String provincia, int cp, int tantoIva,
-            String eurosNeto, String cliente) {
+            String eurosNeto, int numerocliente) {
         super(11);
         this.put("NUMEROFACTURA", numeroFactura);
         this.put("FECHA", fecha);
@@ -48,7 +48,7 @@ public class FacturaExtra extends Dato implements Comparable<FacturaExtra> {
         this.put("CP", cp);
         this.put("TANTOIVA", tantoIva);
         this.put("EUROSNETO", eurosNeto);
-        this.put("CLIENTE", cliente);
+        this.put("NUMEROCLIENTE", numerocliente);
     }
 
     private FacturaExtra(FacturaExtra c) {
@@ -67,7 +67,7 @@ public class FacturaExtra extends Dato implements Comparable<FacturaExtra> {
         this.put("CP", 0);
         this.put("TANTOIVA", 0);
         this.put("EUROSNETO", "");
-        this.put("CLIENTE", "");
+        this.put("NUMEROCLIENTE", 0);
     }
 
     @Override

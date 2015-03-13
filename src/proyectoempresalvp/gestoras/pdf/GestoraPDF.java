@@ -109,9 +109,18 @@ public class GestoraPDF implements JRDataSource {
 
     public static String generarNombreExtra(FacturaExtra factura) {
 
-        return GestoraArchivos.generarNombreCarpetaExtras() + "/" + factura.get("NOMBRE").toString()
-                .replace("[/:;- ]", "_") + "/Nº " + factura.get("NUMEROFACTURA")
-                + " Fecha - " + factura.get("FECHA").toString().replace("/", "_") + ".pdf";
+        if((int) factura.get("NUMEROCLIENTE") == -1) {
+
+            return GestoraArchivos.generarNombreCarpetaExtras() + "/" + factura.get("NOMBRE").toString()
+                    .replace("[/:;- ]", "_") + "/Nº " + factura.get("NUMEROFACTURA")
+                    + " Fecha - " + factura.get("FECHA").toString().replace("/", "_") + ".pdf";
+        } else {
+            
+            Dato c = GestoraDatos.recuperarConDummy(new Cliente(), null, " where NUMEROCLIENTE = " + factura.get("NUMEROCLIENTE")).get(0);
+            return GestoraArchivos.generarNombreCarpetaCliente(c)
+                    + "/Extra/Nº " + factura.get("NUMEROFACTURA")
+                    + " Fecha - " + factura.get("FECHA").toString().replace("/", "_") + ".pdf";
+        }
     }
 
     public static String generarNombreMensual(FacturaMensual factura) {
