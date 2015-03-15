@@ -3125,6 +3125,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             case JFileChooser.CANCEL_OPTION:
                 JOptionPane.showMessageDialog(this, "No has elegido ruta", "Elegir", JOptionPane.INFORMATION_MESSAGE);
         }
+        
+        new GestoraArchivos().start();
     }
 
     private void cambiarContraseña() throws HeadlessException {
