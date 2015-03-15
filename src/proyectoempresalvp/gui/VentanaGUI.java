@@ -488,9 +488,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jLabel79.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel79.setText("PRÓXIMOS CONTRATOS QUE ACABAN:");
 
-        bInicioActualizarContratos.setBackground(new java.awt.Color(38, 120, 196));
-        bInicioActualizarContratos.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        bInicioActualizarContratos.setForeground(new java.awt.Color(255, 255, 255));
         bInicioActualizarContratos.setText("COMPROBAR");
         bInicioActualizarContratos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
