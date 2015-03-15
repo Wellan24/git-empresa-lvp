@@ -17,17 +17,29 @@
         
         <property name="store.dir" value="../store"/>
         <delete dir="${store.dir}"/>
-        <mkdir dir="${store.dir}"/>
+        <mkdir dir="${store.dir}"/>        
         
-    <jar destfile="${store.dir}/EmpresaLVP.jar" update="true">
+        <jar destfile="./lib/external-libs.jar" update="true">
+            <zipgroupfileset dir="lib/">
+                <include name="**/*.jar"/>
+            </zipgroupfileset>
+        </jar>
         
-        <zipgroupfileset dir="dist" includes="*.jar"/>
-        <zipgroupfileset dir="dist/lib" includes="*.jar"/>
+        <sleep seconds="1"/>  
+        
+        <jar destfile="${store.dir}/EmpresaLVP.jar" update="true">
+        
+            <zipgroupfileset dir="dist" includes="*.jar"/>    
+            <zipfileset src="./lib/external-libs.jar">
+                <exclude name="**/*.RSA"/>
+                <exclude name="**/*.DSA"/>
+                <exclude name="**/*.SF"/>
+            </zipfileset>
             
-        <manifest>
-            <attribute name="Main-Class" value="${main.class}"/>
-        </manifest>
-    </jar>
+            <manifest>
+                <attribute name="Main-Class" value="${main.class}"/>
+            </manifest>
+        </jar>
     </target>
 </project>
 
