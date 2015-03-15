@@ -31,7 +31,7 @@ public class GestoraBaseDatos {
 
             if(GestoraBaseDatos.conexion == null) {
 
-                GestoraBaseDatos.conexion = DriverManager.getConnection("jdbc:ucanaccess://../DataBase/BaseDeDatosLVP.accdb");
+                GestoraBaseDatos.conexion = DriverManager.getConnection("jdbc:ucanaccess://./DataBase/BaseDeDatosLVP.accdb");
             }
         } catch(ClassNotFoundException ex) {
             Logger.getLogger(GestoraBaseDatos.class.getName()).log(Level.SEVERE, null, ex);
