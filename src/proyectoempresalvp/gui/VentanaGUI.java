@@ -3182,12 +3182,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         } catch(ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(VentanaGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-
-//        Font f = new java.awt.Font("Tahoma", 1, 11);
-//        javax.swing.UIManager.put("Button.font", f);
-//        javax.swing.UIManager.put("Button.textForeground", java.awt.Color.WHITE);
-        javax.swing.UIManager.put("Button.background", new java.awt.Color(38, 120, 196));
-//        SubstanceLookAndFeel.setSkin(new org.pushingpixels.substance.api.skin.MarinerSkin());
         //</editor-fold>
 
         /* Create and display the form */
