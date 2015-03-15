@@ -14,6 +14,7 @@ import java.awt.RenderingHints;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.border.EmptyBorder;
 import javax.swing.table.TableCellRenderer;
 import proyectoempresalvp.gestoras.Gestora;
 
@@ -72,9 +73,10 @@ public class TableRenderer extends JLabel implements TableCellRenderer {
         }
         if(value == null)
             setText("");
-        else if(Gestora.comprobarNumero(value.toString()))
+        else if(value instanceof Number && Gestora.comprobarNumero(value.toString()))
             setHorizontalAlignment(JLabel.RIGHT);
 
+        setBorder(new EmptyBorder(0,2,0,2));
         return this;
     }
 

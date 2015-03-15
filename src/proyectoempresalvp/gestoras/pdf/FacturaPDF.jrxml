@@ -50,7 +50,8 @@
 			</line>
 			<image>
 				<reportElement x="0" y="0" width="120" height="90" uuid="d423fc46-9508-4ff2-8700-117db97b593e"/>
-				<imageExpression><![CDATA["H:\\Proyectos NetBeans\\ProyectoEmpresa\\git-empresa-lvp\\src\\images\\imagenReport.jpg"]]></imageExpression>
+				<imageExpression class="JPG"><![CDATA["/images/imagenReport.jpg"]]></imageExpression>
+                                
 			</image>
 			<staticText>
 				<reportElement x="319" y="63" width="226" height="14" uuid="ffe6ff8a-4607-4c47-9132-befa646ab908"/>

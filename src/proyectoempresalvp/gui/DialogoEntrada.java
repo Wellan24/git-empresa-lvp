@@ -85,7 +85,6 @@ public class DialogoEntrada extends javax.swing.JDialog {
             }
         });
 
-        okButton.setBackground(new java.awt.Color(255, 255, 255));
         okButton.setText("Aceptar");
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,7 +92,6 @@ public class DialogoEntrada extends javax.swing.JDialog {
             }
         });
 
-        cancelButton.setBackground(new java.awt.Color(255, 255, 255));
         cancelButton.setText("Cancelar");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

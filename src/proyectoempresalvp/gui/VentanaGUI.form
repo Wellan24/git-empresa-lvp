@@ -286,6 +286,15 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="bInicioActualizarContratos">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="c4" green="78" red="26" type="rgb"/>
+                        </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Tahoma" size="11" style="1"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="COMPROBAR"/>
                       </Properties>
                       <Events>
@@ -394,9 +403,9 @@
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="bImprime" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="bFormularioCon" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="bImprime" min="-2" max="-2" attributes="0"/>
+                              <Component id="bFormularioCon" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="109" max="32767" attributes="0"/>
                       </Group>
@@ -715,7 +724,7 @@
                 <Component class="javax.swing.JButton" name="bImprime">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="66" green="ff" red="66" type="rgb"/>
+                      <Color blue="c4" green="78" red="26" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Imprimir listado"/>
                   </Properties>
@@ -1262,15 +1271,7 @@
                           <SubComponents>
                             <Component class="javax.swing.JTable" name="jTableContratos">
                               <Properties>
-                                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                                  <Table columnCount="4" rowCount="4">
-                                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
-                                  </Table>
-                                </Property>
-                                <Property name="autoResizeMode" type="int" value="1"/>
+                                <Property name="autoResizeMode" type="int" value="0"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableContratosMouseClicked"/>

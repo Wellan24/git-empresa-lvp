@@ -25,6 +25,7 @@ import proyectoempresalvp.datos.FacturaExtraDetalles;
 import proyectoempresalvp.datos.FacturaMensual;
 import proyectoempresalvp.datos.Fecha;
 import proyectoempresalvp.datos.Tarea;
+import proyectoempresalvp.datosUI.Boton;
 import proyectoempresalvp.datosUI.PanelImagen;
 import proyectoempresalvp.datosUI.JPanelTranslucido;
 import proyectoempresalvp.datosUI.ScrollPaneTranslucido;
@@ -487,6 +488,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jLabel79.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel79.setText("PRÓXIMOS CONTRATOS QUE ACABAN:");
 
+        bInicioActualizarContratos.setBackground(new java.awt.Color(38, 120, 196));
+        bInicioActualizarContratos.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        bInicioActualizarContratos.setForeground(new java.awt.Color(255, 255, 255));
         bInicioActualizarContratos.setText("COMPROBAR");
         bInicioActualizarContratos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -749,7 +753,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         bFormularioCon.setBackground(new java.awt.Color(204, 255, 255));
         bFormularioCon.setText("Formulario contratos");
 
-        bImprime.setBackground(new java.awt.Color(102, 255, 102));
+        bImprime.setBackground(new java.awt.Color(38, 120, 196));
         bImprime.setText("Imprimir listado");
 
         tablaClientes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -793,7 +797,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bImprime)
                     .addComponent(bFormularioCon))
                 .addContainerGap(109, Short.MAX_VALUE))
@@ -1055,18 +1059,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        jTableContratos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jTableContratos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_NEXT_COLUMN);
+        jTableContratos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jTableContratos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableContratosMouseClicked(evt);
@@ -3104,8 +3097,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         if(rows.length == 0) {
             GestoraPDF.generarPDFFacturasMensuales(Gestora.numeroPeriodoPorNombre(
                     cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString()));
-        }else{
-            
+        } else {
+
             GestoraPDF.generarPDFFacturasMensuales(rows);
         }
     }//GEN-LAST:event_bImprimirFacturasActionPerformed
@@ -3189,7 +3182,12 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         } catch(ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(VentanaGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
+
+//        Font f = new java.awt.Font("Tahoma", 1, 11);
+//        javax.swing.UIManager.put("Button.font", f);
+//        javax.swing.UIManager.put("Button.textForeground", java.awt.Color.WHITE);
+        javax.swing.UIManager.put("Button.background", new java.awt.Color(38, 120, 196));
+//        SubstanceLookAndFeel.setSkin(new org.pushingpixels.substance.api.skin.MarinerSkin());
         //</editor-fold>
 
         /* Create and display the form */
@@ -3199,7 +3197,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             DialogoEntrada d = new DialogoEntrada(ventana, true);
             d.setVisible(true);
             if(d.getReturnStatus() == DialogoEntrada.RET_OK) {
-            ventana.setVisible(true);
+                ventana.setVisible(true);
             } else {
                 ventana.dispose();
                 System.exit(0);
