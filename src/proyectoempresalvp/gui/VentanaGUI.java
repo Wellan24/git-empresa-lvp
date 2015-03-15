@@ -3100,8 +3100,14 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     private void bImprimirFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimirFacturasActionPerformed
 
-        GestoraPDF.generarPDFFacturasMensuales(Gestora.numeroPeriodoPorNombre(
-                cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString()));
+        int[] rows = tablaFacMensuales.getSelectedRows();
+        if(rows.length == 0) {
+            GestoraPDF.generarPDFFacturasMensuales(Gestora.numeroPeriodoPorNombre(
+                    cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString()));
+        }else{
+            
+            GestoraPDF.generarPDFFacturasMensuales(rows);
+        }
     }//GEN-LAST:event_bImprimirFacturasActionPerformed
 
     private void bImprimirFacturaExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimirFacturaExtraActionPerformed
@@ -3125,7 +3131,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             case JFileChooser.CANCEL_OPTION:
                 JOptionPane.showMessageDialog(this, "No has elegido ruta", "Elegir", JOptionPane.INFORMATION_MESSAGE);
         }
-        
+
         new GestoraArchivos().start();
     }
 

@@ -235,6 +235,25 @@ public class GestoraPDF implements JRDataSource {
         } catch(IOException ex) {
             Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }public static void generarPDFFacturasMensuales(int[] posGestora) {
+
+        ArrayList<InputStream> pdfsGenerados = new ArrayList<>();
+        
+        for(int i :posGestora) {
+            GestoraPDF.generarPDFMensual((FacturaMensual) GestoraDatos.dameGestora().get(FacturaMensual.getTabla()).get(i), pdfsGenerados);
+        }
+
+        File f = new File(GestoraConfiguracion.get("RUTA") + "/Temp/temporal.pdf");
+        f.getParentFile().mkdirs();
+        try {
+
+            concatPDFs(pdfsGenerados, new FileOutputStream(f), false);
+            Desktop.getDesktop().open(f);
+        } catch(FileNotFoundException ex) {
+            Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
+        } catch(IOException ex) {
+            Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public static void concatPDFs(ArrayList<InputStream> streamOfPDFFiles,
