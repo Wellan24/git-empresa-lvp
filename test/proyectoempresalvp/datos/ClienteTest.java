@@ -19,7 +19,7 @@ public class ClienteTest {
     Cliente instance;
     
     public ClienteTest() {
-        instance = new Cliente(1, 10, "", "", "", "", 10, "", "", 10, 10, "", 10, "10", 10);
+        instance = new Cliente(1, "10", "", "", "", "", 10, "", "", 10, 10, "", 10, "10", 10);
     }
     
     @BeforeClass
@@ -59,7 +59,7 @@ public class ClienteTest {
     @Test
     public void testCompareTo() {
         System.out.println("compareTo");
-        Cliente o = new Cliente(10, 10, "", "", "", "", 10, "", "", 10, 10, "", 10, "10", 10);
+        Cliente o = new Cliente(10, "10", "", "", "", "", 10, "", "", 10, 10, "", 10, "10", 10);
         int expResult = 0;
         int result = instance.compareTo(o);
         assertEquals(expResult, result);

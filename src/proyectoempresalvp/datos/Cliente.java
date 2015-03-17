@@ -34,7 +34,7 @@ public class Cliente extends Dato implements Comparable<Cliente> {
      * @param iban
      * @param bancoCobro
      */
-    public Cliente(int numeroCliente, int cif, String descripcion,
+    public Cliente(int numeroCliente, String cif, String descripcion,
             String nombre, String domicilio, String localidad, int cp,
             String provincia, String personaContacto, int tlfCliente, int tlfContacto,
             String notas, int refBanco, String iban, int bancoCobro) {
@@ -59,7 +59,7 @@ public class Cliente extends Dato implements Comparable<Cliente> {
     public Cliente() {
         super(15);
         this.put("NUMEROCLIENTE", 0);
-        this.put("CIF", 0);
+        this.put("CIF", "");
         this.put("DESCRIPCION", "");
         this.put("NOMBRE", "");
         this.put("DOMICILIO", "");

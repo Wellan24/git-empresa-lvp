@@ -368,7 +368,7 @@ public class DialogoNuevoCliente extends javax.swing.JDialog {
         } else {
 
             Cliente nuevoCliente = new Cliente(Integer.parseInt(ctClienteNum.getText()),
-                    Integer.parseInt(ctClienteNif.getText()),
+                    ctClienteNif.getText(),
                     ctClienteDescripcion.getText(), ctClienteNombre.getText(), ctClienteDomicilio.getText(),
                     ctClienteLocalidad.getText(),
                     Integer.parseInt(ctClienteCp.getText()),

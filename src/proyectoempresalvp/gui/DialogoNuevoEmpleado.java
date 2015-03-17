@@ -398,12 +398,12 @@ public class DialogoNuevoEmpleado extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Comprueba que los telefonos, la nomina y el numero de la seguridad social son numeros");
         } else {
 
-            Empleado nuevoEmpleado = new Empleado(Integer.parseInt(ctEmpleN.getText()), Integer.parseInt(ctEmpleNif.getText()),
+            Empleado nuevoEmpleado = new Empleado(Integer.parseInt(ctEmpleN.getText()), ctEmpleNif.getText(),
                     ctEmpleDesc.getText(), ctEmpleNombre.getText(), ctEmpleDomicilio.getText(),
                     ctEmpleLoc.getText(), Integer.parseInt(ctEmpleCP.getText()), ctEmpleProv.getText(),
                     Integer.parseInt(ctEmpleTelf.getText()), Integer.parseInt(ctEmpleMovil.getText()),
                     ctEmpleIBAN.getText(), new Fecha(alta), new Fecha(nac), Integer.parseInt(ctEmpleNomina.getText()),
-                    Integer.parseInt(ctEmpleSS.getText()), "23", "23");
+                    ctEmpleSS.getText(), "23", "23");
 
             if(GestoraBaseDatos.insertarDato(nuevoEmpleado)) {
 

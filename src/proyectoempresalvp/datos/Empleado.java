@@ -36,10 +36,10 @@ public class Empleado extends Dato implements Comparable<Empleado> {
      * @param centro0
      * @param horas0
      */
-    public Empleado(int numemple, int cif, String anagrama, String nombre,
+    public Empleado(int numemple, String cif, String anagrama, String nombre,
             String domicilio, String localidad, int cp, String provincia, int tlf1,
             int tlf2, String iban, Fecha alta,
-            Fecha nacimiento, int nomina, int ss, String centro0,
+            Fecha nacimiento, int nomina, String ss, String centro0,
             String horas0) {
         super(17);
         this.put("NUMEMPLE", numemple);
@@ -69,7 +69,7 @@ public class Empleado extends Dato implements Comparable<Empleado> {
     public Empleado() {
         super(17);
         this.put("NUMEMPLE", 0);
-        this.put("CIF", 0);
+        this.put("CIF", "");
         this.put("ANAGRAMA", "");
         this.put("NOMBRE", "");
         this.put("DOMICILIO", "");
@@ -82,7 +82,7 @@ public class Empleado extends Dato implements Comparable<Empleado> {
         this.put("ALTA", new Fecha("1/1/2015"));
         this.put("NACIMIENTO", new Fecha("1/1/2015"));
         this.put("NOMINA", 0);
-        this.put("SS", 0);
+        this.put("SS", "");
         this.put("CENTRO0", "");//???
         this.put("HORAS0", "");//???
 
@@ -151,7 +151,7 @@ public class Empleado extends Dato implements Comparable<Empleado> {
     @Override
     public Object devuelveValorClave() {
 
-        return "" + this.get("NUMEMPLE");
+        return this.get("NUMEMPLE");
     }
 
     public static String[] getOrden() {
@@ -165,7 +165,7 @@ public class Empleado extends Dato implements Comparable<Empleado> {
     @Override
     public String devuelveClave() {
 
-        return "NUMERO ORDEN";
+        return "NUMEMPLE";
     }
 
     @Override

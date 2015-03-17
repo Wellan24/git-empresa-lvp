@@ -20,7 +20,7 @@ public class EmpleadoTest {
 
     public EmpleadoTest() {
 
-        instance = new Empleado(10, 10, "", "", "", "", 10, "", 10, 10, "10", new Fecha("2010/10/10"), new Fecha("2010/10/10"), 10, 10, "", "");
+        instance = new Empleado(10, "10", "", "", "", "", 10, "", 10, 10, "10", new Fecha("2010/10/10"), new Fecha("2010/10/10"), 10, "10", "", "");
     }
 
     @BeforeClass
@@ -59,7 +59,7 @@ public class EmpleadoTest {
     @Test
     public void testCompareTo() {
         System.out.println("compareTo");
-        Empleado o = new Empleado(10, 10, "", "", "", "", 10, "", 10, 10, "10", new Fecha("2010/10/10"), new Fecha("2010/10/10"), 10, 10, "", "");
+        Empleado o = new Empleado(10, "10", "", "", "", "", 10, "", 10, 10, "10", new Fecha("2010/10/10"), new Fecha("2010/10/10"), 10, "10", "", "");
         int expResult = 0;
         int result = instance.compareTo(o);
         assertEquals(expResult, result);
