@@ -31,7 +31,7 @@ public class ImportarDataBase {
         GestoraBaseDatos.conectarBaseDatos();
         GestoraConfiguracion.recuperaConfiguracion();
         Connection conDos = DriverManager.getConnection("jdbc:ucanaccess://../Actualizado/LimpDat.accdb");     
-//        recuperarClientes(conDos);
+        recuperarClientes(conDos);
         recuperarEmpleados(conDos);
     }
     
@@ -65,7 +65,7 @@ public class ImportarDataBase {
                     rs.getString(5), rs.getString(6), Integer.parseInt(rs.getString(7).isEmpty()? "0" : rs.getString(7)), rs.getString(8), 
                     Integer.parseInt(rs.getString(9).isEmpty()? "0" : rs.getString(9)), 
                     Integer.parseInt(rs.getString(10).isEmpty()? "0" : rs.getString(10)), "", 
-                    new Fecha(rs.getString(15).replace("-", "/")), null, 
+                    new Fecha(rs.getString(15).replace("-", "/")), new Fecha(rs.getString(15).replace("-", "/")), 
                     Integer.parseInt(rs.getString(17).isEmpty()? "0" : rs.getString(17)), 
                     rs.getString(18), "", ""));
         }
