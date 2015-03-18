@@ -224,6 +224,9 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bInicioActualizarTareasActionPerformed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton();"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -291,6 +294,9 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bInicioActualizarContratosActionPerformed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -361,17 +367,17 @@
                               <Component id="jScrollPane1" pref="528" max="32767" attributes="0"/>
                               <Component id="bImprime" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <Component id="bNuevo" min="-2" pref="195" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
-                                  <Component id="bModificar" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="bModificar" min="-2" pref="181" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jPinsertarCli" max="32767" attributes="0"/>
                               <Component id="bFormularioCon" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="94" max="32767" attributes="0"/>
+                          <EmptySpace pref="91" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -684,33 +690,33 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="bNuevo">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="cc" green="ff" red="cc" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Nuevo cliente"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bNuevoActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JButton" name="bModificar">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="99" green="ff" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Modificar cliente"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bModificarActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JButton" name="bFormularioCon">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="cc" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Formulario contratos"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JButton" name="bImprime">
                   <Properties>
@@ -719,6 +725,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Imprimir listado"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                  </AuxValues>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane1">
                   <AuxValues>
@@ -869,26 +878,23 @@
                                                           <Component id="jLabel68" max="32767" attributes="0"/>
                                                           <Component id="jLabel63" max="32767" attributes="0"/>
                                                       </Group>
+                                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" attributes="0">
                                                           <Group type="102" alignment="0" attributes="0">
-                                                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                                  <Component id="ctContratoDomic" alignment="0" max="32767" attributes="0"/>
-                                                                  <Component id="ctContratoLoc" alignment="0" max="32767" attributes="0"/>
-                                                                  <Component id="ctContratoCp" alignment="0" max="32767" attributes="0"/>
-                                                                  <Component id="ctContratoProv" alignment="0" max="32767" attributes="0"/>
-                                                                  <Component id="ctContratoNif" alignment="0" max="32767" attributes="0"/>
-                                                                  <Component id="ctContratoTlf" alignment="0" max="32767" attributes="0"/>
-                                                                  <Component id="ctContratoNombre" alignment="0" pref="142" max="32767" attributes="0"/>
-                                                              </Group>
-                                                          </Group>
-                                                          <Group type="102" alignment="0" attributes="0">
-                                                              <EmptySpace max="-2" attributes="0"/>
-                                                              <Component id="ctContratoNumCli" min="-2" pref="73" max="-2" attributes="0"/>
+                                                              <Component id="ctContratoNumCli" min="-2" pref="63" max="-2" attributes="0"/>
                                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                               <Component id="jLabel61" min="-2" max="-2" attributes="0"/>
                                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                               <Component id="ctContratoDescrip" min="-2" pref="146" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                              <Component id="ctContratoDomic" alignment="0" max="32767" attributes="0"/>
+                                                              <Component id="ctContratoLoc" alignment="0" max="32767" attributes="0"/>
+                                                              <Component id="ctContratoCp" alignment="0" max="32767" attributes="0"/>
+                                                              <Component id="ctContratoProv" alignment="0" max="32767" attributes="0"/>
+                                                              <Component id="ctContratoNif" alignment="0" max="32767" attributes="0"/>
+                                                              <Component id="ctContratoTlf" alignment="0" max="32767" attributes="0"/>
+                                                              <Component id="ctContratoNombre" alignment="0" pref="142" max="32767" attributes="0"/>
                                                           </Group>
                                                       </Group>
                                                   </Group>
@@ -1275,41 +1281,41 @@
                         </Container>
                         <Component class="javax.swing.JButton" name="bModificarContrato">
                           <Properties>
-                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="99" green="99" red="ff" type="rgb"/>
-                            </Property>
                             <Property name="text" type="java.lang.String" value="Modificar Contrato"/>
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bModificarContratoActionPerformed"/>
                           </Events>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JButton" name="bEstudiosActivos">
                           <Properties>
-                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="99" green="ff" red="ff" type="rgb"/>
-                            </Property>
                             <Property name="text" type="java.lang.String" value="Estudios Activos"/>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JButton" name="bNuevoContr">
                           <Properties>
-                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="99" green="ff" red="99" type="rgb"/>
-                            </Property>
                             <Property name="text" type="java.lang.String" value="Nuevo Contrato"/>
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bNuevoContrActionPerformed"/>
                           </Events>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JButton" name="bFormuClientes">
                           <Properties>
-                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="66" green="cc" red="ff" type="rgb"/>
-                            </Property>
                             <Property name="text" type="java.lang.String" value="Formulario Clientes"/>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                          </AuxValues>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -1576,25 +1582,25 @@
                   <SubComponents>
                     <Component class="javax.swing.JButton" name="bGenerarFacturacion">
                       <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="66" green="cc" red="ff" type="rgb"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="Generar Facturas"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bGenerarFacturacionActionPerformed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JButton" name="bImprimirFacturas">
                       <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="99" green="ff" red="99" type="rgb"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="Imprimir Facturas"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bImprimirFacturasActionPerformed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1689,56 +1695,15 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel44" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="rbCliOcas" min="-2" max="-2" attributes="0"/>
-                                  <Component id="rbCliEmp" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
+                          <EmptySpace min="0" pref="351" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel44" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="rbCliEmp" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="rbCliOcas" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="17" max="32767" attributes="0"/>
-                          </Group>
+                          <EmptySpace min="0" pref="70" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
-                  <SubComponents>
-                    <Component class="javax.swing.JLabel" name="jLabel44">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Seleccione:"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JRadioButton" name="rbCliEmp">
-                      <Properties>
-                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                          <ComponentRef name="buttonGroupFacExtra"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Cliente Empresa"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JRadioButton" name="rbCliOcas">
-                      <Properties>
-                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                          <ComponentRef name="buttonGroupFacExtra"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Cliente Ocasional"/>
-                      </Properties>
-                    </Component>
-                  </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="jPanel4">
                   <Properties>
@@ -1761,10 +1726,10 @@
                                           <Component id="jLabel45" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel46" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="ctNomb" pref="210" max="32767" attributes="0"/>
                                           <Component id="ctDomic" max="32767" attributes="0"/>
-                                          <Component id="ctNomb" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" attributes="0">
@@ -1777,13 +1742,16 @@
                                           <Component id="jLabel49" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel50" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="ctNcif" pref="207" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="ctProvin" max="32767" attributes="0"/>
                                           <Component id="ctCodpos" max="32767" attributes="0"/>
-                                          <Component id="ctLoca" max="32767" attributes="0"/>
+                                          <Component id="ctNcif" max="32767" attributes="0"/>
                                       </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="ctLoca" min="-2" pref="210" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="43" pref="43" max="-2" attributes="0"/>
@@ -2107,44 +2075,44 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="bGuardar">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="cc" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Guardar Factura"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JButton" name="bImprimirFacturaExtra">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="cc" green="ff" red="cc" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Imprimir Facturas"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bImprimirFacturaExtraActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JButton" name="bNuevaFac">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="cc" green="cc" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Nueva Factura"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bNuevaFacActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JButton" name="bModifFac">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="cc" green="ff" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Modificar Factura"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bModifFacActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -2326,14 +2294,14 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="bAceptarContrase&#xf1;a">
                               <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="99" green="ff" red="99" type="rgb"/>
-                                </Property>
                                 <Property name="text" type="java.lang.String" value="ACEPTAR"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bAceptarContrase&#xf1;aActionPerformed"/>
                               </Events>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                              </AuxValues>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -2432,6 +2400,9 @@
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bComprobarIbanActionPerformed"/>
                               </Events>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                              </AuxValues>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel82">
                               <Properties>
@@ -2452,6 +2423,9 @@
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bCalcularActionPerformed"/>
                               </Events>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                              </AuxValues>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel28">
                               <Properties>
@@ -2550,6 +2524,9 @@
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bConfiguracionCambioIvaActionPerformed"/>
                               </Events>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                              </AuxValues>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -2610,6 +2587,9 @@
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bSeleccionaRutaActionPerformed"/>
                               </Events>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                              </AuxValues>
                             </Component>
                             <Component class="javax.swing.JTextField" name="ctProgramaRutaActual">
                             </Component>
@@ -2807,16 +2787,25 @@
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Previsualizar"/>
                               </Properties>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                              </AuxValues>
                             </Component>
                             <Component class="javax.swing.JButton" name="bImpriLisVis">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Imprimir Listado Visible"/>
                               </Properties>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                              </AuxValues>
                             </Component>
                             <Component class="javax.swing.JButton" name="bGuardaNuImpo">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Guardar Nuevos Importes"/>
                               </Properties>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                              </AuxValues>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -3102,19 +3091,19 @@
                         </Container>
                         <Component class="javax.swing.JButton" name="bImprim">
                           <Properties>
-                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="99" green="99" red="ff" type="rgb"/>
-                            </Property>
                             <Property name="text" type="java.lang.String" value="Imprimir selecci&#xf3;n"/>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JButton" name="bActualizar">
                           <Properties>
-                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="66" green="ff" red="99" type="rgb"/>
-                            </Property>
                             <Property name="text" type="java.lang.String" value="Actualizar Hist&#xf3;rico"/>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                          </AuxValues>
                         </Component>
                         <Container class="javax.swing.JPanel" name="jPanel7">
                           <Properties>
@@ -3837,33 +3826,33 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="bA&#xf1;adir">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="66" green="ff" red="99" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="A&#xf1;adir Empleado"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bA&#xf1;adirActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JButton" name="bModif">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="99" green="ff" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Modificar Empleado"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bModifActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JButton" name="bVacBajas">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="cc" green="cc" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Vacaciones Bajas"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                  </AuxValues>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane2">
                   <AuxValues>
@@ -3895,14 +3884,14 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="bImprimirLis">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="99" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Imprimir listado de empleados"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bImprimirLisActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -4076,6 +4065,9 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bTarGuardarActionPerformed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -4097,11 +4089,11 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="bTarBorrar">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="66" green="66" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Borrar Tarea"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                  </AuxValues>
                 </Component>
                 <Container class="javax.swing.JPanel" name="jPanel16">
                   <Properties>
@@ -4159,6 +4151,9 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bComprobarTareasActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
