@@ -25,6 +25,7 @@ public class Tabla extends JTable {
         setDefaultRenderer(Boolean.class, new TableRenderer());
         setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         setAutoCreateRowSorter(true);
+        setRowHeight(20);
         
     }
 

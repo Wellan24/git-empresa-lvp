@@ -11,6 +11,7 @@ import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import javax.swing.BorderFactory;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JTable;
@@ -76,7 +77,7 @@ public class TableRenderer extends JLabel implements TableCellRenderer {
         else if(value instanceof Number && Gestora.comprobarNumero(value.toString()))
             setHorizontalAlignment(JLabel.RIGHT);
 
-        setBorder(new EmptyBorder(0,2,0,2));
+        setBorder(BorderFactory.createEmptyBorder(0, 2, 0, 2));
         return this;
     }
 
