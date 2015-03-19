@@ -2113,6 +2113,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         );
 
         bImprim.setText("Imprimir selección");
+        bImprim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bImprimActionPerformed(evt);
+            }
+        });
 
         bActualizar.setText("Actualizar Histórico");
 
@@ -3060,6 +3065,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         int[] rows = tablaFacExtra.getSelectedRows();
         GestoraPDF.generarPDFExtras(rows);
     }//GEN-LAST:event_bImprimirFacturaExtraActionPerformed
+
+    private void bImprimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimActionPerformed
+        
+        GestoraPDF.generarPDFFacturasMensuales(tablaHistoricoFacturas.getSelectedRows());
+    }//GEN-LAST:event_bImprimActionPerformed
 
     private void cambiarRuta() throws HeadlessException {
         JFileChooser elegir = new JFileChooser();
