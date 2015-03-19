@@ -10,6 +10,7 @@ import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import javafx.scene.paint.Color;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -113,12 +114,12 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jScrollPane5 = new javax.swing.JScrollPane();
         tAreaInicioTareas = new javax.swing.JTextArea();
         jLabel78 = new javax.swing.JLabel();
-        bInicioActualizarTareas = new javax.swing.JButton();
+        bInicioActualizarTareas = new Boton();
         jPanelTranslucido2 = new proyectoempresalvp.datosUI.JPanelTranslucido();
         jScrollPane9 = new javax.swing.JScrollPane();
         tAreaInicioContratos = new javax.swing.JTextArea();
         jLabel79 = new javax.swing.JLabel();
-        bInicioActualizarContratos = new javax.swing.JButton();
+        bInicioActualizarContratos = new Boton();
         jPanel10 = new JPanelTranslucido();
         labelFecha = new javax.swing.JLabel();
         jPclientes = PanelImagen.dameNuevoPanelSinLetras();
@@ -154,10 +155,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         ctClienteDomiciliado = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         ctClienteRefBan = new javax.swing.JTextField();
-        bNuevo = new javax.swing.JButton();
-        bModificar = new javax.swing.JButton();
-        bFormularioCon = new javax.swing.JButton();
-        bImprime = new javax.swing.JButton();
+        bNuevo = new Boton();
+        bModificar = new Boton();
+        bFormularioCon = new Boton();
+        bImprime = new Boton();
         jScrollPane1 = new ScrollPaneTranslucido();
         tablaClientes = new Tabla();
         jPcontratos = PanelImagen.dameNuevoPanelSinLetras();
@@ -206,10 +207,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jLabel86 = new javax.swing.JLabel();
         jScrollPane7 = new ScrollPaneTranslucido();
         jTableContratos = new Tabla();
-        bModificarContrato = new javax.swing.JButton();
-        bEstudiosActivos = new javax.swing.JButton();
-        bNuevoContr = new javax.swing.JButton();
-        bFormuClientes = new javax.swing.JButton();
+        bModificarContrato = new Boton();
+        bEstudiosActivos = new Boton();
+        bNuevoContr = new Boton();
+        bFormuClientes = new Boton();
         jPestudios = new javax.swing.JPanel();
         jPfacMens = PanelImagen.dameNuevoPanelSinLetras();
         jPanel1 = new JPanelTranslucido();
@@ -225,13 +226,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jScrollPane4 = new ScrollPaneTranslucido();
         tablaFacMensuales = new Tabla();
         jPanel2 = new JPanelTranslucido();
-        bGenerarFacturacion = new javax.swing.JButton();
-        bImprimirFacturas = new javax.swing.JButton();
+        bGenerarFacturacion = new Boton();
+        bImprimirFacturas = new Boton();
         jPfacExtra = PanelImagen.dameNuevoPanelSinLetras();
         jPanel3 = new JPanelTranslucido();
-        jLabel44 = new javax.swing.JLabel();
-        rbCliEmp = new javax.swing.JRadioButton();
-        rbCliOcas = new javax.swing.JRadioButton();
         jPanel4 = new JPanelTranslucido();
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
@@ -262,10 +260,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         listaConceptos = new javax.swing.JList();
         jScrollPane6 = new ScrollPaneTranslucido();
         tablaFacExtra = new Tabla();
-        bGuardar = new javax.swing.JButton();
-        bImprimirFacturaExtra = new javax.swing.JButton();
-        bNuevaFac = new javax.swing.JButton();
-        bModifFac = new javax.swing.JButton();
+        bGuardar = new Boton();
+        bImprimirFacturaExtra = new Boton();
+        bNuevaFac = new Boton();
+        bModifFac = new Boton();
         jPprograma = PanelImagen.dameNuevoPanelSinLetras();
         jPiva = new javax.swing.JTabbedPane();
         jPcontraseña =  new javax.swing.JPanel();
@@ -277,15 +275,15 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         ctClaveAntigua = new javax.swing.JTextField();
         ctClaveNueva = new javax.swing.JTextField();
         ctConfirmarClave = new javax.swing.JTextField();
-        bAceptarContraseña = new javax.swing.JButton();
+        bAceptarContraseña = new Boton();
         jPanel17 = new JPanelTranslucido();
         jLabel80 = new javax.swing.JLabel();
         ctComprobarIban = new javax.swing.JTextField();
-        bComprobarIban = new javax.swing.JButton();
+        bComprobarIban = new Boton();
         jLabel82 = new javax.swing.JLabel();
         ctIbanCalcular = new javax.swing.JTextField();
         ctIbanCalculado = new javax.swing.JTextField();
-        bCalcular = new javax.swing.JButton();
+        bCalcular = new Boton();
         jLabel28 = new javax.swing.JLabel();
         labelIbanComprobado = new javax.swing.JLabel();
         jPanel9 = new JPanelTranslucido();
@@ -294,10 +292,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         ctConfiguracionIvaActual = new javax.swing.JTextField();
         ctConfiguracionIvaNuevo = new javax.swing.JTextField();
         jLabel112 = new javax.swing.JLabel();
-        bConfiguracionCambioIva = new javax.swing.JButton();
+        bConfiguracionCambioIva = new Boton();
         jPanelTranslucido3 = new proyectoempresalvp.datosUI.JPanelTranslucido();
         jLabel29 = new javax.swing.JLabel();
-        bSeleccionaRuta = new javax.swing.JButton();
+        bSeleccionaRuta = new Boton();
         ctProgramaRutaActual = new javax.swing.JTextField();
         jLabel81 = new javax.swing.JLabel();
         jPipc =  new javax.swing.JPanel();
@@ -311,9 +309,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jLabel151 = new javax.swing.JLabel();
         ctIPC = new javax.swing.JTextField();
         jLabel152 = new javax.swing.JLabel();
-        bPrevisual = new javax.swing.JButton();
-        bImpriLisVis = new javax.swing.JButton();
-        bGuardaNuImpo = new javax.swing.JButton();
+        bPrevisual = new Boton();
+        bImpriLisVis = new Boton();
+        bGuardaNuImpo = new Boton();
         jPcopiasSeg =  new javax.swing.JPanel();
         jPhistorico = new javax.swing.JPanel();
         jPHitoricoFacturas = new JPanelTranslucido();
@@ -338,8 +336,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         ctIva1 = new javax.swing.JTextField();
         ctIva2 = new javax.swing.JTextField();
         ctTotalFac = new javax.swing.JTextField();
-        bImprim = new javax.swing.JButton();
-        bActualizar = new javax.swing.JButton();
+        bImprim = new Boton();
+        bActualizar = new Boton();
         jPanel7 = new JPanelTranslucido();
         jLabel98 = new javax.swing.JLabel();
         jLabel99 = new javax.swing.JLabel();
@@ -395,12 +393,12 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jScrollPane3 = new javax.swing.JScrollPane();
         ctEmpleadoNotas = new javax.swing.JTextArea();
         jLabel37 = new javax.swing.JLabel();
-        bAñadir = new javax.swing.JButton();
-        bModif = new javax.swing.JButton();
-        bVacBajas = new javax.swing.JButton();
+        bAñadir = new Boton();
+        bModif = new Boton();
+        bVacBajas = new Boton();
         jScrollPane2 = new ScrollPaneTranslucido();
         tablaEmple = new Tabla();
-        bImprimirLis = new javax.swing.JButton();
+        bImprimirLis = new Boton();
         jPtareas = PanelImagen.dameNuevoPanelSinLetras();
         jPanel15 = new JPanelTranslucido();
         jLabel30 = new javax.swing.JLabel();
@@ -411,14 +409,14 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         ctTarFecha = new javax.swing.JTextField();
         ctTarPeriodo = new javax.swing.JTextField();
         ctTarCliente = new javax.swing.JTextField();
-        bTarGuardar = new javax.swing.JButton();
+        bTarGuardar = new Boton();
         jScrollPane13 = new ScrollPaneTranslucido();
         tablaTareas = new Tabla();
-        bTarBorrar = new javax.swing.JButton();
+        bTarBorrar = new Boton();
         jPanel16 = new JPanelTranslucido();
         jScrollPane14 = new javax.swing.JScrollPane();
         taTareasComprobadas = new javax.swing.JTextArea();
-        bComprobarTareas = new javax.swing.JButton();
+        bComprobarTareas = new Boton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LIMPIEZAS VERDEJO PELAEZ");
@@ -731,7 +729,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addGap(158, 158, 158))
         );
 
-        bNuevo.setBackground(new java.awt.Color(204, 255, 204));
         bNuevo.setText("Nuevo cliente");
         bNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -739,7 +736,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             }
         });
 
-        bModificar.setBackground(new java.awt.Color(255, 255, 153));
         bModificar.setText("Modificar cliente");
         bModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -747,7 +743,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             }
         });
 
-        bFormularioCon.setBackground(new java.awt.Color(204, 255, 255));
         bFormularioCon.setText("Formulario contratos");
 
         bImprime.setBackground(new java.awt.Color(38, 120, 196));
@@ -769,15 +764,15 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addGroup(jPclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 528, Short.MAX_VALUE)
                     .addComponent(bImprime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(50, 50, 50)
+                .addGap(53, 53, 53)
                 .addGroup(jPclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPclientesLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPclientesLayout.createSequentialGroup()
                         .addComponent(bNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(117, 117, 117)
-                        .addComponent(bModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPinsertarCli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bFormularioCon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         jPclientesLayout.setVerticalGroup(
             jPclientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -867,24 +862,22 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                                     .addComponent(jLabel67, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel68, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel63, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(14, 14, 14)
                                 .addGroup(jPanelDatosCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanelDatosCliLayout.createSequentialGroup()
-                                        .addGap(14, 14, 14)
-                                        .addGroup(jPanelDatosCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(ctContratoDomic)
-                                            .addComponent(ctContratoLoc)
-                                            .addComponent(ctContratoCp)
-                                            .addComponent(ctContratoProv)
-                                            .addComponent(ctContratoNif)
-                                            .addComponent(ctContratoTlf)
-                                            .addComponent(ctContratoNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)))
-                                    .addGroup(jPanelDatosCliLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(ctContratoNumCli, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(ctContratoNumCli, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel61)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(ctContratoDescrip, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(ctContratoDescrip, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanelDatosCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(ctContratoDomic)
+                                        .addComponent(ctContratoLoc)
+                                        .addComponent(ctContratoCp)
+                                        .addComponent(ctContratoProv)
+                                        .addComponent(ctContratoNif)
+                                        .addComponent(ctContratoTlf)
+                                        .addComponent(ctContratoNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)))))
                         .addGap(74, 74, 74))))
         );
         jPanelDatosCliLayout.setVerticalGroup(
@@ -1064,7 +1057,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         });
         jScrollPane7.setViewportView(jTableContratos);
 
-        bModificarContrato.setBackground(new java.awt.Color(255, 153, 153));
         bModificarContrato.setText("Modificar Contrato");
         bModificarContrato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1072,10 +1064,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             }
         });
 
-        bEstudiosActivos.setBackground(new java.awt.Color(255, 255, 153));
         bEstudiosActivos.setText("Estudios Activos");
 
-        bNuevoContr.setBackground(new java.awt.Color(153, 255, 153));
         bNuevoContr.setText("Nuevo Contrato");
         bNuevoContr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1083,7 +1073,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             }
         });
 
-        bFormuClientes.setBackground(new java.awt.Color(255, 204, 102));
         bFormuClientes.setText("Formulario Clientes");
 
         javax.swing.GroupLayout jPgestionLayout = new javax.swing.GroupLayout(jPgestion);
@@ -1255,7 +1244,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 255));
 
-        bGenerarFacturacion.setBackground(new java.awt.Color(255, 204, 102));
         bGenerarFacturacion.setText("Generar Facturas");
         bGenerarFacturacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1263,7 +1251,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             }
         });
 
-        bImprimirFacturas.setBackground(new java.awt.Color(153, 255, 153));
         bImprimirFacturas.setText("Imprimir Facturas");
         bImprimirFacturas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1324,37 +1311,15 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 255));
 
-        jLabel44.setText("Seleccione:");
-
-        buttonGroupFacExtra.add(rbCliEmp);
-        rbCliEmp.setText("Cliente Empresa");
-
-        buttonGroupFacExtra.add(rbCliOcas);
-        rbCliOcas.setText("Cliente Ocasional");
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel44)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rbCliOcas)
-                    .addComponent(rbCliEmp))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 351, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel44)
-                    .addComponent(rbCliEmp))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rbCliOcas)
-                .addContainerGap(17, Short.MAX_VALUE))
+            .addGap(0, 70, Short.MAX_VALUE)
         );
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 255));
@@ -1382,10 +1347,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel45)
                             .addComponent(jLabel46))
-                        .addGap(51, 51, 51)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ctDomic)
-                            .addComponent(ctNomb)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ctNomb, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                            .addComponent(ctDomic)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel47)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -1394,12 +1359,14 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                             .addComponent(jLabel48)
                             .addComponent(jLabel49)
                             .addComponent(jLabel50))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ctNcif, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                        .addGap(45, 45, 45)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ctProvin)
                             .addComponent(ctCodpos)
-                            .addComponent(ctLoca))))
+                            .addComponent(ctNcif)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(ctLoca, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(43, 43, 43))
         );
         jPanel4Layout.setVerticalGroup(
@@ -1557,10 +1524,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         });
         jScrollPane6.setViewportView(tablaFacExtra);
 
-        bGuardar.setBackground(new java.awt.Color(204, 255, 255));
         bGuardar.setText("Guardar Factura");
 
-        bImprimirFacturaExtra.setBackground(new java.awt.Color(204, 255, 204));
         bImprimirFacturaExtra.setText("Imprimir Facturas");
         bImprimirFacturaExtra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1568,7 +1533,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             }
         });
 
-        bNuevaFac.setBackground(new java.awt.Color(255, 204, 204));
         bNuevaFac.setText("Nueva Factura");
         bNuevaFac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1576,7 +1540,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             }
         });
 
-        bModifFac.setBackground(new java.awt.Color(255, 255, 204));
         bModifFac.setText("Modificar Factura");
         bModifFac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1650,7 +1613,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         jLabel149.setText("CONFIRME NUEVA CLAVE:");
 
-        bAceptarContraseña.setBackground(new java.awt.Color(153, 255, 153));
         bAceptarContraseña.setText("ACEPTAR");
         bAceptarContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2150,10 +2112,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
-        bImprim.setBackground(new java.awt.Color(255, 153, 153));
         bImprim.setText("Imprimir selección");
 
-        bActualizar.setBackground(new java.awt.Color(153, 255, 102));
         bActualizar.setText("Actualizar Histórico");
 
         jPanel7.setBackground(new java.awt.Color(204, 204, 255));
@@ -2599,7 +2559,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addGap(0, 22, Short.MAX_VALUE))
         );
 
-        bAñadir.setBackground(new java.awt.Color(153, 255, 102));
         bAñadir.setText("Añadir Empleado");
         bAñadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2607,7 +2566,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             }
         });
 
-        bModif.setBackground(new java.awt.Color(255, 255, 153));
         bModif.setText("Modificar Empleado");
         bModif.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2615,7 +2573,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             }
         });
 
-        bVacBajas.setBackground(new java.awt.Color(255, 204, 204));
         bVacBajas.setText("Vacaciones Bajas");
 
         tablaEmple.setModel(new javax.swing.table.DefaultTableModel(
@@ -2636,7 +2593,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         });
         jScrollPane2.setViewportView(tablaEmple);
 
-        bImprimirLis.setBackground(new java.awt.Color(153, 255, 255));
         bImprimirLis.setText("Imprimir listado de empleados");
         bImprimirLis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2767,7 +2723,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jScrollPane13.setViewportView(tablaTareas);
         tablaTareas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);
 
-        bTarBorrar.setBackground(new java.awt.Color(255, 102, 102));
         bTarBorrar.setText("Borrar Tarea");
 
         jPanel16.setBackground(new java.awt.Color(204, 255, 255));
@@ -3179,6 +3134,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         } catch(ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(VentanaGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        
         //</editor-fold>
 
         /* Create and display the form */
@@ -3398,7 +3354,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
@@ -3509,8 +3464,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JLabel labelFecha;
     private javax.swing.JLabel labelIbanComprobado;
     private javax.swing.JList listaConceptos;
-    private javax.swing.JRadioButton rbCliEmp;
-    private javax.swing.JRadioButton rbCliOcas;
     private javax.swing.JRadioButton rbDes;
     private javax.swing.JRadioButton rbNcli;
     private javax.swing.JRadioButton rbNumC;
