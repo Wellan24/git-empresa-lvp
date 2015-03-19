@@ -26,6 +26,13 @@ public class Fecha implements Comparable<Fecha>{
         this.mes = Integer.parseInt(f[1]);
         this.año = Integer.parseInt(f[2]);
     }
+    
+    private Fecha(Fecha fecha) {
+        
+        this.dia = fecha.getDia();
+        this.mes = fecha.getMes();
+        this.año = fecha.getAño();
+    }
 
     public int getDia() {
         return dia;
@@ -70,5 +77,10 @@ public class Fecha implements Comparable<Fecha>{
         return 0;
     }
     
+    
+    public Fecha clonar(){
+        
+        return new Fecha(this);
+    }
     
 }

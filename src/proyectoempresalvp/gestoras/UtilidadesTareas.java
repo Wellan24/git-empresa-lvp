@@ -75,7 +75,7 @@ public class UtilidadesTareas {
         if(fechaActual == null)
             calculaFechaActual();
         
-        return fechaActual;
+        return fechaActual.clonar();
     }   
     
 }
