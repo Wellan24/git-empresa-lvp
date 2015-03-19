@@ -2120,6 +2120,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         });
 
         bActualizar.setText("Actualizar Histórico");
+        bActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bActualizarActionPerformed(evt);
+            }
+        });
 
         jPanel7.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -2127,7 +2132,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         jLabel99.setText("AÑO:");
 
-        cbAño.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbAño.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbAñoActionPerformed(evt);
@@ -3003,11 +3007,15 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     private void cbAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAñoActionPerformed
 
-        int numPeriodoInicial = Integer.parseInt(cbAño.getSelectedItem().toString() + "00");
+        refrescarHistorico();
+    }//GEN-LAST:event_cbAñoActionPerformed
 
+    private void refrescarHistorico() throws NumberFormatException {
+        int numPeriodoInicial = Integer.parseInt(cbAño.getSelectedItem().toString() + "00");
+        
         int numPeriodoFinal = Integer.parseInt(cbAño.getSelectedItem().toString() + "15");
         GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASMENSUALES_AÑO, null, " where NUMPERIODO >= " + numPeriodoInicial + " AND NUMPERIODO <= " + numPeriodoFinal);
-    }//GEN-LAST:event_cbAñoActionPerformed
+    }
 
     private void bCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcularActionPerformed
 
@@ -3069,7 +3077,13 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void bImprimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimActionPerformed
         
         GestoraPDF.generarPDFFacturasMensuales(tablaHistoricoFacturas.getSelectedRows());
+        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASMENSUALES_AÑO);
     }//GEN-LAST:event_bImprimActionPerformed
+
+    private void bActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActualizarActionPerformed
+       
+        refrescarHistorico();
+    }//GEN-LAST:event_bActualizarActionPerformed
 
     private void cambiarRuta() throws HeadlessException {
         JFileChooser elegir = new JFileChooser();
