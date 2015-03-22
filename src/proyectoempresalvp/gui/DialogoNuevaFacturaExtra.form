@@ -74,7 +74,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="546" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="563" max="32767" attributes="0"/>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -89,8 +89,8 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="bAceptar" pref="34" max="32767" attributes="0"/>
-                          <Component id="bCancelar" pref="34" max="32767" attributes="0"/>
+                          <Component id="bAceptar" pref="30" max="32767" attributes="0"/>
+                          <Component id="bCancelar" pref="30" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -103,6 +103,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="bAceptar">
           <Properties>
@@ -111,6 +114,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bAceptarActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+          </AuxValues>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel7">
           <Properties>
@@ -148,11 +154,11 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel60" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="bAñade" min="-2" max="-2" attributes="0"/>
+                              <Component id="bAñade" min="-2" pref="30" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="bEditar" min="-2" max="-2" attributes="0"/>
+                              <Component id="bEditar" min="-2" pref="30" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="bBorra" min="-2" max="-2" attributes="0"/>
+                              <Component id="bBorra" min="-2" pref="30" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="45" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -185,30 +191,30 @@
             </Container>
             <Component class="javax.swing.JButton" name="bA&#xf1;ade">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="cc" green="ff" red="cc" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="A&#xf1;ade"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bA&#xf1;adeActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="bEditar">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="33" green="99" red="ff" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Repara"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="bBorra">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="99" green="99" red="ff" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Borra"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

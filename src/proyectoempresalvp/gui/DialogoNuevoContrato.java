@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import proyectoempresalvp.datos.Contrato;
 import proyectoempresalvp.datos.Dato;
 import proyectoempresalvp.datos.Fecha;
+import proyectoempresalvp.datosUI.Boton;
 import proyectoempresalvp.datosUI.JPanelTranslucido;
 import proyectoempresalvp.datosUI.PanelImagen;
 import proyectoempresalvp.gestoras.Gestora;
@@ -98,7 +99,7 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
         ctRefHojBan = new javax.swing.JTextField();
         jLabel77 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        bCrear = new javax.swing.JButton();
+        bCrear = new Boton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("NUEVO CONTRATO");
@@ -281,13 +282,12 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
                         .addComponent(jLabel71, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(ctPerIn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel73, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel72)
-                        .addComponent(jLabel74)
-                        .addComponent(jLabel83)
-                        .addComponent(jLabel77)
-                        .addComponent(jLabel1)))
+                    .addComponent(jLabel73, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel72)
+                    .addComponent(jLabel74)
+                    .addComponent(jLabel83)
+                    .addComponent(jLabel77)
+                    .addComponent(jLabel1))
                 .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanelDatosContrLayout.createSequentialGroup()
@@ -351,7 +351,6 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
-        bCrear.setBackground(new java.awt.Color(51, 255, 204));
         bCrear.setText("Crear");
         bCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -378,8 +377,8 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
         panelNuevoContratoLayout.setVerticalGroup(
             panelNuevoContratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNuevoContratoLayout.createSequentialGroup()
-                .addContainerGap(569, Short.MAX_VALUE)
-                .addComponent(bCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(597, Short.MAX_VALUE)
+                .addComponent(bCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(panelNuevoContratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNuevoContratoLayout.createSequentialGroup()

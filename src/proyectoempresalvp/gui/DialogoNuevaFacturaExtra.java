@@ -17,6 +17,7 @@ import proyectoempresalvp.datos.Dato;
 import proyectoempresalvp.datos.FacturaExtra;
 import proyectoempresalvp.datos.FacturaExtraDetalles;
 import proyectoempresalvp.datos.Fecha;
+import proyectoempresalvp.datosUI.Boton;
 import proyectoempresalvp.datosUI.JPanelTranslucido;
 import proyectoempresalvp.datosUI.PanelImagen;
 import proyectoempresalvp.gestoras.Gestora;
@@ -58,15 +59,15 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
     private void initComponents() {
 
         panelFondo = PanelImagen.dameNuevoPanelSinLetras();
-        bCancelar = new javax.swing.JButton();
-        bAceptar = new javax.swing.JButton();
+        bCancelar = new Boton();
+        bAceptar = new Boton();
         jPanel7 = new JPanelTranslucido();
         jLabel60 = new javax.swing.JLabel();
         jScrollPane16 = new javax.swing.JScrollPane();
         listaConceptos = new javax.swing.JList();
-        bAñade = new javax.swing.JButton();
-        bEditar = new javax.swing.JButton();
-        bBorra = new javax.swing.JButton();
+        bAñade = new Boton();
+        bEditar = new Boton();
+        bBorra = new Boton();
         jPanel5 = new JPanelTranslucido();
         jLabel51 = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
@@ -116,7 +117,6 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
         listaConceptos.setFont(new java.awt.Font("Monospaced", 0, 11)); // NOI18N
         jScrollPane16.setViewportView(listaConceptos);
 
-        bAñade.setBackground(new java.awt.Color(204, 255, 204));
         bAñade.setText("Añade");
         bAñade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,10 +124,8 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
             }
         });
 
-        bEditar.setBackground(new java.awt.Color(255, 153, 51));
         bEditar.setText("Repara");
 
-        bBorra.setBackground(new java.awt.Color(255, 153, 153));
         bBorra.setText("Borra");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -154,11 +152,11 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel60)
                         .addGap(18, 18, 18)
-                        .addComponent(bAñade)
+                        .addComponent(bAñade, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(bEditar)
+                        .addComponent(bEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(bBorra)
+                        .addComponent(bBorra, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 45, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -387,7 +385,7 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
         );
         panelFondoLayout.setVerticalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 546, Short.MAX_VALUE)
+            .addGap(0, 563, Short.MAX_VALUE)
             .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelFondoLayout.createSequentialGroup()
                     .addContainerGap()
@@ -400,8 +398,8 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(bAceptar, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                        .addComponent(bCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
+                        .addComponent(bAceptar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                        .addComponent(bCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
                     .addContainerGap()))
         );
 

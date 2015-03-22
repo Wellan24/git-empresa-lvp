@@ -7,6 +7,7 @@ package proyectoempresalvp.gui;
 
 import javax.swing.JOptionPane;
 import proyectoempresalvp.datos.Cliente;
+import proyectoempresalvp.datosUI.Boton;
 import proyectoempresalvp.datosUI.JPanelTranslucido;
 import proyectoempresalvp.datosUI.PanelImagen;
 import proyectoempresalvp.gestoras.Gestora;
@@ -70,7 +71,7 @@ public class DialogoNuevoCliente extends javax.swing.JDialog {
         ctClienteDomiciliado = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         ctClienteRefBan = new javax.swing.JTextField();
-        bCrearCliente = new javax.swing.JButton();
+        bCrearCliente = new Boton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("NUEVO CLIENTE");
@@ -252,7 +253,6 @@ public class DialogoNuevoCliente extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        bCrearCliente.setBackground(new java.awt.Color(0, 204, 204));
         bCrearCliente.setText("Crear");
         bCrearCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -277,8 +277,8 @@ public class DialogoNuevoCliente extends javax.swing.JDialog {
         panelNuevoClienteLayout.setVerticalGroup(
             panelNuevoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNuevoClienteLayout.createSequentialGroup()
-                .addContainerGap(531, Short.MAX_VALUE)
-                .addComponent(bCrearCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(569, Short.MAX_VALUE)
+                .addComponent(bCrearCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
             .addGroup(panelNuevoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelNuevoClienteLayout.createSequentialGroup()

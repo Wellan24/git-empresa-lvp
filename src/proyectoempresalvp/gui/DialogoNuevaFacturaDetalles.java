@@ -6,6 +6,7 @@
 package proyectoempresalvp.gui;
 
 import proyectoempresalvp.datos.FacturaExtraDetalles;
+import proyectoempresalvp.datosUI.Boton;
 
 /**
  *
@@ -47,8 +48,8 @@ public class DialogoNuevaFacturaDetalles extends javax.swing.JDialog {
         tConcepto = new javax.swing.JTextArea();
         tPrecio = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        bCancelar = new javax.swing.JButton();
-        bAceptar = new javax.swing.JButton();
+        bCancelar = new Boton();
+        bAceptar = new Boton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -117,8 +118,8 @@ public class DialogoNuevaFacturaDetalles extends javax.swing.JDialog {
                     .addComponent(tPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bCancelar)
-                    .addComponent(bAceptar))
+                    .addComponent(bCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 

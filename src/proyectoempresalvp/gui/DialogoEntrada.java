@@ -6,6 +6,7 @@
 package proyectoempresalvp.gui;
 
 import java.awt.event.KeyEvent;
+import proyectoempresalvp.datosUI.Boton;
 import proyectoempresalvp.datosUI.PanelImagen;
 import proyectoempresalvp.gestoras.Gestora;
 import proyectoempresalvp.gestoras.GestoraConfiguracion;
@@ -57,8 +58,8 @@ public class DialogoEntrada extends javax.swing.JDialog {
         jPanelContraseña = PanelImagen.dameNuevoPanelSinLetras();
         jLabel86 = new javax.swing.JLabel();
         ctContraseña = new javax.swing.JPasswordField();
-        okButton = new javax.swing.JButton();
-        cancelButton = new javax.swing.JButton();
+        okButton = new Boton();
+        cancelButton = new Boton();
         jPanelTranslucido1 = new proyectoempresalvp.datosUI.JPanelTranslucido();
         jLabel87 = new javax.swing.JLabel();
         labelCorrecto = new javax.swing.JLabel();
@@ -155,8 +156,8 @@ public class DialogoEntrada extends javax.swing.JDialog {
                         .addComponent(labelCorrecto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanelContraseñaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cancelButton)
-                            .addComponent(okButton)))
+                            .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jPanelTranslucido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );

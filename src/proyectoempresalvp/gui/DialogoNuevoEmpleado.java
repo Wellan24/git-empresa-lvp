@@ -8,6 +8,7 @@ package proyectoempresalvp.gui;
 import javax.swing.JOptionPane;
 import proyectoempresalvp.datos.Empleado;
 import proyectoempresalvp.datos.Fecha;
+import proyectoempresalvp.datosUI.Boton;
 import proyectoempresalvp.datosUI.JPanelTranslucido;
 import proyectoempresalvp.datosUI.PanelImagen;
 import proyectoempresalvp.gestoras.Gestora;
@@ -77,7 +78,7 @@ public class DialogoNuevoEmpleado extends javax.swing.JDialog {
         jScrollPane3 = new javax.swing.JScrollPane();
         atNotas = new javax.swing.JTextArea();
         jLabel37 = new javax.swing.JLabel();
-        bAñadir = new javax.swing.JButton();
+        bAñadir = new Boton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("NUEVO EMPLEADO");
@@ -327,7 +328,6 @@ public class DialogoNuevoEmpleado extends javax.swing.JDialog {
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
-        bAñadir.setBackground(new java.awt.Color(102, 255, 102));
         bAñadir.setText("Añadir");
         bAñadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -352,8 +352,8 @@ public class DialogoNuevoEmpleado extends javax.swing.JDialog {
         panelNuevoEmpleadoLayout.setVerticalGroup(
             panelNuevoEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNuevoEmpleadoLayout.createSequentialGroup()
-                .addContainerGap(537, Short.MAX_VALUE)
-                .addComponent(bAñadir)
+                .addContainerGap(530, Short.MAX_VALUE)
+                .addComponent(bAñadir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
             .addGroup(panelNuevoEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelNuevoEmpleadoLayout.createSequentialGroup()
