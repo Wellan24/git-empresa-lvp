@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import proyectoempresalvp.datos.ArrayListDato;
+import proyectoempresalvp.datos.Cliente;
 import proyectoempresalvp.datos.Contrato;
 import proyectoempresalvp.datos.Dato;
 import proyectoempresalvp.datos.FacturaMensual;
@@ -38,10 +39,13 @@ public class GestoraFacturas {
 
             for(Dato c :contratos) {
                 proximaFactura++;
+                Dato cliente = GestoraDatos.recuperarConDummy(new Cliente(), null, " where NUMEROCLIENTE = " + c.get("NUMCLIENTE")).get(0);
                 facturaActual = new FacturaMensual(proximaFactura, UtilidadesTareas.getFechaActual(),
                         (int) c.get("NUMCLIENTE"), c.get("DESCRIPCION").toString(), (int) c.get("NUMCONTRATO"),
-                        0, "", "", "", 0, c.get("EUROSMES").toString(), (int) GestoraConfiguracion.get("IVA"), "",
-                        (int) c.get("DIACOBRO"), c.get("FORMAPAGO").toString(), periodo, numperiodo, 0, 0, 0, "");
+                        cliente.get("CIF").toString(), cliente.get("NOMBRE").toString(), cliente.get("DOMICILIO").toString(),
+                        cliente.get("LOCALIDAD").toString(), 0, c.get("EUROSMES").toString(), (int) GestoraConfiguracion.get("IVA"), "",
+                        (int) c.get("DIACOBRO"), c.get("FORMAPAGO").toString(), periodo, numperiodo, cliente.get("IBAN").toString(), 0, 
+                        (int)cliente.get("BANCOCOBRO"), "");
                 GestoraBaseDatos.insertarDato(facturaActual);
             }
         }

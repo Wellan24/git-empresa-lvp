@@ -44,10 +44,10 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
      * @param nombreBanco
      */
     public FacturaMensual(int numFactura, Fecha fecha, int numCliente,
-            String descripcion, int numContrato, int cif, String nombre,
+            String descripcion, int numContrato, String cif, String nombre,
             String domicilio, String localidad, int cpProvincia, String eurosMes,
             int tantoIva, String refMoneda, int diaCobro,
-            String formaPago, String periodo, int numPeriodo, int IBAN,
+            String formaPago, String periodo, int numPeriodo, String IBAN,
             int refBanco, int bancoCobro, String nombreBanco) {
         super(21);
         this.put("NUMEROFACTURA", numFactura);
@@ -84,7 +84,7 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
         this.put("NUMCLIENTE", 0);
         this.put("DESCRIPCION", "");
         this.put("NUMCONTRATO", 0);
-        this.put("CIF", 0);
+        this.put("CIF", "");
         this.put("NOMBRE", "");
         this.put("DOMICILIO", "");
         this.put("LOCALIDAD", "");
@@ -96,7 +96,7 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
         this.put("FORMAPAGO", "");
         this.put("PERIODO", "");
         this.put("NUMPERIODO", 0);
-        this.put("IBAN", 0);
+        this.put("IBAN", "");
         this.put("REFBANCO", 0);
         this.put("BANCOCOBRO", 0);
         this.put("NOMBREBANCO", "");
