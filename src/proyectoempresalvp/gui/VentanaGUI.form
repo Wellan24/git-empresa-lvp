@@ -2854,11 +2854,11 @@
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="ctBase" alignment="1" min="-2" pref="75" max="-2" attributes="0"/>
-                                                  <Component id="ctIva1" alignment="1" min="-2" pref="27" max="-2" attributes="0"/>
-                                                  <Component id="ctTotalFac" alignment="1" min="-2" pref="75" max="-2" attributes="0"/>
+                                              <EmptySpace pref="99" max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="ctIva1" alignment="1" min="-2" pref="41" max="-2" attributes="0"/>
+                                                  <Component id="ctTotalFac" alignment="1" pref="118" max="32767" attributes="0"/>
+                                                  <Component id="ctBase" alignment="1" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -3076,6 +3076,9 @@
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
                             <Component class="javax.swing.JTable" name="tablaHistoricoFacturas">
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tablaHistoricoFacturasMouseClicked"/>
+                              </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value=" new Tabla()"/>
                               </AuxValues>

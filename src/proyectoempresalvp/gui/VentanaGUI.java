@@ -2001,11 +2001,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                             .addComponent(ctName)
                             .addComponent(ctNfac)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPHitoricoFacturasLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPHitoricoFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ctBase, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ctIva1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ctTotalFac, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                        .addGroup(jPHitoricoFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ctIva1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ctTotalFac, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                            .addComponent(ctBase, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addGap(83, 83, 83))
         );
         jPHitoricoFacturasLayout.setVerticalGroup(
@@ -2099,6 +2099,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        tablaHistoricoFacturas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaHistoricoFacturasMouseClicked(evt);
+            }
+        });
         jScrollPane8.setViewportView(tablaHistoricoFacturas);
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 204));
@@ -3042,6 +3047,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         }
     }//GEN-LAST:event_bCopiaSeguridadActionPerformed
 
+    private void tablaHistoricoFacturasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaHistoricoFacturasMouseClicked
+        refrescarCamposHistorico();
+    }//GEN-LAST:event_tablaHistoricoFacturasMouseClicked
+
     private void cambiarRuta() throws HeadlessException {
         JFileChooser elegir = new JFileChooser();
         elegir.setApproveButtonText("Elegir");
@@ -3648,6 +3657,35 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         ctEmpleadoSs.setText(emp.get("SS").toString());
 
     }
+    
+    private void refrescarCamposHistorico(){
+        
+        Dato fac = GestoraDatos.dameGestora().get("FACTURASMENSUALESAÑO").get(tablaHistoricoFacturas.getSelectedRow());
+        ctNfac.setText(fac.get("NUMEROFACTURA").toString());
+        ctFech.setText(fac.get("FECHA").toString());
+        ctName.setText(fac.get("NOMBRE").toString());
+        ctDomi.setText(fac.get("DOMICILIO").toString());
+        ctLo.setText(fac.get("LOCALIDAD").toString());
+        //ctCodPo.setText(fac.get("").toString());
+        ctCIF.setText(fac.get("CIF").toString());
+        ctBase.setText(fac.get("EUROSMES").toString());
+        ctIva1.setText(fac.get("TANTOIVA").toString());
+        
+        /*BigDecimal operacion = new BigDecimal(d.get("EUROSAÑO").toString())
+                        .multiply(new BigDecimal(ipc)).divide(new BigDecimal("100"))
+                        .add(new BigDecimal(d.get("EUROSAÑO").toString()));*/
+        
+        BigDecimal total = new BigDecimal(fac.get("EUROSMES").toString())
+                        .multiply(new BigDecimal(fac.get("TANTOIVA").toString())).divide(new BigDecimal("100"))
+                        .add(new BigDecimal(fac.get("EUROSMES").toString()));
+       
+        
+        ctTotalFac.setText(total.setScale(2, RoundingMode.HALF_UP).toString()); //base + iva = total
+        
+        
+    }
+    
+    
 
     private void rellenarCombosPeriodo() {
 
