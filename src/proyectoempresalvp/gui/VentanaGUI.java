@@ -308,6 +308,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         bPrevisual = new Boton();
         bConfirmarCambiosIPC = new Boton();
         jPcopiasSeg =  new javax.swing.JPanel();
+        bCopiaSeguridad = new Boton();
         jPhistorico = new javax.swing.JPanel();
         jPHitoricoFacturas = new JPanelTranslucido();
         jLabel88 = new javax.swing.JLabel();
@@ -411,7 +412,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LIMPIEZAS VERDEJO PELAEZ");
-        setPreferredSize(new java.awt.Dimension(1200, 840));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -1921,15 +1921,29 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         jPcopiasSeg.setOpaque(false);
 
+        bCopiaSeguridad.setBackground(new java.awt.Color(240,0,0));
+        bCopiaSeguridad.setText("REALIZAR COPIA DE SEGURIDAD");
+        bCopiaSeguridad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCopiaSeguridadActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPcopiasSegLayout = new javax.swing.GroupLayout(jPcopiasSeg);
         jPcopiasSeg.setLayout(jPcopiasSegLayout);
         jPcopiasSegLayout.setHorizontalGroup(
             jPcopiasSegLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1190, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPcopiasSegLayout.createSequentialGroup()
+                .addContainerGap(377, Short.MAX_VALUE)
+                .addComponent(bCopiaSeguridad, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(359, 359, 359))
         );
         jPcopiasSegLayout.setVerticalGroup(
             jPcopiasSegLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 807, Short.MAX_VALUE)
+            .addGroup(jPcopiasSegLayout.createSequentialGroup()
+                .addGap(129, 129, 129)
+                .addComponent(bCopiaSeguridad, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(438, Short.MAX_VALUE))
         );
 
         jPiva.addTab("COPIAS SEGURIDAD", jPcopiasSeg);
@@ -2085,17 +2099,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tablaHistoricoFacturas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
         jScrollPane8.setViewportView(tablaHistoricoFacturas);
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 204));
@@ -3020,6 +3023,25 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS);
     }//GEN-LAST:event_bActualizarContratosActionPerformed
 
+    private void bCopiaSeguridadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCopiaSeguridadActionPerformed
+        
+        JFileChooser elegir = new JFileChooser();
+        elegir.setApproveButtonText("Elegir");
+        elegir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int opcion = elegir.showOpenDialog(bSeleccionaRuta);
+
+        switch(opcion) {
+
+            case JFileChooser.APPROVE_OPTION:
+                
+                Gestora.copiarArchivo("../DataBase/BaseDeDatosLVP.accdb", elegir.getSelectedFile().getAbsolutePath() + "/CopiaSeguridad.accdb");                
+                JOptionPane.showMessageDialog(this, "Se ha realizado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                break;
+            case JFileChooser.CANCEL_OPTION:
+                JOptionPane.showMessageDialog(this, "No has elegido ruta", "Elegir", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_bCopiaSeguridadActionPerformed
+
     private void cambiarRuta() throws HeadlessException {
         JFileChooser elegir = new JFileChooser();
         elegir.setApproveButtonText("Elegir");
@@ -3126,6 +3148,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JButton bComprobarTareas;
     private javax.swing.JButton bConfiguracionCambioIva;
     private javax.swing.JButton bConfirmarCambiosIPC;
+    private javax.swing.JButton bCopiaSeguridad;
     private javax.swing.JButton bFormularioCon;
     private javax.swing.JButton bGenerarFacturacion;
     private javax.swing.JButton bImprim;

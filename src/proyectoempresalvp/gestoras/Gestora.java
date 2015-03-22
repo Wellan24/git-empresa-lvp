@@ -5,9 +5,15 @@
  */
 package proyectoempresalvp.gestoras;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.nio.file.CopyOption;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
@@ -471,6 +477,22 @@ public class Gestora {
         }
 
         return new Fecha("01/" + mes + "/" + año);
+    }
+    
+    public static void copiarArchivo(String origen, String destino){
+        Path FROM = Paths.get(origen);
+        Path TO = Paths.get(destino);
+        //sobreescribir el fichero de destino, si existe, y copiar
+        // los atributos, incluyendo los permisos rwx
+        CopyOption[] options = new CopyOption[]{
+          StandardCopyOption.REPLACE_EXISTING,
+          StandardCopyOption.COPY_ATTRIBUTES
+        }; 
+        try {
+            Files.copy(FROM, TO, options);
+        } catch(IOException ex) {
+            Logger.getLogger(Gestora.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }
