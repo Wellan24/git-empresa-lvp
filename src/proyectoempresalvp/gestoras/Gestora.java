@@ -432,9 +432,10 @@ public class Gestora {
     
     public static Fecha importarFecha(String nombre) {
 
-        String dia = nombre.substring(0,3);
-        String mes = nombre.substring(3, 6);
-        String año = nombre.substring(6);
+        String[] fecha = nombre.split("/");
+        String dia = fecha[0];
+        String mes = fecha[1];
+        String año = fecha[2];
 
         switch(mes) {
 
@@ -476,7 +477,7 @@ public class Gestora {
                 break;
         }
 
-        return new Fecha("01/" + mes + "/" + año);
+        return new Fecha(dia + "/" + mes + "/" + año);
     }
     
     public static void copiarArchivo(String origen, String destino){
