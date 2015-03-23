@@ -31,7 +31,7 @@ public class ImportarDataBase {
         
         GestoraBaseDatos.conectarBaseDatos();
         GestoraConfiguracion.recuperaConfiguracion();
-        Connection conDos = DriverManager.getConnection("jdbc:ucanaccess://../Actualizado/LimpDat.accdb");     
+        Connection conDos = DriverManager.getConnection("jdbc:ucanaccess://../BaseDatosAntigua/Antigua.accdb");     
         recuperarClientes(conDos);
         recuperarEmpleados(conDos);
         recuperarContratos(conDos);
