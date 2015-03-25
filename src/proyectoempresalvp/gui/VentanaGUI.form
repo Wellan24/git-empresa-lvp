@@ -2147,7 +2147,6 @@
                                           <Component id="jPanelContras" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jPanelTranslucido3" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jPanel17" alignment="0" max="32767" attributes="0"/>
@@ -3936,6 +3935,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Borrar Tarea"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bTarBorrarActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
                   </AuxValues>

@@ -1819,8 +1819,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     .addGroup(jPcontraseñaLayout.createSequentialGroup()
                         .addComponent(jPanelContras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36))
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanelTranslucido3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(389, Short.MAX_VALUE))
@@ -2632,6 +2631,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         tablaTareas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);
 
         bTarBorrar.setText("Borrar Tarea");
+        bTarBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bTarBorrarActionPerformed(evt);
+            }
+        });
 
         jPanel16.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -2991,7 +2995,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                         .multiply(new BigDecimal(ipc)).divide(new BigDecimal("100"))
                         .add(new BigDecimal(d.get("EUROSAÑO").toString()));
                 d.put("EUROSAÑO", operacion.setScale(2, RoundingMode.HALF_UP).toString());
-                d.put("EUROSMES", operacion.divide(new BigDecimal("12"))
+                d.put("EUROSMES", operacion.divide(new BigDecimal("12"), RoundingMode.HALF_UP)
                         .setScale(2, RoundingMode.HALF_UP).toString());
                 contratos.add(d);
             }
@@ -3052,6 +3056,19 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void tablaHistoricoFacturasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaHistoricoFacturasMouseClicked
         refrescarCamposHistorico();
     }//GEN-LAST:event_tablaHistoricoFacturasMouseClicked
+
+    private void bTarBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTarBorrarActionPerformed
+        
+        int[] rows =  tablaTareas.getSelectedRows();
+        
+        for(int i : rows){
+            Tarea t = GestoraTareas.getTareas().get(tablaTareas.getSelectedRow());
+            GestoraBaseDatos.ejecutarSentenciaUpdate("Delete from tareas where ntarea = " + t.get("NTAREA"));
+        }
+        
+        new GestoraTareas(this).start();
+        
+    }//GEN-LAST:event_bTarBorrarActionPerformed
 
     private void cambiarRuta() throws HeadlessException {
         JFileChooser elegir = new JFileChooser();
