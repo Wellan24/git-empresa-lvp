@@ -3221,15 +3221,12 @@
                           <Component id="jScrollPane2" min="-2" pref="467" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jPdatosPer" max="32767" attributes="0"/>
+                              <Component id="jPdatosPer" min="-2" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Component id="bAñadir" min="-2" pref="180" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Component id="bModif" min="-2" pref="180" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                  <Component id="bVacBajas" min="-2" pref="180" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="bImprimirLis" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace pref="60" max="32767" attributes="0"/>
                       </Group>
@@ -3239,17 +3236,14 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="jPdatosPer" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="bAñadir" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                       <Component id="bModif" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="bVacBajas" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                  <Component id="bImprimirLis" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jScrollPane2" min="-2" pref="699" max="-2" attributes="0"/>
                           </Group>
@@ -3388,7 +3382,7 @@
                                           <Component id="jScrollPane3" min="-2" pref="281" max="-2" attributes="0"/>
                                           <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="20" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -3718,14 +3712,6 @@
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="bVacBajas">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Vacaciones Bajas"/>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
-                  </AuxValues>
-                </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane2">
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new ScrollPaneTranslucido()"/>
@@ -3744,17 +3730,6 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="bImprimirLis">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Imprimir listado de empleados"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bImprimirLisActionPerformed"/>
-                  </Events>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
-                  </AuxValues>
-                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPtareas">

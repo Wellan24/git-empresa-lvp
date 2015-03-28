@@ -389,10 +389,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jLabel37 = new javax.swing.JLabel();
         bAñadir = new Boton();
         bModif = new Boton();
-        bVacBajas = new Boton();
         jScrollPane2 = new ScrollPaneTranslucido();
         tablaEmple = new Tabla();
-        bImprimirLis = new Boton();
         jPtareas = PanelImagen.dameNuevoPanelSinLetras();
         jPanel15 = new JPanelTranslucido();
         jLabel30 = new javax.swing.JLabel();
@@ -2386,7 +2384,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                         .addGroup(jPdatosPerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel37))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(20, Short.MAX_VALUE))))
         );
         jPdatosPerLayout.setVerticalGroup(
             jPdatosPerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2502,21 +2500,12 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             }
         });
 
-        bVacBajas.setText("Vacaciones Bajas");
-
         tablaEmple.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TablaEmpleadosMouseCliked(evt);
             }
         });
         jScrollPane2.setViewportView(tablaEmple);
-
-        bImprimirLis.setText("Imprimir listado de empleados");
-        bImprimirLis.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bImprimirLisActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPempleadosLayout = new javax.swing.GroupLayout(jPempleados);
         jPempleados.setLayout(jPempleadosLayout);
@@ -2527,30 +2516,24 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPempleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPdatosPer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPdatosPer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPempleadosLayout.createSequentialGroup()
                         .addComponent(bAñadir, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(bModif, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24)
-                        .addComponent(bVacBajas, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(bImprimirLis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bModif, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
         jPempleadosLayout.setVerticalGroup(
             jPempleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPempleadosLayout.createSequentialGroup()
                 .addGap(43, 43, 43)
-                .addGroup(jPempleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPempleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPempleadosLayout.createSequentialGroup()
                         .addComponent(jPdatosPer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPempleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(bAñadir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bModif, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bVacBajas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(bImprimirLis, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(bModif, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 699, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(93, 93, 93))
         );
@@ -2781,10 +2764,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void ctEmpleadoNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctEmpleadoNumActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ctEmpleadoNumActionPerformed
-
-    private void bImprimirLisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimirLisActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bImprimirLisActionPerformed
 
     private void cttarconceptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cttarconceptoActionPerformed
         // TODO add your handling code here:
@@ -3200,7 +3179,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JButton bImprime;
     private javax.swing.JButton bImprimirFacturaExtra;
     private javax.swing.JButton bImprimirFacturas;
-    private javax.swing.JButton bImprimirLis;
     private javax.swing.JButton bImprimirListado;
     private javax.swing.JButton bInicioActualizarContratos;
     private javax.swing.JButton bInicioActualizarTareas;
@@ -3215,7 +3193,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JButton bSeleccionaRuta;
     private javax.swing.JButton bTarBorrar;
     private javax.swing.JButton bTarGuardar;
-    private javax.swing.JButton bVacBajas;
     private javax.swing.ButtonGroup buttonGroupContratos;
     private javax.swing.ButtonGroup buttonGroupContratosOrdenar;
     private javax.swing.ButtonGroup buttonGroupFacExtra;
