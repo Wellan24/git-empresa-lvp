@@ -496,7 +496,7 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
                     new Fecha(fecha), //FECHA
                     ctNcif.getText(), //CIFNIF
                     ctNomb.getText(), ctDomic.getText(), ctLoca.getText(), ctProvin.getText(),//NOMBRE,DOMICILIO,LOCALIDAD,PROVINCIA
-                    Integer.parseInt(ctCodpos.getText()), //CP
+                    ctCodpos.getText(), //CP
                     Integer.parseInt(ctporcenIva.getText()), //TANTOIVA
                     ctTotal.getText(), //EUROSNETO
                     cliente.equals("NINGUNO") ? -1 : Integer.parseInt(cliente));//CLIENTE

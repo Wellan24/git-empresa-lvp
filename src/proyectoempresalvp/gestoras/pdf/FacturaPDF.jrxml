@@ -6,6 +6,14 @@
 	<subDataset name="Table Dataset 1" uuid="a4295f11-f5fd-4afa-8655-e8f08fa6a561"/>
 	<parameter name="TANTOIVA" class="java.lang.Integer"/>
 	<parameter name="NUMEROFACTURA" class="java.lang.Integer"/>
+	<parameter name="LOCALIDAD" class="java.lang.String"/>
+	<parameter name="DOMICILIO" class="java.lang.String"/>
+	<parameter name="CODIGOPOSTAL" class="java.lang.String"/>
+	<parameter name="NOMBRE" class="java.lang.String"/>
+	<parameter name="CIF" class="java.lang.String"/>
+	<parameter name="EUROSMES" class="java.lang.String"/>
+	<parameter name="IVACALCULADO" class="java.lang.String"/>
+	<parameter name="TOTAL" class="java.lang.String"/>
 	<field name="CONCEPTO" class="java.lang.String"/>
 	<field name="IMPORTE" class="java.lang.String"/>
 	<background>
@@ -120,6 +128,68 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{NUMEROFACTURA}]]></textFieldExpression>
 			</textField>
+			<rectangle>
+				<reportElement x="250" y="12" width="295" height="80" uuid="1890d009-58bd-46a9-83ff-ced9de019a19"/>
+			</rectangle>
+			<textField>
+				<reportElement x="307" y="12" width="238" height="20" uuid="63edc119-b70b-4f7a-893d-2a89a4fa8e22"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+					<paragraph rightIndent="4"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="333" y="52" width="212" height="20" uuid="fe9ebe3f-739e-499a-ba92-20885cf60846"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<paragraph rightIndent="4"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DOMICILIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="333" y="72" width="212" height="20" uuid="033ab7d9-816e-43de-bbdc-e4338e1dc1b0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isStrikeThrough="false"/>
+					<paragraph rightIndent="4"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CODIGOPOSTAL} + " - " + $P{LOCALIDAD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="333" y="32" width="212" height="20" uuid="67d5015e-fae5-42e8-9f6e-156bfc7585cc"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<paragraph rightIndent="4"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CIF}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="250" y="32" width="83" height="20" uuid="28d56fe0-d5d7-40c3-aede-f12f1459f5ec"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<paragraph leftIndent="4"/>
+				</textElement>
+				<text><![CDATA[CIF:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="12" width="57" height="20" uuid="ffe54412-b674-4051-8be7-b602202601b4"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+					<paragraph leftIndent="4"/>
+				</textElement>
+				<text><![CDATA[Nombre:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="52" width="83" height="20" uuid="b42f28bf-8494-40ce-971c-2e84b67a6ff8"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="4"/>
+				</textElement>
+				<text><![CDATA[Domicilio:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="72" width="83" height="20" uuid="370fe68b-c473-4339-9e22-247c939a585e"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="4"/>
+				</textElement>
+				<text><![CDATA[CP - Localidad:]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
@@ -166,7 +236,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[Base Imponible]]></text>
+				<text><![CDATA[TOTAL]]></text>
 			</staticText>
 			<rectangle>
 				<reportElement x="0" y="16" width="212" height="34" uuid="dfb1518c-068f-4f94-a8ba-446ef46ea0fb"/>
@@ -177,6 +247,23 @@
 			<rectangle>
 				<reportElement x="416" y="16" width="129" height="34" uuid="6c7e3d9f-8713-4b7e-9701-322d39bf1275"/>
 			</rectangle>
+			<textField>
+				<reportElement x="0" y="16" width="212" height="34" uuid="5d6ba503-33ee-487b-b600-e7c1199a37ad"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{EUROSMES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="212" y="16" width="204" height="34" uuid="abd51f2c-6ad7-40ba-99f4-73cb083e6c44"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{IVACALCULADO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="16" width="129" height="34" uuid="cb11a273-02e7-4445-b8b9-005a3e32b31f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TOTAL}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageFooter>
 </jasperReport>

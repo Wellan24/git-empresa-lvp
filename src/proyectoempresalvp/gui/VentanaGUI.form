@@ -857,22 +857,20 @@
                                   </Group>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="ctContratoIban" max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="ctContratoLoc" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="ctContratoNumCli" min="-2" pref="63" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jLabel61" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="ctContratoDescrip" min="-2" pref="146" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="ctContratoNombre" max="32767" attributes="0"/>
-                                          <Component id="ctContratoDomic" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="ctContratoCp" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="ctContratoProv" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="ctContratoNif" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="ctContratoTlf" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="ctContratoLoc" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="ctContratoNumCli" min="-2" pref="63" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jLabel61" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="ctContratoDescrip" min="-2" pref="146" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="ctContratoNombre" max="32767" attributes="0"/>
+                                      <Component id="ctContratoDomic" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="ctContratoCp" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="ctContratoProv" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="ctContratoNif" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="ctContratoTlf" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                               </Group>
@@ -1051,15 +1049,10 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Component id="jLabel70" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel75" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                              </Group>
+                                              <Component id="jLabel70" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel75" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
+                                          <EmptySpace max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Component id="jLabel77" min="-2" max="-2" attributes="0"/>

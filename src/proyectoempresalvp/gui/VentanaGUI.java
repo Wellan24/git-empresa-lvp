@@ -837,20 +837,19 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                         .addGap(21, 21, 21)))
                 .addGroup(jPanelDatosCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ctContratoIban)
-                    .addGroup(jPanelDatosCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(ctContratoLoc)
-                        .addGroup(jPanelDatosCliLayout.createSequentialGroup()
-                            .addComponent(ctContratoNumCli, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jLabel61)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(ctContratoDescrip, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(ctContratoNombre)
-                        .addComponent(ctContratoDomic, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(ctContratoCp, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(ctContratoProv, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(ctContratoNif, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(ctContratoTlf)))
+                    .addComponent(ctContratoLoc)
+                    .addGroup(jPanelDatosCliLayout.createSequentialGroup()
+                        .addComponent(ctContratoNumCli, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel61)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ctContratoDescrip, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ctContratoNombre)
+                    .addComponent(ctContratoDomic, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ctContratoCp, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ctContratoProv, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ctContratoNif, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ctContratoTlf))
                 .addGap(23, 23, 23))
         );
         jPanelDatosCliLayout.setVerticalGroup(
@@ -948,12 +947,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelDatosContrLayout.createSequentialGroup()
                         .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelDatosContrLayout.createSequentialGroup()
-                                .addComponent(jLabel70)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanelDatosContrLayout.createSequentialGroup()
-                                .addComponent(jLabel75)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jLabel70)
+                            .addComponent(jLabel75))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanelDatosContrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDatosContrLayout.createSequentialGroup()
                                 .addComponent(jLabel77)
@@ -2813,14 +2809,15 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void refrescarHistorico() throws NumberFormatException {
         int numPeriodoInicial = Integer.parseInt(cbAño.getSelectedItem().toString() + "00");
         int numPeriodoFinal = Integer.parseInt(cbAño.getSelectedItem().toString() + "15");
-        ArrayListDato<Dato> ds = GestoraDatos.recuperarConDummy(new FacturaMensual(), null, " where NUMPERIODO >= " + numPeriodoInicial + " AND NUMPERIODO <= " + numPeriodoFinal);ctBas.setText("");
+        ArrayListDato<Dato> ds = GestoraDatos.recuperarConDummy(new FacturaMensual(), null, " where NUMPERIODO >= " + numPeriodoInicial + " AND NUMPERIODO <= " + numPeriodoFinal);
+        ctBas.setText("");
         ctIv.setText("");
         ctTotfac.setText("");
         BigDecimal suma = new BigDecimal("0");
         System.out.println(ds);
-                
+
         if(ds != null && ds.size() > 0) {
-            for(Dato d : ds) {
+            for(Dato d :ds) {
                 suma = suma.add(new BigDecimal(d.get("EUROSMES").toString()));
             }
             ctBas.setText(suma.toPlainString());
@@ -2833,7 +2830,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
             ctTotfac.setText(totalPeriodo.setScale(2, RoundingMode.HALF_UP).toPlainString());
         }
-        
+
         GestoraDatos.dameGestora().put("FACTURASMENSUALESAÑO", ds);
         actualizarTabla(tablaHistoricoFacturas, ds);
     }
@@ -2879,14 +2876,21 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     private void bImprimirFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimirFacturasActionPerformed
 
-        int[] rows = tablaFacMensuales.getSelectedRows();
-        if(rows.length == 0) {
-            GestoraPDF.generarPDFFacturasMensuales(Gestora.numeroPeriodoPorNombre(
-                    cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString()));
-        } else {
+        new Thread(new Runnable() {
 
-            GestoraPDF.generarPDFFacturasMensuales(rows);
-        }
+            @Override
+            public void run() {
+
+                int[] rows = tablaFacMensuales.getSelectedRows();
+                if(rows.length == 0) {
+                    GestoraPDF.generarPDFFacturasMensuales(Gestora.numeroPeriodoPorNombre(
+                            cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString()));
+                } else {
+
+                    GestoraPDF.generarPDFFacturasMensuales(rows);
+                }
+            }
+        }).start();
     }//GEN-LAST:event_bImprimirFacturasActionPerformed
 
     private void bImprimirFacturaExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimirFacturaExtraActionPerformed
@@ -3006,7 +3010,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             for(Dato d :contratos) {
 
                 if(UtilidadesTareas.calcularDiferenciaFechas((Fecha) d.get("FINCONTRATO"), f) < 0) {
-                    
+
                     Fecha nf = UtilidadesTareas.getFechaActual();
                     nf.setDia(1);
                     nf.setAño(nf.getAño() + 1);
@@ -3016,7 +3020,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     JOptionPane.showMessageDialog(this, "Se ha renovado el contrato: " + d.get("NUMCONTRATO"));
                 }
             }
-        }else{
+        } else {
             for(int i :rows) {
 
                 Dato d = contratos.get(i);
@@ -3031,7 +3035,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     JOptionPane.showMessageDialog(this, "Se ha renovado el contrato: " + d.get("NUMCONTRATO"));
                 }
             }
-        }        
+        }
 
         GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS, new ProcesadorContratos());
     }//GEN-LAST:event_bRenovarContratosActionPerformed
@@ -3554,10 +3558,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         ctNomb.setText(f.get("NOMBRE").toString());
         ctDomic.setText(f.get("DOMICILIO").toString());
         ctLoca.setText(f.get("LOCALIDAD").toString());
-        ctCodpos.setText(f.get("CP").toString());
+        ctCodpos.setText(f.get("CODIGOPOSTAL").toString());
         ctProvin.setText(f.get("PROVINCIA").toString());
         ctNcif.setText(f.get("CIF").toString());
-        //ctNumCliente.setText(f.get("NUMEROCLIENTE").toString());
 
         if(f.get("NUMEROCLIENTE").equals(-1)) {
             ctNumCliente.setText("NINGUNO");
