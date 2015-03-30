@@ -2978,19 +2978,36 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     private void bRenovarContratosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRenovarContratosActionPerformed
 
+        int[] rows = jTableContratos.getSelectedRows();
         ArrayList<Dato> contratos = GestoraDatos.dameGestora().get(Contrato.getTabla());
 
         Fecha f = UtilidadesTareas.getFechaActual();
-        for(Dato d :contratos) {
 
-            if(UtilidadesTareas.calcularDiferenciaFechas((Fecha) d.get("FINCONTRATO"), f) < 0) {
+        if(rows.length == 0) {
+            for(Dato d :contratos) {
 
-                f.setDia(1);
-                d.put("INICIOCONTRATO", f);
-                f.setAño(f.getAño() + 1);
-                d.put("FINCONTRATO", f);
+                if(UtilidadesTareas.calcularDiferenciaFechas((Fecha) d.get("FINCONTRATO"), f) < 0) {
+
+                    f.setDia(1);
+                    d.put("INICIOCONTRATO", f);
+                    f.setAño(f.getAño() + 1);
+                    d.put("FINCONTRATO", f);
+                }
+            }
+        }else{
+            for(int i :rows) {
+
+                Dato d = contratos.get(i);
+                if(UtilidadesTareas.calcularDiferenciaFechas((Fecha) d.get("FINCONTRATO"), f) < 0) {
+
+                    f.setDia(1);
+                    d.put("INICIOCONTRATO", f);
+                    f.setAño(f.getAño() + 1);
+                    d.put("FINCONTRATO", f);
+                }
             }
         }
+
     }//GEN-LAST:event_bRenovarContratosActionPerformed
 
     private void cambiarRuta() throws HeadlessException {
