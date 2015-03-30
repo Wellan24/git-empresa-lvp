@@ -18,6 +18,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import proyectoempresalvp.datos.ArrayListDato;
 import proyectoempresalvp.datos.Cliente;
 import proyectoempresalvp.datos.Contrato;
 import proyectoempresalvp.datos.Dato;
@@ -36,7 +37,6 @@ import proyectoempresalvp.gestoras.Gestora;
 import proyectoempresalvp.gestoras.GestoraBaseDatos;
 import proyectoempresalvp.gestoras.GestoraConfiguracion;
 import proyectoempresalvp.gestoras.Datos.GestoraDatos;
-import static proyectoempresalvp.gestoras.Datos.GestoraDatos.ACTUALIZAR_FACTURASMENSUALES_AÑO;
 import proyectoempresalvp.gestoras.Datos.GestoraFacturas;
 import proyectoempresalvp.gestoras.Datos.GestoraTareas;
 import proyectoempresalvp.gestoras.Datos.Procesador;
@@ -1977,24 +1977,22 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     .addComponent(jLabel95)
                     .addComponent(jLabel96)
                     .addComponent(jLabel97))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPHitoricoFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPHitoricoFacturasLayout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addGroup(jPHitoricoFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ctCIF)
-                            .addComponent(ctCodPo)
-                            .addComponent(ctLo)
-                            .addComponent(ctDomi)
-                            .addComponent(ctFech)
-                            .addComponent(ctName)
-                            .addComponent(ctNfac)))
+                    .addComponent(ctNfac, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ctFech, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ctName, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ctDomi, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ctLo, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ctCodPo, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ctCIF, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPHitoricoFacturasLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
-                        .addGroup(jPHitoricoFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPHitoricoFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ctBase, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ctIva1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ctTotalFac, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                            .addComponent(ctBase, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addGap(83, 83, 83))
+                            .addComponent(ctTotalFac, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
         jPHitoricoFacturasLayout.setVerticalGroup(
             jPHitoricoFacturasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2810,13 +2808,34 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void cbAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAñoActionPerformed
 
         refrescarHistorico();
-        refrescarTotalesPeriodo();
     }//GEN-LAST:event_cbAñoActionPerformed
 
     private void refrescarHistorico() throws NumberFormatException {
         int numPeriodoInicial = Integer.parseInt(cbAño.getSelectedItem().toString() + "00");
         int numPeriodoFinal = Integer.parseInt(cbAño.getSelectedItem().toString() + "15");
-        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASMENSUALES_AÑO, null, " where NUMPERIODO >= " + numPeriodoInicial + " AND NUMPERIODO <= " + numPeriodoFinal);
+        ArrayListDato<Dato> ds = GestoraDatos.recuperarConDummy(new FacturaMensual(), null, " where NUMPERIODO >= " + numPeriodoInicial + " AND NUMPERIODO <= " + numPeriodoFinal);ctBas.setText("");
+        ctIv.setText("");
+        ctTotfac.setText("");
+        BigDecimal suma = new BigDecimal("0");
+        System.out.println(ds);
+                
+        if(ds != null && ds.size() > 0) {
+            for(Dato d : ds) {
+                suma = suma.add(new BigDecimal(d.get("EUROSMES").toString()));
+            }
+            ctBas.setText(suma.toPlainString());
+
+            String iva = ds.get(0).get("TANTOIVA").toString();
+            ctIv.setText(iva);
+
+            BigDecimal totalPeriodo = suma.multiply(new BigDecimal("1." + iva))
+                    .add(suma);
+
+            ctTotfac.setText(totalPeriodo.setScale(2, RoundingMode.HALF_UP).toPlainString());
+        }
+        
+        GestoraDatos.dameGestora().put("FACTURASMENSUALESAÑO", ds);
+        actualizarTabla(tablaHistoricoFacturas, ds);
     }
 
     private void bCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcularActionPerformed
@@ -3625,7 +3644,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         ctName.setText(fac.get("NOMBRE").toString());
         ctDomi.setText(fac.get("DOMICILIO").toString());
         ctLo.setText(fac.get("LOCALIDAD").toString());
-        //ctCodPo.setText(fac.get("").toString());
+        ctCodPo.setText(fac.get("CODIGOPOSTAL").toString());
         ctCIF.setText(fac.get("CIF").toString());
         ctBase.setText(fac.get("EUROSMES").toString());
         ctIva1.setText(fac.get("TANTOIVA").toString());
@@ -3635,31 +3654,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .add(new BigDecimal(fac.get("EUROSMES").toString()));
 
         ctTotalFac.setText(total.setScale(2, RoundingMode.HALF_UP).toString()); //base + iva = total
-
-        refrescarTotalesPeriodo();//ojo!! 
-    }
-
-    private void refrescarTotalesPeriodo() {
-        ctBas.setText("");
-        ctIv.setText("");
-        ctTotfac.setText("");
-        BigDecimal suma = new BigDecimal("0");
-        ArrayList<Dato> ds = GestoraDatos.dameGestora().get("FACTURASMENSUALESAÑO");
-        if(ds != null && ds.size() > 0) {
-            for(Dato d :ds) {
-                suma.add(new BigDecimal(d.get("EUROSMES").toString()));
-            }
-
-            ctBas.setText(suma.toPlainString());
-
-            String iva = ds.get(0).get("TANTOIVA").toString();
-            ctIv.setText(iva);
-
-            BigDecimal totalPeriodo = suma.multiply(new BigDecimal("1." + iva))
-                    .add(suma);
-
-            ctTotfac.setText(totalPeriodo.setScale(2, RoundingMode.HALF_UP).toPlainString());
-        }
 
     }
 

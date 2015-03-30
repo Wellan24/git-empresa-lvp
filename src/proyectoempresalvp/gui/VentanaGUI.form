@@ -2816,29 +2816,25 @@
                                           <Component id="jLabel96" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel97" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="ctCIF" max="32767" attributes="0"/>
-                                                  <Component id="ctCodPo" max="32767" attributes="0"/>
-                                                  <Component id="ctLo" max="32767" attributes="0"/>
-                                                  <Component id="ctDomi" max="32767" attributes="0"/>
-                                                  <Component id="ctFech" max="32767" attributes="0"/>
-                                                  <Component id="ctName" max="32767" attributes="0"/>
-                                                  <Component id="ctNfac" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
+                                          <Component id="ctNfac" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="ctFech" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="ctName" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="ctDomi" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="ctLo" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="ctCodPo" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="ctCIF" alignment="1" max="32767" attributes="0"/>
                                           <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace pref="99" max="32767" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="ctBase" alignment="1" min="-2" pref="118" max="-2" attributes="0"/>
                                                   <Component id="ctIva1" alignment="1" min="-2" pref="41" max="-2" attributes="0"/>
-                                                  <Component id="ctTotalFac" alignment="1" pref="118" max="32767" attributes="0"/>
-                                                  <Component id="ctBase" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="ctTotalFac" alignment="1" min="-2" pref="118" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>

@@ -11,7 +11,7 @@ import java.util.Date;
 public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
 
     private static final String[] orden = {"NUMEROFACTURA", "NUMCONTRATO", "FECHA", "NUMCLIENTE", "DESCRIPCION", "CIF", "NOMBRE", "DOMICILIO",
-        "LOCALIDAD", "CODIGOPOSTAL", "PROVINCIA", "EUROSMES", "TANTOIVA", "REFMONEDA", "DIACOBRO", "FORMAPAGO", "PERIODO", "NUMPERIODO",
+        "LOCALIDAD", "CODIGOPOSTAL", "EUROSMES", "TANTOIVA", "REFMONEDA", "DIACOBRO", "FORMAPAGO", "PERIODO", "NUMPERIODO",
         "IBAN", "REFBANCO", "BANCOCOBRO", "NOMBREBANCO"};
     private static final String tabla = "FACTURAMENSUAL";
 
@@ -30,7 +30,7 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
      * @param nombre
      * @param domicilio
      * @param localidad
-     * @param cpProvincia
+     * @param codigoPostal
      * @param eurosMes
      * @param tantoIva
      * @param refMoneda
