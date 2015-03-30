@@ -1295,6 +1295,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Renovar Contratos"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bRenovarContratosActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
                       </AuxValues>

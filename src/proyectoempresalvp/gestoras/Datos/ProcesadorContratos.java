@@ -31,8 +31,10 @@ public class ProcesadorContratos implements Procesador<Contrato> {
 
                 resul.append("Contrato Nº: ").append(d.get("NUMCONTRATO")).append(", Cliente: ").append(d.get("DESCRIPCION"));
 
-                if(dif < 0)
+                if(dif < 0){
+                    d.put("ESTADO", false);
                     resul.append(" CADUCADO");
+                }
 
                 resul.append("\n");
             }

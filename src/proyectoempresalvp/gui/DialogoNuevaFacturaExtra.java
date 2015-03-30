@@ -106,6 +106,11 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         bCancelar.setText("Cancelar");
+        bCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCancelarActionPerformed(evt);
+            }
+        });
 
         bAceptar.setText("Generar");
         bAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -454,6 +459,11 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
         
         refrescarCliente();
     }//GEN-LAST:event_comboNumeroClienteActionPerformed
+
+    private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
+        
+        this.dispose();
+    }//GEN-LAST:event_bCancelarActionPerformed
 
     private String[] conceptosFormateados() {
 
