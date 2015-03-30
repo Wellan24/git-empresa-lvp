@@ -1685,12 +1685,12 @@
                                           <Component id="jLabel50" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel47" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="ctProvin" alignment="1" max="32767" attributes="0"/>
                                           <Component id="ctCodpos" alignment="1" max="32767" attributes="0"/>
                                           <Component id="ctLoca" max="32767" attributes="0"/>
-                                          <Component id="ctProvin" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="ctNcif" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="ctNcif" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -1698,14 +1698,14 @@
                                           <Component id="jLabel45" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel46" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="ctDomic" max="32767" attributes="0"/>
                                           <Component id="ctNomb" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1912,11 +1912,13 @@
                     <Component class="javax.swing.JTextField" name="ctNumF">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
+                        <Property name="horizontalAlignment" type="int" value="4"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="ctBaseIm">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
+                        <Property name="horizontalAlignment" type="int" value="4"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="ctporcenIva">
@@ -1930,11 +1932,13 @@
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="cc" green="cc" red="ff" type="rgb"/>
                         </Property>
+                        <Property name="horizontalAlignment" type="int" value="4"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="ctIvaa">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
+                        <Property name="horizontalAlignment" type="int" value="4"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ctIvaaActionPerformed"/>

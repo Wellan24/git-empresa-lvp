@@ -1318,21 +1318,21 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                             .addComponent(jLabel49)
                             .addComponent(jLabel50)
                             .addComponent(jLabel47))
-                        .addGap(56, 56, 56)
+                        .addGap(14, 14, 14)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ctProvin, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(ctCodpos, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(ctLoca)
-                            .addComponent(ctProvin, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(ctNcif, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(ctNcif)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel45)
                             .addComponent(jLabel46))
-                        .addGap(60, 60, 60)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ctDomic)
                             .addComponent(ctNomb))))
-                .addGap(19, 19, 19))
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1380,15 +1380,19 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jLabel55.setText("TOTAL");
 
         ctNumF.setEditable(false);
+        ctNumF.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         ctBaseIm.setEditable(false);
+        ctBaseIm.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         ctporcenIva.setEditable(false);
 
         ctTotal.setEditable(false);
         ctTotal.setBackground(new java.awt.Color(255, 204, 204));
+        ctTotal.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         ctIvaa.setEditable(false);
+        ctIvaa.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         ctIvaa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ctIvaaActionPerformed(evt);
