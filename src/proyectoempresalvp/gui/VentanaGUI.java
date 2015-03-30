@@ -2895,6 +2895,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void cbAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAñoActionPerformed
 
         refrescarHistorico();
+        limpiarTotalesPeriodo();
     }//GEN-LAST:event_cbAñoActionPerformed
 
     private void refrescarHistorico() throws NumberFormatException {
@@ -3697,8 +3698,47 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         ctTotalFac.setText(total.setScale(2, RoundingMode.HALF_UP).toString()); //base + iva = total
         
         
+        
+       refrescarTotalesPeriodo();//ojo!! 
     }
     
+    
+    private void refrescarTotalesPeriodo(){
+         //SANTY sumar EUROSMES para BASE IMPONIBLE
+        double suma=0.0;
+        int totalRow= tablaHistoricoFacturas.getRowCount();
+        totalRow-=1; 
+        for(int i=0;i<=(totalRow);i++)
+        {
+             double sumatorio= Double.parseDouble(String.valueOf(tablaHistoricoFacturas.getValueAt(i,10)));
+             //Primer parametro la fila y el segundo la columna la cual estarás manejando
+             suma+=sumatorio;
+   
+         
+         
+           }
+         ctBas.setText(""+suma);
+         
+         
+         Dato fac = GestoraDatos.dameGestora().get("FACTURASMENSUALESAÑO").get(tablaHistoricoFacturas.getSelectedRow());
+         ctIv.setText(fac.get("TANTOIVA").toString());
+         
+         
+         
+         BigDecimal totalPeriodo = new BigDecimal(String.valueOf(suma))
+                        .multiply(new BigDecimal(fac.get("TANTOIVA").toString())).divide(new BigDecimal("100"))
+                        .add(new BigDecimal(String.valueOf(suma)));
+       
+        
+        ctTotfac.setText(totalPeriodo.setScale(2, RoundingMode.HALF_UP).toString()); //base + iva = total
+         
+    }
+    
+    private void limpiarTotalesPeriodo(){
+        ctBas.setText("");
+        ctIv.setText("");
+        ctTotfac.setText("");
+    }
     
 
     private void rellenarCombosPeriodo() {
