@@ -2987,11 +2987,14 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             for(Dato d :contratos) {
 
                 if(UtilidadesTareas.calcularDiferenciaFechas((Fecha) d.get("FINCONTRATO"), f) < 0) {
-
-                    f.setDia(1);
-                    d.put("INICIOCONTRATO", f);
-                    f.setAño(f.getAño() + 1);
-                    d.put("FINCONTRATO", f);
+                    
+                    Fecha nf = UtilidadesTareas.getFechaActual();
+                    nf.setDia(1);
+                    nf.setAño(nf.getAño() + 1);
+                    d.put("FINCONTRATO", nf);
+                    d.put("ESTADO", true);
+                    GestoraBaseDatos.ejecutarSentenciaUpdate(GestoraBaseDatos.construyeSentenciaUpdate(d).toString());
+                    JOptionPane.showMessageDialog(this, "Se ha renovado el contrato: " + d.get("NUMCONTRATO"));
                 }
             }
         }else{
@@ -3000,14 +3003,18 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 Dato d = contratos.get(i);
                 if(UtilidadesTareas.calcularDiferenciaFechas((Fecha) d.get("FINCONTRATO"), f) < 0) {
 
-                    f.setDia(1);
-                    d.put("INICIOCONTRATO", f);
-                    f.setAño(f.getAño() + 1);
-                    d.put("FINCONTRATO", f);
+                    Fecha nf = UtilidadesTareas.getFechaActual();
+                    nf.setDia(Gestora.ultimoDiaMes(f));
+                    nf.setAño(nf.getAño() + 1);
+                    d.put("FINCONTRATO", nf);
+                    d.put("ESTADO", true);
+                    GestoraBaseDatos.ejecutarSentenciaUpdate(GestoraBaseDatos.construyeSentenciaUpdate(d).toString());
+                    JOptionPane.showMessageDialog(this, "Se ha renovado el contrato: " + d.get("NUMCONTRATO"));
                 }
             }
-        }
+        }        
 
+        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS, new ProcesadorContratos());
     }//GEN-LAST:event_bRenovarContratosActionPerformed
 
     private void cambiarRuta() throws HeadlessException {
