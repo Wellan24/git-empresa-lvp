@@ -17,8 +17,8 @@ public class ModeloTabla extends DefaultTableModel{
 
     int filas;
     Dato[] datos;
-    String[] columnas = {"ID", "NOMBRE"};
-    Class[] clases = {Integer.class, String.class};
+    String[] columnas = new String[0];
+    Class[] clases = new Class[0];
     Dato datoActual;
     int filaActual = -1;
     

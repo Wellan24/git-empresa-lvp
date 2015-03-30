@@ -3623,11 +3623,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jPanel16" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="jPanel15" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="bComprobarTareas" min="-2" pref="211" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="bTarBorrar" min="-2" pref="180" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="bTarBorrar" alignment="1" min="-2" pref="180" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       </Group>
@@ -3643,10 +3639,7 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jPanel16" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="bTarBorrar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="bComprobarTareas" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="bTarBorrar" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jScrollPane13" min="-2" pref="698" max="-2" attributes="0"/>
                           </Group>
@@ -3813,7 +3806,10 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jScrollPane14" min="-2" pref="356" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jScrollPane14" pref="356" max="32767" attributes="0"/>
+                                  <Component id="bComprobarTareas" max="32767" attributes="0"/>
+                              </Group>
                               <EmptySpace pref="31" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -3823,7 +3819,9 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                               <Component id="jScrollPane14" min="-2" pref="143" max="-2" attributes="0"/>
-                              <EmptySpace pref="51" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="bComprobarTareas" min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace pref="19" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -3845,19 +3843,19 @@
                         </Component>
                       </SubComponents>
                     </Container>
+                    <Component class="javax.swing.JButton" name="bComprobarTareas">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Actualizar Tareas"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bComprobarTareasActionPerformed"/>
+                      </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                      </AuxValues>
+                    </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="bComprobarTareas">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Actualizar Tareas"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bComprobarTareasActionPerformed"/>
-                  </Events>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
-                  </AuxValues>
-                </Component>
               </SubComponents>
             </Container>
           </SubComponents>

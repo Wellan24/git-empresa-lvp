@@ -117,16 +117,16 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
         listaConceptos.setFont(new java.awt.Font("Monospaced", 0, 11)); // NOI18N
         jScrollPane16.setViewportView(listaConceptos);
 
-        bAñade.setText("Añade");
+        bAñade.setText("Añadir");
         bAñade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bAñadeActionPerformed(evt);
             }
         });
 
-        bEditar.setText("Repara");
+        bEditar.setText("Editar");
 
-        bBorra.setText("Borra");
+        bBorra.setText("Borrar");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
