@@ -23,6 +23,7 @@ import proyectoempresalvp.datosUI.PanelImagen;
 import proyectoempresalvp.gestoras.Gestora;
 import proyectoempresalvp.gestoras.GestoraBaseDatos;
 import proyectoempresalvp.gestoras.Datos.GestoraDatos;
+import proyectoempresalvp.gestoras.UtilidadesTareas;
 
 /**
  *
@@ -48,6 +49,9 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
 
         comboNumeroCliente.setModel(new DefaultComboBoxModel(GestoraDatos.dameGestora().get("CLIENTES").devuelveTodasLasClaves()));
         comboNumeroCliente.addItem("NINGUNO");
+        
+        Fecha f = UtilidadesTareas.getFechaActual();
+        ctFecha.setText(f.toString());
     }
 
     /**
@@ -465,6 +469,7 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
     }
 
     private boolean insertarFacturaExtra() {
+        
         String fecha = ctFecha.getText();
 
         if(!Gestora.comprobarFormatoFechaCorrecto(fecha)) {
@@ -476,6 +481,7 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Comprueba que has introducido en los campos numéricos números correctamente.");
         } else {
             String cliente = comboNumeroCliente.getSelectedItem().toString();
+            System.out.println(cliente);
             FacturaExtra nuevaFacturaExtra = new FacturaExtra(Integer.parseInt(ctNumF.getText()), //NUMFACTURA
                     new Fecha(fecha), //FECHA
                     ctNcif.getText(), //CIFNIF
@@ -483,7 +489,7 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
                     Integer.parseInt(ctCodpos.getText()), //CP
                     Integer.parseInt(ctporcenIva.getText()), //TANTOIVA
                     ctTotal.getText(), //EUROSNETO
-                    cliente.equals("NINGUNO") ? -1 : Integer.getInteger(cliente));//CLIENTE
+                    cliente.equals("NINGUNO") ? -1 : Integer.parseInt(cliente));//CLIENTE
 
             if(GestoraBaseDatos.insertarDato(nuevaFacturaExtra)) {
                 conceptos.stream().forEach((f) -> {

@@ -88,17 +88,17 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
         this.put("NOMBRE", "");
         this.put("DOMICILIO", "");
         this.put("LOCALIDAD", "");
-        this.put("PROVINCIA", 0);
+        this.put("PROVINCIA", "");
         this.put("EUROSMES", "");
         this.put("TANTOIVA", 0);
         this.put("REFMONEDA", "");
-        this.put("DIACOBRO", 0);
+        this.put("DIACOBRO", "");
         this.put("FORMAPAGO", "");
         this.put("PERIODO", "");
         this.put("NUMPERIODO", 0);
         this.put("IBAN", "");
         this.put("REFBANCO", 0);
-        this.put("BANCOCOBRO", 0);
+        this.put("BANCOCOBRO", "");
         this.put("NOMBREBANCO", "");
     }
     

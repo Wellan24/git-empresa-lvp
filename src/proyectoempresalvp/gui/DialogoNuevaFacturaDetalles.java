@@ -29,6 +29,7 @@ public class DialogoNuevaFacturaDetalles extends javax.swing.JDialog {
     public DialogoNuevaFacturaDetalles(java.awt.Frame parent, boolean modal, int factura, int orden) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
         this.setTitle("Añadir Concepto");
         this.factura = factura;
         this.orden = orden;

@@ -42,7 +42,7 @@ public class ImportarDataBase {
         Statement s = c.createStatement();        
         ResultSet rs = s.executeQuery("Select * from Clientes");
         GestoraBaseDatos.ejecutarSentenciaUpdate("Delete from Clientes");
-        int num = 0;
+        int num = 1;
         while(rs.next()){
             String cuenta = rs.getString(14) + rs.getString(15) + rs.getString(16) + rs.getString(17);
             String iban =   cuenta.isEmpty() ? "VACIO":Gestora.calcularIbanEspaña(cuenta);
@@ -59,7 +59,7 @@ public class ImportarDataBase {
         Statement s = c.createStatement();        
         ResultSet rs = s.executeQuery("Select * from Empleados");
         GestoraBaseDatos.ejecutarSentenciaUpdate("Delete from Empleados");
-        int num = 0;
+        int num = 1;
         while(rs.next()){            
             
             GestoraBaseDatos.insertarDato(new Empleado(num++, rs.getString(2), rs.getString(3), rs.getString(4),
@@ -77,7 +77,7 @@ public class ImportarDataBase {
         Statement s = c.createStatement();        
         ResultSet rs = s.executeQuery("Select * from Contratos");
         GestoraBaseDatos.ejecutarSentenciaUpdate("Delete from Contratos");
-        int num = 0;
+        int num = 1;
         while(rs.next()){
             GestoraBaseDatos.insertarDato(new Contrato(num++, rs.getInt(2), rs.getString(3),
                     Gestora.importarFecha(rs.getString(4)), Gestora.importarFecha(rs.getString(5)),
