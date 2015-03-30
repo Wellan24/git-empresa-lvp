@@ -15,7 +15,7 @@ import java.util.Date;
 public class FacturaExtra extends Dato implements Comparable<FacturaExtra> {
 
     private static final String[] orden = {"NUMEROFACTURA", "FECHA", "CIF", "NOMBRE", "DOMICILIO", "LOCALIDAD",
-        "PROVINCIA", "CP", "TANTOIVA", "EUROSNETO", "NUMEROCLIENTE"};
+        "PROVINCIA", "CODIGOPOSTAL", "TANTOIVA", "EUROSNETO", "NUMEROCLIENTE"};
     private static final String tabla = "FACTURAEXTRA";
 
     /**
@@ -32,10 +32,10 @@ public class FacturaExtra extends Dato implements Comparable<FacturaExtra> {
      * @param cp
      * @param tantoIva
      * @param eurosNeto
-     * @param cliente
+     * @param numerocliente
      */
     public FacturaExtra(int numeroFactura, Fecha fecha, String cif, String nombre, String domicilio, String localidad,
-            String provincia, int cp, int tantoIva,
+            String provincia, String cp, int tantoIva,
             String eurosNeto, int numerocliente) {
         super(11);
         this.put("NUMEROFACTURA", numeroFactura);
@@ -45,7 +45,7 @@ public class FacturaExtra extends Dato implements Comparable<FacturaExtra> {
         this.put("DOMICILIO", domicilio);
         this.put("LOCALIDAD", localidad);
         this.put("PROVINCIA", provincia);
-        this.put("CP", cp);
+        this.put("CODIGOPOSTAL", cp);
         this.put("TANTOIVA", tantoIva);
         this.put("EUROSNETO", eurosNeto);
         this.put("NUMEROCLIENTE", numerocliente);
@@ -64,7 +64,7 @@ public class FacturaExtra extends Dato implements Comparable<FacturaExtra> {
         this.put("DOMICILIO", "");
         this.put("LOCALIDAD", "");
         this.put("PROVINCIA", "");
-        this.put("CP", 0);
+        this.put("CODIGOPOSTAL", "");
         this.put("TANTOIVA", 0);
         this.put("EUROSNETO", "");
         this.put("NUMEROCLIENTE", 0);

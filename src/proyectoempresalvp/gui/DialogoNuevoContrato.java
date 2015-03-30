@@ -440,6 +440,7 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
 
     private void bCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearActionPerformed
         insertarContrato();
+        this.dispose();
     }//GEN-LAST:event_bCrearActionPerformed
 
     private void insertarContrato() {

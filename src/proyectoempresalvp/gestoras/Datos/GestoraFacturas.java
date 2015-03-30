@@ -43,7 +43,7 @@ public class GestoraFacturas {
                 facturaActual = new FacturaMensual(proximaFactura, UtilidadesTareas.getFechaActual(),
                         (int) c.get("NUMCLIENTE"), c.get("DESCRIPCION").toString(), (int) c.get("NUMCONTRATO"),
                         cliente.get("CIF").toString(), cliente.get("NOMBRE").toString(), cliente.get("DOMICILIO").toString(),
-                        cliente.get("LOCALIDAD").toString(), 0, c.get("EUROSMES").toString(), (int) GestoraConfiguracion.get("IVA"), "",
+                        cliente.get("LOCALIDAD").toString(), cliente.get("CP").toString(), c.get("EUROSMES").toString(), (int) GestoraConfiguracion.get("IVA"), "",
                         (int) c.get("DIACOBRO"), c.get("FORMAPAGO").toString(), periodo, numperiodo, cliente.get("IBAN").toString(), 0, 
                         (int)cliente.get("BANCOCOBRO"), "");
                 GestoraBaseDatos.insertarDato(facturaActual);

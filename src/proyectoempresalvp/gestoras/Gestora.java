@@ -429,7 +429,7 @@ public class Gestora {
 
         return result;
     }
-    
+
     public static Fecha importarFecha(String nombre) {
 
         String[] fecha = nombre.split("/");
@@ -479,20 +479,48 @@ public class Gestora {
 
         return new Fecha(dia + "/" + mes + "/" + año);
     }
-    
-    public static void copiarArchivo(String origen, String destino){
+
+    public static void copiarArchivo(String origen, String destino) {
         Path FROM = Paths.get(origen);
         Path TO = Paths.get(destino);
         //sobreescribir el fichero de destino, si existe, y copiar
         // los atributos, incluyendo los permisos rwx
         CopyOption[] options = new CopyOption[]{
-          StandardCopyOption.REPLACE_EXISTING,
-          StandardCopyOption.COPY_ATTRIBUTES
-        }; 
+            StandardCopyOption.REPLACE_EXISTING,
+            StandardCopyOption.COPY_ATTRIBUTES
+        };
         try {
             Files.copy(FROM, TO, options);
         } catch(IOException ex) {
             Logger.getLogger(Gestora.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static int ultimoDiaMes(Fecha f) {
+
+        int año = f.getAño();
+        switch(f.getMes()-1) {
+            case 0:  // Enero
+            case 2:  // Marzo
+            case 4:  // Mayo
+            case 6:  // Julio
+            case 7:  // Agosto
+            case 9:  // Octubre
+            case 11: // Diciembre
+                return 31;
+            case 3:  // Abril
+            case 5:  // Junio
+            case 8:  // Septiembre
+            case 10: // Noviembre
+                return 30;
+            case 1:  // Febrero
+                if(((año % 100 == 0) && (año % 400 == 0))
+                        || ((año % 100 != 0) && (año % 4 == 0)))
+                    return 29;  // Año Bisiesto
+                else
+                    return 28;
+            default:
+                return 31;
         }
     }
 

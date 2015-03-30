@@ -23,6 +23,7 @@ import proyectoempresalvp.datosUI.PanelImagen;
 import proyectoempresalvp.gestoras.Gestora;
 import proyectoempresalvp.gestoras.GestoraBaseDatos;
 import proyectoempresalvp.gestoras.Datos.GestoraDatos;
+import proyectoempresalvp.gestoras.UtilidadesTareas;
 
 /**
  *
@@ -48,6 +49,9 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
 
         comboNumeroCliente.setModel(new DefaultComboBoxModel(GestoraDatos.dameGestora().get("CLIENTES").devuelveTodasLasClaves()));
         comboNumeroCliente.addItem("NINGUNO");
+        
+        Fecha f = UtilidadesTareas.getFechaActual();
+        ctFecha.setText(f.toString());
     }
 
     /**
@@ -102,6 +106,11 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         bCancelar.setText("Cancelar");
+        bCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCancelarActionPerformed(evt);
+            }
+        });
 
         bAceptar.setText("Generar");
         bAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -451,6 +460,11 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
         refrescarCliente();
     }//GEN-LAST:event_comboNumeroClienteActionPerformed
 
+    private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
+        
+        this.dispose();
+    }//GEN-LAST:event_bCancelarActionPerformed
+
     private String[] conceptosFormateados() {
 
         String[] dev = new String[conceptos.size()];
@@ -465,6 +479,7 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
     }
 
     private boolean insertarFacturaExtra() {
+        
         String fecha = ctFecha.getText();
 
         if(!Gestora.comprobarFormatoFechaCorrecto(fecha)) {
@@ -476,14 +491,15 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Comprueba que has introducido en los campos numéricos números correctamente.");
         } else {
             String cliente = comboNumeroCliente.getSelectedItem().toString();
+            System.out.println(cliente);
             FacturaExtra nuevaFacturaExtra = new FacturaExtra(Integer.parseInt(ctNumF.getText()), //NUMFACTURA
                     new Fecha(fecha), //FECHA
                     ctNcif.getText(), //CIFNIF
                     ctNomb.getText(), ctDomic.getText(), ctLoca.getText(), ctProvin.getText(),//NOMBRE,DOMICILIO,LOCALIDAD,PROVINCIA
-                    Integer.parseInt(ctCodpos.getText()), //CP
+                    ctCodpos.getText(), //CP
                     Integer.parseInt(ctporcenIva.getText()), //TANTOIVA
                     ctTotal.getText(), //EUROSNETO
-                    cliente.equals("NINGUNO") ? -1 : Integer.getInteger(cliente));//CLIENTE
+                    cliente.equals("NINGUNO") ? -1 : Integer.parseInt(cliente));//CLIENTE
 
             if(GestoraBaseDatos.insertarDato(nuevaFacturaExtra)) {
                 conceptos.stream().forEach((f) -> {
