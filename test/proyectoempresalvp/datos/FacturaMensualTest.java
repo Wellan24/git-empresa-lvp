@@ -21,7 +21,7 @@ public class FacturaMensualTest {
     
     public FacturaMensualTest() {
         
-        instance = new FacturaMensual(10, new Fecha("2010/10/10"), 10, "", 10, "10", "", "", "", 10, "10", 10, "", 10, "", "", 10, "10", 10, 10, "");
+        instance = new FacturaMensual(11,new Fecha("2010/10/10"), 10, "", 10, "10", "", "", "", "10", "10", 10, "", 10, "", "", 10, "10", 10, 10, "");
     }
     
     @BeforeClass
@@ -62,7 +62,7 @@ public class FacturaMensualTest {
     @Test
     public void testCompareTo() {
         System.out.println("compareTo");
-        FacturaMensual o = new FacturaMensual(11,new Fecha("2010/10/10"), 10, "", 10, "10", "", "", "", 10, "10", 10, "", 10, "", "", 10, "10", 10, 10, "");
+        FacturaMensual o = new FacturaMensual(11,new Fecha("2010/10/10"), 10, "", 10, "10", "", "", "", "10", "10", 10, "", 10, "", "", 10, "10", 10, 10, "");
         int expResult = -1;
         int result = instance.compareTo(o);
         assertEquals(expResult, result);

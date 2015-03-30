@@ -10,8 +10,8 @@ import java.util.Date;
 
 public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
 
-    private static final String[] orden = {"NUMEROFACTURA", "FECHA", "NUMCLIENTE", "DESCRIPCION", "NUMCONTRATO", "CIF", "NOMBRE", "DOMICILIO",
-        "LOCALIDAD", "PROVINCIA", "EUROSMES", "TANTOIVA", "REFMONEDA", "DIACOBRO", "FORMAPAGO", "PERIODO", "NUMPERIODO",
+    private static final String[] orden = {"NUMEROFACTURA", "NUMCONTRATO", "FECHA", "NUMCLIENTE", "DESCRIPCION", "CIF", "NOMBRE", "DOMICILIO",
+        "LOCALIDAD", "CODIGOPOSTAL", "PROVINCIA", "EUROSMES", "TANTOIVA", "REFMONEDA", "DIACOBRO", "FORMAPAGO", "PERIODO", "NUMPERIODO",
         "IBAN", "REFBANCO", "BANCOCOBRO", "NOMBREBANCO"};
     private static final String tabla = "FACTURAMENSUAL";
 
@@ -45,7 +45,7 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
      */
     public FacturaMensual(int numFactura, Fecha fecha, int numCliente,
             String descripcion, int numContrato, String cif, String nombre,
-            String domicilio, String localidad, int cpProvincia, String eurosMes,
+            String domicilio, String localidad, String codigoPostal, String eurosMes,
             int tantoIva, String refMoneda, int diaCobro,
             String formaPago, String periodo, int numPeriodo, String IBAN,
             int refBanco, int bancoCobro, String nombreBanco) {
@@ -59,7 +59,7 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
         this.put("NOMBRE", nombre);
         this.put("DOMICILIO", domicilio);
         this.put("LOCALIDAD", localidad);
-        this.put("PROVINCIA", cpProvincia);
+        this.put("CODIGOPOSTAL", codigoPostal);
         this.put("EUROSMES", eurosMes);
         this.put("TANTOIVA", tantoIva);
         this.put("REFMONEDA", refMoneda);
@@ -88,7 +88,7 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
         this.put("NOMBRE", "");
         this.put("DOMICILIO", "");
         this.put("LOCALIDAD", "");
-        this.put("PROVINCIA", "");
+        this.put("CODIGOPOSTAL", "");
         this.put("EUROSMES", "");
         this.put("TANTOIVA", 0);
         this.put("REFMONEDA", "");
