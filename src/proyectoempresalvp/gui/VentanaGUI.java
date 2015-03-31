@@ -259,6 +259,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jLabel57 = new javax.swing.JLabel();
         jScrollPane15 = new javax.swing.JScrollPane();
         listaConceptos = new javax.swing.JList();
+        bAñadirExtra = new Boton();
+        bEditarExtra = new Boton();
+        bBorrarExtra = new Boton();
         jScrollPane6 = new ScrollPaneTranslucido();
         tablaFacExtra = new Tabla();
         bImprimirFacturaExtra = new Boton();
@@ -403,6 +406,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jScrollPane14 = new javax.swing.JScrollPane();
         taTareasComprobadas = new javax.swing.JTextArea();
         bComprobarTareas = new Boton();
+        bImprimirTareas = new Boton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LIMPIEZAS VERDEJO PELAEZ");
@@ -1462,15 +1466,26 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         listaConceptos.setFont(new java.awt.Font("Monospaced", 0, 11)); // NOI18N
         jScrollPane15.setViewportView(listaConceptos);
 
+        bAñadirExtra.setText("Añadir");
+
+        bEditarExtra.setText("Editar");
+
+        bBorrarExtra.setText("Borrar");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel57)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel57)
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(bAñadirExtra, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                        .addComponent(bEditarExtra, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bBorrarExtra, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -1478,10 +1493,16 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane15)
+                    .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel57)
-                        .addGap(0, 175, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(bAñadirExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bEditarExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bBorrarExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -1528,7 +1549,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                         .addComponent(bModifFac, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(jPfacExtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2579,6 +2600,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
+        bImprimirTareas.setText("Imprimir Tareas");
+
         javax.swing.GroupLayout jPtareasLayout = new javax.swing.GroupLayout(jPtareas);
         jPtareas.setLayout(jPtareasLayout);
         jPtareasLayout.setHorizontalGroup(
@@ -2587,10 +2610,13 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addGap(43, 43, 43)
                 .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
-                .addGroup(jPtareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPtareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bTarBorrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPtareasLayout.createSequentialGroup()
+                        .addComponent(bImprimirTareas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(bTarBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(43, 43, 43))
         );
         jPtareasLayout.setVerticalGroup(
@@ -2603,7 +2629,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                         .addGap(18, 18, 18)
                         .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bTarBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPtareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(bTarBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                            .addComponent(bImprimirTareas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(94, 94, 94))
         );
@@ -3142,18 +3170,22 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JButton bAceptarContraseña;
     private javax.swing.JButton bActualizar;
     private javax.swing.JButton bAñadir;
+    private javax.swing.JButton bAñadirExtra;
+    private javax.swing.JButton bBorrarExtra;
     private javax.swing.JButton bCalcular;
     private javax.swing.JButton bComprobarIban;
     private javax.swing.JButton bComprobarTareas;
     private javax.swing.JButton bConfiguracionCambioIva;
     private javax.swing.JButton bConfirmarCambiosIPC;
     private javax.swing.JButton bCopiaSeguridad;
+    private javax.swing.JButton bEditarExtra;
     private javax.swing.JButton bGenerarFacturacion;
     private javax.swing.JButton bImprim;
     private javax.swing.JButton bImprime;
     private javax.swing.JButton bImprimirFacturaExtra;
     private javax.swing.JButton bImprimirFacturas;
     private javax.swing.JButton bImprimirListado;
+    private javax.swing.JButton bImprimirTareas;
     private javax.swing.JButton bInicioActualizarContratos;
     private javax.swing.JButton bInicioActualizarTareas;
     private javax.swing.JButton bModif;

@@ -1571,7 +1571,7 @@
                               <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
                               <Component id="jScrollPane6" alignment="0" min="-2" pref="678" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="54" max="32767" attributes="0"/>
+                          <EmptySpace pref="45" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="jPanel3" max="32767" attributes="0"/>
                               <Component id="jPanel4" alignment="1" max="32767" attributes="0"/>
@@ -1961,9 +1961,16 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollPane15" pref="584" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="bAñadirExtra" alignment="0" pref="76" max="32767" attributes="0"/>
+                                      <Component id="bEditarExtra" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="bBorrarExtra" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane15" pref="585" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1973,10 +1980,16 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane15" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane15" pref="189" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="175" max="32767" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="bAñadirExtra" min="-2" pref="32" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="bEditarExtra" min="-2" pref="32" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="bBorrarExtra" min="-2" pref="32" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -2006,6 +2019,30 @@
                         </Component>
                       </SubComponents>
                     </Container>
+                    <Component class="javax.swing.JButton" name="bA&#xf1;adirExtra">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="A&#xf1;adir"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="bEditarExtra">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Editar"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="bBorrarExtra">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Borrar"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                      </AuxValues>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane6">
@@ -3606,10 +3643,14 @@
                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           <Component id="jScrollPane13" min="-2" pref="586" max="-2" attributes="0"/>
                           <EmptySpace pref="106" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jPanel16" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="jPanel15" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="bTarBorrar" alignment="1" min="-2" pref="180" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="bImprimirTareas" max="32767" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="bTarBorrar" min="-2" pref="180" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       </Group>
@@ -3625,7 +3666,10 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jPanel16" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="bTarBorrar" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="bTarBorrar" pref="30" max="32767" attributes="0"/>
+                                      <Component id="bImprimirTareas" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                               <Component id="jScrollPane13" min="-2" pref="698" max="-2" attributes="0"/>
                           </Group>
@@ -3842,6 +3886,14 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JButton" name="bImprimirTareas">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Imprimir Tareas"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                  </AuxValues>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
