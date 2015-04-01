@@ -53,32 +53,18 @@
 				<text><![CDATA[CIF]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="106" y="41" width="93" height="20" uuid="28632cc9-ce1a-4434-ab80-81fd416c237a"/>
+				<reportElement x="106" y="41" width="154" height="20" uuid="28632cc9-ce1a-4434-ab80-81fd416c237a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true" isItalic="false"/>
 				</textElement>
 				<text><![CDATA[Descripción]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="199" y="41" width="65" height="20" uuid="73d38bbf-d2f5-479b-b08d-49ca49e1351c"/>
+				<reportElement x="260" y="41" width="143" height="20" uuid="73d38bbf-d2f5-479b-b08d-49ca49e1351c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true" isItalic="false"/>
 				</textElement>
 				<text><![CDATA[Nombre]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="264" y="41" width="82" height="20" uuid="3b3c7d7e-d9a4-4a8c-ab1a-b4547dddb435"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true" isItalic="false"/>
-				</textElement>
-				<text><![CDATA[Domicilio]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="346" y="41" width="57" height="20" uuid="fe9f715c-923c-420e-b930-7e6c754095c2"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true" isItalic="false"/>
-				</textElement>
-				<text><![CDATA[Localidad]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="403" y="41" width="60" height="20" uuid="b8cef210-11e4-45bf-8dd6-a88aa7b12b97"/>
@@ -118,7 +104,7 @@
 				<textFieldExpression><![CDATA[$F{CIF}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="106" y="0" width="93" height="20" uuid="1ce600a6-51ec-40bf-ba63-82ee7698aad7"/>
+				<reportElement x="106" y="0" width="154" height="20" uuid="1ce600a6-51ec-40bf-ba63-82ee7698aad7"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="7"/>
 					<paragraph leftIndent="2" rightIndent="2"/>
@@ -126,28 +112,12 @@
 				<textFieldExpression><![CDATA[$F{DESCRIPCION}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="199" y="0" width="65" height="20" uuid="ee5e3ac6-38f0-46fa-9701-198d80bd0b5a"/>
+				<reportElement x="260" y="0" width="143" height="20" uuid="ee5e3ac6-38f0-46fa-9701-198d80bd0b5a"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="7"/>
 					<paragraph leftIndent="2" rightIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{NOMBRE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="264" y="0" width="82" height="20" uuid="0e9093f8-bfc9-4c3c-8b60-c6dfce98cd38"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="7"/>
-					<paragraph leftIndent="2" rightIndent="2"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{DOMICILIO}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="346" y="0" width="57" height="20" uuid="5b0661e9-dc35-4d4a-828b-727106ee5b3d"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="7"/>
-					<paragraph leftIndent="2" rightIndent="2"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{LOCALIDAD}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="403" y="0" width="60" height="20" uuid="305bbc7f-9dc0-49af-8f50-f40c27872055"/>
