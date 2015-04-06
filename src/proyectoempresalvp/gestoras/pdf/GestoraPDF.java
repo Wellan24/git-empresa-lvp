@@ -44,6 +44,7 @@ import proyectoempresalvp.datos.FacturaExtra;
 import proyectoempresalvp.datos.FacturaExtraDetalles;
 import proyectoempresalvp.datos.FacturaMensual;
 import proyectoempresalvp.datos.Fecha;
+import proyectoempresalvp.datos.Tarea;
 import proyectoempresalvp.gestoras.Datos.GestoraDatos;
 import proyectoempresalvp.gestoras.Gestora;
 import proyectoempresalvp.gestoras.GestoraConfiguracion;
@@ -300,6 +301,53 @@ public class GestoraPDF {
             Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    
+    //SANTY
+    public static void generarPDFClientes() {
+        try {
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(GestoraPDF.class.getResource("/proyectoempresalvp/gestoras/pdf/ReporteClientes.jasper"));
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, new DataSource(new ArrayList<>(GestoraDatos.recuperarConDummy(new Cliente(), null, null))));
+
+            JRExporter exporter = new JRPdfExporter();
+            exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
+
+            File f = new File(GestoraConfiguracion.get("RUTA") + "/Temp/temporalClientes.pdf");
+            f.getParentFile().mkdirs();
+
+            exporter.setParameter(JRExporterParameter.OUTPUT_FILE, f);
+            exporter.exportReport();
+
+            Desktop.getDesktop().open(f);
+        } catch(JRException | IOException ex) {
+            Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    public static void generarPDFTareas() {
+        try {
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(GestoraPDF.class.getResource("/proyectoempresalvp/gestoras/pdf/ReporteTareas.jasper"));
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, new DataSource(new ArrayList<>(GestoraDatos.recuperarConDummy(new Tarea(), null, null))));
+
+            JRExporter exporter = new JRPdfExporter();
+            exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
+
+            File f = new File(GestoraConfiguracion.get("RUTA") + "/Temp/temporalTareas.pdf");
+            f.getParentFile().mkdirs();
+
+            exporter.setParameter(JRExporterParameter.OUTPUT_FILE, f);
+            exporter.exportReport();
+
+            Desktop.getDesktop().open(f);
+        } catch(JRException | IOException ex) {
+            Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
 
     public static void concatPDFs(ArrayList<InputStream> streamOfPDFFiles,
             OutputStream outputStream, boolean paginate) {
