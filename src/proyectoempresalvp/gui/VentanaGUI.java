@@ -727,6 +727,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         bImprime.setBackground(new java.awt.Color(38, 120, 196));
         bImprime.setText("Imprimir listado");
+        bImprime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bImprimeActionPerformed(evt);
+            }
+        });
 
         tablaClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -2600,6 +2605,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         );
 
         bImprimirTareas.setText("Imprimir Tareas");
+        bImprimirTareas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bImprimirTareasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPtareasLayout = new javax.swing.GroupLayout(jPtareas);
         jPtareas.setLayout(jPtareasLayout);
@@ -3069,6 +3079,14 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS, new ProcesadorContratos());
     }//GEN-LAST:event_bRenovarContratosActionPerformed
+
+    private void bImprimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimeActionPerformed
+        GestoraPDF.generarPDFClientes();
+    }//GEN-LAST:event_bImprimeActionPerformed
+
+    private void bImprimirTareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimirTareasActionPerformed
+        GestoraPDF.generarPDFTareas();
+    }//GEN-LAST:event_bImprimirTareasActionPerformed
 
     private void cambiarRuta() throws HeadlessException {
         JFileChooser elegir = new JFileChooser();
