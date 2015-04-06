@@ -5,10 +5,6 @@
  */
 package proyectoempresalvp.gestoras.Datos;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import proyectoempresalvp.datos.ArrayListDato;
 import proyectoempresalvp.datos.Cliente;
 import proyectoempresalvp.datos.Contrato;
@@ -17,8 +13,6 @@ import proyectoempresalvp.datos.Empleado;
 import proyectoempresalvp.datos.FacturaExtra;
 import proyectoempresalvp.datos.FacturaExtraDetalles;
 import proyectoempresalvp.datos.FacturaMensual;
-import proyectoempresalvp.datos.Fecha;
-import proyectoempresalvp.gestoras.GestoraBaseDatos;
 import proyectoempresalvp.gestoras.ObservadorGestoraDatos;
 import static proyectoempresalvp.gestoras.Datos.GestoraDatos.*;
 

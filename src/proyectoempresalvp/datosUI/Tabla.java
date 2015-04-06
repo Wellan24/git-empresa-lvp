@@ -9,8 +9,14 @@ import java.awt.AlphaComposite;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.TableModel;
+import org.apache.commons.collections.ListUtils;
 
 /**
  *
@@ -18,15 +24,18 @@ import javax.swing.table.TableModel;
  */
 public class Tabla extends JTable {
 
+    int[] seleccionAnterior;
+    int con = 0;
+
     public Tabla() {
         super();
         setOpaque(false);
-        setDefaultRenderer(Object.class, new TableRenderer());   
+        setDefaultRenderer(Object.class, new TableRenderer());
         setDefaultRenderer(Boolean.class, new TableRenderer());
         setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         setAutoCreateRowSorter(true);
         setRowHeight(20);
-        
+
     }
 
     @Override
@@ -46,7 +55,7 @@ public class Tabla extends JTable {
 
     @Override
     public void setModel(TableModel dataModel) {
-        super.setModel(dataModel); 
+        super.setModel(dataModel);
     }
 
 }

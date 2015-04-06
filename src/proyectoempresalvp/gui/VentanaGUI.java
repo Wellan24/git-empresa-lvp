@@ -73,8 +73,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         GestoraConfiguracion.recuperaConfiguracion();
         initDatos();
-        rellenarCamposConfiguracion();
-
+        rellenarCamposConfiguracion();        
         this.setLocationRelativeTo(null);
         this.setResizable(false);
     }
