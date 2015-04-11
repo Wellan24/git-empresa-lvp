@@ -30,6 +30,7 @@ public class GeneradorDeConfig {
         String contra = Gestora.devuelveHash("PASS");
         config.put("CONTRA", contra);
         config.put("RUTA", "D:/Clientes");
+        config.put("NUMPROXIMAFACTURA", 0);
         try(XMLEncoder out = new XMLEncoder(new FileOutputStream(ruta))) {
 
             HashMap<String, Object> hash = new HashMap(config);

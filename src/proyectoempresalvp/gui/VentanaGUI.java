@@ -3557,7 +3557,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         // Resto Tablas
         GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_TODO, new ProcesadorContratos());
 
-        ctProxFactura.setText(Integer.toString(GestoraFacturas.numeroUltimaFactura() + 1));
+        ctProxFactura.setText(Integer.toString(GestoraFacturas.numeroProximaFactura()));
     }
 
     private void comprobarTareas() {
@@ -3859,7 +3859,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES) {
 
             actualizarTabla(tablaFacMensuales, GestoraDatos.dameGestora().get(FacturaMensual.getTabla()));
-            ctProxFactura.setText(Integer.toString(GestoraFacturas.numeroUltimaFactura() + 1));
+            ctProxFactura.setText(Integer.toString(GestoraFacturas.numeroProximaFactura()));
         }
 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES_AÑO) {
