@@ -41,6 +41,7 @@ import proyectoempresalvp.gestoras.Datos.GestoraFacturas;
 import proyectoempresalvp.gestoras.Datos.GestoraTareas;
 import proyectoempresalvp.gestoras.Datos.Procesador;
 import proyectoempresalvp.gestoras.Datos.ProcesadorContratos;
+import proyectoempresalvp.gestoras.ListModel;
 import proyectoempresalvp.gestoras.ModeloTabla;
 import proyectoempresalvp.gestoras.ObservadorGestoraDatos;
 import proyectoempresalvp.gestoras.ObservadorTareas;
@@ -2794,7 +2795,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         if(seleccionado != -1) {
             int numero = (int) GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).get(seleccionado).get("NUMEROFACTURA");
             ctNumF.setText(Integer.toString(numero));
-            listaConceptos.setListData(conceptosFormateados(numero));
+            rellenaConceptosFacturaExtra(numero);
             refrescarCamposFacturaExtra(numero);
         }
     }//GEN-LAST:event_tablaFacExtraMouseClicked
@@ -3583,25 +3584,21 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         return Gestora.comprobarNumero(n);
     }
 
-    private String[] conceptosFormateados(int nFactura) {
+    private void rellenaConceptosFacturaExtra(int nFactura) {
 
         ArrayList<Dato> conceptos = GestoraDatos.recuperarConDummy(new FacturaExtraDetalles(), null, " where NUMERO = " + nFactura);
-        String[] dev = new String[conceptos.size()];
         Float suma = 0f;
 
-        for(int i = 0;i < dev.length;i++) {
+        for(int i = 0;i < conceptos.size();i++) {
 
             String importe = conceptos.get(i).get("IMPORTE").toString();
-            dev[i] = Gestora.completarConEspaciosBlancosIzq(conceptos.get(i).get("CONCEPTO").toString(), 70)
-                    + " | " + Gestora.stringLongitudFijaIzq(importe, "      ");
             suma += Float.parseFloat(importe);
         }
+        listaConceptos.setModel(new ListModel(conceptos));
         ctBaseIm.setText(suma.toString());
         Float iva = (suma * Float.parseFloat(ctporcenIva.getText()) / 100);
         ctIvaa.setText(iva.toString());
         ctTotal.setText(Float.toString(suma + iva));
-        Arrays.sort(dev);
-        return dev;
     }
 
     private void refrescarCamposFacturaExtra(int nFactura) {

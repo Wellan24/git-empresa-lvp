@@ -6,6 +6,7 @@
 package proyectoempresalvp.datos;
 
 import java.text.Collator;
+import proyectoempresalvp.gestoras.Gestora;
 
 /**
  *
@@ -122,5 +123,14 @@ public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtr
 //        return (Dato)this.clone();
         return new FacturaExtraDetalles(this);
     }
+
+    @Override
+    public String toString() {
+       
+        return Gestora.completarConEspaciosBlancosIzq(this.get("CONCEPTO").toString(), 50)
+                    + " | " + Gestora.stringLongitudFijaIzq(this.get("IMPORTE").toString(), "      ");
+    }
+    
+    
     
 }

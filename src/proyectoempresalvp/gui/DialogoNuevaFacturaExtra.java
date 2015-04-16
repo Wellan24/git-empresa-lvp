@@ -23,6 +23,8 @@ import proyectoempresalvp.datosUI.PanelImagen;
 import proyectoempresalvp.gestoras.Gestora;
 import proyectoempresalvp.gestoras.GestoraBaseDatos;
 import proyectoempresalvp.gestoras.Datos.GestoraDatos;
+import proyectoempresalvp.gestoras.GestoraConfiguracion;
+import proyectoempresalvp.gestoras.ListModel;
 import proyectoempresalvp.gestoras.UtilidadesTareas;
 
 /**
@@ -31,8 +33,7 @@ import proyectoempresalvp.gestoras.UtilidadesTareas;
  */
 public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
 
-    ArrayList<FacturaExtraDetalles> conceptos = new ArrayList();
-//  CAMBIAR EL IVA POR LA CONFIGURACION!!!!!!!!!!!!!!!!!!!!!!
+    ListModel modelo = new ListModel();
 
     /**
      * Creates new form DialogoNuevaFacturaExtra
@@ -44,9 +45,10 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
-        ctporcenIva.setText("21");
-        ctNumF.setText("" + GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).devuelveNumeroSiguiente());
+        ctporcenIva.setText(GestoraConfiguracion.get("IVA").toString());
+        ctNumF.setText(GestoraConfiguracion.get("NUMPROXIMAFACTURA").toString());
 
+        listaConceptos.setModel(modelo);
         comboNumeroCliente.setModel(new DefaultComboBoxModel(GestoraDatos.dameGestora().get("CLIENTES").devuelveTodasLasClaves()));
         comboNumeroCliente.addItem("NINGUNO");
         
@@ -429,12 +431,11 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
     private void bAñadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAñadeActionPerformed
 
         DialogoNuevaFacturaDetalles dialogo = new DialogoNuevaFacturaDetalles((JFrame) this.getParent(), true,
-                Integer.parseInt(ctNumF.getText()), conceptos.size());
+                Integer.parseInt(ctNumF.getText()), modelo.getSize());
         dialogo.setVisible(true);
         if(dialogo.getFactura() != null) {
 
-            conceptos.add(dialogo.getFactura());
-            listaConceptos.setListData(conceptosFormateados());
+            modelo.addDato(dialogo.getFactura());
             ctBaseIm.setText("" + (Float.parseFloat(ctBaseIm.getText().isEmpty()
                     ? "0" : ctBaseIm.getText())
                     + Float.parseFloat(dialogo.getFactura().get("IMPORTE").toString())));
@@ -465,19 +466,6 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_bCancelarActionPerformed
 
-    private String[] conceptosFormateados() {
-
-        String[] dev = new String[conceptos.size()];
-
-        for(int i = 0;i < dev.length;i++) {
-
-            dev[i] = Gestora.completarConEspaciosBlancosIzq(conceptos.get(i).get("CONCEPTO").toString(), 50)
-                    + " | " + Gestora.stringLongitudFijaIzq(conceptos.get(i).get("IMPORTE").toString(), "      ");
-        }
-
-        return dev;
-    }
-
     private boolean insertarFacturaExtra() {
         
         String fecha = ctFecha.getText();
@@ -502,9 +490,10 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
                     cliente.equals("NINGUNO") ? -1 : Integer.parseInt(cliente));//CLIENTE
 
             if(GestoraBaseDatos.insertarDato(nuevaFacturaExtra)) {
-                conceptos.stream().forEach((f) -> {
+                modelo.getLista().stream().forEach((f) -> {
                     GestoraBaseDatos.insertarDato(f);
                 });
+                GestoraConfiguracion.put("NUMPROXIMAFACTURA", (int) GestoraConfiguracion.get("NUMPROXIMAFACTURA") + 1);
                 GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASEXTRA);
                 return true;
             } else {
