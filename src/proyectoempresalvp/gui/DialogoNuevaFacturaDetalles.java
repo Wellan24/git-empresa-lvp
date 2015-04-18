@@ -34,6 +34,17 @@ public class DialogoNuevaFacturaDetalles extends javax.swing.JDialog {
         this.factura = factura;
         this.orden = orden;
     }
+    
+    public DialogoNuevaFacturaDetalles(java.awt.Frame parent, boolean modal, FacturaExtraDetalles f) {
+        super(parent, modal);
+        initComponents();
+        setLocationRelativeTo(null);
+        this.setTitle("Añadir Concepto");
+        factura = (int) f.get("NUMERO");
+        orden = (int) f.get("ORDEN");
+        tConcepto.setText(f.get("CONCEPTO").toString());
+        tPrecio.setText(f.get("IMPORTE").toString());
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -162,4 +173,8 @@ public class DialogoNuevaFacturaDetalles extends javax.swing.JDialog {
     private javax.swing.JTextArea tConcepto;
     private javax.swing.JTextField tPrecio;
     // End of variables declaration//GEN-END:variables
+
+    private void rellenarCampos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

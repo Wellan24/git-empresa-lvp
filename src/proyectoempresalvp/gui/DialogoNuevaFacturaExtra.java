@@ -51,7 +51,7 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
         listaConceptos.setModel(modelo);
         comboNumeroCliente.setModel(new DefaultComboBoxModel(GestoraDatos.dameGestora().get("CLIENTES").devuelveTodasLasClaves()));
         comboNumeroCliente.addItem("NINGUNO");
-        
+
         Fecha f = UtilidadesTareas.getFechaActual();
         ctFecha.setText(f.toString());
     }
@@ -136,8 +136,18 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
         });
 
         bEditar.setText("Editar");
+        bEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEditarActionPerformed(evt);
+            }
+        });
 
         bBorra.setText("Borrar");
+        bBorra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBorraActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -457,17 +467,44 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
     }//GEN-LAST:event_bAceptarActionPerformed
 
     private void comboNumeroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboNumeroClienteActionPerformed
-        
+
         refrescarCliente();
     }//GEN-LAST:event_comboNumeroClienteActionPerformed
 
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
-        
+
         this.dispose();
     }//GEN-LAST:event_bCancelarActionPerformed
 
-    private boolean insertarFacturaExtra() {
+    private void bEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditarActionPerformed
+
+        DialogoNuevaFacturaDetalles dialogo = new DialogoNuevaFacturaDetalles((JFrame) this.getParent(), true,
+                (FacturaExtraDetalles) modelo.getDato(listaConceptos.getSelectedIndex()));
+        dialogo.setVisible(true);
+        if(dialogo.getFactura() != null) {
+
+            modelo.eliminarDato(listaConceptos.getSelectedIndex());
+            modelo.addDato(dialogo.getFactura());
+            ctBaseIm.setText("" + (Float.parseFloat(ctBaseIm.getText().isEmpty()
+                    ? "0" : ctBaseIm.getText())
+                    + Float.parseFloat(dialogo.getFactura().get("IMPORTE").toString())));
+            float base = Float.parseFloat(ctBaseIm.getText().isEmpty()
+                    ? "0" : ctBaseIm.getText());
+            float iva = Float.parseFloat(ctporcenIva.getText().isEmpty()
+                    ? "0" : ctporcenIva.getText());
+            float total = (base * iva / 100);
+            ctIvaa.setText("" + (total));
+            ctTotal.setText("" + (total + base));
+        }
+    }//GEN-LAST:event_bEditarActionPerformed
+
+    private void bBorraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorraActionPerformed
         
+        modelo.eliminarDato(listaConceptos.getSelectedIndex());
+    }//GEN-LAST:event_bBorraActionPerformed
+
+    private boolean insertarFacturaExtra() {
+
         String fecha = ctFecha.getText();
 
         if(!Gestora.comprobarFormatoFechaCorrecto(fecha)) {
@@ -517,20 +554,19 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
             ctCodpos.setText(d.get("CP").toString());
             ctProvin.setText(d.get("PROVINCIA").toString());
             ctNcif.setText(d.get("CIF").toString());
-        }else{
-            
+        } else {
+
             Component[] cs = panelTexto.getComponents();
-            for(Component c : cs){
-                
+            for(Component c :cs) {
+
                 if(c instanceof JTextField)
-                    ((JTextField)c).setText("");
+                    ((JTextField) c).setText("");
             }
         }
     }
 
     private boolean comprobarNumero(String n) {
 
-        
         return n.isEmpty() ? false : Gestora.comprobarNumero(n);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
