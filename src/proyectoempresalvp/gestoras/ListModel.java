@@ -34,12 +34,14 @@ import proyectoempresalvp.datos.FacturaExtraDetalles;
     public Object getElementAt(int index) {
         return lista.get(index).toString();
     }
-    public void addDato(FacturaExtraDetalles f){
+    public void addDato(Dato f){
         lista.add(f);
+        Collections.sort(lista);
         this.fireIntervalAdded(this, getSize(), getSize()+1);
     }
     public Dato eliminarDato(int index0){
         Dato d = lista.remove(index0);
+        Collections.sort(lista);
         this.fireIntervalRemoved(index0, getSize(), getSize()+1);
         return d;
     }

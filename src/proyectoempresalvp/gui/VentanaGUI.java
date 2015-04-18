@@ -9,6 +9,7 @@ import java.awt.HeadlessException;
 import java.awt.Image;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -3135,14 +3136,17 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             DialogoNuevaFacturaDetalles dialogo = new DialogoNuevaFacturaDetalles(this, true,
                     (FacturaExtraDetalles) ((ListModel) listaConceptos.getModel()).getDato(listaConceptos.getSelectedIndex()));
             dialogo.setVisible(true);
-            if(dialogo.getFactura() != null) {
+            Dato d = dialogo.getFactura();
+            if(d != null) {
 
-                GestoraBaseDatos.updateDato(dialogo.getFactura());
+                GestoraBaseDatos.ejecutarSentenciaUpdate("update FACTURAEXTRADETALLES "
+                        + "set CONCEPTO=\'" + d.get("CONCEPTO") + "\' ,IMPORTE=\'" + d.get("IMPORTE") + 
+                        "\' where NUMERO = " + d.get("NUMERO") + " and ORDEN = " + d.get("ORDEN"));
                 ((ListModel) listaConceptos.getModel()).eliminarDato(listaConceptos.getSelectedIndex());
-                ((ListModel) listaConceptos.getModel()).addDato(dialogo.getFactura());
+                ((ListModel) listaConceptos.getModel()).addDato(d);
                 ctBaseIm.setText("" + (Float.parseFloat(ctBaseIm.getText().isEmpty()
                         ? "0" : ctBaseIm.getText())
-                        + Float.parseFloat(dialogo.getFactura().get("IMPORTE").toString())));
+                        + Float.parseFloat(d.get("IMPORTE").toString())));
                 float base = Float.parseFloat(ctBaseIm.getText().isEmpty()
                         ? "0" : ctBaseIm.getText());
                 float iva = Float.parseFloat(ctporcenIva.getText().isEmpty()
@@ -3155,10 +3159,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }//GEN-LAST:event_bEditarExtraActionPerformed
 
     private void bBorrarExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarExtraActionPerformed
-                
+
         Dato d = ((ListModel) listaConceptos.getModel()).eliminarDato(listaConceptos.getSelectedIndex());
-        GestoraBaseDatos.ejecutarSentenciaUpdate("Delete from " + d.devuelveNombreTablaDato() + 
-                " where NUMERO = " + d.get("NUMERO") + " and orden = " + d.get("ORDEN"));
+        GestoraBaseDatos.ejecutarSentenciaUpdate("Delete from " + d.devuelveNombreTablaDato()
+                + " where NUMERO = " + d.get("NUMERO") + " and orden = " + d.get("ORDEN"));
     }//GEN-LAST:event_bBorrarExtraActionPerformed
 
     private void cambiarRuta() throws HeadlessException {
