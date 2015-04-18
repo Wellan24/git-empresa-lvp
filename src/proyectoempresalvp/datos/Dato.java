@@ -11,7 +11,7 @@ import java.util.HashMap;
  *
  * @author Administrador
  */
-public abstract class Dato extends HashMap<String, Object> {
+public abstract class Dato extends HashMap<String, Object> implements Comparable<Dato> {
     
     public Dato(int initialCapacity) {
         super(initialCapacity);

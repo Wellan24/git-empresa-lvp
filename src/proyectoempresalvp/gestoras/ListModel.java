@@ -6,6 +6,8 @@
 package proyectoempresalvp.gestoras;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import javax.swing.AbstractListModel;
 import proyectoempresalvp.datos.Dato;
 import proyectoempresalvp.datos.FacturaExtraDetalles;
@@ -20,12 +22,10 @@ import proyectoempresalvp.datos.FacturaExtraDetalles;
 
     public ListModel() {
         lista = new ArrayList<>();
-    }   
-    
+    }       
     public ListModel(ArrayList<Dato> lista ) {
         this.lista = lista;
-    } 
-    
+    }     
     @Override
     public int getSize() {
         return lista.size();
@@ -38,14 +38,14 @@ import proyectoempresalvp.datos.FacturaExtraDetalles;
         lista.add(f);
         this.fireIntervalAdded(this, getSize(), getSize()+1);
     }
-    public void eliminarDato(int index0){
-        lista.remove(index0);
+    public Dato eliminarDato(int index0){
+        Dato d = lista.remove(index0);
         this.fireIntervalRemoved(index0, getSize(), getSize()+1);
+        return d;
     }
     public Dato getDato(int index){
         return lista.get(index);
     }
-
     public ArrayList<Dato> getLista() {
         return lista;
     }  

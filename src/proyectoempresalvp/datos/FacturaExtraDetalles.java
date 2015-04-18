@@ -12,7 +12,7 @@ import proyectoempresalvp.gestoras.Gestora;
  *
  * @author Administrador
  */
-public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtraDetalles>{
+public class FacturaExtraDetalles extends Dato{
 
     
     private static final String[] orden = {"NUMERO","ORDEN", "CONCEPTO", "IMPORTE"};
@@ -51,7 +51,7 @@ public class FacturaExtraDetalles extends Dato implements Comparable<FacturaExtr
         return tabla;
     }
     @Override
-    public int compareTo(FacturaExtraDetalles o) {
+    public int compareTo(Dato o) {
         
         Collator c = Collator.getInstance();
         c.setStrength(Collator.PRIMARY);

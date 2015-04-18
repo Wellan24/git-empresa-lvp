@@ -8,7 +8,7 @@ package proyectoempresalvp.datos;
 import java.text.Collator;
 import java.util.Date;
 
-public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
+public class FacturaMensual extends Dato {
 
     private static final String[] orden = {"NUMEROFACTURA", "NUMCONTRATO", "FECHA", "NUMCLIENTE", "DESCRIPCION", "CIF", "NOMBRE", "DOMICILIO",
         "LOCALIDAD", "CODIGOPOSTAL", "EUROSMES", "TANTOIVA", "REFMONEDA", "DIACOBRO", "FORMAPAGO", "PERIODO", "NUMPERIODO",
@@ -116,7 +116,7 @@ public class FacturaMensual extends Dato implements Comparable<FacturaMensual> {
     }
 
     @Override
-    public int compareTo(FacturaMensual o) {
+    public int compareTo(Dato o) {
 
         Collator c = Collator.getInstance();
         c.setStrength(Collator.PRIMARY);

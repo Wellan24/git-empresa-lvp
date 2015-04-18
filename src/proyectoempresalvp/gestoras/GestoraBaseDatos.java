@@ -181,6 +181,16 @@ public class GestoraBaseDatos {
         return false;
     }
 
+    public static boolean deleteDato(Dato d) {
+
+        if(comprobarExiste(d)) {
+
+            return ejecutarSentenciaUpdate("Delete from " +d.devuelveNombreTablaDato() + " where " + d.devuelveClave() + " = " + d.devuelveValorClave());
+        }
+
+        return false;
+    }
+    
     public static StringBuilder construyeSentenciaUpdate(Dato d) {
 
         String[] claves = d.devuelveOrdenDeColumnas();

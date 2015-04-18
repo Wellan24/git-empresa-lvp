@@ -53,5 +53,10 @@ public class Banco extends Dato{
         
         return new Banco(this);
     }
+
+    @Override
+    public int compareTo(Dato o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author Administrador
  */
-public class FacturaExtra extends Dato implements Comparable<FacturaExtra> {
+public class FacturaExtra extends Dato {
 
     private static final String[] orden = {"NUMEROFACTURA", "FECHA", "CIF", "NOMBRE", "DOMICILIO", "LOCALIDAD",
         "PROVINCIA", "CODIGOPOSTAL", "TANTOIVA", "EUROSNETO", "NUMEROCLIENTE"};
@@ -83,7 +83,7 @@ public class FacturaExtra extends Dato implements Comparable<FacturaExtra> {
     }
 
     @Override
-    public int compareTo(FacturaExtra o) {
+    public int compareTo(Dato o) {
 
         Collator c = Collator.getInstance();
         c.setStrength(Collator.PRIMARY);

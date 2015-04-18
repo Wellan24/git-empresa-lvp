@@ -1861,7 +1861,7 @@
                                   <Component id="jLabel53" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="ctBaseIm" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel54" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="ctporcenIva" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2026,6 +2026,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="A&#xf1;adir"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bA&#xf1;adirExtraActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
                       </AuxValues>
@@ -2034,6 +2037,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Editar"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bEditarExtraActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
                       </AuxValues>
@@ -2042,6 +2048,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Borrar"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bBorrarExtraActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
                       </AuxValues>

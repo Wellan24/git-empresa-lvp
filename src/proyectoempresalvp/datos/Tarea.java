@@ -104,5 +104,10 @@ public class Tarea extends Dato {
         
         return (Dato)this.clone();
     }
+
+    @Override
+    public int compareTo(Dato o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

@@ -74,7 +74,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         GestoraConfiguracion.recuperaConfiguracion();
         initDatos();
-        rellenarCamposConfiguracion();        
+        rellenarCamposConfiguracion();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
     }
@@ -1452,7 +1452,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel53)
                     .addComponent(ctBaseIm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel54)
                     .addComponent(ctporcenIva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1472,10 +1472,25 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jScrollPane15.setViewportView(listaConceptos);
 
         bAñadirExtra.setText("Añadir");
+        bAñadirExtra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAñadirExtraActionPerformed(evt);
+            }
+        });
 
         bEditarExtra.setText("Editar");
+        bEditarExtra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEditarExtraActionPerformed(evt);
+            }
+        });
 
         bBorrarExtra.setText("Borrar");
+        bBorrarExtra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBorrarExtraActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -3088,6 +3103,63 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void bImprimirTareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimirTareasActionPerformed
         GestoraPDF.generarPDFTareas();
     }//GEN-LAST:event_bImprimirTareasActionPerformed
+
+    private void bAñadirExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAñadirExtraActionPerformed
+
+        if(!ctNumF.getText().isEmpty()) {
+
+            DialogoNuevaFacturaDetalles dialogo = new DialogoNuevaFacturaDetalles(this, true,
+                    Integer.parseInt(ctNumF.getText()), listaConceptos.getModel().getSize());
+            dialogo.setVisible(true);
+            if(dialogo.getFactura() != null) {
+
+                GestoraBaseDatos.insertarDato(dialogo.getFactura());
+                ((ListModel) listaConceptos.getModel()).addDato(dialogo.getFactura());
+                ctBaseIm.setText("" + (Float.parseFloat(ctBaseIm.getText().isEmpty()
+                        ? "0" : ctBaseIm.getText())
+                        + Float.parseFloat(dialogo.getFactura().get("IMPORTE").toString())));
+                float base = Float.parseFloat(ctBaseIm.getText().isEmpty()
+                        ? "0" : ctBaseIm.getText());
+                float iva = Float.parseFloat(ctporcenIva.getText().isEmpty()
+                        ? "0" : ctporcenIva.getText());
+                float total = (base * iva / 100);
+                ctIvaa.setText("" + (total));
+                ctTotal.setText("" + (total + base));
+            }
+        }
+    }//GEN-LAST:event_bAñadirExtraActionPerformed
+
+    private void bEditarExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditarExtraActionPerformed
+        if(!ctNumF.getText().isEmpty()) {
+
+            DialogoNuevaFacturaDetalles dialogo = new DialogoNuevaFacturaDetalles(this, true,
+                    (FacturaExtraDetalles) ((ListModel) listaConceptos.getModel()).getDato(listaConceptos.getSelectedIndex()));
+            dialogo.setVisible(true);
+            if(dialogo.getFactura() != null) {
+
+                GestoraBaseDatos.updateDato(dialogo.getFactura());
+                ((ListModel) listaConceptos.getModel()).eliminarDato(listaConceptos.getSelectedIndex());
+                ((ListModel) listaConceptos.getModel()).addDato(dialogo.getFactura());
+                ctBaseIm.setText("" + (Float.parseFloat(ctBaseIm.getText().isEmpty()
+                        ? "0" : ctBaseIm.getText())
+                        + Float.parseFloat(dialogo.getFactura().get("IMPORTE").toString())));
+                float base = Float.parseFloat(ctBaseIm.getText().isEmpty()
+                        ? "0" : ctBaseIm.getText());
+                float iva = Float.parseFloat(ctporcenIva.getText().isEmpty()
+                        ? "0" : ctporcenIva.getText());
+                float total = (base * iva / 100);
+                ctIvaa.setText("" + (total));
+                ctTotal.setText("" + (total + base));
+            }
+        }
+    }//GEN-LAST:event_bEditarExtraActionPerformed
+
+    private void bBorrarExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarExtraActionPerformed
+                
+        Dato d = ((ListModel) listaConceptos.getModel()).eliminarDato(listaConceptos.getSelectedIndex());
+        GestoraBaseDatos.ejecutarSentenciaUpdate("Delete from " + d.devuelveNombreTablaDato() + 
+                " where NUMERO = " + d.get("NUMERO") + " and orden = " + d.get("ORDEN"));
+    }//GEN-LAST:event_bBorrarExtraActionPerformed
 
     private void cambiarRuta() throws HeadlessException {
         JFileChooser elegir = new JFileChooser();
