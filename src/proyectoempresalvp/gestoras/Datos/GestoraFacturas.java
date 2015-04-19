@@ -28,13 +28,21 @@ public class GestoraFacturas {
     public static void generarFacturas(String mes, String año) {
 
         String periodo = mes + año;
-        int numperiodo = Gestora.numeroPeriodoPorNombre(periodo);
+        int numperiodo = Gestora.numeroPeriodoPorNombre(periodo);        
         ArrayListDato<Dato> contratos = GestoraDatos.dameGestora().get(Contrato.getTabla());
 
-        GestoraBaseDatos.ejecutarSentenciaUpdate("Delete from FACTURAMENSUAL where NUMPERIODO = " + numperiodo);
+        ArrayListDato<Dato> facturas = GestoraDatos.recuperarConDummy(new FacturaMensual(), null, " where NUMPERIODO = " + numperiodo);
+        if(facturas.size() > 0){
+            actualizarFacturas(facturas, contratos);
+        }else{            
+            generaFacturas(contratos, periodo, numperiodo);
+        }
+        
+    }
 
+    private static void generaFacturas(ArrayListDato<Dato> contratos, String periodo, int numperiodo) {
         FacturaMensual facturaActual;
-
+        
         for(Dato c :contratos) {
             Dato cliente = GestoraDatos.recuperarConDummy(new Cliente(), null, " where NUMEROCLIENTE = " + c.get("NUMCLIENTE")).get(0);
             facturaActual = new FacturaMensual(numeroProximaFactura(), UtilidadesTareas.getFechaActual(),
@@ -45,6 +53,21 @@ public class GestoraFacturas {
                     (int) cliente.get("BANCOCOBRO"), "");
             GestoraBaseDatos.insertarDato(facturaActual);
             aumentarNumeroProximaFactura();
+        }
+    }
+
+    private static void actualizarFacturas(ArrayListDato<Dato> facturas, ArrayListDato<Dato> contratos) {
+        
+        for(Dato f : facturas){
+            Dato con = contratos.devuelveValorPorClave(f.get("NUMCONTRATO"));
+            Dato cliente = GestoraDatos.recuperarConDummy(new Cliente(), null, " where NUMEROCLIENTE = " + con.get("NUMCLIENTE")).get(0);
+            FacturaMensual facturaActual = new FacturaMensual((int) f.get("NUMEROFACTURA"), UtilidadesTareas.getFechaActual(),
+                    (int) con.get("NUMCLIENTE"), con.get("DESCRIPCION").toString(), (int) con.get("NUMCONTRATO"),
+                    cliente.get("CIF").toString(), cliente.get("NOMBRE").toString(), cliente.get("DOMICILIO").toString(),
+                    cliente.get("LOCALIDAD").toString(), cliente.get("CP").toString(), con.get("EUROSMES").toString(), (int) GestoraConfiguracion.get("IVA"), "",
+                    (int) con.get("DIACOBRO"), con.get("FORMAPAGO").toString(), f.get("PERIODO").toString(), (int)f.get("NUMPERIODO"), cliente.get("IBAN").toString(), 0,
+                    (int) cliente.get("BANCOCOBRO"), "");
+            GestoraBaseDatos.updateDato(facturaActual);
         }
     }
 

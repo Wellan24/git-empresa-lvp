@@ -145,7 +145,7 @@ public class Contrato extends Dato {
     @Override
     public Object devuelveValorClave() {
 
-        return "" + this.get("NUMCONTRATO");
+        return this.get("NUMCONTRATO");
     }
 
     public static String[] getOrden() {
