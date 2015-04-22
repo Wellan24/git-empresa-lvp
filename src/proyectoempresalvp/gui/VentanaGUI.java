@@ -1078,6 +1078,14 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addGap(24, 24, 24))
         );
 
+        jTableContratos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
         jTableContratos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jTableContratos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -3573,7 +3581,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }//GEN-LAST:event_ctContratoEurMesHCKeyTyped
 
     private void jTableContratosHCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableContratosHCMouseClicked
-        // TODO add your handling code here:
+        refrescarCamposHistoricoContratos();
     }//GEN-LAST:event_jTableContratosHCMouseClicked
 
     private void bModificarContratoHCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bModificarContratoHCActionPerformed
@@ -4217,6 +4225,38 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         cbContratoEstado.setSelected((boolean) con.get("ESTADO"));
 
     }
+    
+    //SANTY
+    private void refrescarCamposHistoricoContratos() {
+
+        Dato con = GestoraDatos.dameGestora().get("CONTRATOS").get(jTableContratosHC.getSelectedRow());
+
+        Dato d = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave(con.get("NUMCLIENTE"));
+        ctContratoDescripHC.setText(d.get("DESCRIPCION").toString());
+        ctContratoNombreHC.setText(d.get("NOMBRE").toString());
+        ctContratoLocHC.setText(d.get("LOCALIDAD").toString());
+        ctContratoDomicHC.setText(d.get("DOMICILIO").toString());
+        ctContratoCpHC.setText(d.get("CP").toString());
+        ctContratoProvHC.setText(d.get("PROVINCIA").toString());
+        ctContratoNifHC.setText(d.get("CIF").toString());
+        ctContratoTlfHC.setText(d.get("TLFCLIENTE").toString());
+        ctContratoIbanHC.setText(d.get("IBAN").toString());
+
+        ctContratoNumHC.setText(con.get("NUMCONTRATO").toString());
+        ctContratoNumCliHC.setText(con.get("NUMCLIENTE").toString());
+        ctContratoDescripHC.setText(con.get("DESCRIPCION").toString());
+        ctContratoInicioHC.setText(con.get("INICIOCONTRATO").toString());
+        ctContratoFinHC.setText(con.get("FINCONTRATO").toString());
+        ctContratoEurAnioHC.setText(con.get("EUROSAÑO").toString());
+        ctContratoEurMesHC.setText(con.get("EUROSMES").toString());
+        ctContratoFormPagoHC.setText(con.get("FORMAPAGO").toString());
+        ctContratoDiaCobroHC.setText(con.get("DIACOBRO").toString());
+        ctContratoIvaHC.setText(con.get("TANTOIVA").toString());
+        cbContratoEstadoHC.setSelected((boolean) con.get("ESTADO"));
+
+    }
+    
+    
 
     private void refrescarCamposEmpleados() {
 
@@ -4403,6 +4443,15 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 tAreaInicioContratos.setText(procesador.getProcesado().toString());
             }
         }
+        
+        //SANTY
+        if(datoActualizado == GestoraDatos.ACTUALIZAR_CONTRATOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
+            actualizarTabla(jTableContratosHC, GestoraDatos.dameGestora().get(Contrato.getTabla()));
+            if(procesador != null) {
+                tAreaInicioContratos.setText(procesador.getProcesado().toString());
+            }
+        }
+        
 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES) {
 
