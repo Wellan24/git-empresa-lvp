@@ -3197,6 +3197,579 @@
                         </Container>
                       </SubComponents>
                     </Container>
+                    <Container class="javax.swing.JPanel" name="jPcontratosHC">
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="PanelImagen.dameNuevoPanelSinLetras()"/>
+                      </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                          <JTabbedPaneConstraints tabName="HISTORICO CONTRATOS">
+                            <Property name="tabTitle" type="java.lang.String" value="HISTORICO CONTRATOS"/>
+                          </JTabbedPaneConstraints>
+                        </Constraint>
+                      </Constraints>
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+                                  <Component id="jPgestionhc" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="0" pref="25" max="32767" attributes="0"/>
+                                  <Component id="jPgestionhc" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="24" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Container class="javax.swing.JPanel" name="jPgestionhc">
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="PanelImagen.dameNuevoPanelSinLetras()"/>
+                            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jPgestion.setOpaque(false);"/>
+                          </AuxValues>
+
+                          <Layout>
+                            <DimensionLayout dim="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="bNuevoContrHC" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="bModificarContratoHC" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="bImprimirListadoHC" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="bRenovarContratosHC" min="-2" pref="144" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jScrollPane11" alignment="0" min="-2" pref="636" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace pref="54" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jPanelDatosCliHC" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jPanelDatosContrHC" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                            </DimensionLayout>
+                            <DimensionLayout dim="1">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jPanelDatosCliHC" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="jPanelDatosContrHC" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jScrollPane11" max="32767" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="bModificarContratoHC" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                                  <Component id="bNuevoContrHC" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                                  <Component id="bImprimirListadoHC" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                                  <Component id="bRenovarContratosHC" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace pref="150" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                            </DimensionLayout>
+                          </Layout>
+                          <SubComponents>
+                            <Container class="javax.swing.JPanel" name="jPanelDatosCliHC">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="99" red="66" type="rgb"/>
+                                </Property>
+                              </Properties>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JPanelTranslucido()"/>
+                              </AuxValues>
+
+                              <Layout>
+                                <DimensionLayout dim="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="jLabel119" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="jLabel121" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="jLabel124" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="jLabel125" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="jLabel126" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="jLabel127" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="jLabel122" alignment="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jLabel123" max="32767" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jLabel128" max="32767" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="ctContratoIbanHC" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="ctContratoLocHC" alignment="0" max="32767" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="ctContratoNumCliHC" min="-2" pref="63" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="jLabel120" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="ctContratoDescripHC" min="-2" pref="146" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="ctContratoNombreHC" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="ctContratoDomicHC" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="ctContratoCpHC" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="ctContratoProvHC" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="ctContratoNifHC" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="ctContratoTlfHC" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                                <DimensionLayout dim="1">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel119" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel120" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ctContratoDescripHC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ctContratoNumCliHC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel121" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ctContratoNombreHC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel122" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ctContratoDomicHC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel123" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ctContratoLocHC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel124" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ctContratoCpHC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel125" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ctContratoProvHC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel126" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ctContratoNifHC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel127" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ctContratoTlfHC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="ctContratoIbanHC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel128" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace pref="38" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                              </Layout>
+                              <SubComponents>
+                                <Component class="javax.swing.JLabel" name="jLabel119">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="N&#xba; Cliente:"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel120">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="Descripci&#xf3;n:"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel121">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="Nombre:"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel122">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="Domicilio:"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel123">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="Localidad:"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel124">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="CP:"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel125">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="Provincia:"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel126">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="NIF/CIF:"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel127">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="Tel&#xe9;fono:"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel128">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="IBAN"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="ctContratoDescripHC">
+                                  <Properties>
+                                    <Property name="editable" type="boolean" value="false"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="ctContratoNombreHC">
+                                  <Properties>
+                                    <Property name="editable" type="boolean" value="false"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="ctContratoDomicHC">
+                                  <Properties>
+                                    <Property name="editable" type="boolean" value="false"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="ctContratoLocHC">
+                                  <Properties>
+                                    <Property name="editable" type="boolean" value="false"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="ctContratoCpHC">
+                                  <Properties>
+                                    <Property name="editable" type="boolean" value="false"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="ctContratoProvHC">
+                                  <Properties>
+                                    <Property name="editable" type="boolean" value="false"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="ctContratoNifHC">
+                                  <Properties>
+                                    <Property name="editable" type="boolean" value="false"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="ctContratoTlfHC">
+                                  <Properties>
+                                    <Property name="editable" type="boolean" value="false"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="ctContratoIbanHC">
+                                  <Properties>
+                                    <Property name="editable" type="boolean" value="false"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="ctContratoNumCliHC">
+                                </Component>
+                              </SubComponents>
+                            </Container>
+                            <Container class="javax.swing.JPanel" name="jPanelDatosContrHC">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="99" red="66" type="rgb"/>
+                                </Property>
+                              </Properties>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JPanelTranslucido()"/>
+                              </AuxValues>
+
+                              <Layout>
+                                <DimensionLayout dim="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="24" pref="24" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="jLabel129" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabel134" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Component id="jLabel136" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                          <Component id="ctContratoDiaCobroHC" min="-2" pref="42" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Component id="jLabel137" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                          <Component id="cbContratoEstadoHC" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="jLabel132" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
+                                                      <Component id="jLabel131" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
+                                                      <Component id="jLabel133" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Component id="jLabel130" min="-2" pref="96" max="-2" attributes="0"/>
+                                                          <EmptySpace max="32767" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="ctContratoNumHC" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
+                                                              <Group type="102" alignment="0" attributes="0">
+                                                                  <Group type="103" groupAlignment="1" attributes="0">
+                                                                      <Component id="ctContratoIvaHC" alignment="1" min="-2" pref="92" max="-2" attributes="0"/>
+                                                                      <Component id="ctContratoInicioHC" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
+                                                                  </Group>
+                                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                                  <Component id="jLabel135" min="-2" max="-2" attributes="0"/>
+                                                              </Group>
+                                                          </Group>
+                                                      </Group>
+                                                  </Group>
+                                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="ctContratoFinHC" alignment="0" pref="94" max="32767" attributes="0"/>
+                                                      <Component id="ctContratoFormPagoHC" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="ctContratoEurAnioHC" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="ctContratoEurMesHC" alignment="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                                <DimensionLayout dim="1">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace pref="25" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                                  <Component id="jLabel129" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="ctContratoNumHC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel137" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="cbContratoEstadoHC" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel130" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ctContratoInicioHC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel135" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ctContratoFinHC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="ctContratoEurAnioHC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel131" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel132" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ctContratoEurMesHC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel133" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ctContratoFormPagoHC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel136" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ctContratoDiaCobroHC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel134" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ctContratoIvaHC" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                              </Layout>
+                              <SubComponents>
+                                <Component class="javax.swing.JLabel" name="jLabel129">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="N&#xba; Contrato:"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel130">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="Periodo Contrato:"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel131">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="Importe Anual sin IVA (Euros):"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel132">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="Importe Mensual sin IVA (Euros):"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel133">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="Forma de Pago:"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="ctContratoNumHC">
+                                  <Properties>
+                                    <Property name="editable" type="boolean" value="false"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel134">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="IVA Contrato:"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="ctContratoInicioHC">
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ctContratoInicioHCActionPerformed"/>
+                                  </Events>
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel135">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="A"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="ctContratoFinHC">
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="ctContratoEurAnioHC">
+                                  <Properties>
+                                    <Property name="horizontalAlignment" type="int" value="4"/>
+                                  </Properties>
+                                  <Events>
+                                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ctContratoEurAnioHCKeyTyped"/>
+                                  </Events>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="ctContratoEurMesHC">
+                                  <Properties>
+                                    <Property name="horizontalAlignment" type="int" value="4"/>
+                                  </Properties>
+                                  <Events>
+                                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ctContratoEurMesHCKeyTyped"/>
+                                  </Events>
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="ctContratoFormPagoHC">
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="ctContratoIvaHC">
+                                </Component>
+                                <Component class="javax.swing.JTextField" name="ctContratoDiaCobroHC">
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel136">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="D&#xed;a Cobro:"/>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JCheckBox" name="cbContratoEstadoHC">
+                                </Component>
+                                <Component class="javax.swing.JLabel" name="jLabel137">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="Estado:"/>
+                                  </Properties>
+                                </Component>
+                              </SubComponents>
+                            </Container>
+                            <Container class="javax.swing.JScrollPane" name="jScrollPane11">
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new ScrollPaneTranslucido()"/>
+                                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                              </AuxValues>
+
+                              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                              <SubComponents>
+                                <Component class="javax.swing.JTable" name="jTableContratosHC">
+                                  <Properties>
+                                    <Property name="autoResizeMode" type="int" value="0"/>
+                                  </Properties>
+                                  <Events>
+                                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableContratosHCMouseClicked"/>
+                                  </Events>
+                                  <AuxValues>
+                                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Tabla()"/>
+                                  </AuxValues>
+                                </Component>
+                              </SubComponents>
+                            </Container>
+                            <Component class="javax.swing.JButton" name="bModificarContratoHC">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Modificar Contrato"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bModificarContratoHCActionPerformed"/>
+                              </Events>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                              </AuxValues>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="bNuevoContrHC">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Nuevo Contrato"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bNuevoContrHCActionPerformed"/>
+                              </Events>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                              </AuxValues>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="bImprimirListadoHC">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Imprimir Listado"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bImprimirListadoHCActionPerformed"/>
+                              </Events>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                              </AuxValues>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="bRenovarContratosHC">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Renovar Contratos"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bRenovarContratosHCActionPerformed"/>
+                              </Events>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                              </AuxValues>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                      </SubComponents>
+                    </Container>
                   </SubComponents>
                 </Container>
               </SubComponents>

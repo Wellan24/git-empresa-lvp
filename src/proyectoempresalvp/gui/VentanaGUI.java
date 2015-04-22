@@ -350,6 +350,54 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         ctBas = new javax.swing.JTextField();
         ctIv = new javax.swing.JTextField();
         ctTotfac = new javax.swing.JTextField();
+        jPcontratosHC = PanelImagen.dameNuevoPanelSinLetras();
+        jPgestionhc = PanelImagen.dameNuevoPanelSinLetras();
+        jPanelDatosCliHC = new JPanelTranslucido();
+        jLabel119 = new javax.swing.JLabel();
+        jLabel120 = new javax.swing.JLabel();
+        jLabel121 = new javax.swing.JLabel();
+        jLabel122 = new javax.swing.JLabel();
+        jLabel123 = new javax.swing.JLabel();
+        jLabel124 = new javax.swing.JLabel();
+        jLabel125 = new javax.swing.JLabel();
+        jLabel126 = new javax.swing.JLabel();
+        jLabel127 = new javax.swing.JLabel();
+        jLabel128 = new javax.swing.JLabel();
+        ctContratoDescripHC = new javax.swing.JTextField();
+        ctContratoNombreHC = new javax.swing.JTextField();
+        ctContratoDomicHC = new javax.swing.JTextField();
+        ctContratoLocHC = new javax.swing.JTextField();
+        ctContratoCpHC = new javax.swing.JTextField();
+        ctContratoProvHC = new javax.swing.JTextField();
+        ctContratoNifHC = new javax.swing.JTextField();
+        ctContratoTlfHC = new javax.swing.JTextField();
+        ctContratoIbanHC = new javax.swing.JTextField();
+        ctContratoNumCliHC = new javax.swing.JTextField();
+        jPanelDatosContrHC = new JPanelTranslucido();
+        jLabel129 = new javax.swing.JLabel();
+        jLabel130 = new javax.swing.JLabel();
+        jLabel131 = new javax.swing.JLabel();
+        jLabel132 = new javax.swing.JLabel();
+        jLabel133 = new javax.swing.JLabel();
+        ctContratoNumHC = new javax.swing.JTextField();
+        jLabel134 = new javax.swing.JLabel();
+        ctContratoInicioHC = new javax.swing.JTextField();
+        jLabel135 = new javax.swing.JLabel();
+        ctContratoFinHC = new javax.swing.JTextField();
+        ctContratoEurAnioHC = new javax.swing.JTextField();
+        ctContratoEurMesHC = new javax.swing.JTextField();
+        ctContratoFormPagoHC = new javax.swing.JTextField();
+        ctContratoIvaHC = new javax.swing.JTextField();
+        ctContratoDiaCobroHC = new javax.swing.JTextField();
+        jLabel136 = new javax.swing.JLabel();
+        cbContratoEstadoHC = new javax.swing.JCheckBox();
+        jLabel137 = new javax.swing.JLabel();
+        jScrollPane11 = new ScrollPaneTranslucido();
+        jTableContratosHC = new Tabla();
+        bModificarContratoHC = new Boton();
+        bNuevoContrHC = new Boton();
+        bImprimirListadoHC = new Boton();
+        bRenovarContratosHC = new Boton();
         jPempleados = PanelImagen.dameNuevoPanelSinLetras();
         jPdatosPer = new JPanelTranslucido();
         jLabel18 = new javax.swing.JLabel();
@@ -2228,6 +2276,353 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         jPiva.addTab("HISTORICO FACTURAS", jPhistorico);
 
+        jPgestion.setOpaque(false);
+
+        jPanelDatosCliHC.setBackground(new java.awt.Color(102, 153, 255));
+
+        jLabel119.setText("Nº Cliente:");
+
+        jLabel120.setText("Descripción:");
+
+        jLabel121.setText("Nombre:");
+
+        jLabel122.setText("Domicilio:");
+
+        jLabel123.setText("Localidad:");
+
+        jLabel124.setText("CP:");
+
+        jLabel125.setText("Provincia:");
+
+        jLabel126.setText("NIF/CIF:");
+
+        jLabel127.setText("Teléfono:");
+
+        jLabel128.setText("IBAN");
+
+        ctContratoDescripHC.setEditable(false);
+
+        ctContratoNombreHC.setEditable(false);
+
+        ctContratoDomicHC.setEditable(false);
+
+        ctContratoLocHC.setEditable(false);
+
+        ctContratoCpHC.setEditable(false);
+
+        ctContratoProvHC.setEditable(false);
+
+        ctContratoNifHC.setEditable(false);
+
+        ctContratoTlfHC.setEditable(false);
+
+        ctContratoIbanHC.setEditable(false);
+
+        javax.swing.GroupLayout jPanelDatosCliHCLayout = new javax.swing.GroupLayout(jPanelDatosCliHC);
+        jPanelDatosCliHC.setLayout(jPanelDatosCliHCLayout);
+        jPanelDatosCliHCLayout.setHorizontalGroup(
+            jPanelDatosCliHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDatosCliHCLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelDatosCliHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelDatosCliHCLayout.createSequentialGroup()
+                        .addGroup(jPanelDatosCliHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel119, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel121, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel124, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel125, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel126, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel127, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel122, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(14, 14, 14))
+                    .addGroup(jPanelDatosCliHCLayout.createSequentialGroup()
+                        .addComponent(jLabel123, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(jPanelDatosCliHCLayout.createSequentialGroup()
+                        .addComponent(jLabel128, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(21, 21, 21)))
+                .addGroup(jPanelDatosCliHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ctContratoIbanHC)
+                    .addComponent(ctContratoLocHC)
+                    .addGroup(jPanelDatosCliHCLayout.createSequentialGroup()
+                        .addComponent(ctContratoNumCliHC, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel120)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ctContratoDescripHC, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ctContratoNombreHC)
+                    .addComponent(ctContratoDomicHC, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ctContratoCpHC, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ctContratoProvHC, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ctContratoNifHC, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ctContratoTlfHC))
+                .addGap(23, 23, 23))
+        );
+        jPanelDatosCliHCLayout.setVerticalGroup(
+            jPanelDatosCliHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDatosCliHCLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanelDatosCliHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel119)
+                    .addComponent(jLabel120)
+                    .addComponent(ctContratoDescripHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ctContratoNumCliHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelDatosCliHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel121)
+                    .addComponent(ctContratoNombreHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addGroup(jPanelDatosCliHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel122)
+                    .addComponent(ctContratoDomicHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelDatosCliHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel123)
+                    .addComponent(ctContratoLocHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelDatosCliHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel124)
+                    .addComponent(ctContratoCpHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelDatosCliHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel125)
+                    .addComponent(ctContratoProvHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelDatosCliHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel126)
+                    .addComponent(ctContratoNifHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelDatosCliHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel127)
+                    .addComponent(ctContratoTlfHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelDatosCliHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ctContratoIbanHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel128))
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+
+        jPanelDatosContrHC.setBackground(new java.awt.Color(102, 153, 255));
+
+        jLabel129.setText("Nº Contrato:");
+
+        jLabel130.setText("Periodo Contrato:");
+
+        jLabel131.setText("Importe Anual sin IVA (Euros):");
+
+        jLabel132.setText("Importe Mensual sin IVA (Euros):");
+
+        jLabel133.setText("Forma de Pago:");
+
+        ctContratoNumHC.setEditable(false);
+
+        jLabel134.setText("IVA Contrato:");
+
+        ctContratoInicioHC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ctContratoInicioHCActionPerformed(evt);
+            }
+        });
+
+        jLabel135.setText("A");
+
+        ctContratoEurAnioHC.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        ctContratoEurAnioHC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ctContratoEurAnioHCKeyTyped(evt);
+            }
+        });
+
+        ctContratoEurMesHC.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        ctContratoEurMesHC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ctContratoEurMesHCKeyTyped(evt);
+            }
+        });
+
+        jLabel136.setText("Día Cobro:");
+
+        jLabel137.setText("Estado:");
+
+        javax.swing.GroupLayout jPanelDatosContrHCLayout = new javax.swing.GroupLayout(jPanelDatosContrHC);
+        jPanelDatosContrHC.setLayout(jPanelDatosContrHCLayout);
+        jPanelDatosContrHCLayout.setHorizontalGroup(
+            jPanelDatosContrHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDatosContrHCLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(jPanelDatosContrHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelDatosContrHCLayout.createSequentialGroup()
+                        .addGroup(jPanelDatosContrHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel129)
+                            .addComponent(jLabel134))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanelDatosContrHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDatosContrHCLayout.createSequentialGroup()
+                                .addComponent(jLabel136)
+                                .addGap(18, 18, 18)
+                                .addComponent(ctContratoDiaCobroHC, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDatosContrHCLayout.createSequentialGroup()
+                                .addComponent(jLabel137)
+                                .addGap(18, 18, 18)
+                                .addComponent(cbContratoEstadoHC))))
+                    .addGroup(jPanelDatosContrHCLayout.createSequentialGroup()
+                        .addGroup(jPanelDatosContrHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel132, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel131, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel133)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDatosContrHCLayout.createSequentialGroup()
+                                .addComponent(jLabel130, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanelDatosContrHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ctContratoNumHC, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanelDatosContrHCLayout.createSequentialGroup()
+                                        .addGroup(jPanelDatosContrHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(ctContratoIvaHC, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ctContratoInicioHC, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel135)))))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelDatosContrHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ctContratoFinHC, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                            .addComponent(ctContratoFormPagoHC)
+                            .addComponent(ctContratoEurAnioHC)
+                            .addComponent(ctContratoEurMesHC))))
+                .addGap(19, 19, 19))
+        );
+        jPanelDatosContrHCLayout.setVerticalGroup(
+            jPanelDatosContrHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDatosContrHCLayout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addGroup(jPanelDatosContrHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelDatosContrHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel129)
+                        .addComponent(ctContratoNumHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel137))
+                    .addComponent(cbContratoEstadoHC))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelDatosContrHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel130)
+                    .addComponent(ctContratoInicioHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel135)
+                    .addComponent(ctContratoFinHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelDatosContrHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ctContratoEurAnioHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel131))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelDatosContrHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel132)
+                    .addComponent(ctContratoEurMesHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelDatosContrHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel133)
+                    .addComponent(ctContratoFormPagoHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelDatosContrHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel136)
+                    .addComponent(ctContratoDiaCobroHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel134)
+                    .addComponent(ctContratoIvaHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24))
+        );
+
+        jTableContratosHC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTableContratosHC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableContratosHCMouseClicked(evt);
+            }
+        });
+        jScrollPane11.setViewportView(jTableContratosHC);
+
+        bModificarContratoHC.setText("Modificar Contrato");
+        bModificarContratoHC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bModificarContratoHCActionPerformed(evt);
+            }
+        });
+
+        bNuevoContrHC.setText("Nuevo Contrato");
+        bNuevoContrHC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bNuevoContrHCActionPerformed(evt);
+            }
+        });
+
+        bImprimirListadoHC.setText("Imprimir Listado");
+        bImprimirListadoHC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bImprimirListadoHCActionPerformed(evt);
+            }
+        });
+
+        bRenovarContratosHC.setText("Renovar Contratos");
+        bRenovarContratosHC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bRenovarContratosHCActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPgestionhcLayout = new javax.swing.GroupLayout(jPgestionhc);
+        jPgestionhc.setLayout(jPgestionhcLayout);
+        jPgestionhcLayout.setHorizontalGroup(
+            jPgestionhcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPgestionhcLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(jPgestionhcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPgestionhcLayout.createSequentialGroup()
+                        .addComponent(bNuevoContrHC)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(bModificarContratoHC)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bImprimirListadoHC)
+                        .addGap(18, 18, 18)
+                        .addComponent(bRenovarContratosHC, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGroup(jPgestionhcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanelDatosCliHC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelDatosContrHC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(47, 47, 47))
+        );
+        jPgestionhcLayout.setVerticalGroup(
+            jPgestionhcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPgestionhcLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(jPgestionhcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPgestionhcLayout.createSequentialGroup()
+                        .addComponent(jPanelDatosCliHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanelDatosContrHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPgestionhcLayout.createSequentialGroup()
+                        .addComponent(jScrollPane11)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPgestionhcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bModificarContratoHC, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bNuevoContrHC, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bImprimirListadoHC, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bRenovarContratosHC, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(150, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPcontratosHCLayout = new javax.swing.GroupLayout(jPcontratosHC);
+        jPcontratosHC.setLayout(jPcontratosHCLayout);
+        jPcontratosHCLayout.setHorizontalGroup(
+            jPcontratosHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPcontratosHCLayout.createSequentialGroup()
+                .addGap(0, 12, Short.MAX_VALUE)
+                .addComponent(jPgestionhc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 12, Short.MAX_VALUE))
+        );
+        jPcontratosHCLayout.setVerticalGroup(
+            jPcontratosHCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPcontratosHCLayout.createSequentialGroup()
+                .addGap(0, 25, Short.MAX_VALUE)
+                .addComponent(jPgestionhc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 24, Short.MAX_VALUE))
+        );
+
+        jPiva.addTab("HISTORICO CONTRATOS", jPcontratosHC);
+
         javax.swing.GroupLayout jPprogramaLayout = new javax.swing.GroupLayout(jPprograma);
         jPprograma.setLayout(jPprogramaLayout);
         jPprogramaLayout.setHorizontalGroup(
@@ -3165,6 +3560,38 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 + " where NUMERO = " + d.get("NUMERO") + " and orden = " + d.get("ORDEN"));
     }//GEN-LAST:event_bBorrarExtraActionPerformed
 
+    private void ctContratoInicioHCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctContratoInicioHCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ctContratoInicioHCActionPerformed
+
+    private void ctContratoEurAnioHCKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ctContratoEurAnioHCKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ctContratoEurAnioHCKeyTyped
+
+    private void ctContratoEurMesHCKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ctContratoEurMesHCKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ctContratoEurMesHCKeyTyped
+
+    private void jTableContratosHCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableContratosHCMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTableContratosHCMouseClicked
+
+    private void bModificarContratoHCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bModificarContratoHCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bModificarContratoHCActionPerformed
+
+    private void bNuevoContrHCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNuevoContrHCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bNuevoContrHCActionPerformed
+
+    private void bImprimirListadoHCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimirListadoHCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bImprimirListadoHCActionPerformed
+
+    private void bRenovarContratosHCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRenovarContratosHCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bRenovarContratosHCActionPerformed
+
     private void cambiarRuta() throws HeadlessException {
         JFileChooser elegir = new JFileChooser();
         elegir.setApproveButtonText("Elegir");
@@ -3279,6 +3706,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JButton bImprimirFacturaExtra;
     private javax.swing.JButton bImprimirFacturas;
     private javax.swing.JButton bImprimirListado;
+    private javax.swing.JButton bImprimirListadoHC;
     private javax.swing.JButton bImprimirTareas;
     private javax.swing.JButton bInicioActualizarContratos;
     private javax.swing.JButton bInicioActualizarTareas;
@@ -3286,11 +3714,14 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JButton bModifFac;
     private javax.swing.JButton bModificar;
     private javax.swing.JButton bModificarContrato;
+    private javax.swing.JButton bModificarContratoHC;
     private javax.swing.JButton bNuevaFac;
     private javax.swing.JButton bNuevo;
     private javax.swing.JButton bNuevoContr;
+    private javax.swing.JButton bNuevoContrHC;
     private javax.swing.JButton bPrevisual;
     private javax.swing.JButton bRenovarContratos;
+    private javax.swing.JButton bRenovarContratosHC;
     private javax.swing.JButton bSeleccionaRuta;
     private javax.swing.JButton bTarBorrar;
     private javax.swing.JButton bTarGuardar;
@@ -3311,6 +3742,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.ButtonGroup buttonGroupTipoRecibos;
     private javax.swing.JComboBox cbAño;
     private javax.swing.JCheckBox cbContratoEstado;
+    private javax.swing.JCheckBox cbContratoEstadoHC;
     private javax.swing.JComboBox cbPeriodoAño;
     private javax.swing.JComboBox cbPeriodoMes;
     private javax.swing.JTextField ctBas;
@@ -3341,23 +3773,41 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JTextField ctConfiguracionIvaNuevo;
     private javax.swing.JTextField ctConfirmarClave;
     private javax.swing.JTextField ctContratoCp;
+    private javax.swing.JTextField ctContratoCpHC;
     private javax.swing.JTextField ctContratoDescrip;
+    private javax.swing.JTextField ctContratoDescripHC;
     private javax.swing.JTextField ctContratoDiaCobro1;
+    private javax.swing.JTextField ctContratoDiaCobroHC;
     private javax.swing.JTextField ctContratoDomic;
+    private javax.swing.JTextField ctContratoDomicHC;
     private javax.swing.JTextField ctContratoEurAnio;
+    private javax.swing.JTextField ctContratoEurAnioHC;
     private javax.swing.JTextField ctContratoEurMes;
+    private javax.swing.JTextField ctContratoEurMesHC;
     private javax.swing.JTextField ctContratoFin;
+    private javax.swing.JTextField ctContratoFinHC;
     private javax.swing.JTextField ctContratoFormPago;
+    private javax.swing.JTextField ctContratoFormPagoHC;
     private javax.swing.JTextField ctContratoIban;
+    private javax.swing.JTextField ctContratoIbanHC;
     private javax.swing.JTextField ctContratoInicio;
+    private javax.swing.JTextField ctContratoInicioHC;
     private javax.swing.JTextField ctContratoIva;
+    private javax.swing.JTextField ctContratoIvaHC;
     private javax.swing.JTextField ctContratoLoc;
+    private javax.swing.JTextField ctContratoLocHC;
     private javax.swing.JTextField ctContratoNif;
+    private javax.swing.JTextField ctContratoNifHC;
     private javax.swing.JTextField ctContratoNombre;
+    private javax.swing.JTextField ctContratoNombreHC;
     private javax.swing.JTextField ctContratoNum;
     private javax.swing.JTextField ctContratoNumCli;
+    private javax.swing.JTextField ctContratoNumCliHC;
+    private javax.swing.JTextField ctContratoNumHC;
     private javax.swing.JTextField ctContratoProv;
+    private javax.swing.JTextField ctContratoProvHC;
     private javax.swing.JTextField ctContratoTlf;
+    private javax.swing.JTextField ctContratoTlfHC;
     private javax.swing.JTextField ctDomi;
     private javax.swing.JTextField ctDomic;
     private javax.swing.JTextField ctEmpleadoAnagram;
@@ -3411,8 +3861,27 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JLabel jLabel104;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel112;
+    private javax.swing.JLabel jLabel119;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel120;
+    private javax.swing.JLabel jLabel121;
+    private javax.swing.JLabel jLabel122;
+    private javax.swing.JLabel jLabel123;
+    private javax.swing.JLabel jLabel124;
+    private javax.swing.JLabel jLabel125;
+    private javax.swing.JLabel jLabel126;
+    private javax.swing.JLabel jLabel127;
+    private javax.swing.JLabel jLabel128;
+    private javax.swing.JLabel jLabel129;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel130;
+    private javax.swing.JLabel jLabel131;
+    private javax.swing.JLabel jLabel132;
+    private javax.swing.JLabel jLabel133;
+    private javax.swing.JLabel jLabel134;
+    private javax.swing.JLabel jLabel135;
+    private javax.swing.JLabel jLabel136;
+    private javax.swing.JLabel jLabel137;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel145;
     private javax.swing.JLabel jLabel147;
@@ -3523,19 +3992,23 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanelContras;
     private javax.swing.JPanel jPanelDatosCli;
+    private javax.swing.JPanel jPanelDatosCliHC;
     private javax.swing.JPanel jPanelDatosContr;
+    private javax.swing.JPanel jPanelDatosContrHC;
     private proyectoempresalvp.datosUI.JPanelTranslucido jPanelTranslucido1;
     private proyectoempresalvp.datosUI.JPanelTranslucido jPanelTranslucido2;
     private proyectoempresalvp.datosUI.JPanelTranslucido jPanelTranslucido3;
     private javax.swing.JPanel jPclientes;
     private javax.swing.JPanel jPcontraseña;
     private javax.swing.JPanel jPcontratos;
+    private javax.swing.JPanel jPcontratosHC;
     private javax.swing.JPanel jPcopiasSeg;
     private javax.swing.JPanel jPdatosPer;
     private javax.swing.JPanel jPempleados;
     private javax.swing.JPanel jPfacExtra;
     private javax.swing.JPanel jPfacMens;
     private javax.swing.JPanel jPgestion;
+    private javax.swing.JPanel jPgestionhc;
     private javax.swing.JPanel jPhistorico;
     private javax.swing.JPanel jPinicio;
     private javax.swing.JPanel jPinsertarCli;
@@ -3544,6 +4017,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JPanel jPprograma;
     private javax.swing.JPanel jPtareas;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
@@ -3557,6 +4031,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTable jTableContratos;
+    private javax.swing.JTable jTableContratosHC;
     private javax.swing.JLabel labelFecha;
     private javax.swing.JLabel labelIbanComprobado;
     private javax.swing.JList listaConceptos;
