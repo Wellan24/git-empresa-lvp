@@ -395,7 +395,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         jScrollPane11 = new ScrollPaneTranslucido();
         jTableContratosHC = new Tabla();
         bModificarContratoHC = new Boton();
-        bNuevoContrHC = new Boton();
         bImprimirListadoHC = new Boton();
         bRenovarContratosHC = new Boton();
         jPempleados = PanelImagen.dameNuevoPanelSinLetras();
@@ -2549,13 +2548,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             }
         });
 
-        bNuevoContrHC.setText("Nuevo Contrato");
-        bNuevoContrHC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bNuevoContrHCActionPerformed(evt);
-            }
-        });
-
         bImprimirListadoHC.setText("Imprimir Listado");
         bImprimirListadoHC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2578,8 +2570,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addGap(43, 43, 43)
                 .addGroup(jPgestionhcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPgestionhcLayout.createSequentialGroup()
-                        .addComponent(bNuevoContrHC)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(bModificarContratoHC)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bImprimirListadoHC)
@@ -2606,7 +2596,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                         .addGap(18, 18, 18)
                         .addGroup(jPgestionhcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(bModificarContratoHC, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bNuevoContrHC, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(bImprimirListadoHC, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(bRenovarContratosHC, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(150, Short.MAX_VALUE))
@@ -3588,10 +3577,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         // TODO add your handling code here:
     }//GEN-LAST:event_bModificarContratoHCActionPerformed
 
-    private void bNuevoContrHCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNuevoContrHCActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bNuevoContrHCActionPerformed
-
     private void bImprimirListadoHCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimirListadoHCActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bImprimirListadoHCActionPerformed
@@ -3726,7 +3711,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JButton bNuevaFac;
     private javax.swing.JButton bNuevo;
     private javax.swing.JButton bNuevoContr;
-    private javax.swing.JButton bNuevoContrHC;
     private javax.swing.JButton bPrevisual;
     private javax.swing.JButton bRenovarContratos;
     private javax.swing.JButton bRenovarContratosHC;
@@ -4200,7 +4184,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void refrescarCamposContratos() {
 
         Dato con = GestoraDatos.dameGestora().get("CONTRATOS").get(jTableContratos.getSelectedRow());
-
         Dato d = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave(con.get("NUMCLIENTE"));
         ctContratoDescrip.setText(d.get("DESCRIPCION").toString());
         ctContratoNombre.setText(d.get("NOMBRE").toString());
@@ -4226,12 +4209,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     }
     
-    //SANTY
     private void refrescarCamposHistoricoContratos() {
 
-        Dato con = GestoraDatos.dameGestora().get("CONTRATOS").get(jTableContratosHC.getSelectedRow());
+        Dato con = GestoraDatos.dameGestora().get("HISTORICOCONTRATO").get(jTableContratosHC.getSelectedRow());
 
-        Dato d = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave(con.get("NUMCLIENTE"));
+        Dato d = GestoraDatos.dameGestora().get(Cliente.getTabla()).devuelveValorPorClave(con.get("NUMCLIENTE"));
         ctContratoDescripHC.setText(d.get("DESCRIPCION").toString());
         ctContratoNombreHC.setText(d.get("NOMBRE").toString());
         ctContratoLocHC.setText(d.get("LOCALIDAD").toString());
@@ -4444,14 +4426,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             }
         }
         
-        //SANTY
-        if(datoActualizado == GestoraDatos.ACTUALIZAR_CONTRATOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
-            actualizarTabla(jTableContratosHC, GestoraDatos.dameGestora().get(Contrato.getTabla()));
-            if(procesador != null) {
-                tAreaInicioContratos.setText(procesador.getProcesado().toString());
-            }
-        }
-        
+        if(datoActualizado == GestoraDatos.ACTUALIZAR_HISTORICOCONTRATOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
+            actualizarTabla(jTableContratosHC, GestoraDatos.dameGestora().get("HISTORICOCONTRATO"));
+        }        
 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES) {
 

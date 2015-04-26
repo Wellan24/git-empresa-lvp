@@ -8,6 +8,7 @@ package proyectoempresalvp.gestoras.Datos;
 import proyectoempresalvp.datos.Contrato;
 import proyectoempresalvp.datos.Dato;
 import proyectoempresalvp.datos.Fecha;
+import proyectoempresalvp.gestoras.GestoraBaseDatos;
 import proyectoempresalvp.gestoras.UtilidadesTareas;
 
 /**
@@ -20,7 +21,7 @@ public class ProcesadorContratos implements Procesador<Contrato> {
     StringBuilder resul = new StringBuilder();
 
     @Override
-    public void procesar(Dato d) {
+    public boolean procesar(Dato d) {
 
         if((Boolean) d.get("ESTADO") != false) {
 
@@ -34,11 +35,14 @@ public class ProcesadorContratos implements Procesador<Contrato> {
                 if(dif < 0){
                     d.put("ESTADO", false);
                     resul.append(" CADUCADO");
+                    return !GestoraBaseDatos.updateDato(d);
                 }
 
                 resul.append("\n");
             }
         }
+        
+        return true;
     }
 
     @Override

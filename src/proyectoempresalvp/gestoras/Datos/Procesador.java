@@ -14,7 +14,7 @@ import proyectoempresalvp.datos.Dato;
  */
 public interface Procesador<T extends Dato> {
     
-    public void procesar(Dato d);
+    public boolean procesar(Dato d);
     public void commit();
     public Object getProcesado();
     public boolean comprobarValido(Dato d);

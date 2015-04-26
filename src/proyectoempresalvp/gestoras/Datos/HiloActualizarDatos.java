@@ -56,7 +56,10 @@ public class HiloActualizarDatos implements Runnable {
             recuperarConDummy(new Cliente());
 
         if(datoActualizar == ACTUALIZAR_TODO || datoActualizar == ACTUALIZAR_CONTRATOS)
-            recuperarConDummy(new Contrato());
+            recuperarConDummy(new Contrato(), " where ESTADO = true");
+        
+        if(datoActualizar == ACTUALIZAR_TODO || datoActualizar == ACTUALIZAR_HISTORICOCONTRATOS)
+            recuperarConDummy(new Contrato(), " where ESTADO = false", "HISTORICOCONTRATO");
 
         if(datoActualizar == ACTUALIZAR_FACTURASMENSUALES)
             actualizarFacturasMes();

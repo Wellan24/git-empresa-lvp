@@ -29,6 +29,7 @@ public class GestoraDatos extends HashMap<String, ArrayListDato<Dato>>{
     public static final int ACTUALIZAR_FACTURASMENSUALES = 4;
     public static final int ACTUALIZAR_FACTURASMENSUALES_AÑO = 5;
     public static final int ACTUALIZAR_FACTURASEXTRA = 6;
+    public static final int ACTUALIZAR_HISTORICOCONTRATOS = 7;
     
     private static GestoraDatos g;
 
@@ -53,14 +54,12 @@ public class GestoraDatos extends HashMap<String, ArrayListDato<Dato>>{
         }
     }
     
-    public static void actualizaDatos(int datoActualizar, Procesador p, int numPeriodo){
-        
+    public static void actualizaDatos(int datoActualizar, Procesador p, int numPeriodo){        
         
             new Thread(new HiloActualizarDatos(datoActualizar, p, " where NUMPERIODO = " + numPeriodo)).start();
     }
     
-    public static void actualizaDatos(int datoActualizar, Procesador p, String where){
-        
+    public static void actualizaDatos(int datoActualizar, Procesador p, String where){        
         
             new Thread(new HiloActualizarDatos(datoActualizar, p, where)).start();
     }
@@ -117,10 +116,12 @@ public class GestoraDatos extends HashMap<String, ArrayListDato<Dato>>{
                     }
                 }
                 
-                if(procesador != null && procesador.comprobarValido(d))
-                    procesador.procesar(d);
+                if(procesador != null && procesador.comprobarValido(d)){
+                    if(procesador.procesar(d))
+                        datos.add((Dato) d.copia());
+                }else
+                    datos.add((Dato) d.copia());
                 
-                datos.add((Dato) d.copia());
             }
         } catch(SQLException ex) {
             Logger.getLogger(GestoraTareas.class.getName()).log(Level.SEVERE, null, ex);
