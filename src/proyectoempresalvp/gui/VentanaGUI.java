@@ -212,6 +212,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         bNuevoContr = new Boton();
         bImprimirListado = new Boton();
         bRenovarContratos = new Boton();
+        bDesactivar = new Boton();
         jPfacMens = PanelImagen.dameNuevoPanelSinLetras();
         jPanel1 = new JPanelTranslucido();
         jLabel38 = new javax.swing.JLabel();
@@ -397,6 +398,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         bModificarContratoHC = new Boton();
         bImprimirListadoHC = new Boton();
         bRenovarContratosHC = new Boton();
+        bActivarContrato = new Boton();
         jPempleados = PanelImagen.dameNuevoPanelSinLetras();
         jPdatosPer = new JPanelTranslucido();
         jLabel18 = new javax.swing.JLabel();
@@ -1121,6 +1123,13 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             }
         });
 
+        bDesactivar.setText("Desactivar");
+        bDesactivar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bDesactivarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPgestionLayout = new javax.swing.GroupLayout(jPgestion);
         jPgestion.setLayout(jPgestionLayout);
         jPgestionLayout.setHorizontalGroup(
@@ -1132,6 +1141,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                         .addComponent(bNuevoContr)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(bModificarContrato)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(bDesactivar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bImprimirListado)
                         .addGap(18, 18, 18)
@@ -1155,11 +1166,13 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     .addGroup(jPgestionLayout.createSequentialGroup()
                         .addComponent(jScrollPane7)
                         .addGap(18, 18, 18)
-                        .addGroup(jPgestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bModificarContrato, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bNuevoContr, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bImprimirListado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bRenovarContratos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPgestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPgestionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(bModificarContrato, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(bNuevoContr, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(bImprimirListado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(bRenovarContratos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(bDesactivar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(150, Short.MAX_VALUE))
         );
 
@@ -2562,6 +2575,13 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             }
         });
 
+        bActivarContrato.setText("Activar Contrato");
+        bActivarContrato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bActivarContratoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPgestionhcLayout = new javax.swing.GroupLayout(jPgestionhc);
         jPgestionhc.setLayout(jPgestionhcLayout);
         jPgestionhcLayout.setHorizontalGroup(
@@ -2571,6 +2591,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addGroup(jPgestionhcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPgestionhcLayout.createSequentialGroup()
                         .addComponent(bModificarContratoHC)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bActivarContrato)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bImprimirListadoHC)
                         .addGap(18, 18, 18)
@@ -2597,7 +2619,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                         .addGroup(jPgestionhcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(bModificarContratoHC, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(bImprimirListadoHC, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bRenovarContratosHC, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(bRenovarContratosHC, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bActivarContrato, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(150, Short.MAX_VALUE))
         );
 
@@ -3532,8 +3555,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             if(d != null) {
 
                 GestoraBaseDatos.ejecutarSentenciaUpdate("update FACTURAEXTRADETALLES "
-                        + "set CONCEPTO=\'" + d.get("CONCEPTO") + "\' ,IMPORTE=\'" + d.get("IMPORTE") + 
-                        "\' where NUMERO = " + d.get("NUMERO") + " and ORDEN = " + d.get("ORDEN"));
+                        + "set CONCEPTO=\'" + d.get("CONCEPTO") + "\' ,IMPORTE=\'" + d.get("IMPORTE")
+                        + "\' where NUMERO = " + d.get("NUMERO") + " and ORDEN = " + d.get("ORDEN"));
                 ((ListModel) listaConceptos.getModel()).eliminarDato(listaConceptos.getSelectedIndex());
                 ((ListModel) listaConceptos.getModel()).addDato(d);
                 ctBaseIm.setText("" + (Float.parseFloat(ctBaseIm.getText().isEmpty()
@@ -3584,6 +3607,36 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void bRenovarContratosHCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRenovarContratosHCActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bRenovarContratosHCActionPerformed
+
+    private void bActivarContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActivarContratoActionPerformed
+        int[] rows = jTableContratosHC.getSelectedRows();
+        ArrayList<Dato> contratos = GestoraDatos.dameGestora().get("HISTORICOCONTRATO");
+
+        for(int i :rows) {
+            Dato d = contratos.get(i);
+            d.put("ACTIVO", true);
+            GestoraBaseDatos.updateDato(d);
+            JOptionPane.showMessageDialog(this, "Se ha activado el contrato: " + d.get("NUMCONTRATO"));
+        }
+
+        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS);
+        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_HISTORICOCONTRATOS);
+    }//GEN-LAST:event_bActivarContratoActionPerformed
+
+    private void bDesactivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDesactivarActionPerformed
+        int[] rows = jTableContratos.getSelectedRows();
+        ArrayList<Dato> contratos = GestoraDatos.dameGestora().get(Contrato.getTabla());
+
+        for(int i :rows) {
+            Dato d = contratos.get(i);
+            d.put("ACTIVO", false);
+            GestoraBaseDatos.updateDato(d);
+            JOptionPane.showMessageDialog(this, "Se ha desactivado el contrato: " + d.get("NUMCONTRATO"));
+        }
+
+        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS);
+        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_HISTORICOCONTRATOS);
+    }//GEN-LAST:event_bDesactivarActionPerformed
 
     private void cambiarRuta() throws HeadlessException {
         JFileChooser elegir = new JFileChooser();
@@ -3682,6 +3735,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JTabbedPane PanelPestañasPrincipal;
     private javax.swing.JScrollPane aNotas;
     private javax.swing.JButton bAceptarContraseña;
+    private javax.swing.JButton bActivarContrato;
     private javax.swing.JButton bActualizar;
     private javax.swing.JButton bAñadir;
     private javax.swing.JButton bAñadirExtra;
@@ -3692,6 +3746,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JButton bConfiguracionCambioIva;
     private javax.swing.JButton bConfirmarCambiosIPC;
     private javax.swing.JButton bCopiaSeguridad;
+    private javax.swing.JButton bDesactivar;
     private javax.swing.JButton bEditarExtra;
     private javax.swing.JButton bGenerarFacturacion;
     private javax.swing.JButton bImprim;
@@ -4208,7 +4263,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         cbContratoEstado.setSelected((boolean) con.get("ESTADO"));
 
     }
-    
+
     private void refrescarCamposHistoricoContratos() {
 
         Dato con = GestoraDatos.dameGestora().get("HISTORICOCONTRATO").get(jTableContratosHC.getSelectedRow());
@@ -4237,8 +4292,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         cbContratoEstadoHC.setSelected((boolean) con.get("ESTADO"));
 
     }
-    
-    
 
     private void refrescarCamposEmpleados() {
 
@@ -4425,10 +4478,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 tAreaInicioContratos.setText(procesador.getProcesado().toString());
             }
         }
-        
+
         if(datoActualizado == GestoraDatos.ACTUALIZAR_HISTORICOCONTRATOS || datoActualizado == GestoraDatos.ACTUALIZAR_TODO) {
             actualizarTabla(jTableContratosHC, GestoraDatos.dameGestora().get("HISTORICOCONTRATO"));
-        }        
+        }
 
         if(datoActualizado == GestoraDatos.ACTUALIZAR_FACTURASMENSUALES) {
 

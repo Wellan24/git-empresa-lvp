@@ -778,6 +778,8 @@
                                       <Component id="bNuevoContr" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="bModificarContrato" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="bDesactivar" min="-2" pref="88" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="bImprimirListado" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -807,11 +809,14 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jScrollPane7" max="32767" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="bModificarContrato" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                          <Component id="bNuevoContr" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                          <Component id="bImprimirListado" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                          <Component id="bRenovarContratos" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="bModificarContrato" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                              <Component id="bNuevoContr" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                              <Component id="bImprimirListado" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                              <Component id="bRenovarContratos" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="bDesactivar" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -1302,6 +1307,17 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bRenovarContratosActionPerformed"/>
+                      </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="bDesactivar">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Desactivar"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bDesactivarActionPerformed"/>
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
@@ -3253,6 +3269,8 @@
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Group type="102" attributes="0">
                                               <Component id="bModificarContratoHC" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="bActivarContrato" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
                                               <Component id="bImprimirListadoHC" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -3286,6 +3304,7 @@
                                                   <Component id="bModificarContratoHC" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                                   <Component id="bImprimirListadoHC" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                                   <Component id="bRenovarContratosHC" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                                  <Component id="bActivarContrato" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -3756,6 +3775,17 @@
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bRenovarContratosHCActionPerformed"/>
+                              </Events>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
+                              </AuxValues>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="bActivarContrato">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Activar Contrato"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bActivarContratoActionPerformed"/>
                               </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Boton()"/>
