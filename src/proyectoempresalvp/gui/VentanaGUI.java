@@ -3574,10 +3574,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }//GEN-LAST:event_bEditarExtraActionPerformed
 
     private void bBorrarExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarExtraActionPerformed
-
-        Dato d = ((ListModel) listaConceptos.getModel()).eliminarDato(listaConceptos.getSelectedIndex());
-        GestoraBaseDatos.ejecutarSentenciaUpdate("Delete from " + d.devuelveNombreTablaDato()
-                + " where NUMERO = " + d.get("NUMERO") + " and orden = " + d.get("ORDEN"));
+        if(!ctNumF.getText().isEmpty()) {
+            Dato d = ((ListModel) listaConceptos.getModel()).eliminarDato(listaConceptos.getSelectedIndex());
+            GestoraBaseDatos.ejecutarSentenciaUpdate("Delete from " + d.devuelveNombreTablaDato()
+                    + " where NUMERO = " + d.get("NUMERO") + " and orden = " + d.get("ORDEN"));
+        }
     }//GEN-LAST:event_bBorrarExtraActionPerformed
 
     private void ctContratoInicioHCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctContratoInicioHCActionPerformed

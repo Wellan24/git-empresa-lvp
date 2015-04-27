@@ -11,7 +11,7 @@ import java.util.Date;
 public class Contrato extends Dato {
 
     private static final String[] orden = {"NUMCONTRATO", "NUMCLIENTE", "DESCRIPCION", "INICIOCONTRATO", "FINCONTRATO", "EUROSAÑO", "EUROSMES", 
-        "FORMAPAGO", "DIACOBRO", "TANTOIVA", "ESTADO"};
+        "FORMAPAGO", "DIACOBRO", "TANTOIVA", "ESTADO", "ACTIVO"};
     private static final String tabla = "CONTRATOS";
 
     /**
@@ -76,6 +76,7 @@ public class Contrato extends Dato {
         this.put("DIACOBRO", 0);
         this.put("TANTOIVA", 0);
         this.put("ESTADO", false);
+        this.put("ACTIVO", false);
     }
     
     private Contrato(Dato d) {
