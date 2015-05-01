@@ -4295,7 +4295,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }
 
     private void refrescarCamposEmpleados() {
-
+    
         Dato emp = GestoraDatos.dameGestora().get("EMPLEADOS").get(tablaEmple.getSelectedRow());
         ctEmpleadoNum.setText(emp.get("NUMEMPLE").toString());
         ctEmpleadoNif.setText(emp.get("CIF").toString());
