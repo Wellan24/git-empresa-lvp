@@ -455,20 +455,20 @@
                                       <Component id="ctClienteProvincia" min="-2" pref="156" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="ctClienteIban" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="ctClienteLocalidad" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Component id="ctClienteTlfCli" alignment="0" min="-2" pref="148" max="-2" attributes="0"/>
                                           <Component id="ctClienteTlfContacto" alignment="0" min="-2" pref="151" max="-2" attributes="0"/>
                                           <Component id="ctClienteContacto" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
-                                          <Component id="ctClienteLocalidad" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="ctClienteNum" min="-2" pref="70" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="ctClienteNum" min="-2" pref="45" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="ctClienteDescripcion" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -3826,7 +3826,7 @@
                               </Group>
                               <Component id="jPdatosPer" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="16" max="32767" attributes="0"/>
+                          <EmptySpace pref="12" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3870,7 +3870,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jScrollPane3" min="-2" pref="281" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane3" min="-2" pref="454" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -3884,50 +3884,64 @@
                                           <Component id="jLabel160" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace pref="14" max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                           <Group type="102" alignment="1" attributes="0">
-                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="ctEmpleadoNum" min="-2" pref="90" max="-2" attributes="0"/>
-                                                  <Component id="ctEmpleadoAnagram" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="ctEmpleadoNombre" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="ctEmpleadoTlf" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="ctEmpleadoLoc" alignment="1" max="32767" attributes="0"/>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
-                                                      <Component id="ctEmpleadoDomic" pref="111" max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="ctEmpleadoSs" max="32767" attributes="0"/>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="ctEmpleadoNomina" min="-2" pref="137" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel157" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel27" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel158" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="ctEmpleadoNomina" min="-2" pref="111" max="-2" attributes="0"/>
-                                                  <Component id="ctEmpleadoSs" pref="199" max="32767" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                               <Component id="jLabel161" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                           </Group>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="ctEmpleadoNif" alignment="1" min="-2" pref="231" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="ctEmpleadoFechAlta" pref="122" max="32767" attributes="0"/>
-                                              <Component id="ctEmpleadoNacimiento" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Group type="103" groupAlignment="1" attributes="0">
+                                                          <Component id="ctEmpleadoLoc" min="-2" pref="247" max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                              <Component id="ctEmpleadoDomic" alignment="0" pref="247" max="32767" attributes="0"/>
+                                                              <Component id="ctEmpleadoAnagram" max="32767" attributes="0"/>
+                                                              <Component id="ctEmpleadoNombre" alignment="1" max="32767" attributes="0"/>
+                                                              <Component id="ctEmpleadoNum" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
+                                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="jLabel158" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jLabel157" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <EmptySpace min="-2" pref="279" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="1" attributes="0">
+                                                          <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jLabel23" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jLabel25" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <Component id="ctEmpleadoTlf" min="-2" pref="247" max="-2" attributes="0"/>
+                                                      <EmptySpace max="32767" attributes="0"/>
+                                                      <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="ctEmpleadoCp" alignment="1" min="-2" pref="231" max="-2" attributes="0"/>
-                                          <Component id="ctEmpleadoProv" alignment="1" min="-2" pref="231" max="-2" attributes="0"/>
-                                          <Component id="ctEmpleadoMovil" alignment="1" min="-2" pref="231" max="-2" attributes="0"/>
-                                          <Component id="ctEmpleadoIban" alignment="1" min="-2" pref="231" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="ctEmpleadoMovil" alignment="1" pref="197" max="32767" attributes="0"/>
+                                          <Component id="ctEmpleadoProv" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="ctEmpleadoCp" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="ctEmpleadoNif" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="ctEmpleadoIban" alignment="1" max="32767" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="ctEmpleadoNacimiento" alignment="0" pref="110" max="32767" attributes="0"/>
+                                              <Component id="ctEmpleadoFechAlta" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                               </Group>
@@ -3953,7 +3967,7 @@
                                               <Group type="103" groupAlignment="3" attributes="0">
                                                   <Component id="ctEmpleadoFechAlta" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   <Component id="jLabel157" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="ctEmpleadoNum" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="ctEmpleadoNum" alignment="1" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="32767" attributes="0"/>
                                               <Group type="103" groupAlignment="3" attributes="0">
@@ -3968,11 +3982,11 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="ctEmpleadoNif" min="-2" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="ctEmpleadoNif" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="ctEmpleadoNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
+                                          <Component id="ctEmpleadoNombre" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -3987,28 +4001,26 @@
                                       <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="ctEmpleadoCp" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="ctEmpleadoProv" min="-2" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="ctEmpleadoLoc" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="ctEmpleadoMovil" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="ctEmpleadoDomic" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              </Group>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="ctEmpleadoDomic" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="ctEmpleadoCp" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="ctEmpleadoTlf" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="ctEmpleadoProv" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="ctEmpleadoLoc" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="ctEmpleadoMovil" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ctEmpleadoTlf" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -4020,11 +4032,11 @@
                                   </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="ctEmpleadoNomina" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel159" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel159" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ctEmpleadoNomina" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="27" max="32767" attributes="0"/>
+                              <EmptySpace pref="30" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
@@ -4067,17 +4079,17 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel23">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="CP"/>
+                        <Property name="text" type="java.lang.String" value="CP:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel24">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Provincia"/>
+                        <Property name="text" type="java.lang.String" value="Provincia:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel25">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="NIF/CIF"/>
+                        <Property name="text" type="java.lang.String" value="NIF/CIF:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel26">
@@ -4087,7 +4099,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel27">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="M&#xf3;vil"/>
+                        <Property name="text" type="java.lang.String" value="M&#xf3;vil:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="ctEmpleadoNum">
@@ -4157,7 +4169,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel161">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Cuenta Cobro:"/>
+                        <Property name="text" type="java.lang.String" value="Cta Cobro:"/>
                       </Properties>
                     </Component>
                     <Container class="javax.swing.JScrollPane" name="jScrollPane3">
