@@ -3139,7 +3139,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     private void bModifFacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bModifFacActionPerformed
 
-        // TODO hacer modificacion factura extra
+        modificarFacturaExtra();
     }//GEN-LAST:event_bModifFacActionPerformed
 
     private void bModificarContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bModificarContratoActionPerformed
@@ -3231,6 +3231,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }//GEN-LAST:event_ctEmpleadoTlfActionPerformed
 
     private void tablaFacExtraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaFacExtraMouseClicked
+        // TODO usar el id para conseguir el dato
         int seleccionado = tablaFacExtra.getSelectedRow();
         if (seleccionado != -1) {
             int numero = (int) GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).get(seleccionado).get("NUMEROFACTURA");
@@ -3378,12 +3379,13 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }//GEN-LAST:event_bImprimirFacturasActionPerformed
 
     private void bImprimirFacturaExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimirFacturaExtraActionPerformed
+
         new Thread(new Runnable() {
 
             @Override
             public void run() {
-                
-                if (tablaFacMensuales.getRowCount() > 0) {
+
+                if (tablaFacExtra.getRowCount() > 0) {
 
                     int[] rows = tablaFacExtra.getSelectedRows();
                     GestoraPDF.generarPDFExtras(rows);
@@ -3394,8 +3396,17 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     private void bImprimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimActionPerformed
 
-        GestoraPDF.generarPDFFacturasMensuales(tablaHistoricoFacturas.getSelectedRows());
-        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASMENSUALES_AÑO);
+        new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+
+                if (tablaHistoricoFacturas.getRowCount() > 0) {
+
+                    GestoraPDF.generarPDFFacturasMensuales(tablaHistoricoFacturas.getSelectedRows());
+                }
+            }
+        }).start();
     }//GEN-LAST:event_bImprimActionPerformed
 
     private void bActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActualizarActionPerformed
@@ -3479,6 +3490,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         int[] rows = tablaTareas.getSelectedRows();
 
         for (int i : rows) {
+            // TODO usar el id en vez de el RowIndex
             Tarea t = GestoraTareas.getTareas().get(tablaTareas.getSelectedRow());
             GestoraBaseDatos.ejecutarSentenciaUpdate("Delete from tareas where ntarea = " + t.get("NTAREA"));
         }
@@ -3496,7 +3508,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         int[] rows = jTableContratos.getSelectedRows();
         ArrayList<Dato> contratos = GestoraDatos.dameGestora().get(Contrato.getTabla());
-
+        // TODO usar el id en vez de el RowIndex
         Fecha f = UtilidadesTareas.getFechaActual();
 
         if (rows.length == 0) {
@@ -3632,10 +3644,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     private void bActivarContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActivarContratoActionPerformed
         int[] rows = jTableContratosHC.getSelectedRows();
-        ArrayList<Dato> contratos = GestoraDatos.dameGestora().get("HISTORICOCONTRATO");
+        ArrayListDato<Dato> contratos = GestoraDatos.dameGestora().get("HISTORICOCONTRATO");
 
         for (int i : rows) {
-            Dato d = contratos.get(i);
+            Dato d = contratos.devuelveValorPorClave(jTableContratos.getValueAt(i, 0));
             d.put("ACTIVO", true);
             GestoraBaseDatos.updateDato(d);
             JOptionPane.showMessageDialog(this, "Se ha activado el contrato: " + d.get("NUMCONTRATO"));
@@ -3647,10 +3659,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     private void bDesactivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDesactivarActionPerformed
         int[] rows = jTableContratos.getSelectedRows();
-        ArrayList<Dato> contratos = GestoraDatos.dameGestora().get(Contrato.getTabla());
+        ArrayListDato<Dato> contratos = GestoraDatos.dameGestora().get(Contrato.getTabla());
 
         for (int i : rows) {
-            Dato d = contratos.get(i);
+            Dato d = contratos.devuelveValorPorClave(jTableContratos.getValueAt(i, 0));
             d.put("ACTIVO", false);
             GestoraBaseDatos.updateDato(d);
             JOptionPane.showMessageDialog(this, "Se ha desactivado el contrato: " + d.get("NUMCONTRATO"));
@@ -4224,6 +4236,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void refrescarCamposFacturaExtra(int nFactura) {
 
         Dato f = GestoraDatos.dameGestora().get("FACTURAEXTRA").devuelveValorPorClave(nFactura);
+        
         ctNomb.setText(f.get("NOMBRE").toString());
         ctDomic.setText(f.get("DOMICILIO").toString());
         ctLoca.setText(f.get("LOCALIDAD").toString());
@@ -4260,6 +4273,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }
 
     private void refrescarCamposContratos() {
+        // TODO usar esto
         Dato con = GestoraDatos.dameGestora().get("CONTRATOS").devuelveValorPorClave((int) jTableContratos.getValueAt(jTableContratos.getSelectedRow(), 0));
         //Dato con = GestoraDatos.dameGestora().get("CONTRATOS").get(jTableContratos.getSelectedRow());
         Dato d = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave(con.get("NUMCLIENTE"));
@@ -4393,6 +4407,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
             } else {
 
+        // TODO usar el id en vez de el RowIndex
                 Dato c = GestoraDatos.dameGestora().get("CLIENTES").get(tablaClientes.getSelectedRow());
                 c.put("DESCRIPCION", ctClienteDescripcion.getText());
                 c.put("NOMBRE", ctClienteNombre.getText());
@@ -4428,6 +4443,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             JOptionPane.showMessageDialog(this, "Comprueba que has introducido en los campos numéricos números correctamente.");
         } else {
 
+        // TODO usar el id en vez de el RowIndex
             Dato c = GestoraDatos.dameGestora().get("CONTRATOS").get(jTableContratos.getSelectedRow());
             c.put("DESCRIPCION", ctContratoDescrip.getText());
             c.put("INICIOCONTRATO", ctContratoInicio.getText());
@@ -4461,7 +4477,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
             JOptionPane.showMessageDialog(this, "Comprueba que los telefonos, la nomina y el numero de la seguridad social son numeros");
         } else {
-
+            // TODO usar el id para conseguir el dato
             Dato c = GestoraDatos.dameGestora().get("EMPLEADOS").get(tablaEmple.getSelectedRow());
             c.put("CIF", ctEmpleadoNif.getText());
             c.put("ANAGRAMA", ctEmpleadoAnagram.getText());
@@ -4528,6 +4544,24 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void establecerFecha() {
 
         labelFecha.setText(UtilidadesTareas.getFechaActual().toString());
+    }
+
+    private void modificarFacturaExtra() {
+
+        // TODO usar el id para conseguir el dato
+        Dato c = GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).get(tablaFacExtra.getSelectedRow());
+        c.put("CIF", ctNcif.getText());
+        c.put("NOMBRE", ctNomb.getText());
+        c.put("DOMICILIO", ctDomic.getText());
+        c.put("LOCALIDAD", ctLoca.getText());
+        c.put("PROVINCIA", ctProvin.getText());
+        c.put("CODIGOPOSTAL", ctCodpos.getText());
+
+        if (GestoraBaseDatos.ejecutarSentenciaUpdate(GestoraBaseDatos.construyeSentenciaUpdate(c).toString())) {
+
+            GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASEXTRA);
+        }
+
     }
 
 }

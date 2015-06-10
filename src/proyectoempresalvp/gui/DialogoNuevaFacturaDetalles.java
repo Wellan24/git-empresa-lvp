@@ -174,7 +174,4 @@ public class DialogoNuevaFacturaDetalles extends javax.swing.JDialog {
     private javax.swing.JTextField tPrecio;
     // End of variables declaration//GEN-END:variables
 
-    private void rellenarCampos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

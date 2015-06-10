@@ -66,6 +66,8 @@ public class Tarea extends Dato {
         int mes = f.getMes();
         int año = f.getAño();
 
+        // TODO cambiar esto
+        
         if (mes + (int) this.get("PERIODO") > 12) {
 
             mes = mes + (int) this.get("PERIODO") - 12;
