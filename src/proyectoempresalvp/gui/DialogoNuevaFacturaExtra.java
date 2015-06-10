@@ -6,7 +6,9 @@
 package proyectoempresalvp.gui;
 
 import java.awt.Component;
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.function.Consumer;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -507,6 +509,13 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
 
         String fecha = ctFecha.getText();
 
+        BigDecimal g = new BigDecimal("0");
+        
+        for(Dato fe: modelo.getLista()){
+            
+            g = g.add(new BigDecimal(fe.get("IMPORTE").toString()));
+        }
+        
         if(!Gestora.comprobarFormatoFechaCorrecto(fecha)) {
             JOptionPane.showMessageDialog(this, "Comprueba las fechas, el formato es dd/mm/aaaa");
         } else if(!comprobarNumero(ctCodpos.getText())
@@ -523,7 +532,7 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
                     ctNomb.getText(), ctDomic.getText(), ctLoca.getText(), ctProvin.getText(),//NOMBRE,DOMICILIO,LOCALIDAD,PROVINCIA
                     ctCodpos.getText(), //CP
                     Integer.parseInt(ctporcenIva.getText()), //TANTOIVA
-                    ctTotal.getText(), //EUROSNETO
+                    g.toPlainString(), //EUROSNETO
                     cliente.equals("NINGUNO") ? -1 : Integer.parseInt(cliente));//CLIENTE
 
             if(GestoraBaseDatos.insertarDato(nuevaFacturaExtra)) {

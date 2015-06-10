@@ -144,7 +144,7 @@ public class GestoraPDF {
 
         ArrayList<HashMap<String, Object>> detalles = new ArrayList();
         HashMap<String, Object> linea = new HashMap();
-        linea.put("CONCEPTO", "FACTURA MENSUAL DE " + Gestora.getMes(((Fecha) factura.get("FECHA")).getMes() - 1));
+        linea.put("CONCEPTO", "FACTURA MENSUAL DE " + Gestora.getMes(( Gestora.fechaPeriodoPorNombre(factura.get("PERIODO").toString())).getMes() - 1));
         linea.put("IMPORTE", factura.get("EUROSMES").toString());
         detalles.add(linea);
 
@@ -181,7 +181,7 @@ public class GestoraPDF {
 
         ArrayList<HashMap<String, Object>> detalles = new ArrayList();
         HashMap<String, Object> linea = new HashMap();
-        linea.put("CONCEPTO", "FACTURA MENSUAL DE " + Gestora.getMes(((Fecha) factura.get("FECHA")).getMes() - 1));
+        linea.put("CONCEPTO", "FACTURA MENSUAL DE " + Gestora.getMes(( Gestora.fechaPeriodoPorNombre(factura.get("PERIODO").toString())).getMes() - 1));
         linea.put("IMPORTE", factura.get("EUROSMES").toString());
         detalles.add(linea);
 
