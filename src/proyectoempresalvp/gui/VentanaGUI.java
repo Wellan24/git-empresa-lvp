@@ -4549,7 +4549,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void modificarFacturaExtra() {
 
         // TODO usar el id para conseguir el dato
-        Dato c = GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).get(tablaFacExtra.getSelectedRow());
+        //*******************************************************************************************************************************************************
+        Dato c = GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).devuelveValorPorClave((int)tablaFacExtra.getValueAt(tablaFacExtra.getSelectedRow(), 0));
+        //Dato c = GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).get(tablaFacExtra.getSelectedRow());
         c.put("CIF", ctNcif.getText());
         c.put("NOMBRE", ctNomb.getText());
         c.put("DOMICILIO", ctDomic.getText());
