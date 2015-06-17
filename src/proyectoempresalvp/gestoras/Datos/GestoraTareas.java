@@ -60,12 +60,14 @@ public class GestoraTareas extends Thread {
                 if(comprobar == UtilidadesTareas.ESHOY){                    
                     string.append("El día ").append(tareaActual.get("FECHA").toString()).append(" hay ").append(tareaActual.get("CONCEPTO")).append(" para ").append(tareaActual.get("CLIENTE")).append("\n");
                     tareaActual.calcularNuevaFecha();
+                    GestoraBaseDatos.updateDato(tareaActual);
                 }
                 else if (comprobar == UtilidadesTareas.ESENQUINCE){
                     string.append("El día ").append(tareaActual.get("FECHA").toString()).append(" hay ").append(tareaActual.get("CONCEPTO")).append(" para ").append(tareaActual.get("CLIENTE")).append("\n");
                 }else if(comprobar == UtilidadesTareas.HAPASADO){
                     
                     tareaActual.calcularNuevaFecha();
+                    GestoraBaseDatos.updateDato(tareaActual);
                 }
             }
         } catch (SQLException ex) {
