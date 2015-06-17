@@ -68,12 +68,12 @@ public class Tarea extends Dato {
         // TODO cambiar esto
         if (dia + (int) this.get("PERIODO") >= 30) {
 
-            dia = dia + (int) this.get("PERIODO") - 30;
             int masMeses = (dia + (int) this.get("PERIODO")) / 30;
+            dia = dia + (int) this.get("PERIODO") - (30 * masMeses);
 
             if (mes + masMeses >= 12) {
 
-                mes = mes + masMeses - 12;
+                mes = mes + masMeses - (12 * masMeses);
                 año += (mes + masMeses) % 12;
             } else {
                 mes = mes + masMeses;
