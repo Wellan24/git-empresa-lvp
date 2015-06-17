@@ -82,7 +82,7 @@ public class GestoraPDF {
             exporter.exportReport();
 
             Desktop.getDesktop().open(f);
-        } catch(JRException | IOException ex) {
+        } catch (JRException | IOException ex) {
             Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -114,17 +114,17 @@ public class GestoraPDF {
             exporter.exportReport();
 
             pdfs.add(new FileInputStream(f));
-        } catch(JRException | IOException ex) {
+        } catch (JRException | IOException ex) {
             Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public static void generarPDFExtras(int[] posGestora) {
+    public static void generarPDFExtras(int[] claves) {
 
         ArrayList<InputStream> pdfsGenerados = new ArrayList<>();
 
-        for(int i :posGestora) {
-            GestoraPDF.generarPDFExtra((FacturaExtra) GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).get(i), pdfsGenerados);
+        for (int clave : claves) {
+            GestoraPDF.generarPDFExtra((FacturaExtra) GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).devuelveValorPorClave(clave), pdfsGenerados);
         }
 
         File f = new File(GestoraConfiguracion.get("RUTA") + "/Temp/temporal.pdf");
@@ -133,9 +133,9 @@ public class GestoraPDF {
 
             concatPDFs(pdfsGenerados, new FileOutputStream(f), false);
             Desktop.getDesktop().open(f);
-        } catch(FileNotFoundException ex) {
+        } catch (FileNotFoundException ex) {
             Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
-        } catch(IOException ex) {
+        } catch (IOException ex) {
             Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -144,7 +144,7 @@ public class GestoraPDF {
 
         ArrayList<HashMap<String, Object>> detalles = new ArrayList();
         HashMap<String, Object> linea = new HashMap();
-        linea.put("CONCEPTO", "FACTURA MENSUAL DE " + Gestora.getMes(( Gestora.fechaPeriodoPorNombre(factura.get("PERIODO").toString())).getMes() - 1));
+        linea.put("CONCEPTO", "FACTURA MENSUAL DE " + Gestora.getMes((Gestora.fechaPeriodoPorNombre(factura.get("PERIODO").toString())).getMes() - 1));
         linea.put("IMPORTE", factura.get("EUROSMES").toString());
         detalles.add(linea);
 
@@ -156,7 +156,7 @@ public class GestoraPDF {
         BigDecimal ivaCalculado = new BigDecimal(factura.get("EUROSMES").toString())
                 .multiply(new BigDecimal(factura.get("TANTOIVA").toString())).divide(new BigDecimal("100"));
         factura.put("IVACALCULADO", ivaCalculado.setScale(2, RoundingMode.HALF_UP).toPlainString());
-        
+
         try {
             JasperReport reporte = (JasperReport) JRLoader.loadObject(GestoraPDF.class.getResource("/proyectoempresalvp/gestoras/pdf/FacturaPDF.jasper"));
             JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, factura, new DataSource(detalles));
@@ -172,7 +172,7 @@ public class GestoraPDF {
             exporter.exportReport();
 
             pdfs.add(new FileInputStream(f));
-        } catch(JRException | IOException ex) {
+        } catch (JRException | IOException ex) {
             Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -181,7 +181,7 @@ public class GestoraPDF {
 
         ArrayList<HashMap<String, Object>> detalles = new ArrayList();
         HashMap<String, Object> linea = new HashMap();
-        linea.put("CONCEPTO", "FACTURA MENSUAL DE " + Gestora.getMes(( Gestora.fechaPeriodoPorNombre(factura.get("PERIODO").toString())).getMes() - 1));
+        linea.put("CONCEPTO", "FACTURA MENSUAL DE " + Gestora.getMes((Gestora.fechaPeriodoPorNombre(factura.get("PERIODO").toString())).getMes() - 1));
         linea.put("IMPORTE", factura.get("EUROSMES").toString());
         detalles.add(linea);
 
@@ -208,14 +208,14 @@ public class GestoraPDF {
             exporter.exportReport();
 
             Desktop.getDesktop().open(f);
-        } catch(JRException | IOException ex) {
+        } catch (JRException | IOException ex) {
             Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     public static String generarNombreExtra(FacturaExtra factura) {
 
-        if((int) factura.get("NUMEROCLIENTE") == -1) {
+        if ((int) factura.get("NUMEROCLIENTE") == -1) {
 
             return GestoraArchivos.generarNombreCarpetaExtras() + "/" + factura.get("NOMBRE").toString()
                     .replace("[/:;- ]", "_") + "/Nº " + factura.get("NUMEROFACTURA")
@@ -253,19 +253,19 @@ public class GestoraPDF {
 
             concatPDFs(pdfsGenerados, new FileOutputStream(f), false);
             Desktop.getDesktop().open(f);
-        } catch(FileNotFoundException ex) {
+        } catch (FileNotFoundException ex) {
             Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
-        } catch(IOException ex) {
+        } catch (IOException ex) {
             Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public static void generarPDFFacturasMensuales(int[] posGestora) {
+    public static void generarPDFFacturasMensuales(int[] claves) {
 
         ArrayList<InputStream> pdfsGenerados = new ArrayList<>();
 
-        for(int i :posGestora) {
-            GestoraPDF.generarPDFMensual((FacturaMensual) GestoraDatos.dameGestora().get(FacturaMensual.getTabla()).get(i), pdfsGenerados);
+        for (int clave : claves) {
+            GestoraPDF.generarPDFMensual((FacturaMensual) GestoraDatos.dameGestora().get(FacturaMensual.getTabla()).devuelveValorPorClave(clave), pdfsGenerados);
         }
 
         File f = new File(GestoraConfiguracion.get("RUTA") + "/Temp/temporal.pdf");
@@ -274,9 +274,9 @@ public class GestoraPDF {
 
             concatPDFs(pdfsGenerados, new FileOutputStream(f), false);
             Desktop.getDesktop().open(f);
-        } catch(FileNotFoundException ex) {
+        } catch (FileNotFoundException ex) {
             Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
-        } catch(IOException ex) {
+        } catch (IOException ex) {
             Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -297,12 +297,11 @@ public class GestoraPDF {
             exporter.exportReport();
 
             Desktop.getDesktop().open(f);
-        } catch(JRException | IOException ex) {
+        } catch (JRException | IOException ex) {
             Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
+
     //SANTY
     public static void generarPDFClientes() {
         try {
@@ -320,12 +319,11 @@ public class GestoraPDF {
             exporter.exportReport();
 
             Desktop.getDesktop().open(f);
-        } catch(JRException | IOException ex) {
+        } catch (JRException | IOException ex) {
             Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
+
     public static void generarPDFTareas() {
         try {
             JasperReport reporte = (JasperReport) JRLoader.loadObject(GestoraPDF.class.getResource("/proyectoempresalvp/gestoras/pdf/ReporteTareas.jasper"));
@@ -342,12 +340,10 @@ public class GestoraPDF {
             exporter.exportReport();
 
             Desktop.getDesktop().open(f);
-        } catch(JRException | IOException ex) {
+        } catch (JRException | IOException ex) {
             Logger.getLogger(GestoraPDF.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
 
     public static void concatPDFs(ArrayList<InputStream> streamOfPDFFiles,
             OutputStream outputStream, boolean paginate) {
@@ -359,7 +355,7 @@ public class GestoraPDF {
             int totalPages = 0;
             Iterator<InputStream> iteratorPDFs = pdfs.iterator();
 
-            while(iteratorPDFs.hasNext()) {
+            while (iteratorPDFs.hasNext()) {
                 InputStream pdf = iteratorPDFs.next();
                 PdfReader pdfReader = new PdfReader(pdf);
                 readers.add(pdfReader);
@@ -376,10 +372,10 @@ public class GestoraPDF {
             int pageOfCurrentReaderPDF = 0;
             Iterator<PdfReader> iteratorPDFReader = readers.iterator();
 
-            while(iteratorPDFReader.hasNext()) {
+            while (iteratorPDFReader.hasNext()) {
                 PdfReader pdfReader = iteratorPDFReader.next();
 
-                while(pageOfCurrentReaderPDF < pdfReader.getNumberOfPages()) {
+                while (pageOfCurrentReaderPDF < pdfReader.getNumberOfPages()) {
 
                     Rectangle rectangle = pdfReader.getPageSizeWithRotation(1);
                     document.setPageSize(rectangle);
@@ -389,7 +385,7 @@ public class GestoraPDF {
                     currentPageNumber++;
                     page = writer.getImportedPage(pdfReader,
                             pageOfCurrentReaderPDF);
-                    switch(rectangle.getRotation()) {
+                    switch (rectangle.getRotation()) {
                         case 0:
                             cb.addTemplate(page, 1f, 0, 0, 1f, 0, 0);
                             break;
@@ -407,7 +403,7 @@ public class GestoraPDF {
                         default:
                             break;
                     }
-                    if(paginate) {
+                    if (paginate) {
                         cb.beginText();
                         cb.getPdfDocument().getPageSize();
                         cb.endText();
@@ -418,15 +414,17 @@ public class GestoraPDF {
             outputStream.flush();
             document.close();
             outputStream.close();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if(document.isOpen())
+            if (document.isOpen()) {
                 document.close();
+            }
             try {
-                if(outputStream != null)
+                if (outputStream != null) {
                     outputStream.close();
-            } catch(IOException ioe) {
+                }
+            } catch (IOException ioe) {
                 ioe.printStackTrace();
             }
         }

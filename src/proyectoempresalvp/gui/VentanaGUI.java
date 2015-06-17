@@ -270,6 +270,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         bImprimirFacturaExtra = new Boton();
         bNuevaFac = new Boton();
         bModifFac = new Boton();
+        bBorrarFacturaExtra = new Boton();
         jPprograma = PanelImagen.dameNuevoPanelSinLetras();
         jPiva = new javax.swing.JTabbedPane();
         jPcontraseña =  new javax.swing.JPanel();
@@ -439,6 +440,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         bModif = new Boton();
         jScrollPane2 = new ScrollPaneTranslucido();
         tablaEmple = new Tabla();
+        bBorrar = new Boton();
         jPtareas = PanelImagen.dameNuevoPanelSinLetras();
         jPanel15 = new JPanelTranslucido();
         jLabel30 = new javax.swing.JLabel();
@@ -458,6 +460,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         taTareasComprobadas = new javax.swing.JTextArea();
         bComprobarTareas = new Boton();
         bImprimirTareas = new Boton();
+        bTareasHecha = new Boton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LIMPIEZAS VERDEJO PELAEZ");
@@ -1624,6 +1627,13 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             }
         });
 
+        bBorrarFacturaExtra.setText("Borrar Facturas");
+        bBorrarFacturaExtra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBorrarFacturaExtraActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPfacExtraLayout = new javax.swing.GroupLayout(jPfacExtra);
         jPfacExtra.setLayout(jPfacExtraLayout);
         jPfacExtraLayout.setHorizontalGroup(
@@ -1633,7 +1643,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addGroup(jPfacExtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPfacExtraLayout.createSequentialGroup()
                         .addComponent(bImprimirFacturaExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(206, 206, 206)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bBorrarFacturaExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)
                         .addComponent(bNuevaFac, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(bModifFac, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1662,11 +1674,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPfacExtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPfacExtraLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(jPfacExtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(bImprimirFacturaExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(bModifFac, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPfacExtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(bImprimirFacturaExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(bModifFac, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(bBorrarFacturaExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(bNuevaFac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(175, 175, 175))
@@ -2889,6 +2900,13 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         });
         jScrollPane2.setViewportView(tablaEmple);
 
+        bBorrar.setText("Borrar Empleado");
+        bBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBorrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPempleadosLayout = new javax.swing.GroupLayout(jPempleados);
         jPempleados.setLayout(jPempleadosLayout);
         jPempleadosLayout.setHorizontalGroup(
@@ -2900,6 +2918,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 .addGroup(jPempleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPempleadosLayout.createSequentialGroup()
                         .addComponent(bAñadir, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(bBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bModif, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPdatosPer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2915,7 +2935,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPempleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(bAñadir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bModif, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(bModif, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 699, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(93, 93, 93))
         );
@@ -3056,6 +3077,13 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             }
         });
 
+        bTareasHecha.setText("Tarea realizada");
+        bTareasHecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bTareasHechaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPtareasLayout = new javax.swing.GroupLayout(jPtareas);
         jPtareas.setLayout(jPtareasLayout);
         jPtareasLayout.setHorizontalGroup(
@@ -3070,7 +3098,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPtareasLayout.createSequentialGroup()
                         .addComponent(bImprimirTareas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(bTarBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(bTarBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bTareasHecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(43, 43, 43))
         );
         jPtareasLayout.setVerticalGroup(
@@ -3083,6 +3112,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                         .addGap(18, 18, 18)
                         .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bTareasHecha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
                         .addGroup(jPtareasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(bTarBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                             .addComponent(bImprimirTareas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -3294,6 +3325,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }//GEN-LAST:event_cbAñoActionPerformed
 
     private void refrescarHistorico() throws NumberFormatException {
+
         int numPeriodoInicial = Integer.parseInt(cbAño.getSelectedItem().toString() + "00");
         int numPeriodoFinal = Integer.parseInt(cbAño.getSelectedItem().toString() + "15");
         ArrayListDato<Dato> ds = GestoraDatos.recuperarConDummy(new FacturaMensual(), null, " where NUMPERIODO >= " + numPeriodoInicial + " AND NUMPERIODO <= " + numPeriodoFinal);
@@ -3376,7 +3408,13 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                                 cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString()));
                     } else {
 
-                        GestoraPDF.generarPDFFacturasMensuales(rows);
+                        int[] keys = new int[rows.length];
+
+                        for (int i = 0; i < rows.length; i++) {
+
+                            keys[i] = (int) tablaHistoricoFacturas.getValueAt(rows[i], 0);
+                        }
+                        GestoraPDF.generarPDFFacturasMensuales(keys);
                     }
                 }
             }
@@ -3393,7 +3431,13 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 if (tablaFacExtra.getRowCount() > 0) {
 
                     int[] rows = tablaFacExtra.getSelectedRows();
-                    GestoraPDF.generarPDFExtras(rows);
+                    int[] keys = new int[rows.length];
+
+                    for (int i = 0; i < rows.length; i++) {
+
+                        keys[i] = (int) tablaHistoricoFacturas.getValueAt(rows[i], 0);
+                    }
+                    GestoraPDF.generarPDFExtras(keys);
                 }
             }
         }).start();
@@ -3408,7 +3452,15 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
                 if (tablaHistoricoFacturas.getRowCount() > 0) {
 
-                    GestoraPDF.generarPDFFacturasMensuales(tablaHistoricoFacturas.getSelectedRows());
+                    int[] rows = tablaHistoricoFacturas.getSelectedRows();
+                    int[] keys = new int[rows.length];
+
+                    for (int i = 0; i < rows.length; i++) {
+
+                        keys[i] = (int) tablaHistoricoFacturas.getValueAt(rows[i], 0);
+                    }
+
+                    GestoraPDF.generarPDFFacturasMensuales(keys);
                 }
             }
         }).start();
@@ -3495,8 +3547,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         int[] rows = tablaTareas.getSelectedRows();
 
         for (int i : rows) {
-            // TODO usar el id en vez de el RowIndex
-            Tarea t = GestoraTareas.getTareas().get(tablaTareas.getSelectedRow());
+
+            Tarea t = GestoraTareas.getTareas().devuelveValorPorClave(tablaTareas.getValueAt(i, 0));
             GestoraBaseDatos.ejecutarSentenciaUpdate("Delete from tareas where ntarea = " + t.get("NTAREA"));
         }
 
@@ -3512,8 +3564,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void bRenovarContratosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRenovarContratosActionPerformed
 
         int[] rows = jTableContratos.getSelectedRows();
-        ArrayList<Dato> contratos = GestoraDatos.dameGestora().get(Contrato.getTabla());
-        // TODO usar el id en vez de el RowIndex
+        ArrayListDato<Dato> contratos = GestoraDatos.dameGestora().get(Contrato.getTabla());
+
         Fecha f = UtilidadesTareas.getFechaActual();
 
         if (rows.length == 0) {
@@ -3533,7 +3585,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         } else {
             for (int i : rows) {
 
-                Dato d = contratos.get(i);
+                Dato d = contratos.devuelveValorPorClave((int) jTableContratos.getValueAt(jTableContratos.getSelectedRow(), 0));
                 if (UtilidadesTareas.calcularDiferenciaFechas((Fecha) d.get("FINCONTRATO"), f) < 0) {
 
                     Fecha nf = UtilidadesTareas.getFechaActual();
@@ -3648,6 +3700,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }//GEN-LAST:event_bRenovarContratosHCActionPerformed
 
     private void bActivarContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActivarContratoActionPerformed
+
         int[] rows = jTableContratosHC.getSelectedRows();
         ArrayListDato<Dato> contratos = GestoraDatos.dameGestora().get("HISTORICOCONTRATO");
 
@@ -3676,6 +3729,42 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS);
         GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_HISTORICOCONTRATOS);
     }//GEN-LAST:event_bDesactivarActionPerformed
+
+    private void bBorrarFacturaExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarFacturaExtraActionPerformed
+
+        int[] rows = tablaFacExtra.getSelectedRows();
+
+        for (int i : rows) {
+
+            Dato d = GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).devuelveValorPorClave(tablaFacExtra.getValueAt(i, 0));
+            GestoraBaseDatos.deleteDato(d);
+        }
+    }//GEN-LAST:event_bBorrarFacturaExtraActionPerformed
+
+    private void bBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarActionPerformed
+
+        int[] rows = tablaEmple.getSelectedRows();
+
+        for (int i : rows) {
+
+            Dato d = GestoraDatos.dameGestora().get(Empleado.getTabla()).devuelveValorPorClave(tablaEmple.getValueAt(i, 0));
+            GestoraBaseDatos.deleteDato(d);
+        }
+    }//GEN-LAST:event_bBorrarActionPerformed
+
+    private void bTareasHechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTareasHechaActionPerformed
+
+        int[] rows = tablaTareas.getSelectedRows();
+
+        for (int i : rows) {
+
+            Tarea t = GestoraTareas.getTareas().devuelveValorPorClave(tablaTareas.getValueAt(i, 0));
+            t.calcularNuevaFecha();
+            GestoraBaseDatos.updateDato(t);
+        }
+
+        new GestoraTareas(this).start();
+    }//GEN-LAST:event_bTareasHechaActionPerformed
 
     private void cambiarRuta() throws HeadlessException {
         JFileChooser elegir = new JFileChooser();
@@ -3778,7 +3867,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JButton bActualizar;
     private javax.swing.JButton bAñadir;
     private javax.swing.JButton bAñadirExtra;
+    private javax.swing.JButton bBorrar;
     private javax.swing.JButton bBorrarExtra;
+    private javax.swing.JButton bBorrarFacturaExtra;
     private javax.swing.JButton bCalcular;
     private javax.swing.JButton bComprobarIban;
     private javax.swing.JButton bComprobarTareas;
@@ -3811,6 +3902,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private javax.swing.JButton bSeleccionaRuta;
     private javax.swing.JButton bTarBorrar;
     private javax.swing.JButton bTarGuardar;
+    private javax.swing.JButton bTareasHecha;
     private javax.swing.ButtonGroup buttonGroupContratos;
     private javax.swing.ButtonGroup buttonGroupContratosOrdenar;
     private javax.swing.ButtonGroup buttonGroupFacExtra;
@@ -4241,7 +4333,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void refrescarCamposFacturaExtra(int nFactura) {
 
         Dato f = GestoraDatos.dameGestora().get("FACTURAEXTRA").devuelveValorPorClave(nFactura);
-        
+
         ctNomb.setText(f.get("NOMBRE").toString());
         ctDomic.setText(f.get("DOMICILIO").toString());
         ctLoca.setText(f.get("LOCALIDAD").toString());
@@ -4413,10 +4505,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
             } else {
 
-        // TODO usar el id en vez de el RowIndex
+                // TODO usar el id en vez de el RowIndex
                 //***************************************************************************************
-                Dato c = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave((int)tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0));
-               // Dato c = GestoraDatos.dameGestora().get("CLIENTES").get(tablaClientes.getSelectedRow());
+                Dato c = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave((int) tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0));
+                // Dato c = GestoraDatos.dameGestora().get("CLIENTES").get(tablaClientes.getSelectedRow());
                 c.put("DESCRIPCION", ctClienteDescripcion.getText());
                 c.put("NOMBRE", ctClienteNombre.getText());
                 c.put("DOMICILIO", ctClienteDomicilio.getText());
@@ -4453,7 +4545,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
             // TODO usar el id en vez de el RowIndex
             //*************************************************************************************************************************
-            Dato c = GestoraDatos.dameGestora().get("CONTRATOS").devuelveValorPorClave((int)jTableContratos.getValueAt(jTableContratos.getSelectedRow(), 0));
+            Dato c = GestoraDatos.dameGestora().get("CONTRATOS").devuelveValorPorClave((int) jTableContratos.getValueAt(jTableContratos.getSelectedRow(), 0));
             //Dato c = GestoraDatos.dameGestora().get("CONTRATOS").get(jTableContratos.getSelectedRow());
             c.put("DESCRIPCION", ctContratoDescrip.getText());
             c.put("INICIOCONTRATO", ctContratoInicio.getText());
@@ -4489,7 +4581,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         } else {
             // TODO usar el id para conseguir el dato
             //******************************************************************************************************************************
-            Dato c = GestoraDatos.dameGestora().get("EMPLEADOS").devuelveValorPorClave((int)tablaEmple.getValueAt(tablaEmple.getSelectedRow(), 0));
+            Dato c = GestoraDatos.dameGestora().get("EMPLEADOS").devuelveValorPorClave((int) tablaEmple.getValueAt(tablaEmple.getSelectedRow(), 0));
             //Dato c = GestoraDatos.dameGestora().get("EMPLEADOS").get(tablaEmple.getSelectedRow());
             c.put("CIF", ctEmpleadoNif.getText());
             c.put("ANAGRAMA", ctEmpleadoAnagram.getText());
@@ -4562,7 +4654,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         // TODO usar el id para conseguir el dato
         //*******************************************************************************************************************************************************
-        Dato c = GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).devuelveValorPorClave((int)tablaFacExtra.getValueAt(tablaFacExtra.getSelectedRow(), 0));
+        Dato c = GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).devuelveValorPorClave((int) tablaFacExtra.getValueAt(tablaFacExtra.getSelectedRow(), 0));
         //Dato c = GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).get(tablaFacExtra.getSelectedRow());
         c.put("CIF", ctNcif.getText());
         c.put("NOMBRE", ctNomb.getText());

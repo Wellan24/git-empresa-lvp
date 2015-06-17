@@ -66,15 +66,16 @@ public class Tarea extends Dato {
         int año = f.getAño();
 
         // TODO cambiar esto
-        if (dia + (int) this.get("PERIODO") >= 30) {
+        if (dia + (int) this.get("PERIODO") > 30) {
 
             int masMeses = (dia + (int) this.get("PERIODO")) / 30;
             dia = dia + (int) this.get("PERIODO") - (30 * masMeses);
 
-            if (mes + masMeses >= 12) {
+            if (mes + masMeses > 12) {
 
-                mes = mes + masMeses - (12 * masMeses);
-                año += (mes + masMeses) % 12;
+                int masAños = (mes + masMeses) / 12;
+                mes = mes + masMeses - (12 * masAños);
+                año += masAños;
             } else {
                 mes = mes + masMeses;
             }
@@ -96,7 +97,7 @@ public class Tarea extends Dato {
     @Override
     public Object devuelveValorClave() {
 
-        return "" + this.get("NTAREA");
+        return this.get("NTAREA");
     }
 
     public static String getTabla() {
