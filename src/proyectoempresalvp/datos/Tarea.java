@@ -32,7 +32,7 @@ public class Tarea extends Dato {
         this.put("PERIODO", periodo);
         this.put("CLIENTE", cliente);
     }
-    
+
     public Tarea() {
         super(5);
         this.put("NTAREA", 0);
@@ -41,7 +41,6 @@ public class Tarea extends Dato {
         this.put("PERIODO", 0);
         this.put("CLIENTE", "");
     }
-    
 
     public static String[] getOrden() {
         return orden;
@@ -61,18 +60,27 @@ public class Tarea extends Dato {
 
     public void calcularNuevaFecha() {
 
-        Fecha f = (Fecha)this.get("FECHA");
+        Fecha f = (Fecha) this.get("FECHA");
         int dia = f.getDia();
         int mes = f.getMes();
         int año = f.getAño();
 
         // TODO cambiar esto
-        
-        if (mes + (int) this.get("PERIODO") > 12) {
+        if (dia + (int) this.get("PERIODO") > 30) {
 
-            mes = mes + (int) this.get("PERIODO") - 12;
-            año++;
+            dia = dia + (int) this.get("PERIODO") - 30;
+            int masMeses = (dia + (int) this.get("PERIODO")) / 30;
+
+            if (mes + masMeses > 12) {
+
+                mes = mes + masMeses - 12;
+                año += (mes + masMeses) % 12;
+            } else {
+                mes = mes + masMeses;
+            }
+
         } else {
+
             mes = mes + (int) this.get("PERIODO");
         }
 
@@ -93,23 +101,23 @@ public class Tarea extends Dato {
 
     public static String getTabla() {
         return tabla;
-    } 
+    }
 
     @Override
     public String devuelveClave() {
-        
+
         return "NTAREA";
-    }   
+    }
 
     @Override
     public Dato copia() {
-        
-        return (Dato)this.clone();
+
+        return (Dato) this.clone();
     }
 
     @Override
     public int compareTo(Dato o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
