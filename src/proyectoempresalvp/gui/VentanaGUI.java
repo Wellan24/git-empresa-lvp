@@ -4278,9 +4278,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }
 
     private void refrescarCamposContratos() {
-        // TODO usar esto
+        // TODO usar esto??????????????
         Dato con = GestoraDatos.dameGestora().get("CONTRATOS").devuelveValorPorClave((int) jTableContratos.getValueAt(jTableContratos.getSelectedRow(), 0));
         //Dato con = GestoraDatos.dameGestora().get("CONTRATOS").get(jTableContratos.getSelectedRow());
+        //Esto está bien????
         Dato d = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave(con.get("NUMCLIENTE"));
         ctContratoDescrip.setText(d.get("DESCRIPCION").toString());
         ctContratoNombre.setText(d.get("NOMBRE").toString());
@@ -4413,7 +4414,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             } else {
 
         // TODO usar el id en vez de el RowIndex
-                Dato c = GestoraDatos.dameGestora().get("CLIENTES").get(tablaClientes.getSelectedRow());
+                //***************************************************************************************
+                Dato c = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave((int)tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0));
+               // Dato c = GestoraDatos.dameGestora().get("CLIENTES").get(tablaClientes.getSelectedRow());
                 c.put("DESCRIPCION", ctClienteDescripcion.getText());
                 c.put("NOMBRE", ctClienteNombre.getText());
                 c.put("DOMICILIO", ctClienteDomicilio.getText());
@@ -4448,8 +4451,10 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             JOptionPane.showMessageDialog(this, "Comprueba que has introducido en los campos numéricos números correctamente.");
         } else {
 
-        // TODO usar el id en vez de el RowIndex
-            Dato c = GestoraDatos.dameGestora().get("CONTRATOS").get(jTableContratos.getSelectedRow());
+            // TODO usar el id en vez de el RowIndex
+            //*************************************************************************************************************************
+            Dato c = GestoraDatos.dameGestora().get("CONTRATOS").devuelveValorPorClave((int)jTableContratos.getValueAt(jTableContratos.getSelectedRow(), 0));
+            //Dato c = GestoraDatos.dameGestora().get("CONTRATOS").get(jTableContratos.getSelectedRow());
             c.put("DESCRIPCION", ctContratoDescrip.getText());
             c.put("INICIOCONTRATO", ctContratoInicio.getText());
             c.put("FINCONTRATO", ctContratoFin.getText());
@@ -4483,7 +4488,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             JOptionPane.showMessageDialog(this, "Comprueba que los telefonos, la nomina y el numero de la seguridad social son numeros");
         } else {
             // TODO usar el id para conseguir el dato
-            Dato c = GestoraDatos.dameGestora().get("EMPLEADOS").get(tablaEmple.getSelectedRow());
+            //******************************************************************************************************************************
+            Dato c = GestoraDatos.dameGestora().get("EMPLEADOS").devuelveValorPorClave((int)tablaEmple.getValueAt(tablaEmple.getSelectedRow(), 0));
+            //Dato c = GestoraDatos.dameGestora().get("EMPLEADOS").get(tablaEmple.getSelectedRow());
             c.put("CIF", ctEmpleadoNif.getText());
             c.put("ANAGRAMA", ctEmpleadoAnagram.getText());
             c.put("NOMBRE", ctEmpleadoNombre.getText());
@@ -4554,7 +4561,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void modificarFacturaExtra() {
 
         // TODO usar el id para conseguir el dato
-        Dato c = GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).get(tablaFacExtra.getSelectedRow());
+        //*******************************************************************************************************************************************************
+        Dato c = GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).devuelveValorPorClave((int)tablaFacExtra.getValueAt(tablaFacExtra.getSelectedRow(), 0));
+        //Dato c = GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).get(tablaFacExtra.getSelectedRow());
         c.put("CIF", ctNcif.getText());
         c.put("NOMBRE", ctNomb.getText());
         c.put("DOMICILIO", ctDomic.getText());
