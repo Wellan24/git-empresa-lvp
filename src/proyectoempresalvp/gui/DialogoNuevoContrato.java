@@ -457,8 +457,14 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
 
             JOptionPane.showMessageDialog(this, "Comprueba que has introducido en los campos numéricos números correctamente.");
         } else {
-
-            Contrato nuevoContrato = new Contrato(Integer.parseInt(ctNumCon.getText()), //NUMCONTRATO
+            
+            if(comprobarNumero(ctNumCon.getText()) || ctNumCon.getText().isEmpty() &&
+              comprobarNumero(comboNumeroCliente.getSelectedItem().toString()) || comboNumeroCliente.getSelectedItem().toString().isEmpty() &&
+              comprobarNumero(ctDiaCobr1.getText()) || ctDiaCobr1.getText().isEmpty() &&
+              comprobarNumero(ctIvaCon.getText()) || ctIvaCon.getText().isEmpty() ){
+                
+              Contrato nuevoContrato = new Contrato(
+                    Integer.parseInt(ctNumCon.getText()), //NUMCONTRATO
                     Integer.parseInt(comboNumeroCliente.getSelectedItem().toString()), //NUMCLIENTE
                     ctDes.getText(), //DESCRIPCION
                     new Fecha(inicio), new Fecha(fin), //INICIO,FIN
@@ -474,7 +480,13 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
             if(GestoraBaseDatos.insertarDato(nuevoContrato)) {
 
                 GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS);
+            }  
+                
+            }else{
+                JOptionPane.showMessageDialog(this, "Comprueba que los campos numéricos son números");
             }
+
+            
         }
     }
 
