@@ -351,23 +351,31 @@ public class DialogoNuevoCliente extends javax.swing.JDialog {
 
     private void insertarCliente() {
 
-        String IBAN = ctClienteIban.getText();
-
-        if(!Gestora.esValidoIBAN(IBAN)) {
-
-            JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
-        } else if(!comprobarNumero(ctClienteNum.getText()) || !comprobarNumero(ctClienteNif.getText())
-                || !comprobarNumero(ctClienteCp.getText()) || !comprobarNumero(ctClienteTlfCli.getText())
-                || !comprobarNumero(ctClienteTlfContacto.getText()) || !comprobarNumero(ctClienteRefBan.getText())
-                || !comprobarNumero(ctClienteDomiciliado.getText())) {
-
-            JOptionPane.showMessageDialog(this, "Comprueba que los telefonos, el NIF, el CP y la referencia del banco son números");
-        } else if(!Gestora.esValidoIBAN(ctClienteIban.getText())) {
-
-            JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
-        } else {
-
-            Cliente nuevoCliente = new Cliente(Integer.parseInt(ctClienteNum.getText()),
+//        String IBAN = ctClienteIban.getText();
+//
+//        if(!Gestora.esValidoIBAN(IBAN)) {
+//
+//            JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
+//        } else if(!comprobarNumero(ctClienteNum.getText()) || !comprobarNumero(ctClienteNif.getText())
+//                || !comprobarNumero(ctClienteCp.getText()) || !comprobarNumero(ctClienteTlfCli.getText())
+//                || !comprobarNumero(ctClienteTlfContacto.getText()) || !comprobarNumero(ctClienteRefBan.getText())
+//                || !comprobarNumero(ctClienteDomiciliado.getText())) {
+//       
+//
+//            JOptionPane.showMessageDialog(this, "Comprueba que el NIF y el CP son números");
+//        } else if(!Gestora.esValidoIBAN(ctClienteIban.getText())) {
+//
+//            JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
+//        } else {
+//
+           if(comprobarNumero(ctClienteTlfCli.getText()) || ctClienteTlfCli.getText().isEmpty() &&
+              comprobarNumero(ctClienteTlfContacto.getText()) || ctClienteTlfContacto.getText().isEmpty() &&
+              comprobarNumero(ctClienteCp.getText()) || ctClienteCp.getText().isEmpty() &&
+              comprobarNumero(ctClienteRefBan.getText()) || ctClienteRefBan.getText().isEmpty() &&
+              comprobarNumero(ctClienteDomiciliado.getText()) || ctClienteDomiciliado.getText().isEmpty() &&
+              comprobarNumero(ctClienteNum.getText()) || ctClienteNum.getText().isEmpty()   ) {
+               
+                Cliente nuevoCliente = new Cliente(Integer.parseInt(ctClienteNum.getText()),
                     ctClienteNif.getText(),
                     ctClienteDescripcion.getText(), ctClienteNombre.getText(), ctClienteDomicilio.getText(),
                     ctClienteLocalidad.getText(),
@@ -384,7 +392,16 @@ public class DialogoNuevoCliente extends javax.swing.JDialog {
 
                 GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CLIENTES);
             }
-        }
+            
+            
+           }else{
+               JOptionPane.showMessageDialog(this, "Comprueba que los teléfonos y el cp son números");
+           }
+               
+        
+        
+          
+//        }
 
     }
 
