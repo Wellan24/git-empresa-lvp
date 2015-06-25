@@ -3846,14 +3846,14 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         java.awt.EventQueue.invokeLater(() -> {
 
             VentanaGUI ventana = new VentanaGUI();
-//            DialogoEntrada d = new DialogoEntrada(ventana, true);
-//            d.setVisible(true);
-//            if(d.getReturnStatus() == DialogoEntrada.RET_OK) {
+            DialogoEntrada d = new DialogoEntrada(ventana, true);
+            d.setVisible(true);
+            if(d.getReturnStatus() == DialogoEntrada.RET_OK) {
             ventana.setVisible(true);
-//            } else {
-//                ventana.dispose();
-//                System.exit(0);
-//            }
+            } else {
+                ventana.dispose();
+                System.exit(0);
+            }
 
         });
     }
