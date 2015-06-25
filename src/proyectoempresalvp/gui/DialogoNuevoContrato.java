@@ -5,6 +5,11 @@
  */
 package proyectoempresalvp.gui;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import proyectoempresalvp.datos.Contrato;
@@ -25,6 +30,8 @@ import proyectoempresalvp.gestoras.UtilidadesTareas;
  */
 public class DialogoNuevoContrato extends javax.swing.JDialog {
 
+    DecimalFormat df = new DecimalFormat("#.##");
+
     /**
      * Creates new form DialogoNuevoEmpleado
      *
@@ -36,10 +43,19 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
         initComponents();
         this.setLocationRelativeTo(null);
         comboNumeroCliente.setModel(new DefaultComboBoxModel(GestoraDatos.dameGestora().get("CLIENTES").devuelveTodasLasClaves()));
-        ctNumCon.setText("" + GestoraDatos.dameGestora().get("CONTRATOS").devuelveNumeroSiguiente());
-        
-        ctIvaCon.setText(GestoraConfiguracion.get("IVA").toString());      
-        
+        try {
+
+            ResultSet rs = GestoraBaseDatos.ejecutarSentenciaQuery("Select MAX(NUMCONTRATO) + 1 from CONTRATOS");
+
+            if (rs.next())
+                ctNumCon.setText(Integer.toString(rs.getInt(1)));
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DialogoNuevoContrato.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        ctIvaCon.setText(GestoraConfiguracion.get("IVA").toString());
+
         Fecha f = UtilidadesTareas.getFechaActual();
         f.setDia(1);
         ctPerIn.setText(f.toString());
@@ -401,8 +417,8 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
     }//GEN-LAST:event_comboNumeroClienteActionPerformed
 
     private void refrescarCliente() {
-        if(comboNumeroCliente.getSelectedItem() != null && GestoraDatos.dameGestora().get("CLIENTES") != null) {
-            
+        if (comboNumeroCliente.getSelectedItem() != null && GestoraDatos.dameGestora().get("CLIENTES") != null) {
+
             Dato d = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave(comboNumeroCliente.getSelectedItem());
             ctDes.setText(d.get("DESCRIPCION").toString());
             ctNombre.setText(d.get("NOMBRE").toString());
@@ -418,23 +434,25 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
 
     private void ctIAeurKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ctIAeurKeyTyped
         char car = evt.getKeyChar();
-        if(((car < '0' || car > '9') && car != '.') || ctIAeur.getText().contains(".") && car == '.') {
+        if (((car < '0' || car > '9') && car != '.') || ((car < '0' || car > '9') && ctIAeur.getText().contains(".") && car == '.')) {
             evt.consume();
+            return;
         }
 
-        if(car != '.') {
-            ctIMeur.setText("" + (Double.parseDouble(ctIAeur.getText().isEmpty() ? "0" : ctIAeur.getText() + car) / 12));
+        if (car != '.') {
+            ctIMeur.setText(df.format(Double.parseDouble(ctIAeur.getText().isEmpty() ? "0" : ctIAeur.getText() + car) / 12));
         }
     }//GEN-LAST:event_ctIAeurKeyTyped
 
     private void ctIMeurKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ctIMeurKeyTyped
         char car = evt.getKeyChar();
-        if(((car < '0' || car > '9') && car != '.') || ctIMeur.getText().contains(".") && car == '.') {
+        if (((car < '0' || car > '9') && car != '.') || ((car < '0' || car > '9') && ctIMeur.getText().contains(".") && car == '.')) {
             evt.consume();
+            return;
         }
 
-        if(car != '.') {
-            ctIAeur.setText("" + (Double.parseDouble(ctIMeur.getText().isEmpty() ? "0" : ctIMeur.getText() + car) * 12));
+        if (car != '.') {
+            ctIAeur.setText(df.format(Double.parseDouble(ctIMeur.getText().isEmpty() ? "0" : ctIMeur.getText() + car) * 12));
         }
     }//GEN-LAST:event_ctIMeurKeyTyped
 
@@ -447,46 +465,44 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
 
         String inicio = ctPerIn.getText(), fin = ctPerFin.getText();
 
-        if(comboNumeroCliente.getSelectedItem() == null) {
-            JOptionPane.showMessageDialog(this, "Selecciona un Cliente");
-        } else if(!Gestora.comprobarFormatoFechaCorrecto(inicio) || !Gestora.comprobarFormatoFechaCorrecto(fin)) {
+        if (!Gestora.comprobarFormatoFechaCorrecto(inicio) || !Gestora.comprobarFormatoFechaCorrecto(fin)) {
+
             JOptionPane.showMessageDialog(this, "Comprueba las fechas, el formato es dd/mm/aaaa");
-        } else if(!comprobarNumero(comboNumeroCliente.getSelectedItem().toString())
-                || !comprobarNumero(ctIAeur.getText()) || !comprobarNumero(ctIMeur.getText())
-                || !comprobarNumero(ctDiaCobr1.getText()) || !comprobarNumero(ctIvaCon.getText())) {
+            return;
+        }
 
-            JOptionPane.showMessageDialog(this, "Comprueba que has introducido en los campos numéricos números correctamente.");
-        } else {
-            
-            if(comprobarNumero(ctNumCon.getText()) || ctNumCon.getText().isEmpty() &&
-              comprobarNumero(comboNumeroCliente.getSelectedItem().toString()) || comboNumeroCliente.getSelectedItem().toString().isEmpty() &&
-              comprobarNumero(ctDiaCobr1.getText()) || ctDiaCobr1.getText().isEmpty() &&
-              comprobarNumero(ctIvaCon.getText()) || ctIvaCon.getText().isEmpty() ){
-                
-              Contrato nuevoContrato = new Contrato(
-                    Integer.parseInt(ctNumCon.getText()), //NUMCONTRATO
-                    Integer.parseInt(comboNumeroCliente.getSelectedItem().toString()), //NUMCLIENTE
-                    ctDes.getText(), //DESCRIPCION
-                    new Fecha(inicio), new Fecha(fin), //INICIO,FIN
-                    ctIAeur.getText(), //EUROSAÑO
-                    ctIMeur.getText(), //EUROSMES
-                    ctFormPag.getText(), //FORMAPAGO
-                    Integer.parseInt(ctDiaCobr1.getText()), //DIACOBRO
-                    Integer.parseInt(ctIvaCon.getText()),//TANTO IVA
-                    true);//ESTADO
-            
-            
+        if (comprobarNumero(ctNumCon.getText()) || ctNumCon.getText().isEmpty()
+                && comprobarNumero(comboNumeroCliente.getSelectedItem().toString()) || comboNumeroCliente.getSelectedItem().toString().isEmpty()
+                && comprobarNumero(ctDiaCobr1.getText()) || ctDiaCobr1.getText().isEmpty()
+                && comprobarNumero(ctIvaCon.getText()) || ctIvaCon.getText().isEmpty()) {
 
-            if(GestoraBaseDatos.insertarDato(nuevoContrato)) {
+            try {
 
-                GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS);
-            }  
-                
-            }else{
+                Contrato nuevoContrato = new Contrato(
+                        Integer.parseInt(ctNumCon.getText().isEmpty() ? "0" : ctNumCon.getText()), //NUMCONTRATO
+                        Integer.parseInt(comboNumeroCliente.getSelectedItem().toString()), //NUMCLIENTE
+                        ctDes.getText(), //DESCRIPCION
+                        new Fecha(inicio), new Fecha(fin), //INICIO,FIN
+                        ctIAeur.getText(), //EUROSAÑO
+                        ctIMeur.getText(), //EUROSMES
+                        ctFormPag.getText(), //FORMAPAGO
+                        Integer.parseInt(ctDiaCobr1.getText().isEmpty() ? "0" : ctDiaCobr1.getText()), //DIACOBRO
+                        Integer.parseInt(ctIvaCon.getText().isEmpty() ? "0" : ctIvaCon.getText()),//TANTO IVA
+                        true);//ESTADO
+
+                if (GestoraBaseDatos.insertarDato(nuevoContrato)) {
+
+                    GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS);
+                }
+
+            } catch (NumberFormatException numberFormatException) {
+
                 JOptionPane.showMessageDialog(this, "Comprueba que los campos numéricos son números");
             }
 
-            
+        } else {
+
+            JOptionPane.showMessageDialog(this, "Comprueba que los campos numéricos son números");
         }
     }
 

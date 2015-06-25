@@ -27,6 +27,7 @@ public class DialogoNuevoCliente extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
+        ctClienteNum.setText(Integer.toString(GestoraDatos.dameGestora().get(Cliente.getTabla()).devuelveNumeroSiguiente()));
     }
 
     /**
@@ -101,6 +102,8 @@ public class DialogoNuevoCliente extends javax.swing.JDialog {
         jLabel12.setText("Provincia:");
 
         jLabel13.setText("Número de cuenta:");
+
+        ctClienteNum.setEditable(false);
 
         ctClienteNotas.setColumns(20);
         ctClienteNotas.setRows(4);
@@ -304,6 +307,7 @@ public class DialogoNuevoCliente extends javax.swing.JDialog {
     private void bCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearClienteActionPerformed
 
         insertarCliente();
+        this.dispose();
     }//GEN-LAST:event_bCrearClienteActionPerformed
 
     /**
@@ -316,19 +320,19 @@ public class DialogoNuevoCliente extends javax.swing.JDialog {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for(javax.swing.UIManager.LookAndFeelInfo info :javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if("Nimbus".equals(info.getName())) {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch(ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(DialogoNuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch(InstantiationException ex) {
+        } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(DialogoNuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch(IllegalAccessException ex) {
+        } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(DialogoNuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch(javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(DialogoNuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -350,59 +354,44 @@ public class DialogoNuevoCliente extends javax.swing.JDialog {
     }
 
     private void insertarCliente() {
+//
+        if (!comprobarNumero(ctClienteTlfCli.getText()) || ctClienteTlfCli.getText().isEmpty()
+                && comprobarNumero(ctClienteTlfContacto.getText()) || ctClienteTlfContacto.getText().isEmpty()
+                && comprobarNumero(ctClienteCp.getText()) || ctClienteCp.getText().isEmpty()
+                && comprobarNumero(ctClienteRefBan.getText()) || ctClienteRefBan.getText().isEmpty()
+                && comprobarNumero(ctClienteDomiciliado.getText()) || ctClienteDomiciliado.getText().isEmpty()
+                && comprobarNumero(ctClienteNum.getText()) || ctClienteNum.getText().isEmpty()) {
 
-//        String IBAN = ctClienteIban.getText();
-//
-//        if(!Gestora.esValidoIBAN(IBAN)) {
-//
-//            JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
-//        } else if(!comprobarNumero(ctClienteNum.getText()) || !comprobarNumero(ctClienteNif.getText())
-//                || !comprobarNumero(ctClienteCp.getText()) || !comprobarNumero(ctClienteTlfCli.getText())
-//                || !comprobarNumero(ctClienteTlfContacto.getText()) || !comprobarNumero(ctClienteRefBan.getText())
-//                || !comprobarNumero(ctClienteDomiciliado.getText())) {
-//       
-//
-//            JOptionPane.showMessageDialog(this, "Comprueba que el NIF y el CP son números");
-//        } else if(!Gestora.esValidoIBAN(ctClienteIban.getText())) {
-//
-//            JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
-//        } else {
-//
-           if(comprobarNumero(ctClienteTlfCli.getText()) || ctClienteTlfCli.getText().isEmpty() &&
-              comprobarNumero(ctClienteTlfContacto.getText()) || ctClienteTlfContacto.getText().isEmpty() &&
-              comprobarNumero(ctClienteCp.getText()) || ctClienteCp.getText().isEmpty() &&
-              comprobarNumero(ctClienteRefBan.getText()) || ctClienteRefBan.getText().isEmpty() &&
-              comprobarNumero(ctClienteDomiciliado.getText()) || ctClienteDomiciliado.getText().isEmpty() &&
-              comprobarNumero(ctClienteNum.getText()) || ctClienteNum.getText().isEmpty()   ) {
-               
-                Cliente nuevoCliente = new Cliente(Integer.parseInt(ctClienteNum.getText()),
-                    ctClienteNif.getText(),
-                    ctClienteDescripcion.getText(), ctClienteNombre.getText(), ctClienteDomicilio.getText(),
-                    ctClienteLocalidad.getText(),
-                    Integer.parseInt(ctClienteCp.getText()),
-                    ctClienteProvincia.getText(), ctClienteContacto.getText(),
-                    Integer.parseInt(ctClienteTlfCli.getText()),
-                    Integer.parseInt(ctClienteTlfContacto.getText()),
-                    ctClienteNotas.getText(),
-                    Integer.parseInt(ctClienteRefBan.getText()),
-                    ctClienteIban.getText(),
-                    Integer.parseInt(ctClienteDomiciliado.getText()));
+            try {
 
-            if(GestoraBaseDatos.insertarDato(nuevoCliente)) {
+                Cliente nuevoCliente = new Cliente(Integer.parseInt(ctClienteNum.getText().isEmpty() ? "0" : ctClienteNum.getText()),
+                        ctClienteNif.getText(),
+                        ctClienteDescripcion.getText(), ctClienteNombre.getText(), ctClienteDomicilio.getText(),
+                        ctClienteLocalidad.getText(),
+                        Integer.parseInt(ctClienteCp.getText().isEmpty() ? "0" : ctClienteCp.getText()),
+                        ctClienteProvincia.getText(), ctClienteContacto.getText(),
+                        Integer.parseInt(ctClienteTlfCli.getText().isEmpty() ? "0" : ctClienteTlfCli.getText()),
+                        Integer.parseInt(ctClienteTlfContacto.getText().isEmpty() ? "0" : ctClienteTlfContacto.getText()),
+                        ctClienteNotas.getText(),
+                        Integer.parseInt(ctClienteRefBan.getText().isEmpty() ? "0" : ctClienteRefBan.getText()),
+                        ctClienteIban.getText(),
+                        Integer.parseInt(ctClienteDomiciliado.getText().isEmpty() ? "0" : ctClienteDomiciliado.getText()));
 
-                GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CLIENTES);
+                if (GestoraBaseDatos.insertarDato(nuevoCliente)) {
+
+                    GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CLIENTES);
+                }
+
+            } catch (NumberFormatException numberFormatException) {
+
+                JOptionPane.showMessageDialog(this, "Comprueba que los teléfonos y el cp son números");
             }
-            
-            
-           }else{
-               JOptionPane.showMessageDialog(this, "Comprueba que los teléfonos y el cp son números");
-           }
-               
-        
-        
-          
-//        }
 
+        } else {
+            JOptionPane.showMessageDialog(this, "Comprueba que los teléfonos y el cp son números");
+        }
+
+//        }
     }
 
     private boolean comprobarNumero(String n) {

@@ -3848,8 +3848,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             VentanaGUI ventana = new VentanaGUI();
             DialogoEntrada d = new DialogoEntrada(ventana, true);
             d.setVisible(true);
-            if(d.getReturnStatus() == DialogoEntrada.RET_OK) {
-            ventana.setVisible(true);
+            if (d.getReturnStatus() == DialogoEntrada.RET_OK) {
+                ventana.setVisible(true);
             } else {
                 ventana.dispose();
                 System.exit(0);
@@ -4281,10 +4281,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     private void initDatos() {
 
-        // Tabla tareas
         new GestoraTareas(this).start();
 
-        // Resto Tablas
         GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_TODO, new ProcesadorContratos());
 
         ctProxFactura.setText(Integer.toString(GestoraFacturas.numeroProximaFactura()));
@@ -4351,7 +4349,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void refrescarCamposClientes() {
 
         Dato c = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave((int) tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0));
-        //Dato c = GestoraDatos.dameGestora().get("CLIENTES").get(tablaClientes.getSelectedRow());
+        
         ctClienteNum.setText(c.get("NUMEROCLIENTE").toString());
         ctClienteDescripcion.setText(c.get("DESCRIPCION").toString());
         ctClienteNombre.setText(c.get("NOMBRE").toString());
@@ -4370,10 +4368,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }
 
     private void refrescarCamposContratos() {
-        // TODO usar esto??????????????
+        
         Dato con = GestoraDatos.dameGestora().get("CONTRATOS").devuelveValorPorClave((int) jTableContratos.getValueAt(jTableContratos.getSelectedRow(), 0));
-        //Dato con = GestoraDatos.dameGestora().get("CONTRATOS").get(jTableContratos.getSelectedRow());
-        //Esto está bien????
+        
         Dato d = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave(con.get("NUMCLIENTE"));
         ctContratoDescrip.setText(d.get("DESCRIPCION").toString());
         ctContratoNombre.setText(d.get("NOMBRE").toString());
@@ -4402,8 +4399,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void refrescarCamposHistoricoContratos() {
 
         Dato con = GestoraDatos.dameGestora().get("HISTORICOCONTRATO").devuelveValorPorClave((int) jTableContratosHC.getValueAt(jTableContratosHC.getSelectedRow(), 0));
-        //Dato con = GestoraDatos.dameGestora().get("HISTORICOCONTRATO").get(jTableContratosHC.getSelectedRow());
-
+        
         Dato d = GestoraDatos.dameGestora().get(Cliente.getTabla()).devuelveValorPorClave(con.get("NUMCLIENTE"));
         ctContratoDescripHC.setText(d.get("DESCRIPCION").toString());
         ctContratoNombreHC.setText(d.get("NOMBRE").toString());
@@ -4432,7 +4428,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void refrescarCamposEmpleados() {
 
         Dato emp = GestoraDatos.dameGestora().get("EMPLEADOS").devuelveValorPorClave((int) tablaEmple.getValueAt(tablaEmple.getSelectedRow(), 0));
-        //Dato emp = GestoraDatos.dameGestora().get("EMPLEADOS").get(tablaEmple.getSelectedRow());
+        
         ctEmpleadoNum.setText(emp.get("NUMEMPLE").toString());
         ctEmpleadoNif.setText(emp.get("CIF").toString());
         ctEmpleadoAnagram.setText(emp.get("ANAGRAMA").toString());
@@ -4454,7 +4450,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void refrescarCamposHistorico() {
 
         Dato fac = GestoraDatos.dameGestora().get("FACTURASMENSUALESAÑO").devuelveValorPorClave((int) tablaHistoricoFacturas.getValueAt(tablaHistoricoFacturas.getSelectedRow(), 0));
-        //Dato fac = GestoraDatos.dameGestora().get("FACTURASMENSUALESAÑO").get(tablaHistoricoFacturas.getSelectedRow());
+        
         ctNfac.setText(fac.get("NUMEROFACTURA").toString());
         ctFech.setText(fac.get("FECHA").toString());
         ctName.setText(fac.get("NOMBRE").toString());
@@ -4505,27 +4501,32 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
             } else {
 
-                // TODO usar el id en vez de el RowIndex
-                //***************************************************************************************
-                Dato c = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave((int) tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0));
-                // Dato c = GestoraDatos.dameGestora().get("CLIENTES").get(tablaClientes.getSelectedRow());
-                c.put("DESCRIPCION", ctClienteDescripcion.getText());
-                c.put("NOMBRE", ctClienteNombre.getText());
-                c.put("DOMICILIO", ctClienteDomicilio.getText());
-                c.put("CP", Integer.parseInt(ctClienteCp.getText()));
-                c.put("PROVINCIA", ctClienteProvincia.getText());
-                c.put("CIF", ctClienteNif.getText());
-                c.put("TLFCLIENTE", Integer.parseInt(ctClienteTlfCli.getText()));
-                c.put("IBAN", ctClienteIban.getText());
-                c.put("BANCOCOBRO", Integer.parseInt(ctClienteDomiciliado.getText()));
-                c.put("REFBANCO", Integer.parseInt(ctClienteRefBan.getText()));
-                c.put("PERSONACONTACTO", ctClienteContacto.getText());
-                c.put("TLFCONTACTO", Integer.parseInt(ctClienteTlfContacto.getText()));
-                c.put("NOTAS", ctClienteNotas.getText());
+                try {
 
-                if (GestoraBaseDatos.ejecutarSentenciaUpdate(GestoraBaseDatos.construyeSentenciaUpdate(c).toString())) {
+                    Dato c = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave((int) tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0));
 
-                    GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CLIENTES);
+                    c.put("DESCRIPCION", ctClienteDescripcion.getText());
+                    c.put("NOMBRE", ctClienteNombre.getText());
+                    c.put("DOMICILIO", ctClienteDomicilio.getText());
+                    c.put("CP", Integer.parseInt(ctClienteCp.getText()));
+                    c.put("PROVINCIA", ctClienteProvincia.getText());
+                    c.put("CIF", ctClienteNif.getText());
+                    c.put("TLFCLIENTE", Integer.parseInt(ctClienteTlfCli.getText()));
+                    c.put("IBAN", ctClienteIban.getText());
+                    c.put("BANCOCOBRO", Integer.parseInt(ctClienteDomiciliado.getText()));
+                    c.put("REFBANCO", Integer.parseInt(ctClienteRefBan.getText()));
+                    c.put("PERSONACONTACTO", ctClienteContacto.getText());
+                    c.put("TLFCONTACTO", Integer.parseInt(ctClienteTlfContacto.getText()));
+                    c.put("NOTAS", ctClienteNotas.getText());
+
+                    if (GestoraBaseDatos.ejecutarSentenciaUpdate(GestoraBaseDatos.construyeSentenciaUpdate(c).toString())) {
+
+                        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CLIENTES);
+                    }
+
+                } catch (Exception e) {
+
+                    JOptionPane.showMessageDialog(this, "Comprueba que los telefonos, el NIF, el CP y la referencia del banco son números");
                 }
             }
         }
@@ -4543,23 +4544,28 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
             JOptionPane.showMessageDialog(this, "Comprueba que has introducido en los campos numéricos números correctamente.");
         } else {
 
-            // TODO usar el id en vez de el RowIndex
-            //*************************************************************************************************************************
-            Dato c = GestoraDatos.dameGestora().get("CONTRATOS").devuelveValorPorClave((int) jTableContratos.getValueAt(jTableContratos.getSelectedRow(), 0));
-            //Dato c = GestoraDatos.dameGestora().get("CONTRATOS").get(jTableContratos.getSelectedRow());
-            c.put("DESCRIPCION", ctContratoDescrip.getText());
-            c.put("INICIOCONTRATO", ctContratoInicio.getText());
-            c.put("FINCONTRATO", ctContratoFin.getText());
-            c.put("EUROSAÑO", ctContratoEurAnio.getText());
-            c.put("EUROSMES", ctContratoEurMes.getText());
-            c.put("FORMAPAGO", ctContratoFormPago.getText());
-            c.put("DIACOBRO", Integer.parseInt(ctContratoDiaCobro1.getText()));
-            c.put("TANTOIVA", Integer.parseInt(ctContratoIva.getText()));
-            c.put("ESTADO", true);
+            try {
 
-            if (GestoraBaseDatos.ejecutarSentenciaUpdate(GestoraBaseDatos.construyeSentenciaUpdate(c).toString())) {
+                Dato c = GestoraDatos.dameGestora().get("CONTRATOS").devuelveValorPorClave((int) jTableContratos.getValueAt(jTableContratos.getSelectedRow(), 0));
 
-                GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS, new ProcesadorContratos());
+                c.put("DESCRIPCION", ctContratoDescrip.getText());
+                c.put("INICIOCONTRATO", ctContratoInicio.getText());
+                c.put("FINCONTRATO", ctContratoFin.getText());
+                c.put("EUROSAÑO", ctContratoEurAnio.getText());
+                c.put("EUROSMES", ctContratoEurMes.getText());
+                c.put("FORMAPAGO", ctContratoFormPago.getText());
+                c.put("DIACOBRO", Integer.parseInt(ctContratoDiaCobro1.getText()));
+                c.put("TANTOIVA", Integer.parseInt(ctContratoIva.getText()));
+                c.put("ESTADO", true);
+
+                if (GestoraBaseDatos.ejecutarSentenciaUpdate(GestoraBaseDatos.construyeSentenciaUpdate(c).toString())) {
+
+                    GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_CONTRATOS, new ProcesadorContratos());
+                }
+
+            } catch (NumberFormatException numberFormatException) {
+
+                JOptionPane.showMessageDialog(this, "Comprueba que has introducido en los campos numéricos números correctamente.");
             }
         }
 
