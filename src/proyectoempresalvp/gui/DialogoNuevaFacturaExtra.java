@@ -505,25 +505,69 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
         modelo.eliminarDato(listaConceptos.getSelectedIndex());
     }//GEN-LAST:event_bBorraActionPerformed
 
-    private boolean insertarFacturaExtra() {
+    private boolean insertarFacturaExtra() {//SANTYYYYYYYYYYYYYYYYYYYYYYYY
 
-        String fecha = ctFecha.getText();
-
-        BigDecimal g = new BigDecimal("0");
+//        String fecha = ctFecha.getText();
+//
+//        BigDecimal g = new BigDecimal("0");
+//        
+//        for(Dato fe: modelo.getLista()){
+//            
+//            g = g.add(new BigDecimal(fe.get("IMPORTE").toString()));
+//        }
+//        
+//        if(!Gestora.comprobarFormatoFechaCorrecto(fecha)) {
+//            JOptionPane.showMessageDialog(this, "Comprueba las fechas, el formato es dd/mm/aaaa");
+//        } else if(!comprobarNumero(ctCodpos.getText())
+//                || !comprobarNumero(ctporcenIva.getText())
+//                || !comprobarNumero(ctNumF.getText())) {
+//
+//            JOptionPane.showMessageDialog(this, "Comprueba que has introducido en los campos numéricos números correctamente.");
+//        } else {
+//            String cliente = comboNumeroCliente.getSelectedItem().toString();
+//            System.out.println(cliente);
+//            FacturaExtra nuevaFacturaExtra = new FacturaExtra(Integer.parseInt(ctNumF.getText()), //NUMFACTURA
+//                    new Fecha(fecha), //FECHA
+//                    ctNcif.getText(), //CIFNIF
+//                    ctNomb.getText(), ctDomic.getText(), ctLoca.getText(), ctProvin.getText(),//NOMBRE,DOMICILIO,LOCALIDAD,PROVINCIA
+//                    ctCodpos.getText(), //CP
+//                    Integer.parseInt(ctporcenIva.getText()), //TANTOIVA
+//                    g.toPlainString(), //EUROSNETO
+//                    cliente.equals("NINGUNO") ? -1 : Integer.parseInt(cliente));//CLIENTE
+//
+//            if(GestoraBaseDatos.insertarDato(nuevaFacturaExtra)) {
+//                modelo.getLista().stream().forEach((f) -> {
+//                    GestoraBaseDatos.insertarDato(f);
+//                });
+//                GestoraConfiguracion.put("NUMPROXIMAFACTURA", (int) GestoraConfiguracion.get("NUMPROXIMAFACTURA") + 1);
+//                GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASEXTRA);
+//                return true;
+//            } else {
+//
+//                JOptionPane.showMessageDialog(this, "Ya existe");
+//            }
+//        }
+//        return false;
         
-        for(Dato fe: modelo.getLista()){
+        if (!comprobarNumero(ctCodpos.getText()) || ctCodpos.getText().isEmpty()
+                && comprobarNumero(ctporcenIva.getText()) || ctporcenIva.getText().isEmpty()
+                && comprobarNumero(ctNumF.getText()) || ctNumF.getText().isEmpty()) {
             
-            g = g.add(new BigDecimal(fe.get("IMPORTE").toString()));
-        }
-        
-        if(!Gestora.comprobarFormatoFechaCorrecto(fecha)) {
-            JOptionPane.showMessageDialog(this, "Comprueba las fechas, el formato es dd/mm/aaaa");
-        } else if(!comprobarNumero(ctCodpos.getText())
-                || !comprobarNumero(ctporcenIva.getText())
-                || !comprobarNumero(ctNumF.getText())) {
+            String fecha = ctFecha.getText();
 
-            JOptionPane.showMessageDialog(this, "Comprueba que has introducido en los campos numéricos números correctamente.");
-        } else {
+            BigDecimal g = new BigDecimal("0");
+        
+                for(Dato fe: modelo.getLista()){
+            
+                  g = g.add(new BigDecimal(fe.get("IMPORTE").toString()));
+                 }
+        
+                 if(!Gestora.comprobarFormatoFechaCorrecto(fecha)) {
+                     JOptionPane.showMessageDialog(this, "Comprueba las fechas, el formato es dd/mm/aaaa");
+                 } 
+                 
+            try {
+
             String cliente = comboNumeroCliente.getSelectedItem().toString();
             System.out.println(cliente);
             FacturaExtra nuevaFacturaExtra = new FacturaExtra(Integer.parseInt(ctNumF.getText()), //NUMFACTURA
@@ -546,6 +590,12 @@ public class DialogoNuevaFacturaExtra extends javax.swing.JDialog {
 
                 JOptionPane.showMessageDialog(this, "Ya existe");
             }
+
+            } catch (NumberFormatException numberFormatException) {
+
+                JOptionPane.showMessageDialog(this, "Comprueba que los campos numéricos son números");
+            }
+            
         }
         return false;
     }

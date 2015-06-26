@@ -385,22 +385,58 @@ public class DialogoNuevoEmpleado extends javax.swing.JDialog {
 
     private void insertarEmpleado() {
 
+//        String alta = ctEmpleAlta.getText(), nac = ctEmpleNac.getText(), IBAN = ctEmpleIBAN.getText();
+//        if (!Gestora.comprobarFormatoFechaCorrecto(alta) || !Gestora.comprobarFormatoFechaCorrecto(nac)) {
+//            JOptionPane.showMessageDialog(this, "Comprueba las fechas, el formato es dd/mm/aaaa");
+//        } else if (!Gestora.esValidoIBAN(IBAN)) {
+//
+//            JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
+//        } else if (!comprobarNumero(ctEmpleNomina.getText()) || !comprobarNumero(ctEmpleTelf.getText())
+//                || !comprobarNumero(ctEmpleMovil.getText()) || !comprobarNumero(ctEmpleSS.getText())
+//                || !comprobarNumero(ctEmpleCP.getText())) {
+//
+//            JOptionPane.showMessageDialog(this, "Comprueba que los telefonos, la nomina y el numero de la seguridad social son numeros");
+//        } else {
+//
+//            try {
+//
+//                Empleado nuevoEmpleado = new Empleado(Integer.parseInt(ctEmpleN.getText()), ctEmpleNif.getText(),
+//                        ctEmpleDesc.getText(), ctEmpleNombre.getText(), ctEmpleDomicilio.getText(),
+//                        ctEmpleLoc.getText(), Integer.parseInt(ctEmpleCP.getText()), ctEmpleProv.getText(),
+//                        Integer.parseInt(ctEmpleTelf.getText()), Integer.parseInt(ctEmpleMovil.getText()),
+//                        ctEmpleIBAN.getText(), new Fecha(alta), new Fecha(nac), Integer.parseInt(ctEmpleNomina.getText()),
+//                        ctEmpleSS.getText(), "23", "23");
+//
+//                if (GestoraBaseDatos.insertarDato(nuevoEmpleado)) {
+//
+//                    GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_EMPLEADOS);
+//                }
+//
+//            } catch (NumberFormatException numberFormatException) {
+//
+//                JOptionPane.showMessageDialog(this, "Comprueba que los telefonos, la nomina y el numero de la seguridad social son numeros");
+//            }
+//
+//        }
+        
+        if (!comprobarNumero(ctEmpleNomina.getText()) || ctEmpleNomina.getText().isEmpty()
+                && comprobarNumero(ctEmpleTelf.getText()) || ctEmpleTelf.getText().isEmpty()
+                && comprobarNumero(ctEmpleMovil.getText()) || ctEmpleMovil.getText().isEmpty()
+                && comprobarNumero(ctEmpleSS.getText()) || ctEmpleSS.getText().isEmpty()
+                && comprobarNumero(ctEmpleCP.getText()) || ctEmpleCP.getText().isEmpty()) {
+            
         String alta = ctEmpleAlta.getText(), nac = ctEmpleNac.getText(), IBAN = ctEmpleIBAN.getText();
         if (!Gestora.comprobarFormatoFechaCorrecto(alta) || !Gestora.comprobarFormatoFechaCorrecto(nac)) {
             JOptionPane.showMessageDialog(this, "Comprueba las fechas, el formato es dd/mm/aaaa");
         } else if (!Gestora.esValidoIBAN(IBAN)) {
 
             JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
-        } else if (!comprobarNumero(ctEmpleNomina.getText()) || !comprobarNumero(ctEmpleTelf.getText())
-                || !comprobarNumero(ctEmpleMovil.getText()) || !comprobarNumero(ctEmpleSS.getText())
-                || !comprobarNumero(ctEmpleCP.getText())) {
-
-            JOptionPane.showMessageDialog(this, "Comprueba que los telefonos, la nomina y el numero de la seguridad social son numeros");
-        } else {
+        }  else {
 
             try {
 
-                Empleado nuevoEmpleado = new Empleado(Integer.parseInt(ctEmpleN.getText()), ctEmpleNif.getText(),
+                Empleado nuevoEmpleado = new Empleado(
+                        Integer.parseInt(ctEmpleN.getText()), ctEmpleNif.getText(),
                         ctEmpleDesc.getText(), ctEmpleNombre.getText(), ctEmpleDomicilio.getText(),
                         ctEmpleLoc.getText(), Integer.parseInt(ctEmpleCP.getText()), ctEmpleProv.getText(),
                         Integer.parseInt(ctEmpleTelf.getText()), Integer.parseInt(ctEmpleMovil.getText()),
@@ -416,7 +452,10 @@ public class DialogoNuevoEmpleado extends javax.swing.JDialog {
 
                 JOptionPane.showMessageDialog(this, "Comprueba que los telefonos, la nomina y el numero de la seguridad social son numeros");
             }
-
+            
+        }
+        }else {
+            JOptionPane.showMessageDialog(this, "Comprueba que los campos numéricos son números");
         }
 
     }
