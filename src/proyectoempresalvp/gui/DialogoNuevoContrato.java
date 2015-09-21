@@ -488,6 +488,7 @@ public class DialogoNuevoContrato extends javax.swing.JDialog {
                         ctFormPag.getText(), //FORMAPAGO
                         Integer.parseInt(ctDiaCobr1.getText().isEmpty() ? "0" : ctDiaCobr1.getText()), //DIACOBRO
                         Integer.parseInt(ctIvaCon.getText().isEmpty() ? "0" : ctIvaCon.getText()),//TANTO IVA
+                        true,
                         true);//ESTADO
 
                 if (GestoraBaseDatos.insertarDato(nuevoContrato)) {

@@ -62,6 +62,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     public VentanaGUI() {
 
         initComponents();
+        GestoraDatos.setObservador(this);
         rellenarCombosPeriodo();
         ImageIcon imagenFondo = new ImageIcon(PanelImagen.class.getResource("/images/icono.jpg"));
         Image imagen = imagenFondo.getImage();
@@ -71,7 +72,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         listaConceptos.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         GestoraBaseDatos.conectarBaseDatos();
-        GestoraDatos.setObservador(this);
 
         GestoraConfiguracion.recuperaConfiguracion();
         initDatos();
@@ -3395,27 +3395,22 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     private void bImprimirFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimirFacturasActionPerformed
 
-        new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-
-                if (tablaFacMensuales.getRowCount() > 0) {
-
-                    int[] rows = tablaFacMensuales.getSelectedRows();
-                    if (rows.length == 0) {
-                        GestoraPDF.generarPDFFacturasMensuales(Gestora.numeroPeriodoPorNombre(
-                                cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString()));
-                    } else {
-
-                        int[] keys = new int[rows.length];
-
-                        for (int i = 0; i < rows.length; i++) {
-
-                            keys[i] = (int) tablaHistoricoFacturas.getValueAt(rows[i], 0);
-                        }
-                        GestoraPDF.generarPDFFacturasMensuales(keys);
+        new Thread(() -> {
+            if (tablaFacMensuales.getRowCount() > 0) {
+                
+                int[] rows = tablaFacMensuales.getSelectedRows();
+                if (rows.length == 0) {
+                    GestoraPDF.generarPDFFacturasMensuales(Gestora.numeroPeriodoPorNombre(
+                            cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString()));
+                } else {
+                    
+                    int[] keys = new int[rows.length];
+                    
+                    for (int i = 0; i < rows.length; i++) {
+                        
+                        keys[i] = (int) tablaHistoricoFacturas.getValueAt(rows[i], 0);
                     }
+                    GestoraPDF.generarPDFFacturasMensuales(keys);
                 }
             }
         }).start();
@@ -3423,45 +3418,35 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     private void bImprimirFacturaExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimirFacturaExtraActionPerformed
 
-        new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-
-                if (tablaFacExtra.getRowCount() > 0) {
-
-                    int[] rows = tablaFacExtra.getSelectedRows();
-                    int[] keys = new int[rows.length];
-
-                    for (int i = 0; i < rows.length; i++) {
-
-                        keys[i] = (int) tablaHistoricoFacturas.getValueAt(rows[i], 0);
-                    }
-                    GestoraPDF.generarPDFExtras(keys);
+        new Thread(() -> {
+            if (tablaFacExtra.getRowCount() > 0) {
+                
+                int[] rows = tablaFacExtra.getSelectedRows();
+                int[] keys = new int[rows.length];
+                
+                for (int i = 0; i < rows.length; i++) {
+                    
+                    keys[i] = (int) tablaHistoricoFacturas.getValueAt(rows[i], 0);
                 }
+                GestoraPDF.generarPDFExtras(keys);
             }
         }).start();
     }//GEN-LAST:event_bImprimirFacturaExtraActionPerformed
 
     private void bImprimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bImprimActionPerformed
 
-        new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-
-                if (tablaHistoricoFacturas.getRowCount() > 0) {
-
-                    int[] rows = tablaHistoricoFacturas.getSelectedRows();
-                    int[] keys = new int[rows.length];
-
-                    for (int i = 0; i < rows.length; i++) {
-
-                        keys[i] = (int) tablaHistoricoFacturas.getValueAt(rows[i], 0);
-                    }
-
-                    GestoraPDF.generarPDFFacturasMensuales(keys);
+        new Thread(() -> {
+            if (tablaHistoricoFacturas.getRowCount() > 0) {
+                
+                int[] rows = tablaHistoricoFacturas.getSelectedRows();
+                int[] keys = new int[rows.length];
+                
+                for (int i = 0; i < rows.length; i++) {
+                    
+                    keys[i] = (int) tablaHistoricoFacturas.getValueAt(rows[i], 0);
                 }
+                
+                GestoraPDF.generarPDFFacturasMensuales(keys);
             }
         }).start();
     }//GEN-LAST:event_bImprimActionPerformed

@@ -26,10 +26,18 @@ public class ProyectoEmpresaLVP implements ObservadorGestoraDatos {
      */
     public static void main(String[] args) throws SQLException, InterruptedException {
 
-        GestoraBaseDatos.conectarBaseDatos();
-        GestoraConfiguracion.recuperaConfiguracion();
-        GestoraDatos.setObservador(new ProyectoEmpresaLVP());
-        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_TODO);
+        int sum = 0;
+        for (int i = 1; i < 10; i++) {
+            
+        System.out.println(1);
+            sum += i;
+        }
+        
+        System.out.println(sum);
+//        GestoraBaseDatos.conectarBaseDatos();
+//        GestoraConfiguracion.recuperaConfiguracion();
+//        GestoraDatos.setObservador(new ProyectoEmpresaLVP());
+//        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_TODO);
 //        int numPeriodo = Gestora.numeroPeriodoPorNombre("ENE2015");
 //        GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASMENSUALES, null, numPeriodo);
 

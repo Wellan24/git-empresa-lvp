@@ -10,13 +10,13 @@ import java.util.Date;
 
 public class Contrato extends Dato {
 
-    private static final String[] orden = {"NUMCONTRATO", "NUMCLIENTE", "DESCRIPCION", "INICIOCONTRATO", "FINCONTRATO", "EUROSAÑO", "EUROSMES", 
+    private static final String[] orden = {"NUMCONTRATO", "NUMCLIENTE", "DESCRIPCION", "INICIOCONTRATO", "FINCONTRATO", "EUROSAÑO", "EUROSMES",
         "FORMAPAGO", "DIACOBRO", "TANTOIVA", "ESTADO", "ACTIVO"};
     private static final String tabla = "CONTRATOS";
 
     /**
-     * Las claves son: NUMCONTRATO, NUMCLIENTE, DESCRIPCION,INICIOCONTRATO,
-     * FINCONTRATO, EUROSAÑO, EUROSMES, FORMAPAGO, DIACOBRO, TANTOIVA, ESTADO
+     * Las claves son: NUMCONTRATO, NUMCLIENTE, DESCRIPCION,INICIOCONTRATO, FINCONTRATO, EUROSAÑO,
+     * EUROSMES, FORMAPAGO, DIACOBRO, TANTOIVA, ESTADO
      *
      * @param numContrato
      * @param numCliente
@@ -45,7 +45,7 @@ public class Contrato extends Dato {
         this.put("TANTOIVA", tantoIva);
         this.put("ESTADO", false);
     }
-    
+
     public Contrato(int numContrato, int numCliente, String descripcion,
             Fecha inicioContrato, Fecha finContrato, String eurosAño, String eurosMes,
             String formaPago, int diaCobro, int tantoIva, boolean estado) {
@@ -62,8 +62,26 @@ public class Contrato extends Dato {
         this.put("TANTOIVA", tantoIva);
         this.put("ESTADO", estado);
     }
-    
-     public Contrato() {
+
+    public Contrato(int numContrato, int numCliente, String descripcion,
+            Fecha inicioContrato, Fecha finContrato, String eurosAño, String eurosMes,
+            String formaPago, int diaCobro, int tantoIva, boolean estado, boolean activo) {
+        super(12);
+        this.put("NUMCONTRATO", numContrato);
+        this.put("NUMCLIENTE", numCliente);
+        this.put("DESCRIPCION", descripcion);
+        this.put("INICIOCONTRATO", inicioContrato);
+        this.put("FINCONTRATO", finContrato);
+        this.put("EUROSAÑO", eurosAño);
+        this.put("EUROSMES", eurosMes);
+        this.put("FORMAPAGO", formaPago);
+        this.put("DIACOBRO", diaCobro);
+        this.put("TANTOIVA", tantoIva);
+        this.put("ESTADO", estado);
+        this.put("ACTIVO", activo);
+    }
+
+    public Contrato() {
         super(12);
         this.put("NUMCONTRATO", 0);
         this.put("NUMCLIENTE", 0);
@@ -78,7 +96,7 @@ public class Contrato extends Dato {
         this.put("ESTADO", false);
         this.put("ACTIVO", false);
     }
-    
+
     private Contrato(Dato d) {
         super(d);
     }
@@ -159,13 +177,13 @@ public class Contrato extends Dato {
 
     @Override
     public String devuelveClave() {
-        
+
         return "NUMCONTRATO";
     }
 
     @Override
     public Dato copia() {
-        
+
         return new Contrato(this);
     }
 }

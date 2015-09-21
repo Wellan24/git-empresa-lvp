@@ -85,10 +85,6 @@ public class HiloActualizarDatos implements Runnable {
         recuperarConDummy(new FacturaMensual(), where, "FACTURASMENSUALESAÑO");
     }
 
-    public static void setObservador(ObservadorGestoraDatos observador) {
-        HiloActualizarDatos.observador = observador;
-    }
-
     private void recuperarConDummy(Dato d) {
 
         ArrayListDato<Dato> datos = GestoraDatos.recuperarConDummy(d, procesador, null);
@@ -105,6 +101,10 @@ public class HiloActualizarDatos implements Runnable {
 
         ArrayListDato<Dato> datos = GestoraDatos.recuperarConDummy(d, procesador, where);
         GestoraDatos.dameGestora().put(key, datos);
+    }
+
+    public static void setObservador(ObservadorGestoraDatos observador) {
+        HiloActualizarDatos.observador = observador;
     }
 
 }
