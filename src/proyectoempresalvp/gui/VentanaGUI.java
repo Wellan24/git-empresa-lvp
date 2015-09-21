@@ -4242,25 +4242,62 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     private void guardarTarea() {
 
+//        String fecha = ctTarFecha.getText();
+//        if (Gestora.comprobarFormatoFechaCorrecto(fecha)) {
+//            try {
+//
+//                Tarea tareaActual = new Tarea(
+//                        GestoraTareas.aumentaNumeroTarea(), 
+//                        cttarconcepto.getText(), 
+//                        new Fecha(fecha), 
+//                        Integer.parseInt(ctTarPeriodo.getText()), 
+//                        ctTarCliente.getText());
+//                if (GestoraBaseDatos.insertarDato(tareaActual)) {
+//                    GestoraTareas.getTareas().add(tareaActual);
+//                    actualizarTablaTareas();
+//                } else {
+//
+//                    JOptionPane.showMessageDialog(this, "No se ha insertado correctamente (¿Igual ya existe?)");
+//                }
+//            } catch (NumberFormatException numberFormatException) {
+//
+//                JOptionPane.showMessageDialog(this, "Comprueba el periodo");
+//            }
+//        } else {
+//
+//            JOptionPane.showMessageDialog(this, "Comprueba la fecha");
+//        }
+        
+        if (comprobarNumero(ctTarPeriodo.getText()) || ctTarPeriodo.getText().isEmpty()) {
+            
         String fecha = ctTarFecha.getText();
-        if (Gestora.comprobarFormatoFechaCorrecto(fecha)) {
-            try {
+                if (Gestora.comprobarFormatoFechaCorrecto(fecha)) {
+                 try {
 
-                Tarea tareaActual = new Tarea(GestoraTareas.aumentaNumeroTarea(), cttarconcepto.getText(), new Fecha(fecha), Integer.parseInt(ctTarPeriodo.getText()), ctTarCliente.getText());
-                if (GestoraBaseDatos.insertarDato(tareaActual)) {
-                    GestoraTareas.getTareas().add(tareaActual);
-                    actualizarTablaTareas();
-                } else {
+                      Tarea tareaActual = new Tarea(
+                        GestoraTareas.aumentaNumeroTarea(), 
+                        cttarconcepto.getText(), 
+                        new Fecha(fecha), 
+                        Integer.parseInt(ctTarPeriodo.getText()), 
+                        ctTarCliente.getText());
+                     if (GestoraBaseDatos.insertarDato(tareaActual)) {
+                          GestoraTareas.getTareas().add(tareaActual);
+                         actualizarTablaTareas();
+                     } else {
 
-                    JOptionPane.showMessageDialog(this, "No se ha insertado correctamente (¿Igual ya existe?)");
-                }
-            } catch (NumberFormatException numberFormatException) {
+                          JOptionPane.showMessageDialog(this, "No se ha insertado correctamente (¿Igual ya existe?)");
+                      }
+                 } catch (NumberFormatException numberFormatException) {
 
-                JOptionPane.showMessageDialog(this, "Comprueba el periodo");
+                    JOptionPane.showMessageDialog(this, "Comprueba el periodo");
             }
-        } else {
+             } else {
 
-            JOptionPane.showMessageDialog(this, "Comprueba la fecha");
+                  JOptionPane.showMessageDialog(this, "Comprueba la fecha");
+            }
+            
+        }else{
+            JOptionPane.showMessageDialog(this, "Comprueba el periodo");
         }
     }
 
@@ -4558,43 +4595,90 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     private void modificarEmpleado() {
 
-        String alta = ctEmpleadoFechAlta.getText(), nac = ctEmpleadoNacimiento.getText(), IBAN = ctEmpleadoIban.getText();
-        if (!Gestora.comprobarFormatoFechaCorrecto(alta) || !Gestora.comprobarFormatoFechaCorrecto(nac)) {
-            JOptionPane.showMessageDialog(this, "Comprueba las fechas, el formato es dd/mm/aaaa");
-        } else if (!Gestora.esValidoIBAN(IBAN)) {
+//        String alta = ctEmpleadoFechAlta.getText(), nac = ctEmpleadoNacimiento.getText(), IBAN = ctEmpleadoIban.getText();
+//        if (!Gestora.comprobarFormatoFechaCorrecto(alta) || !Gestora.comprobarFormatoFechaCorrecto(nac)) {
+//            JOptionPane.showMessageDialog(this, "Comprueba las fechas, el formato es dd/mm/aaaa");
+//        } else if (!Gestora.esValidoIBAN(IBAN)) {
+//
+//            JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
+//        } else if (!comprobarNumero(ctEmpleadoNomina.getText()) || !comprobarNumero(ctEmpleadoTlf.getText())
+//                || !comprobarNumero(ctEmpleadoMovil.getText()) || !comprobarNumero(ctEmpleadoSs.getText())
+//                || !comprobarNumero(ctEmpleadoCp.getText())) {
+//
+//            JOptionPane.showMessageDialog(this, "Comprueba que los telefonos, la nomina y el numero de la seguridad social son numeros");
+//        } else {
+//            // TODO usar el id para conseguir el dato
+//            //******************************************************************************************************************************
+//            Dato c = GestoraDatos.dameGestora().get("EMPLEADOS").devuelveValorPorClave((int) tablaEmple.getValueAt(tablaEmple.getSelectedRow(), 0));
+//            //Dato c = GestoraDatos.dameGestora().get("EMPLEADOS").get(tablaEmple.getSelectedRow());
+//            c.put("CIF", ctEmpleadoNif.getText());
+//            c.put("ANAGRAMA", ctEmpleadoAnagram.getText());
+//            c.put("NOMBRE", ctEmpleadoNombre.getText());
+//            c.put("DOMICILIO", ctEmpleadoDomic.getText());
+//            c.put("LOCALIDAD", ctEmpleadoLoc.getText());
+//            c.put("CP", Integer.parseInt(ctEmpleadoCp.getText()));
+//            c.put("PROVINCIA", ctEmpleadoProv.getText());
+//            c.put("TLF1", Integer.parseInt(ctEmpleadoTlf.getText()));
+//            c.put("TLF2", Integer.parseInt(ctEmpleadoMovil.getText()));
+//            c.put("IBAN", ctEmpleadoIban.getText());
+//            c.put("ALTA", new Fecha(ctEmpleadoFechAlta.getText()));
+//            c.put("NACIMIENTO", new Fecha(ctEmpleadoNacimiento.getText()));
+//            c.put("NOMINA", Integer.parseInt(ctEmpleadoNomina.getText()));
+//            c.put("SS", Integer.parseInt(ctEmpleadoSs.getText()));
+//
+//            if (GestoraBaseDatos.ejecutarSentenciaUpdate(GestoraBaseDatos.construyeSentenciaUpdate(c).toString())) {
+//
+//                GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_EMPLEADOS);
+//            }
+//
+//        }
+        
+         if (!comprobarNumero(ctEmpleadoNomina.getText()) || !comprobarNumero(ctEmpleadoTlf.getText())
+                 || !comprobarNumero(ctEmpleadoMovil.getText())|| !comprobarNumero(ctEmpleadoSs.getText())
+                 || !comprobarNumero(ctEmpleadoCp.getText())) {
+             
+              JOptionPane.showMessageDialog(this, "Comprueba que los campos numéricos son números");
+         }else{
+             
+             String alta = ctEmpleadoFechAlta.getText(), nac = ctEmpleadoNacimiento.getText(), IBAN = ctEmpleadoIban.getText();
+             if (!Gestora.comprobarFormatoFechaCorrecto(alta) || !Gestora.comprobarFormatoFechaCorrecto(nac)) {
+                 JOptionPane.showMessageDialog(this, "Comprueba las fechas, el formato es dd/mm/aaaa");
+             } else if (!Gestora.esValidoIBAN(IBAN)) {
 
             JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
-        } else if (!comprobarNumero(ctEmpleadoNomina.getText()) || !comprobarNumero(ctEmpleadoTlf.getText())
-                || !comprobarNumero(ctEmpleadoMovil.getText()) || !comprobarNumero(ctEmpleadoSs.getText())
-                || !comprobarNumero(ctEmpleadoCp.getText())) {
+            } 
+             
+              try {
 
-            JOptionPane.showMessageDialog(this, "Comprueba que los telefonos, la nomina y el numero de la seguridad social son numeros");
-        } else {
-            // TODO usar el id para conseguir el dato
-            //******************************************************************************************************************************
-            Dato c = GestoraDatos.dameGestora().get("EMPLEADOS").devuelveValorPorClave((int) tablaEmple.getValueAt(tablaEmple.getSelectedRow(), 0));
-            //Dato c = GestoraDatos.dameGestora().get("EMPLEADOS").get(tablaEmple.getSelectedRow());
-            c.put("CIF", ctEmpleadoNif.getText());
-            c.put("ANAGRAMA", ctEmpleadoAnagram.getText());
-            c.put("NOMBRE", ctEmpleadoNombre.getText());
-            c.put("DOMICILIO", ctEmpleadoDomic.getText());
-            c.put("LOCALIDAD", ctEmpleadoLoc.getText());
-            c.put("CP", Integer.parseInt(ctEmpleadoCp.getText()));
-            c.put("PROVINCIA", ctEmpleadoProv.getText());
-            c.put("TLF1", Integer.parseInt(ctEmpleadoTlf.getText()));
-            c.put("TLF2", Integer.parseInt(ctEmpleadoMovil.getText()));
-            c.put("IBAN", ctEmpleadoIban.getText());
-            c.put("ALTA", new Fecha(ctEmpleadoFechAlta.getText()));
-            c.put("NACIMIENTO", new Fecha(ctEmpleadoNacimiento.getText()));
-            c.put("NOMINA", Integer.parseInt(ctEmpleadoNomina.getText()));
-            c.put("SS", Integer.parseInt(ctEmpleadoSs.getText()));
+                    Dato c = GestoraDatos.dameGestora().get("EMPLEADOS").devuelveValorPorClave((int) tablaEmple.getValueAt(tablaEmple.getSelectedRow(), 0));
+            
+                     c.put("CIF", ctEmpleadoNif.getText());
+                     c.put("ANAGRAMA", ctEmpleadoAnagram.getText());
+                     c.put("NOMBRE", ctEmpleadoNombre.getText());
+                     c.put("DOMICILIO", ctEmpleadoDomic.getText());
+                     c.put("LOCALIDAD", ctEmpleadoLoc.getText());
+                     c.put("CP", Integer.parseInt(ctEmpleadoCp.getText()));
+                     c.put("PROVINCIA", ctEmpleadoProv.getText());
+                     c.put("TLF1", Integer.parseInt(ctEmpleadoTlf.getText()));
+                     c.put("TLF2", Integer.parseInt(ctEmpleadoMovil.getText()));
+                     c.put("IBAN", ctEmpleadoIban.getText());
+                     c.put("ALTA", new Fecha(ctEmpleadoFechAlta.getText()));
+                     c.put("NACIMIENTO", new Fecha(ctEmpleadoNacimiento.getText()));
+                     c.put("NOMINA", Integer.parseInt(ctEmpleadoNomina.getText()));
+                     c.put("SS", Integer.parseInt(ctEmpleadoSs.getText()));
 
             if (GestoraBaseDatos.ejecutarSentenciaUpdate(GestoraBaseDatos.construyeSentenciaUpdate(c).toString())) {
 
                 GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_EMPLEADOS);
             }
+  
 
-        }
+                } catch (Exception e) {
+
+                    JOptionPane.showMessageDialog(this, "Comprueba que los campos numéricos son números");
+                }
+         }
+         
     }
 
     @Override
@@ -4645,19 +4729,45 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         // TODO usar el id para conseguir el dato
         //*******************************************************************************************************************************************************
-        Dato c = GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).devuelveValorPorClave((int) tablaFacExtra.getValueAt(tablaFacExtra.getSelectedRow(), 0));
-        //Dato c = GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).get(tablaFacExtra.getSelectedRow());
-        c.put("CIF", ctNcif.getText());
-        c.put("NOMBRE", ctNomb.getText());
-        c.put("DOMICILIO", ctDomic.getText());
-        c.put("LOCALIDAD", ctLoca.getText());
-        c.put("PROVINCIA", ctProvin.getText());
-        c.put("CODIGOPOSTAL", ctCodpos.getText());
+//        Dato c = GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).devuelveValorPorClave((int) tablaFacExtra.getValueAt(tablaFacExtra.getSelectedRow(), 0));
+//        //Dato c = GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).get(tablaFacExtra.getSelectedRow());
+//        c.put("CIF", ctNcif.getText());
+//        c.put("NOMBRE", ctNomb.getText());
+//        c.put("DOMICILIO", ctDomic.getText());
+//        c.put("LOCALIDAD", ctLoca.getText());
+//        c.put("PROVINCIA", ctProvin.getText());
+//        c.put("CODIGOPOSTAL", ctCodpos.getText());
+//
+//        if (GestoraBaseDatos.ejecutarSentenciaUpdate(GestoraBaseDatos.construyeSentenciaUpdate(c).toString())) {
+//
+//            GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASEXTRA);
+//        }
+        
+         if (!comprobarNumero(ctCodpos.getText()) || !comprobarNumero(ctporcenIva.getText())
+                    || !comprobarNumero(ctNumF.getText())) {
+             
+              JOptionPane.showMessageDialog(this, "Comprueba que el CP, el IVA y el nº factura son números");
+         }else{
+              try {
+
+                     Dato c = GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).devuelveValorPorClave((int) tablaFacExtra.getValueAt(tablaFacExtra.getSelectedRow(), 0));
+                     c.put("CIF", ctNcif.getText());
+                     c.put("NOMBRE", ctNomb.getText());
+                     c.put("DOMICILIO", ctDomic.getText());
+                     c.put("LOCALIDAD", ctLoca.getText());
+                     c.put("PROVINCIA", ctProvin.getText());
+                     c.put("CODIGOPOSTAL", ctCodpos.getText());
 
         if (GestoraBaseDatos.ejecutarSentenciaUpdate(GestoraBaseDatos.construyeSentenciaUpdate(c).toString())) {
 
             GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASEXTRA);
-        }
+        } 
+
+                } catch (Exception e) {
+
+                    JOptionPane.showMessageDialog(this, "Comprueba que los campos numéricos son números");
+                }
+         }
 
     }
 
