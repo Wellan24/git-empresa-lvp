@@ -9,26 +9,28 @@ package proyectoempresalvp.datos;
  *
  * @author Oscar
  */
-public class Fecha implements Comparable<Fecha>{
-    
+public class Fecha implements Comparable<Fecha> {
+
     int dia;
     int mes;
     int año;
-    
+    String separator = "/";
+
     /**
      * Crea un objeto que representa una fecha
+     *
      * @param fecha La fecha en formato dd/mm/aaaa
      */
     public Fecha(String fecha) {
-        
+
         String[] f = fecha.split("/");
         this.dia = Integer.parseInt(f[0]);
         this.mes = Integer.parseInt(f[1]);
         this.año = Integer.parseInt(f[2]);
     }
-    
+
     private Fecha(Fecha fecha) {
-        
+
         this.dia = fecha.getDia();
         this.mes = fecha.getMes();
         this.año = fecha.getAño();
@@ -58,29 +60,37 @@ public class Fecha implements Comparable<Fecha>{
         this.año = año;
     }
 
+    public String getSeparator() {
+        return separator;
+    }
+
+    public Fecha setSeparator(String separator) {
+        this.separator = separator;
+        return this;
+    }
+
     @Override
     public String toString() {
-        
-        return ((dia < 10)?"0"+dia: dia) + "/" + ((mes < 10)?"0"+mes: mes)  + "/" + año; 
-    } 
+
+        return ((dia < 10) ? "0" + dia : dia) + separator + ((mes < 10) ? "0" + mes : mes) + separator + año;
+    }
 
     @Override
     public int compareTo(Fecha o) {
-        
-        if(año != o.año)
+
+        if (año != o.año)
             return año > o.año ? 1 : -1;
-        if(mes != o.mes)
+        if (mes != o.mes)
             return mes > o.mes ? 1 : -1;
-        if(dia != o.dia)
+        if (dia != o.dia)
             return dia > o.dia ? 1 : -1;
-        
+
         return 0;
     }
-    
-    
-    public Fecha clonar(){
-        
+
+    public Fecha clonar() {
+
         return new Fecha(this);
     }
-    
+
 }

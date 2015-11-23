@@ -3408,7 +3408,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                     
                     for (int i = 0; i < rows.length; i++) {
                         
-                        keys[i] = (int) tablaHistoricoFacturas.getValueAt(rows[i], 0);
+                        keys[i] = (int) tablaFacMensuales.getValueAt(rows[i], 0);
                     }
                     GestoraPDF.generarPDFFacturasMensuales(keys);
                 }
