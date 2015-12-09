@@ -3337,7 +3337,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         if (ds != null && ds.size() > 0) {
             for (Dato d : ds) {
-                suma = suma.add(new BigDecimal(d.get("EUROSMES").toString()));
+                suma = suma.add(new BigDecimal(d.get("EUROSMES").toString().replaceAll(",", "\\.")));
             }
             ctBas.setText(suma.toPlainString());
 
@@ -3426,7 +3426,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 
                 for (int i = 0; i < rows.length; i++) {
                     
-                    keys[i] = (int) tablaHistoricoFacturas.getValueAt(rows[i], 0);
+                    keys[i] = (int) tablaFacExtra.getValueAt(rows[i], 0);
                 }
                 GestoraPDF.generarPDFExtras(keys);
             }
@@ -3606,16 +3606,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
                 GestoraBaseDatos.insertarDato(dialogo.getFactura());
                 ((ListModel) listaConceptos.getModel()).addDato(dialogo.getFactura());
-                ctBaseIm.setText("" + (Float.parseFloat(ctBaseIm.getText().isEmpty()
-                        ? "0" : ctBaseIm.getText())
-                        + Float.parseFloat(dialogo.getFactura().get("IMPORTE").toString())));
-                float base = Float.parseFloat(ctBaseIm.getText().isEmpty()
-                        ? "0" : ctBaseIm.getText());
-                float iva = Float.parseFloat(ctporcenIva.getText().isEmpty()
-                        ? "0" : ctporcenIva.getText());
-                float total = (base * iva / 100);
-                ctIvaa.setText("" + (total));
-                ctTotal.setText("" + (total + base));
+                
+                RefrescarTotal();
             }
         }
     }//GEN-LAST:event_bAñadirExtraActionPerformed
@@ -3634,16 +3626,8 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                         + "\' where NUMERO = " + d.get("NUMERO") + " and ORDEN = " + d.get("ORDEN"));
                 ((ListModel) listaConceptos.getModel()).eliminarDato(listaConceptos.getSelectedIndex());
                 ((ListModel) listaConceptos.getModel()).addDato(d);
-                ctBaseIm.setText("" + (Float.parseFloat(ctBaseIm.getText().isEmpty()
-                        ? "0" : ctBaseIm.getText())
-                        + Float.parseFloat(d.get("IMPORTE").toString())));
-                float base = Float.parseFloat(ctBaseIm.getText().isEmpty()
-                        ? "0" : ctBaseIm.getText());
-                float iva = Float.parseFloat(ctporcenIva.getText().isEmpty()
-                        ? "0" : ctporcenIva.getText());
-                float total = (base * iva / 100);
-                ctIvaa.setText("" + (total));
-                ctTotal.setText("" + (total + base));
+                
+                RefrescarTotal();
             }
         }
     }//GEN-LAST:event_bEditarExtraActionPerformed
@@ -4769,6 +4753,35 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 }
          }
 
+    }
+    
+    private void RefrescarTotal() {
+
+        float iva = 0;
+        float total = 0;
+        float base = 0;
+
+        ListModel modelo = ((ListModel) listaConceptos.getModel());
+        
+        try {
+            ArrayList<Dato> detalles = modelo.getLista();
+
+            for (Dato detalle : detalles) {
+
+                if (Gestora.comprobarNumero(detalle.get("IMPORTE").toString())) {
+                    base += Float.parseFloat(detalle.get("IMPORTE").toString());
+                }
+            }
+
+            iva = Float.parseFloat(GestoraConfiguracion.get("IVA").toString());
+            total = (base * iva / 100);
+
+        } catch (NumberFormatException numberFormatException) {
+        }
+
+        ctBaseIm.setText(Float.toString(base));
+        ctIvaa.setText(Float.toString(total));
+        ctTotal.setText(Float.toString(total + base));
     }
 
 }

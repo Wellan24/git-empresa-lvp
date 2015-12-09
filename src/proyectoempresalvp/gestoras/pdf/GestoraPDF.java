@@ -60,6 +60,9 @@ public class GestoraPDF {
 
         ArrayList<HashMap<String, Object>> detalles = new ArrayList(GestoraDatos.recuperarConDummy(new FacturaExtraDetalles(), null, " where NUMERO = " + factura.get("NUMEROFACTURA")));
 
+        for (HashMap<String, Object> detalle : detalles)             
+            detalle.put("IMPORTE", detalle.get("IMPORTE").toString().replaceAll("\\.", ","));   
+        
         BigDecimal total = new BigDecimal(factura.get("EUROSNETO").toString().replaceAll(",", "."))
                 .multiply(new BigDecimal(factura.get("TANTOIVA").toString())).divide(new BigDecimal("100"))
                 .add(new BigDecimal(factura.get("EUROSNETO").toString().replaceAll(",", ".")));
@@ -92,6 +95,9 @@ public class GestoraPDF {
 
         ArrayList<HashMap<String, Object>> detalles = new ArrayList(GestoraDatos.recuperarConDummy(new FacturaExtraDetalles(), null, " where NUMERO = " + factura.get("NUMEROFACTURA")));
 
+        for (HashMap<String, Object> detalle : detalles)             
+            detalle.put("IMPORTE", detalle.get("IMPORTE").toString().replaceAll("\\.", ","));        
+        
         BigDecimal total = new BigDecimal(factura.get("EUROSNETO").toString().replaceAll(",", "."))
                 .multiply(new BigDecimal(factura.get("TANTOIVA").toString())).divide(new BigDecimal("100"))
                 .add(new BigDecimal(factura.get("EUROSNETO").toString().replaceAll(",", ".")));
@@ -99,7 +105,7 @@ public class GestoraPDF {
 
         BigDecimal ivaCalculado = new BigDecimal(factura.get("EUROSNETO").toString().replaceAll(",", "."))
                 .multiply(new BigDecimal(factura.get("TANTOIVA").toString())).divide(new BigDecimal("100"));
-        factura.put("IVACALCULADO", ivaCalculado.setScale(2, RoundingMode.HALF_UP).toPlainString());
+        factura.put("IVACALCULADO", ivaCalculado.setScale(2, RoundingMode.HALF_UP).toPlainString().replaceAll("\\.", ","));
         factura.put("EUROSMES", factura.get("EUROSNETO").toString().replaceAll("\\.", ","));
         try {
             JasperReport reporte = (JasperReport) JRLoader.loadObject(GestoraPDF.class.getResource("/proyectoempresalvp/gestoras/pdf/FacturaPDF.jasper"));
