@@ -3336,9 +3336,11 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         System.out.println(ds);
 
         if (ds != null && ds.size() > 0) {
+
             for (Dato d : ds) {
                 suma = suma.add(new BigDecimal(d.get("EUROSMES").toString().replaceAll(",", "\\.")));
             }
+
             ctBas.setText(suma.toPlainString());
 
             String iva = ds.get(0).get("TANTOIVA").toString();
@@ -3397,17 +3399,17 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         new Thread(() -> {
             if (tablaFacMensuales.getRowCount() > 0) {
-                
+
                 int[] rows = tablaFacMensuales.getSelectedRows();
                 if (rows.length == 0) {
                     GestoraPDF.generarPDFFacturasMensuales(Gestora.numeroPeriodoPorNombre(
                             cbPeriodoMes.getSelectedItem().toString() + cbPeriodoAño.getSelectedItem().toString()));
                 } else {
-                    
+
                     int[] keys = new int[rows.length];
-                    
+
                     for (int i = 0; i < rows.length; i++) {
-                        
+
                         keys[i] = (int) tablaFacMensuales.getValueAt(rows[i], 0);
                     }
                     GestoraPDF.generarPDFFacturasMensuales(keys);
@@ -3420,12 +3422,12 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         new Thread(() -> {
             if (tablaFacExtra.getRowCount() > 0) {
-                
+
                 int[] rows = tablaFacExtra.getSelectedRows();
                 int[] keys = new int[rows.length];
-                
+
                 for (int i = 0; i < rows.length; i++) {
-                    
+
                     keys[i] = (int) tablaFacExtra.getValueAt(rows[i], 0);
                 }
                 GestoraPDF.generarPDFExtras(keys);
@@ -3437,15 +3439,15 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
         new Thread(() -> {
             if (tablaHistoricoFacturas.getRowCount() > 0) {
-                
+
                 int[] rows = tablaHistoricoFacturas.getSelectedRows();
                 int[] keys = new int[rows.length];
-                
+
                 for (int i = 0; i < rows.length; i++) {
-                    
+
                     keys[i] = (int) tablaHistoricoFacturas.getValueAt(rows[i], 0);
                 }
-                
+
                 GestoraPDF.generarPDFFacturasMensuales(keys);
             }
         }).start();
@@ -3606,7 +3608,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
                 GestoraBaseDatos.insertarDato(dialogo.getFactura());
                 ((ListModel) listaConceptos.getModel()).addDato(dialogo.getFactura());
-                
+
                 RefrescarTotal();
             }
         }
@@ -3626,7 +3628,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                         + "\' where NUMERO = " + d.get("NUMERO") + " and ORDEN = " + d.get("ORDEN"));
                 ((ListModel) listaConceptos.getModel()).eliminarDato(listaConceptos.getSelectedIndex());
                 ((ListModel) listaConceptos.getModel()).addDato(d);
-                
+
                 RefrescarTotal();
             }
         }
@@ -4251,36 +4253,35 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 //
 //            JOptionPane.showMessageDialog(this, "Comprueba la fecha");
 //        }
-        
         if (comprobarNumero(ctTarPeriodo.getText()) || ctTarPeriodo.getText().isEmpty()) {
-            
-        String fecha = ctTarFecha.getText();
-                if (Gestora.comprobarFormatoFechaCorrecto(fecha)) {
-                 try {
 
-                      Tarea tareaActual = new Tarea(
-                        GestoraTareas.aumentaNumeroTarea(), 
-                        cttarconcepto.getText(), 
-                        new Fecha(fecha), 
-                        Integer.parseInt(ctTarPeriodo.getText()), 
-                        ctTarCliente.getText());
-                     if (GestoraBaseDatos.insertarDato(tareaActual)) {
-                          GestoraTareas.getTareas().add(tareaActual);
-                         actualizarTablaTareas();
-                     } else {
+            String fecha = ctTarFecha.getText();
+            if (Gestora.comprobarFormatoFechaCorrecto(fecha)) {
+                try {
 
-                          JOptionPane.showMessageDialog(this, "No se ha insertado correctamente (¿Igual ya existe?)");
-                      }
-                 } catch (NumberFormatException numberFormatException) {
+                    Tarea tareaActual = new Tarea(
+                            GestoraTareas.aumentaNumeroTarea(),
+                            cttarconcepto.getText(),
+                            new Fecha(fecha),
+                            Integer.parseInt(ctTarPeriodo.getText()),
+                            ctTarCliente.getText());
+                    if (GestoraBaseDatos.insertarDato(tareaActual)) {
+                        GestoraTareas.getTareas().add(tareaActual);
+                        actualizarTablaTareas();
+                    } else {
+
+                        JOptionPane.showMessageDialog(this, "No se ha insertado correctamente (¿Igual ya existe?)");
+                    }
+                } catch (NumberFormatException numberFormatException) {
 
                     JOptionPane.showMessageDialog(this, "Comprueba el periodo");
-            }
-             } else {
+                }
+            } else {
 
-                  JOptionPane.showMessageDialog(this, "Comprueba la fecha");
+                JOptionPane.showMessageDialog(this, "Comprueba la fecha");
             }
-            
-        }else{
+
+        } else {
             JOptionPane.showMessageDialog(this, "Comprueba el periodo");
         }
     }
@@ -4355,7 +4356,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void refrescarCamposClientes() {
 
         Dato c = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave((int) tablaClientes.getValueAt(tablaClientes.getSelectedRow(), 0));
-        
+
         ctClienteNum.setText(c.get("NUMEROCLIENTE").toString());
         ctClienteDescripcion.setText(c.get("DESCRIPCION").toString());
         ctClienteNombre.setText(c.get("NOMBRE").toString());
@@ -4374,9 +4375,9 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     }
 
     private void refrescarCamposContratos() {
-        
+
         Dato con = GestoraDatos.dameGestora().get("CONTRATOS").devuelveValorPorClave((int) jTableContratos.getValueAt(jTableContratos.getSelectedRow(), 0));
-        
+
         Dato d = GestoraDatos.dameGestora().get("CLIENTES").devuelveValorPorClave(con.get("NUMCLIENTE"));
         ctContratoDescrip.setText(d.get("DESCRIPCION").toString());
         ctContratoNombre.setText(d.get("NOMBRE").toString());
@@ -4405,7 +4406,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void refrescarCamposHistoricoContratos() {
 
         Dato con = GestoraDatos.dameGestora().get("HISTORICOCONTRATO").devuelveValorPorClave((int) jTableContratosHC.getValueAt(jTableContratosHC.getSelectedRow(), 0));
-        
+
         Dato d = GestoraDatos.dameGestora().get(Cliente.getTabla()).devuelveValorPorClave(con.get("NUMCLIENTE"));
         ctContratoDescripHC.setText(d.get("DESCRIPCION").toString());
         ctContratoNombreHC.setText(d.get("NOMBRE").toString());
@@ -4434,7 +4435,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void refrescarCamposEmpleados() {
 
         Dato emp = GestoraDatos.dameGestora().get("EMPLEADOS").devuelveValorPorClave((int) tablaEmple.getValueAt(tablaEmple.getSelectedRow(), 0));
-        
+
         ctEmpleadoNum.setText(emp.get("NUMEMPLE").toString());
         ctEmpleadoNif.setText(emp.get("CIF").toString());
         ctEmpleadoAnagram.setText(emp.get("ANAGRAMA").toString());
@@ -4456,7 +4457,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
     private void refrescarCamposHistorico() {
 
         Dato fac = GestoraDatos.dameGestora().get("FACTURASMENSUALESAÑO").devuelveValorPorClave((int) tablaHistoricoFacturas.getValueAt(tablaHistoricoFacturas.getSelectedRow(), 0));
-        
+
         ctNfac.setText(fac.get("NUMEROFACTURA").toString());
         ctFech.setText(fac.get("FECHA").toString());
         ctName.setText(fac.get("NOMBRE").toString());
@@ -4616,53 +4617,51 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 //            }
 //
 //        }
-        
-         if (!comprobarNumero(ctEmpleadoNomina.getText()) || !comprobarNumero(ctEmpleadoTlf.getText())
-                 || !comprobarNumero(ctEmpleadoMovil.getText())|| !comprobarNumero(ctEmpleadoSs.getText())
-                 || !comprobarNumero(ctEmpleadoCp.getText())) {
-             
-              JOptionPane.showMessageDialog(this, "Comprueba que los campos numéricos son números");
-         }else{
-             
-             String alta = ctEmpleadoFechAlta.getText(), nac = ctEmpleadoNacimiento.getText(), IBAN = ctEmpleadoIban.getText();
-             if (!Gestora.comprobarFormatoFechaCorrecto(alta) || !Gestora.comprobarFormatoFechaCorrecto(nac)) {
-                 JOptionPane.showMessageDialog(this, "Comprueba las fechas, el formato es dd/mm/aaaa");
-             } else if (!Gestora.esValidoIBAN(IBAN)) {
+        if (!comprobarNumero(ctEmpleadoNomina.getText()) || !comprobarNumero(ctEmpleadoTlf.getText())
+                || !comprobarNumero(ctEmpleadoMovil.getText()) || !comprobarNumero(ctEmpleadoSs.getText())
+                || !comprobarNumero(ctEmpleadoCp.getText())) {
 
-            JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
-            } 
-             
-              try {
+            JOptionPane.showMessageDialog(this, "Comprueba que los campos numéricos son números");
+        } else {
 
-                    Dato c = GestoraDatos.dameGestora().get("EMPLEADOS").devuelveValorPorClave((int) tablaEmple.getValueAt(tablaEmple.getSelectedRow(), 0));
-            
-                     c.put("CIF", ctEmpleadoNif.getText());
-                     c.put("ANAGRAMA", ctEmpleadoAnagram.getText());
-                     c.put("NOMBRE", ctEmpleadoNombre.getText());
-                     c.put("DOMICILIO", ctEmpleadoDomic.getText());
-                     c.put("LOCALIDAD", ctEmpleadoLoc.getText());
-                     c.put("CP", Integer.parseInt(ctEmpleadoCp.getText()));
-                     c.put("PROVINCIA", ctEmpleadoProv.getText());
-                     c.put("TLF1", Integer.parseInt(ctEmpleadoTlf.getText()));
-                     c.put("TLF2", Integer.parseInt(ctEmpleadoMovil.getText()));
-                     c.put("IBAN", ctEmpleadoIban.getText());
-                     c.put("ALTA", new Fecha(ctEmpleadoFechAlta.getText()));
-                     c.put("NACIMIENTO", new Fecha(ctEmpleadoNacimiento.getText()));
-                     c.put("NOMINA", Integer.parseInt(ctEmpleadoNomina.getText()));
-                     c.put("SS", Integer.parseInt(ctEmpleadoSs.getText()));
+            String alta = ctEmpleadoFechAlta.getText(), nac = ctEmpleadoNacimiento.getText(), IBAN = ctEmpleadoIban.getText();
+            if (!Gestora.comprobarFormatoFechaCorrecto(alta) || !Gestora.comprobarFormatoFechaCorrecto(nac)) {
+                JOptionPane.showMessageDialog(this, "Comprueba las fechas, el formato es dd/mm/aaaa");
+            } else if (!Gestora.esValidoIBAN(IBAN)) {
 
-            if (GestoraBaseDatos.ejecutarSentenciaUpdate(GestoraBaseDatos.construyeSentenciaUpdate(c).toString())) {
-
-                GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_EMPLEADOS);
+                JOptionPane.showMessageDialog(this, "Comprueba el IBAN");
             }
-  
 
-                } catch (Exception e) {
+            try {
 
-                    JOptionPane.showMessageDialog(this, "Comprueba que los campos numéricos son números");
+                Dato c = GestoraDatos.dameGestora().get("EMPLEADOS").devuelveValorPorClave((int) tablaEmple.getValueAt(tablaEmple.getSelectedRow(), 0));
+
+                c.put("CIF", ctEmpleadoNif.getText());
+                c.put("ANAGRAMA", ctEmpleadoAnagram.getText());
+                c.put("NOMBRE", ctEmpleadoNombre.getText());
+                c.put("DOMICILIO", ctEmpleadoDomic.getText());
+                c.put("LOCALIDAD", ctEmpleadoLoc.getText());
+                c.put("CP", Integer.parseInt(ctEmpleadoCp.getText()));
+                c.put("PROVINCIA", ctEmpleadoProv.getText());
+                c.put("TLF1", Integer.parseInt(ctEmpleadoTlf.getText()));
+                c.put("TLF2", Integer.parseInt(ctEmpleadoMovil.getText()));
+                c.put("IBAN", ctEmpleadoIban.getText());
+                c.put("ALTA", new Fecha(ctEmpleadoFechAlta.getText()));
+                c.put("NACIMIENTO", new Fecha(ctEmpleadoNacimiento.getText()));
+                c.put("NOMINA", Integer.parseInt(ctEmpleadoNomina.getText()));
+                c.put("SS", Integer.parseInt(ctEmpleadoSs.getText()));
+
+                if (GestoraBaseDatos.ejecutarSentenciaUpdate(GestoraBaseDatos.construyeSentenciaUpdate(c).toString())) {
+
+                    GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_EMPLEADOS);
                 }
-         }
-         
+
+            } catch (Exception e) {
+
+                JOptionPane.showMessageDialog(this, "Comprueba que los campos numéricos son números");
+            }
+        }
+
     }
 
     @Override
@@ -4726,35 +4725,34 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 //
 //            GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASEXTRA);
 //        }
-        
-         if (!comprobarNumero(ctCodpos.getText()) || !comprobarNumero(ctporcenIva.getText())
-                    || !comprobarNumero(ctNumF.getText())) {
-             
-              JOptionPane.showMessageDialog(this, "Comprueba que el CP, el IVA y el nº factura son números");
-         }else{
-              try {
+        if (!comprobarNumero(ctCodpos.getText()) || !comprobarNumero(ctporcenIva.getText())
+                || !comprobarNumero(ctNumF.getText())) {
 
-                     Dato c = GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).devuelveValorPorClave((int) tablaFacExtra.getValueAt(tablaFacExtra.getSelectedRow(), 0));
-                     c.put("CIF", ctNcif.getText());
-                     c.put("NOMBRE", ctNomb.getText());
-                     c.put("DOMICILIO", ctDomic.getText());
-                     c.put("LOCALIDAD", ctLoca.getText());
-                     c.put("PROVINCIA", ctProvin.getText());
-                     c.put("CODIGOPOSTAL", ctCodpos.getText());
+            JOptionPane.showMessageDialog(this, "Comprueba que el CP, el IVA y el nº factura son números");
+        } else {
+            try {
 
-        if (GestoraBaseDatos.ejecutarSentenciaUpdate(GestoraBaseDatos.construyeSentenciaUpdate(c).toString())) {
+                Dato c = GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).devuelveValorPorClave((int) tablaFacExtra.getValueAt(tablaFacExtra.getSelectedRow(), 0));
+                c.put("CIF", ctNcif.getText());
+                c.put("NOMBRE", ctNomb.getText());
+                c.put("DOMICILIO", ctDomic.getText());
+                c.put("LOCALIDAD", ctLoca.getText());
+                c.put("PROVINCIA", ctProvin.getText());
+                c.put("CODIGOPOSTAL", ctCodpos.getText());
 
-            GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASEXTRA);
-        } 
+                if (GestoraBaseDatos.ejecutarSentenciaUpdate(GestoraBaseDatos.construyeSentenciaUpdate(c).toString())) {
 
-                } catch (Exception e) {
-
-                    JOptionPane.showMessageDialog(this, "Comprueba que los campos numéricos son números");
+                    GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASEXTRA);
                 }
-         }
+
+            } catch (Exception e) {
+
+                JOptionPane.showMessageDialog(this, "Comprueba que los campos numéricos son números");
+            }
+        }
 
     }
-    
+
     private void RefrescarTotal() {
 
         float iva = 0;
@@ -4762,7 +4760,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         float base = 0;
 
         ListModel modelo = ((ListModel) listaConceptos.getModel());
-        
+
         try {
             ArrayList<Dato> detalles = modelo.getLista();
 
