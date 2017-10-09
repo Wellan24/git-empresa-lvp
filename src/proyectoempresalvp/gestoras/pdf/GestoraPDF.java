@@ -60,9 +60,10 @@ public class GestoraPDF {
 
         ArrayList<HashMap<String, Object>> detalles = new ArrayList(GestoraDatos.recuperarConDummy(new FacturaExtraDetalles(), null, " where NUMERO = " + factura.get("NUMEROFACTURA")));
 
-        for (HashMap<String, Object> detalle : detalles)             
-            detalle.put("IMPORTE", detalle.get("IMPORTE").toString().replaceAll("\\.", ","));   
-        
+        for (HashMap<String, Object> detalle : detalles) {
+            detalle.put("IMPORTE", detalle.get("IMPORTE").toString().replaceAll("\\.", ","));
+        }
+
         BigDecimal total = new BigDecimal(factura.get("EUROSNETO").toString().replaceAll(",", "."))
                 .multiply(new BigDecimal(factura.get("TANTOIVA").toString())).divide(new BigDecimal("100"))
                 .add(new BigDecimal(factura.get("EUROSNETO").toString().replaceAll(",", ".")));
@@ -72,6 +73,7 @@ public class GestoraPDF {
                 .multiply(new BigDecimal(factura.get("TANTOIVA").toString())).divide(new BigDecimal("100"));
         factura.put("IVACALCULADO", ivaCalculado.setScale(2, RoundingMode.HALF_UP).toPlainString().replaceAll("\\.", ","));
         factura.put("EUROSMES", factura.get("EUROSNETO").toString().replaceAll("\\.", ","));
+        factura.put("FECHAEMISION", factura.get("FECHA").toString());
         try {
             JasperReport reporte = (JasperReport) JRLoader.loadObject(GestoraPDF.class.getResource("/proyectoempresalvp/gestoras/pdf/FacturaPDF.jasper"));
             JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, factura, new DataSource(detalles));
@@ -95,9 +97,10 @@ public class GestoraPDF {
 
         ArrayList<HashMap<String, Object>> detalles = new ArrayList(GestoraDatos.recuperarConDummy(new FacturaExtraDetalles(), null, " where NUMERO = " + factura.get("NUMEROFACTURA")));
 
-        for (HashMap<String, Object> detalle : detalles)             
-            detalle.put("IMPORTE", detalle.get("IMPORTE").toString().replaceAll("\\.", ","));        
-        
+        for (HashMap<String, Object> detalle : detalles) {
+            detalle.put("IMPORTE", detalle.get("IMPORTE").toString().replaceAll("\\.", ","));
+        }
+
         BigDecimal total = new BigDecimal(factura.get("EUROSNETO").toString().replaceAll(",", "."))
                 .multiply(new BigDecimal(factura.get("TANTOIVA").toString())).divide(new BigDecimal("100"))
                 .add(new BigDecimal(factura.get("EUROSNETO").toString().replaceAll(",", ".")));
@@ -107,6 +110,7 @@ public class GestoraPDF {
                 .multiply(new BigDecimal(factura.get("TANTOIVA").toString())).divide(new BigDecimal("100"));
         factura.put("IVACALCULADO", ivaCalculado.setScale(2, RoundingMode.HALF_UP).toPlainString().replaceAll("\\.", ","));
         factura.put("EUROSMES", factura.get("EUROSNETO").toString().replaceAll("\\.", ","));
+        factura.put("FECHAEMISION", factura.get("FECHA").toString());
         try {
             JasperReport reporte = (JasperReport) JRLoader.loadObject(GestoraPDF.class.getResource("/proyectoempresalvp/gestoras/pdf/FacturaPDF.jasper"));
             JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, factura, new DataSource(detalles));
@@ -134,7 +138,7 @@ public class GestoraPDF {
             GestoraPDF.generarPDFExtra((FacturaExtra) GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).devuelveValorPorClave(clave), pdfsGenerados);
         }
 
-        File f = new File(GestoraConfiguracion.get("RUTA") + "/Temp/Facturas Extras Generadas "  + UtilidadesTareas.getFechaActual().setSeparator("-") + ".pdf");
+        File f = new File(GestoraConfiguracion.get("RUTA") + "/Temp/Facturas Extras Generadas " + UtilidadesTareas.getFechaActual().setSeparator("-") + ".pdf");
         f.getParentFile().mkdirs();
         try {
 
@@ -163,6 +167,8 @@ public class GestoraPDF {
         BigDecimal ivaCalculado = new BigDecimal(factura.get("EUROSMES").toString().replaceAll(",", "."))
                 .multiply(new BigDecimal(factura.get("TANTOIVA").toString())).divide(new BigDecimal("100"));
         factura.put("IVACALCULADO", ivaCalculado.setScale(2, RoundingMode.HALF_UP).toPlainString().replaceAll("\\.", ","));
+
+        factura.put("FECHAEMISION", factura.get("FECHA").toString());
 
         try {
             JasperReport reporte = (JasperReport) JRLoader.loadObject(GestoraPDF.class.getResource("/proyectoempresalvp/gestoras/pdf/FacturaPDF.jasper"));
@@ -200,6 +206,7 @@ public class GestoraPDF {
         BigDecimal ivaCalculado = new BigDecimal(factura.get("EUROSMES").toString().replaceAll(",", "."))
                 .multiply(new BigDecimal(factura.get("TANTOIVA").toString())).divide(new BigDecimal("100"));
         factura.put("IVACALCULADO", ivaCalculado.setScale(2, RoundingMode.HALF_UP).toPlainString().replaceAll("\\.", ","));
+        factura.put("FECHAEMISION", factura.get("FECHA").toString());
         try {
             JasperReport reporte = (JasperReport) JRLoader.loadObject(GestoraPDF.class.getResource("/proyectoempresalvp/gestoras/pdf/FacturaPDF.jasper"));
             JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, factura, new DataSource(detalles));

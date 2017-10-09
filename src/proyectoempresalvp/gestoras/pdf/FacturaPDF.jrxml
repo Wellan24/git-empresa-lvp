@@ -14,6 +14,7 @@
 	<parameter name="EUROSMES" class="java.lang.String"/>
 	<parameter name="IVACALCULADO" class="java.lang.String"/>
 	<parameter name="TOTAL" class="java.lang.String"/>
+	<parameter name="FECHAEMISION" class="java.lang.String"/>
 	<field name="CONCEPTO" class="java.lang.String"/>
 	<field name="IMPORTE" class="java.lang.String"/>
 	<background>
@@ -118,7 +119,7 @@
 					<font size="11"/>
 					<paragraph rightIndent="5"/>
 				</textElement>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{FECHAEMISION}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="56" y="32" width="144" height="15" uuid="c2c946f5-e44a-4d3a-81e7-876dd8600d5c"/>
