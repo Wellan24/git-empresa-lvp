@@ -3270,7 +3270,7 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
         // TODO usar el id para conseguir el dato
         int seleccionado = tablaFacExtra.getSelectedRow();
         if (seleccionado != -1) {
-            int numero = (int) GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).get(seleccionado).get("NUMEROFACTURA");
+            int numero = (int) GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).devuelveValorPorClave((int) tablaFacExtra.getValueAt(seleccionado, 0)).get("NUMEROFACTURA");
             ctNumF.setText(Integer.toString(numero));
             rellenaConceptosFacturaExtra(numero);
             refrescarCamposFacturaExtra(numero);
@@ -4710,21 +4710,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
 
     private void modificarFacturaExtra() {
 
-        // TODO usar el id para conseguir el dato
-        //*******************************************************************************************************************************************************
-//        Dato c = GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).devuelveValorPorClave((int) tablaFacExtra.getValueAt(tablaFacExtra.getSelectedRow(), 0));
-//        //Dato c = GestoraDatos.dameGestora().get(FacturaExtra.getTabla()).get(tablaFacExtra.getSelectedRow());
-//        c.put("CIF", ctNcif.getText());
-//        c.put("NOMBRE", ctNomb.getText());
-//        c.put("DOMICILIO", ctDomic.getText());
-//        c.put("LOCALIDAD", ctLoca.getText());
-//        c.put("PROVINCIA", ctProvin.getText());
-//        c.put("CODIGOPOSTAL", ctCodpos.getText());
-//
-//        if (GestoraBaseDatos.ejecutarSentenciaUpdate(GestoraBaseDatos.construyeSentenciaUpdate(c).toString())) {
-//
-//            GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASEXTRA);
-//        }
         if (!comprobarNumero(ctCodpos.getText()) || !comprobarNumero(ctporcenIva.getText())
                 || !comprobarNumero(ctNumF.getText())) {
 
@@ -4740,6 +4725,14 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 c.put("PROVINCIA", ctProvin.getText());
                 c.put("CODIGOPOSTAL", ctCodpos.getText());
 
+                BigDecimal g = new BigDecimal("0");
+
+                for (Dato fe : ((ListModel) listaConceptos.getModel()).getLista()) {
+
+                    g = g.add(new BigDecimal(fe.get("IMPORTE").toString()));
+                }
+                c.put("EUROSNETO", g.toPlainString());
+
                 if (GestoraBaseDatos.ejecutarSentenciaUpdate(GestoraBaseDatos.construyeSentenciaUpdate(c).toString())) {
 
                     GestoraDatos.actualizaDatos(GestoraDatos.ACTUALIZAR_FACTURASEXTRA);
@@ -4750,7 +4743,6 @@ public class VentanaGUI extends javax.swing.JFrame implements ObservadorTareas, 
                 JOptionPane.showMessageDialog(this, "Comprueba que los campos numéricos son números");
             }
         }
-
     }
 
     private void RefrescarTotal() {
